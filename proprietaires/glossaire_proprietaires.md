@@ -26,10 +26,10 @@
       <i>La contribution foncière a aussi pour un de ses principaux caractères, d'être absolument indépendante des autres facultés du propriétaire : on pourrait donc dire avec justesse que c'est la propriété qui, seule est chargée de la contribution, et que le propriétaire n'est qu'un agent qui l'acquitte pour elle, avec une portion des fruits qu'elle lui donne.</i> (<a href="https://gallica.bnf.fr/ark:/12148/bpt6k96475008.texteImage">Recueil méthodique des lois, décrets, réglmens, isntructions et décisions sur le cadastre de la France</a>, article 321, 1811)
     </td>
   </tr>
-  <!--<tr>
+  <tr>
     <td>Expression référentielle</td>
-    <td>Groupe nominal utilisé pour désigner une personne</td>
-  </tr>-->
+    <td>Une expression référentielle est une description en language naturelle qui permet d'identifier une personne de manière unique <a href="https://hal.science/hal-03191525/document">(2020)</a></td>
+  </tr>
   <tr>
     <td>Personne morale</td>
     <td><i>Une personne morale est un groupement doté de la personnalité juridique. Généralement une personne morale se compose d'un groupe de personnes physiques réunies pour accomplir quelque chose en commun. Ce groupe peut aussi réunir des personnes physiques et des personnes morales. Il peut aussi n'être constitué que d'un seul élément.</i> (<a href="https://www.insee.fr/fr/metadonnees/definition/c1251">INSEE, 2019</a>)</td>
