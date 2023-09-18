@@ -20,7 +20,7 @@
   <tr>
     <td>Contribution foncière</td>
     <td>
-      La contribution foncière est un impôt foncier du par les propriétaires ou usufruitiers et dont la somme correspond à la somme de l'alivrement des parcelles qu'il possède/ dont il a l'usage.
+      La contribution foncière est un impôt foncier du par les propriétaires ou usufruitiers et dont le montant correspond à la somme de l'alivrement des parcelles qu'il possède/dont il a l'usage.
     <br>
     <br>
       <i>La contribution foncière a aussi pour un de ses principaux caractères, d'être absolument indépendante des autres facultés du propriétaire : on pourrait donc dire avec justesse que c'est la propriété qui, seule est chargée de la contribution, et que le propriétaire n'est qu'un agent qui l'acquitte pour elle, avec une portion des fruits qu'elle lui donne.</i> (<a href="https://gallica.bnf.fr/ark:/12148/bpt6k96475008.texteImage">Recueil méthodique des lois, décrets, réglmens, isntructions et décisions sur le cadastre de la France</a>, article 321, 1811)

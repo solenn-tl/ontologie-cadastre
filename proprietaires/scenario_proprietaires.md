@@ -16,7 +16,7 @@ Chaque propriétaire ou usufruitier est caractérisé par :
 * {*obligatoire*} un **nom** ou une **raison sociale** ou une **expression référentielle** (Héritiers)
 * {*optionnel*} un ou plusieurs **prénoms**
 * {*optionnel*} un **titre** (Monseigneur) 
-* {optionnel} un **statut familial** (Demoiselle, Veuve, Père, Fils, Fille, Mineur)
+* {*optionnel*} un **statut familial** (Demoiselle, Veuve, Père, Fils, Fille, Mineur)
 * {*optionnel*} une **activité**
 * {*optionnel*} une ou plusieurs **adresses**
 * {*optionnel*} un ou plusieurs **informations complémentaires**
