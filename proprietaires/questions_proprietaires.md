@@ -60,7 +60,6 @@ Liste des propriétaires dont la profession est XX dans la commune YY.
 *Extrait de la liste des vignerons de la commune de Marolles en Brie*
 * Guérin Joseph fils vig<sup>on</sup> à idem
 * Vigoureux François vig<sup>on</sup> à id
-* Guérin Joseph fils vig<sup>on</sup> à id
 * Coudrai Augte André vig<sup>on</sup> à id
 * Guérin Joseph, père vig<sup>on</sup> à id
 * Lamblet Pierre vig<sup>on</sup> à id

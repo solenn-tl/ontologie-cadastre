@@ -24,6 +24,13 @@
             - Quels sont les propriétaires domiciliés dans la commune Y ?
             - Quels sont les propriétaires dont la profession est XX ?
 
+- Classe : ContribuableFoncier
+- ObjectProperty : Statut familial, (Adresse =>)
+- DataType : les autres
+
+
+prefix.cc
+
 - **Infos fiscales**
 
 - **Temporalité**
