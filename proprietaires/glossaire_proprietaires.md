@@ -28,7 +28,7 @@
   </tr>
   <tr>
     <td>Expression référentielle</td>
-    <td>Une expression référentielle est une description en language naturelle qui permet d'identifier une personne de manière unique. (<a href="https://hal.science/hal-03191525/document">Khajeh Nassiri, 2020</a>)</td>
+    <td>Une expression référentielle est une description en langage naturel qui permet d'identifier une personne de manière unique. (<a href="https://hal.science/hal-03191525/document">Khajeh Nassiri, 2020</a>)</td>
   </tr>
   <tr>
     <td>Personne morale</td>
