@@ -1,0 +1,134 @@
+@prefix nap: <http://data.ign.fr/def/cadastrenap#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix organization: <http://www.w3.org/ns/org#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix gsp: <http://www.opengis.net/ont/geosparql#>.
+@prefix geofla: <http://data.ign.fr/def/geofla#>.
+@prefix topo: <http://data.ign.fr/def/topo#>.
+
+# ---- Prefixes used for skos:ConceptScheme -----
+@prefix sta: <http://data.ign.fr/id/codes/cadastrenap/typeoffamilystatus/>.
+
+# ---- Ontology metadata -----
+<http://data.ign.fr/def/cadastrenap> a owl:Ontology, voaf:Vocabulary ;
+        dcterms:creator [
+	      rdf:type foaf:Person ;
+	      organization:hasMembership [
+	          rdf:type organization:Membership ;
+	          organization:memberDuring [
+	              rdf:type time:Interval ;
+	              time:hasBeginning [
+	                  rdf:type time:Instant ;
+	                  time:inXSDDateTimeStamp "2024-01-24"^^xsd:dateTimeStamp ;
+	                ] ;
+	            ] ;
+	          organization:organization <http://www.ign.fr/> ;
+	          organization:organization <http://www.umr-lastig.fr/> ;
+	          organization:role [
+	              rdf:type organization:Role ;
+	              rdfs:label "Doctorante"@fr, "PhD Student"@en ;
+	            ] ;
+	        ] ;
+	      foaf:family_name "Tual" ;
+	      foaf:firstName "Solenn" ;
+	      foaf:mbox <mailto:solenn.tual@ign.fr> ;
+	      foaf:name "Solenn Tual" ;
+          foaf:workInfoHomepage <https://www.umr-lastig.fr/solenn-tual/> ;
+	    ] ; 
+        dcterms:description "Ontologie décrivant le contenu des séries du cadastre napoléonien"@fr, "Ontology describing the napoleonic cadaster documents."@en;
+        dcterms:issued "2024-01-24"^^xsd:date ;
+        dcterms:modified "2024-01-24"^^xsd:date ;
+        dcterms:publisher <http://fr.dbpedia.org/resource/Institut_national_de_l%27information_g%C3%A9ographique_et_foresti%C3%A8re> ;
+        dcterms:title "Ontologie du cadastre napoléonien"@fr, "Ontology of the Napoleonic Cadaster"@en ;
+        vann:preferredNamespacePrefix "nap" ;
+		vann:preferredNamespaceUri <http://data.ign.fr/def/cadastrenap#> ;
+		dcterms:rights "Copyright 2024, IGN" ;
+		cc:license <http://www.data.gouv.fr/Licence-Ouverte-Open-Licence> ;
+		cc:license <http://creativecommons.org/licenses/by/2.0/> ;
+		cc:license <http://opendatacommons.org/licenses/by/> ;
+        #owl:priorVersion <> ;
+		owl:versionInfo "Version 0.0 - 2024-01-24" .
+	   
+###############################
+# ---- Classes definition ----
+###############################
+
+## ---- Propriétaires ----
+nap:Owner a owl:Class;
+  rdfs:isDefinedBy <http://data.ign.fr/def/cadastrenap#>;
+  rdfs:label "Owner"@en , "Propriétaire ou usufruitier"@fr ;
+  rdfs:comment "Propriétaire ou usufruitier d'une parcelle."@fr .
+  
+nap:FamilyStatus a owl:Class;
+  rdfs:isDefinedBy <http://data.ign.fr/def/cadastrenap#>;
+  rdfs:label "Family status of an owner."@en , "Statut familial du propriétaire ou de l'usufruitier."@fr ;
+  rdfs:comment "Statut familial du propriétaire ou de l'usufruitier."@fr .
+
+nap:Address a owl:Class;
+  rdfs:isDefinedBy <http://data.ign.fr/def/cadastrenap#>;
+  rdfs:label "Address of the owner."@en ,"Adresse du propriétaire ou de l'usufruitier."@fr ;
+  rdfs:comment "Adresse du propriétaire ou de l'usufruitier."@fr .
+
+
+#############################
+# ---- Object properties ----
+#############################
+
+nap:familyStatus a owl:ObjectProperty;
+	rdfs:domain  nap:Owner;
+	rdfs:range nap:FamilyStatus;
+	rdfs:label "family status"@en ,"statut familial"@fr ;
+	rdfs:comment "Propriété qui relie une personne à un statut familial donné. Ex: veuve."@fr ,
+                 "A property that links an owner its family status. E.g.: widow."@en .
+
+nap:address a owl:ObjectProperty;
+	rdfs:domain  nap:Owner;
+	rdfs:range nap:FamilyStatus;
+	rdfs:label "address"@en ,"adresse"@fr ;
+	rdfs:comment "Propriété qui relie une personne à une adresse. Ex: à Paris."@fr ,
+                 "A property that links an owner to its address. E.g.: in Paris."@en .
+
+
+###############################
+# ---- Datatype properties ----
+###############################
+
+# ---- Imported properties ----
+rdfs:label a owl:DatatypeProperty.
+foaf:family_name a owl:DatatypeProperty.
+foaf:firstName a owl:DatatypeProperty.
+
+# ---- Propriétaires ----
+
+nap:title a owl:DatatypeProperty;
+	rdfs:comment "Honorary title accompanying a person's name. E.g.: Sire."@en ,
+                 "Titre honorifique accompagnant le nom d'une personne. Ex. : Monseigneur."@fr ;
+	rdfs:domain nap:Owner;
+	rdfs:label "Honorary title"@en;
+	rdfs:label "Titre honorifique"@fr;
+	rdfs:range xsd:string.
+
+nap:activity a owl:DatatypeProperty;
+	rdfs:comment "Activity of an owner. E.g.: farmer."@en , "Activité d'un propriétaire. Ex.: cultivateur."@fr ;
+	rdfs:domain nap:Owner;
+	rdfs:label "Activity"@en;
+	rdfs:label "Activité"@fr;
+	rdfs:range xsd:string.
+
+###############################
+# ---- skos:ConceptScheme ----
+###############################
+
+sta:liste a skos:ConceptScheme;
+	rdfs:label "Type de statut familial"@fr ,
+               "Type of family status"@en ;
+    rdfs:comment "List of different family status mentionned in the Napoleonic Cadaster, represented as a hierarchy of SKOS concepts."@en ,
+                 "Liste des différents statuts familiaux rencontrés dans les documents du cadastre."@fr .
