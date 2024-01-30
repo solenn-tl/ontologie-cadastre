@@ -1,3 +1,9 @@
+
+## Définitions
+* https://www.aftopo.org/categories-lexique/6-1-cadastre/
+
+## Définitions issues du recueil de 1810
+
 <i><h3>Idée générale du Cadastre parcellaire. </h3>
 <p>XIX. L'opération qui s'exécute actuellement en France, se compose donc de 1 arpentage parcellaire et de l'expertise parcellaire de toutes les communes. Mesurer, sur une étendue de plus de quarante mille lieues carrées, plus de cent millions de parcelles ou propriétés séparées; confectionner pour chaque commune un plan en feuilles d'atlas où sont reportées ces cent millions de parcelles, les classer toutes d'après le degré de fertilité du sol, évaluer le produit net de chacune d'elles; réunir ensuite sous le nom de chaque propriétaire les parcelles éparses qui lui appartiennent; déterminer, par la. réunion de leurs produits, son revenu total, et faire de ce revenu un allivrement qui sera désormais la base immuable de son imposition , ce qui doit l'affranchir de toutes les influences dont il avait eu si long-temps à se plaindre : tel est l'objet de cette opération , qui, depuis trois ans qu'elle est entreprise, a déjà donné des résultats qui n'ont plus permis d'en contester ni les avantages ni la possibilité de son exécution.</p></i>
 - Recueil méthodique des lois, décrets, réglmens, isntructions et décisions sur le cadastre de la France, page 18 (pdf)
