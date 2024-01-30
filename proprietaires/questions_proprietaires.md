@@ -1,4 +1,4 @@
-# Questions de compétences du modelet Propriétaires et Usufruitiers
+# Questions de compétences du modelet Prpriétaires et usufruitiers
 
 ## Question 1
 ### Question

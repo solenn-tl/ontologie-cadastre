@@ -1,4 +1,4 @@
-# Glossaire du modelet Propriétaires
+# Glossaire du modelet Propriétaire et usufruitiers
 
 <table>
   <tr>
