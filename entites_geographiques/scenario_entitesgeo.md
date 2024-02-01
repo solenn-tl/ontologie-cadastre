@@ -53,4 +53,4 @@ Une **circonscription administrative** est caractérisée par :
     <li>Nom : Section A dite du Piple</li>
     <li>Localisation : Commune de Boissy-Saint-Léger, Justice de Paix de Boissy-Saint-Léger, Arrondissement de Corbail, Département de Seine-et-Oise<li>
 </ul>
- - FRA094_3P_000065_01_0030, Etats de sections de Boissy-Saint-Léger, 1810
+ - FRA094_3P_000065_01_0001, Etats de sections de Boissy-Saint-Léger, 1810
