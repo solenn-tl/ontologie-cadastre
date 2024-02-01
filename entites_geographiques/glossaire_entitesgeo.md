@@ -21,8 +21,9 @@
         <li>collecter un impôt <span style="color:red">à préciser</span></li>
     </ul>
     A partir de 1833, les cantons sont également une entité électorale utilisée pour élire les conseillers généraux qui siègent au département.<br>
+    De 1790 à 1958, les limites du canton correspondent également à celles des justices de paix. Les deux termes apparaissent en alternance dans les documents cadastraux (notamment au début du XIXème siècle).<br>
     Le canton n'est plus une circonscription administrative depuis la loi du 17 mai 2013.<br/>
-     - <a href="https://fr.wikipedia.org/wiki/Canton_fran%C3%A7ais">Canton, Wikipédia</a>
+     - <a href="https://fr.wikipedia.org/wiki/Canton_fran%C3%A7ais">Canton</a>, <a href="https://fr.wikipedia.org/wiki/Justice_de_paix_en_France">Justice de Paix</a>, Wikipédia
     </td>
   </tr>
   <tr>
@@ -42,7 +43,6 @@
     <td>Commune</td>
     <td>Les communes sont les unités administratives élémentaires à l'échelle desquelles est levé le cadastre.</td>
   </tr>
-  
   <tr>
     <td>Département</td>
     <td>Le département est l'instance chargée de la production du cadastre dans l'ensemble des communes qui le compose.</td>
@@ -58,8 +58,8 @@
   </tr>
   <tr>
     <td>Nature de la propriété</td>
-    <td>La nature de la propriété est une des informations indispensables à l'évaluation de la parcelle. <br>
-    Nous pouvons distinguer deux principaux groupes de propriété à partir de leur nature : les propriété bâties et les propriétés non bâties.</td>
+    <td>La nature de la propriété est une des informations indispensables à l'évaluation de la parcelle.<br>
+    L'administration du cadastre établit une séparation (dont la forme et les objectifs sont variables) entre les propriétés bâties et les propriétés non bâties.</td>
   </tr>
   <tr>
     <td>Parcelle</td>
@@ -87,7 +87,6 @@
         <li>Dénomination des Sections : <i>Chaque section doit être désignée , non-seulement par des lettres alphabétiques , mais encore par le nom usité dans la commune , ou par une dénomination que le géomètre lui donne, de concert avec le maire, d'après la contrée ou l'objet principal que la section renferme. Cette dénomination en facilite la connaissance aux contribuables, et leur indique d'une manière plus certaine la situation de leurs propriétés.</i></li>
     </ul>
     - <i><a href="https://gallica.bnf.fr/ark:/12148/bpt6k96475008/f47.item">Recueil méthodique des lois, décrets, réglemens, instructions et décisions sur le cadastre de la France, Articles 105 & 107, Page 43, 1811</a></i><br>
-    Les plans parcellaires sont réalisés à l'échelle d'une section.
   </td>
   </tr>
 </table>
