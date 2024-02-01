@@ -1,0 +1,51 @@
+@prefix nap: <http://data.ign.fr/def/cadastrenap#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix organization: <http://www.w3.org/ns/org#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix gsp: <http://www.opengis.net/ont/geosparql#>.
+
+##--Cadastre Nap Classes
+@prefix owner: <http://data.ign.fr/id/owner/>.
+
+owner:0001 a nap:Owner;
+    rdfs:label "Prudhomme"@fr.
+
+owner:0002 a nap:Owner;
+    rdfs:label "Germay"@fr;
+    nap:address "à Paris"@fr.
+
+owner:0003 a nap:Owner;
+    rdfs:label "Barbaroux"@fr; 
+    nap:activity "quincailler"@fr; 
+    nap:address "à Paris"@fr.
+
+owner:0004 a nap:Owner;
+    rdfs:label "Costy, Jn Bte"@fr; 
+    nap:activity "Tailleur de Pierre"@fr; 
+    nap:address "à Villeneuve Leroy"@fr.
+
+owner:0005 a nap:Owner;
+    rdfs:label "Besnet Joseph, Henri"@fr;  
+    nap:address "6/8 Rue Camille Desmoulins"@fr;#strike ?
+    nap:address "19 Rue Guichard"@fr.
+
+owner:0006 a nap:Owner;
+    rdfs:label "Tellier Catherine fille majeure"@fr;#fille majeure à garder ou pas ?
+    nap:address "à Ablon"@fr.
+
+owner:0007 a nap:Owner;
+    rdfs:label "Pravel Louis V<sup>e</sup> né Gerbuisson"@fr.
+
+owner:008 a nap:Owner;
+    rdfs:label "Commune d'Ablon"@fr.
+
+owner:009 a nap:Owner;
+    rdfs:label "Société anonyme du Comptoir Central de l'Est"@fr.
