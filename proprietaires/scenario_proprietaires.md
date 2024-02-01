@@ -13,14 +13,17 @@ Le cadastre napoléonien a été établi en 1807 pour définir précisement et �
 Les propriétaires et usufruitiers des parcelles sont indiqués dans les registres  du cadastre (états de sections et matrices). Il peut s'agir de personnes physiques ou morales, imposables pour les parcelles pour lesquelles elles possèdent le droit de propriété et/ou l'usufruit et sont donc redevable de la contribution foncière.
 
 Chaque propriétaire/usufruitier est caractérisé par :
+* {*obligatoire*} un **libellé**
+* {*optionnel*} une **activité**
+* {*optionnel*} une ou plusieurs **adresses**
+
+Remarque 1 : Certains propriétaires et usufruitiers mentionnés dans les matrices et états de sections ne sont pas imposables (exemple : les communes).
+
+Remarque 2 : La propriété **libellé** pourrait être décomposée de la façon suivante :
 * {*obligatoire*} un **nom** ou une **raison sociale** ou une **expression référentielle** (Héritiers)
 * {*optionnel*} un ou plusieurs **prénoms**
 * {*optionnel*} un **titre** (Monseigneur) 
 * {*optionnel*} un **statut familial** (Demoiselle, Veuve, Père, Fils, Fille, Mineur)
-* {*optionnel*} une **activité**
-* {*optionnel*} une ou plusieurs **adresses**
-
-Certains propriétaires et usufruitiers mentionnés dans les matrices et états de sections ne sont pas imposables (exemple : les communes).
 
 ## Exemples
 
