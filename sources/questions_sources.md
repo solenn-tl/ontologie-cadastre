@@ -11,7 +11,6 @@ Nom de la source
     * Numéro : 207
     * Propriétaire : Charlier
     * Nâture : Pâture
-<br>
 
 **Exemple de réponse**
-=> état de section de Boissy-Saint-Léger (1810)
+=> Etat de section de Boissy-Saint-Léger (1810), numérisé et transcrit
