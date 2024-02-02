@@ -32,6 +32,7 @@ Une **source** peut être décrite par les propriétés suivantes :
 * {*optionnel*} sa **date de création**
 * {*optionnel*} sa **date de début de validité**
 * {*optionnel*} sa **date de fin de validité**
+* {*optionnel*} sa **description**
 * {physique, numérisée:*obligatoire*} sa **cote d'archive**
 * {physique: *optionnel*} sa **localisation**
 * {physique: *optionnel*} ses **dimensions** 
@@ -78,8 +79,9 @@ Les **relations entre les différentes formes de sources** peuvent être décrit
 ### Exemple 4 [Extraction]
 
 * **Intitulé** : Dataset contenant la transcription de l'état de sections Marolles en Brie
-* **Type** : transcription réalisée pour le modèle DAN
+* **Type** : transcription structurée
 * **Date de création** : novembre et décembre 2023
+* **Processus de création** : annotation manuelle avec Callico
 
 ## Mémo
 <table>
