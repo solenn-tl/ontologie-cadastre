@@ -4,7 +4,7 @@ Cette ontologie a pour objectif de décrire les informations et documents qui co
 
 ## Vocabulaires et ontologies de référence
 
-## Entités géographiques
+### Entités géographiques
 * [HHT : Hierarchical Historical Territories](https://www.irit.fr/recherches/MELODI/ontologies/HHT/index-en.html)
 * [Adresses](https://github.com/charlybernard/phd-ontologie)
 * [data.ign.fr](http://data.ign.fr/data.html)
