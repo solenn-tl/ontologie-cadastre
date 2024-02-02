@@ -2,7 +2,7 @@
 
 ## Question 1
 ### Question
-Quelle est la source est de l'attribut X ?
+Quelle est la source de l'attribut X ?
 ### Résultat attendu
 Nom de la source
 ### Exemple de réponse
