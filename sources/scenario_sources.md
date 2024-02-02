@@ -8,7 +8,11 @@ Sources
 
 Le modelet Sources a pour objectif de faire le lien entre les informations décrites dans le graphe de connaissances et les sources dont elles sont extraites. 
 
-Une source peut être soit concept (contenu indépendament de sa forme concrète), une version physique (ex : plan minute ou d'atlas, registre avec une certaine mise en page), une version scannée (dans une certaine résolution) ou un autre type de version dérivée (ex : plan vectorisé, transcription d'une page de registre). 
+Une source peut prendre différentes formes : 
+* concept : contenu de la source considéré indépendement de sa forme concrète;
+* matérielle : exemplaire précis d'un concept, généralement caractérisé par une référence et une localisation ;
+* numérisée : scan d'un exemplaire
+* autres formes dérivées faisant suite à un traitement automatique ou manuel (ex: plan géoréférencé).
 
 Il peut exister plusieurs instances (physique, scannée, dérivée) d'un même concept.
 
@@ -32,17 +36,6 @@ Une **source** peut être décrite par les propriétés suivantes :
 * {numérisée: *optionnel*} son **URL IIIF**
 * {numérisée,dérivée:*obligatoire*} sa **licence de diffusion**
 * {dérivée: *obligatoire*} son **processus de création** (géoréférencement, vectorisation, transcription)
-
-## Classes
-* Superclasse : source
-* Classes : 
-  * concept, 
-  * source physique, 
-  * source numérisée, 
-  * source dérivée
-    * géoréférencée 
-    * vectorisée
-    * transcrite
 
 ## Exemples
 
