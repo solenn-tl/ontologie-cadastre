@@ -25,36 +25,61 @@ Quatre principaux documents composent le cadastre napoléonien :
 * la matrice des propriétaires (registre)
 
 Une **source** peut être décrite par les propriétés suivantes :
+* {*obligatoire*} son **titre ou intitulé**;
 * {*obligatoire*} son **type** (plan parcellaire, plan d'assemblage, etat de section, matrice...)
 * {*optionnel*} son **précision de son type** (type d'état de section, de matrice, de plan)
-* {concept, physique : *obligatoire*} sa **date de début de validité**
-* {concept, physique : *optionnel*} sa **date de fin de validité**
-* {concept, physique, numérisée:*obligatoire*} sa **cote d'archive**
+* {*optionnel*} son **auteur**
+* {*optionnel*} sa **date de création**
+* {*optionnel*} sa **date de début de validité**
+* {*optionnel*} sa **date de fin de validité**
+* {physique, numérisée:*obligatoire*} sa **cote d'archive**
 * {physique: *optionnel*} sa **localisation**
 * {physique: *optionnel*} ses **dimensions** 
 * {numérisée: *optionnel*} sa **résolution**
 * {numérisée: *optionnel*} son **URL IIIF**
 * {numérisée,dérivée:*obligatoire*} sa **licence de diffusion**
-* {dérivée: *obligatoire*} son **processus de création** (géoréférencement, vectorisation, transcription)
+* {dérivée: *obligatoire*} son **processus de création** 
+(géoréférencement, vectorisation, transcription)
+* {dérivée: *optionnel*} son **DOI**
+
+Les **relations entre les différentes formes de sources** peuvent être décrites ainsi:
+* il existe toujours au moins un concept de source ;
+* dans le cas des sources historiques, un concept possède au moins une instance matérielle ;
+* une instance matérielle peut être scannée (mais pas forcément) ;
+* les sources matérielles et numérisées peuvent faire l'objet d'instanciations dérivées (transcription, géoréférencement).
 
 ## Exemples
 
 ### Exemple 1 [Concept de source]
 
-Etat de sections de Marolles-en-Brie
+* **Intitulé** : Etat de sections de Marolles-en-Brie
+* **Type** : état de sections 
+* **Précision du type** : registre primitif produit avant 1822
+* **Date de création** : 1810
 
 ### Exemple 2 [Source imprimée]
 
-Etat de sections de Marolles-en-Brie
-Cote d'archive 3 P 387
+* **Intitulé** : Etat de sections de Marolles-en-Brie
+* **Type** : état de sections 
+* **Précision du type** : registre primitif produit avant 1822
+* **Date de création** : 1810
+* **Cote d'archive** : 3 P 387
+* **Localisation** : Archives départementales du Val-de-Marne
 
 ### Exemple 3 [Source numérisée]
 
-Dossier FRAD094_3P_000387_01 contenant 127 vues numérisées issues de l'état de sections de Marolles en Brie.
+* **Intitulé** : Etat de sections de Marolles-en-Brie
+* **Type** : état de sections 
+* **Précision du type** : registre primitif produit avant 1822
+* **Date de création** : 1810
+* **Cote d'archive** : FRAD094_3P_000387_01
+* **Licence** : Etalab
 
 ### Exemple 4 [Extraction]
 
-Dataset contenant la transcriptions de l'état de sections Marolles en Brie
+* **Intitulé** : Dataset contenant la transcription de l'état de sections Marolles en Brie
+* **Type** : transcription réalisée pour le modèle DAN
+* **Date de création** : novembre et décembre 2023
 
 ## Mémo
 <table>
@@ -83,11 +108,11 @@ Dataset contenant la transcriptions de l'état de sections Marolles en Brie
   <tr>
     <td>Etat de section</td>
     <td>Etat des parcelles à T0</td>
-    <td>DAN</td>
+    <td>Classification des pages<br>DAN</td>
   </tr>
   <tr>
     <td>Matrice des mutations</td>
     <td>Etats sucessifs des parcelles au cours de la période de validité du cadastre.</td>
-    <td>DAN</td>
+    <td>Classification des pages<br>DAN</td>
   </tr>
 </table>
