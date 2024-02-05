@@ -13,4 +13,4 @@ Nom de la source
     * Nâture : Pâture
 
 **Exemple de réponse**
-=> Etat de section de Boissy-Saint-Léger (1810), numérisé et transcrit
+=> Table Line *ID d'extraction*, Etat de section de Boissy-Saint-Léger (1810), transcrit avec DAN
