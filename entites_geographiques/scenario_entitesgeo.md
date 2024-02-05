@@ -5,9 +5,9 @@ Entités géographiques
 
 ## Description
 
-La parcelle est l'entité géographique élémentaire utilisée pour définir le montant de l'allivrement. Elle est caractérisée par son identifiant, sa géométrie, sa nature et son appartenance à un ou plusieurs propriétaires. L'objectif de la thèse est de suivre l'évolution de chaque parcelle au cours du temps. 
+La parcelle est l'entité géographique élémentaire utilisée pour définir le montant de l'allivrement. Elle est caractérisée par son numéro, sa géométrie, sa nature et son appartenance à un ou plusieurs propriétaires.
 
-Une parcelle est rattachée à une section cadastrale qui se trouve elle-même dans une commune. Par ce biais, elle est rattachée aux différentes circonscriptions administratives/électorales françaises. Ce rattachement s'explique par la responsabilité de production du cadastre qui imcombait aux départements et par l'organisation des opérations qui étaient distribuée par canton et arrondissement. Ces circonscriptions étaient également utilisées pour effectuer des résumés statistiques. 
+Une parcelle est rattachée à une section cadastrale qui se trouve elle-même dans une commune. Par ce biais, elle est rattachée aux différentes circonscriptions administratives/électorales françaises. La production du cadastre imcombait aux départements. L'organisation des opérations cadastrales étaient basée sur une distribution par canton et arrondissement. Ces circonscriptions étaient également utilisées pour effectuer des résumés statistiques. 
 
 Les parcelles et les objets du domaine non cadastrés - tels que les routes ou les cours d'eau - constituent les deux unités géographiques élémentaires qui permettent de reconstituer la géométrie complète des sections puis des communes.
 
@@ -21,9 +21,9 @@ Une **parcelle** est caractérisée par :
 Un **objet du domaine non cadastré** est caractérisé par : 
 - {*obligatoire*} son **nom**
 - {*optionnel*} sa **nature**
-- {*optionnel*} sa **géométrie** (ou ses géométries)
-- {*optionnelle*} sa **localisation** (section ou commune ou )
-<p><span style="color:red">Comment gérer les objets qui se trouvent dans plusieurs sections, voir communes, voir département (ex : "La Seine", "Grande route de Paris à Provins") ? => "portion de" ?</span></p>
+- {*optionnel*} sa **géométrie**
+- {*optionnelle*} sa **localisation**
+<p><span style="color:red">Comment gérer les objets qui se trouvent dans plusieurs sections, voir communes, voir département (ex : "La Seine", "Grande route de Paris à Provins") ? => "portion de" ?</span>=> Portion d'un objet théorique ? Apparaît dans telle section ?</p>
 
 Une **section cadastrale** est caractérisée par :
 - {*obligatoire*} son **identifiant** (lettre)
@@ -37,9 +37,7 @@ Une **circonscription administrative** est caractérisée par :
 - {*obligatoire*} sa **localisation** : par rapport aux autres circonscriptions administratives
 - {*optionnelle*} sa **géométrie**
 
-<p><span style="color:red">Pour tous : Comment gérer les géométries : un objet à forcément une géométrie (mais on n'est pas sûrs de les ajouter dans le graphe) ?</span></p>
-
-*Remarque : l'existance des entités administratives et la valeur de leurs propriétés est possède une dimenssion temporelle décrite en détails dans le modelet "Temporalité"*.
+*Remarque : l'existance des entités administratives et la valeur de leurs propriétés est possède une dimension temporelle décrite en détails dans le modelet "Temporalité". Les exemples fournis ici décrivent les entités géographiques à un instant T*.
 
 ## Exemples
 
@@ -62,7 +60,7 @@ Une **circonscription administrative** est caractérisée par :
 
 ### Exemple 3 [Section]
 <ul>
-    <li>Lettre : A</li>
+    <li>Identifiant (lettre) : A</li>
     <li>Nom : Section A dite du Piple</li>
     <li>Localisation : Commune de Boissy-Saint-Léger, Justice de Paix de Boissy-Saint-Léger, Arrondissement de Corbeil, Département de Seine-et-Oise</li>
 </ul>

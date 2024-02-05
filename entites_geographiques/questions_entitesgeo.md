@@ -10,7 +10,7 @@ Nombre de parcelles à Marolles en Brie
 
 ## Question 2
 ### Question
-Quelle est la nature de la parcelle XXX située dans la section A de la commune Y ?
+Quelle est la nature de la parcelle XXX située dans la section A de la commune Y ? (*Question précisée dans le modelet Temporalité*)
 ### Résultat attendu
 Nature de la parcelle
 ### Exemple de réponse
@@ -31,7 +31,7 @@ Superficie de la parcelle
 
 ## Question 5
 ### Question
-Quelle est la suface de vigne dans la commune Y ?
+Quelle est la surface de *Nature de sol* dans la commune Y ?
 ### Résultat attendu
-Superface de vigne dans la commune
+Superface de *Nature de sol* dans la commune
 ### Exemple de réponse

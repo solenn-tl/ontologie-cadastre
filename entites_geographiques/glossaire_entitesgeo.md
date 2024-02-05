@@ -1,5 +1,6 @@
 # Glossaire du modelet Entités géographiques
 
+## Glossaire
 <table>
   <tr>
     <th>Terme</th>
@@ -88,5 +89,150 @@
     </ul>
     - <i><a href="https://gallica.bnf.fr/ark:/12148/bpt6k96475008/f47.item">Recueil méthodique des lois, décrets, réglemens, instructions et décisions sur le cadastre de la France, Articles 105 & 107, Page 43, 1811</a></i><br>
   </td>
+  </tr>
+</table>
+
+## Liste non exhaustive des natures de parcelles
+
+### Propriétés bâties
+<table>
+  <tr>
+    <th>Nature</th>
+    <th>Autre dénomination</th>
+    <th>Remarque</th>
+  </tr>
+  <tr>
+    <td>Maison</td>
+    <td><i>M<sup>son</sup></i></td>
+    <td rowspan="2">Dans le <a href="https://gallica.bnf.fr/ark:/12148/bpt6k96475008/f56.item">Recueil de 1810 (article 142, page 52)</a>, il est précisé que : <i>On ne fait qu'une seule et même parcelle de la maison d'habitation, de la cour et des bâtimens ruraux, lorsque le tout est contigu.</i></td>
+  </tr>
+  <tr>
+    <td>Bâtiment</td>
+    <td>Bâtiment rural</td>
+  </tr>
+  <tr>
+    <td>Eglise</td>
+    <td></td>
+    <td><i>Édifices publics.<br>Les églises, les monumens ou édifices publics, et en général tous les terrains clos employés à un service public, forment parcelle.</i><br>
+     - <a href="https://gallica.bnf.fr/ark:/12148/bpt6k96475008/f56.item">Recueil de 1810 (article 144, page 52)</a></td>
+  </tr>
+  <tr>
+    <td>Fabrique</td>
+    <td></td>
+    <td>il peut être précisé la nature des productions de la fabrique.</td>
+  </tr>
+</table>
+
+### Propriétés non bâties
+<i>Liste constituée à partir des récapitulatifs de nature de parcelles des registres de : Boissy-Saint-Léger</i>
+<table>
+  <tr>
+    <th>Nature</th>
+    <th>Abréviations</th>
+    <th>Remarque</th>
+  </tr>
+  <tr>
+    <td>Aulnaie</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Bois</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Chemin de fer</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Cour</td>
+    <td></td>
+    <td>Généralement associé à une maison et/ou des bâtiments (propriétés bâties).</td>
+  </tr>
+  <tr>
+    <td>Etang</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Friche</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Jardin</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Mare</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Melonière</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Objet d'agrément</td>
+    <td></td>
+    <td>Peut-être précisé sous la forme : <i>Jardin d'agrément, Canal d'agrément, Terrain d'agrément</i> etc.</td>
+  </tr>
+  <tr>
+    <td>Oseraie</td>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td>Pâture</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Pâture plantée</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Pépinière</td>
+    <td>Pep</td>
+    <td>Peut être associé à Verger dans certains documents</td>
+  </tr>
+  <tr>
+    <td>Prés</td>
+    <td></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td>Sol</td>
+    <td>Terrain de maison, Sol des propriétés bâties</td>
+    <td>Emprise d'une construction quelque soit sa nature. Apparaît après la réforme des matrices de rôles de 1822.</td>
+  </tr>
+  <tr>
+    <td>Terre</td>
+    <td>T, Terre labourable</td>
+    <td></td>
+  </tr>
+    <tr>
+    <td>Terre à vigne</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Terre plantée</td>
+    <td></td>
+    <td colspan="2">A fusionner ???</td>
+  </tr>
+  <tr>
+    <td>Verger</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Vigne</td>
+    <td>V</td>
+    <td></td>
   </tr>
 </table>
