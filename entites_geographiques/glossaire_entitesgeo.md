@@ -14,6 +14,11 @@
     </td>
   </tr>
   <tr>
+    <td>Bien non délimité</td>
+    <td><i>Un bien non délimité est un ensemble de propriétés, de contenance déterminée, dont les limites séparatives n'ont pu, faute de détermination contradictoire, être portées au plan cadastral lors de la rénovation du cadastre ou après cette rénovation.</i><br>
+     - <a href="https://www.defrenois.fr/actualites/regime-des-biens-non-delimites#:~:text=Selon%20une%20r%C3%A9ponse%20minist%C3%A9rielle%2C%20un,cadastre%20ou%20apr%C3%A8s%20cette%20r%C3%A9novation.">Régime des biens non délimités</a>, Defresnois</td>
+  </tr>
+  <tr>
     <td>Canton (aussi <i>Justice de paix</i>)</td>
     <td>Les cantons ont été créés pour la première fois par la loi du 22 décembre 1789. Plusieurs fois supprimés puis recréés lors de la dernière decénnie du XVIIIème siècle, ils sont institués en 1800 pour une période plus pérenne.<br>Ils ont alors trois tâches principales :
         <ul>
@@ -50,7 +55,7 @@
   </tr>
   <tr>
     <td>Espace non cadastré</td>
-    <td>Un espace non cadastré est un objet géographique non numéroté dans le cadastre. Ce sont des espaces non imposables. Ils ne sont pas décrits en détails dans la documentation littérale du cadastre mais figurent précisément sur les plans parcellaires comme l'indique le <i><a href="https://gallica.bnf.fr/ark:/12148/bpt6k96475008/f58.item">Recueil de 1810 (article 151)</a></i> : <i>Les rues , les places publiques, les grandes routes, les chemins vicinaux, les rivières, et généralement tous les objets non imposables (<a href="https://gallica.bnf.fr/ark:/12148/bpt6k96475008/f133.item">article 403</a>), sont levés et décrits avec exactitude.</i>
+    <td>Un espace non cadastré est un objet géographique non numéroté dans le cadastre. Ce sont des espaces non imposables. Ils ne sont pas décrits en détails dans la documentation littérale du cadastre mais figurent précisément sur les plans parcellaires comme l'indique le <i><a href="https://gallica.bnf.fr/ark:/12148/bpt6k96475008/f58.item">Recueil de 1811 (article 151)</a></i> : <i>Les rues , les places publiques, les grandes routes, les chemins vicinaux, les rivières, et généralement tous les objets non imposables (<a href="https://gallica.bnf.fr/ark:/12148/bpt6k96475008/f133.item">article 403</a>), sont levés et décrits avec exactitude.</i>
     </td>
   </tr>
   <tr>
@@ -104,7 +109,7 @@
   <tr>
     <td>Maison</td>
     <td><i>M<sup>son</sup></i></td>
-    <td rowspan="2">Dans le <a href="https://gallica.bnf.fr/ark:/12148/bpt6k96475008/f56.item">Recueil de 1810 (article 142, page 52)</a>, il est précisé que : <i>On ne fait qu'une seule et même parcelle de la maison d'habitation, de la cour et des bâtimens ruraux, lorsque le tout est contigu.</i></td>
+    <td rowspan="2">Dans le <a href="https://gallica.bnf.fr/ark:/12148/bpt6k96475008/f56.item">Recueil de 1811 (article 142, page 52)</a>, il est précisé que : <i>On ne fait qu'une seule et même parcelle de la maison d'habitation, de la cour et des bâtimens ruraux, lorsque le tout est contigu.</i></td>
   </tr>
   <tr>
     <td>Bâtiment</td>
@@ -114,7 +119,7 @@
     <td>Eglise</td>
     <td></td>
     <td><i>Édifices publics.<br>Les églises, les monumens ou édifices publics, et en général tous les terrains clos employés à un service public, forment parcelle.</i><br>
-     - <a href="https://gallica.bnf.fr/ark:/12148/bpt6k96475008/f56.item">Recueil de 1810 (article 144, page 52)</a></td>
+     - <a href="https://gallica.bnf.fr/ark:/12148/bpt6k96475008/f56.item">Recueil de 1811 (article 144, page 52)</a></td>
   </tr>
   <tr>
     <td>Fabrique</td>

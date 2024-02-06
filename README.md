@@ -10,6 +10,8 @@ Cette ontologie a pour objectif de décrire les informations et documents qui co
 * [data.ign.fr](http://data.ign.fr/data.html)
 
 ### Sources
-* [RiC-CM](https://www.ica.org/fr/records-in-contexts-modele-conceptuel)
+* [RiC-CM](https://www.ica.org/fr/records-in-contexts-modele-conceptuel), modèle utilisé dans les services d'Archives
 * [Modelet Sources de l'ontologie FPO (Factoid Prosopography)](https://www.kcl.ac.uk/factoid-prosopography/fpo-sources)
 <img src="https://www.kcl.ac.uk/newimages/ah/factiod/fpo-sources.png"/>
+* IFLA LRM : utilisé dans les bibliothèques
+* CIDOC-CRM : utilisé dans les musées

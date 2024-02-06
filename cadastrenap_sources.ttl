@@ -1,0 +1,427 @@
+@prefix nap: <http://data.ign.fr/def/cadastrenap#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix organization: <http://www.w3.org/ns/org#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix gsp: <http://www.opengis.net/ont/geosparql#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix fpo: <https://github.com/johnBradley501/FPO/raw/master/fpo.owl>
+
+# ---- Prefixes used for skos:ConceptScheme -----
+
+
+# ---- Ontology metadata -----
+<http://data.ign.fr/def/cadastrenap> a owl:Ontology, voaf:Vocabulary ;
+        dcterms:creator [
+	      rdf:type foaf:Person ;
+	      organization:hasMembership [
+	          rdf:type organization:Membership ;
+	          organization:memberDuring [
+	              rdf:type time:Interval ;
+	              time:hasBeginning [
+	                  rdf:type time:Instant ;
+	                  time:inXSDDateTimeStamp "2024-01-24"^^xsd:dateTimeStamp ;
+	                ] ;
+	            ] ;
+	          organization:organization <http://www.ign.fr/> ;
+	          organization:organization <http://www.umr-lastig.fr/> ;
+	          organization:role [
+	              rdf:type organization:Role ;
+	              rdfs:label "Doctorante"@fr, "PhD Student"@en ;
+	            ] ;
+	        ] ;
+	      foaf:family_name "Tual" ;
+	      foaf:firstName "Solenn" ;
+	      foaf:mbox <mailto:solenn.tual@ign.fr> ;
+	      foaf:name "Solenn Tual" ;
+          foaf:workInfoHomepage <https://www.umr-lastig.fr/solenn-tual/> ;
+	    ] ; 
+        dcterms:description "Ontologie décrivant le contenu des séries du cadastre napoléonien"@fr, 
+		                    "Ontology describing the napoleonic cadaster documents."@en;
+        dcterms:issued "2024-01-24"^^xsd:date ;
+        dcterms:modified "2024-01-24"^^xsd:date ;
+        dcterms:publisher <http://fr.dbpedia.org/resource/Institut_national_de_l%27information_g%C3%A9ographique_et_foresti%C3%A8re> ;
+        dcterms:title "Ontologie du cadastre napoléonien"@fr, "Ontology of the Napoleonic Cadaster"@en ;
+        vann:preferredNamespacePrefix "nap" ;
+		vann:preferredNamespaceUri <http://data.ign.fr/def/cadastrenap#> ;
+		dcterms:rights "Copyright 2024, IGN" ;
+		cc:license <http://www.data.gouv.fr/Licence-Ouverte-Open-Licence> ;
+		cc:license <http://creativecommons.org/licenses/by/2.0/> ;
+		cc:license <http://opendatacommons.org/licenses/by/> ;
+        #owl:priorVersion <> ;
+		owl:versionInfo "Version 0.0 - 2024-01-24" .
+
+# ---- Imported properties for annotation ----
+skos:inScheme rdf:type owl:AnnotationProperty.
+skos:prefLabel rdf:type owl:AnnotationProperty .
+skos:altLabel rdf:type owl:AnnotationProperty.
+skos:broader rdf:type owl:AnnotationProperty.
+skos:definition rdf:type owl:AnnotationProperty.
+
+###############################
+# ---- Classes definition ----
+###############################
+
+# ---- Imported classes ----
+
+rico:RecordSet a owl:Class ;
+	rdfs:subClassOf rico:RecordResource ;
+	rdfs:comment """One or more records that are grouped together by an Agent based on
+         the records sharing one or more attributes or relations."""@en ;
+	rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
+	rdfs:label "Record Set"@en, "Ensemble d’objets informationnels"@fr, "Agrupación documental"@es ;
+	skos:changeNote [
+		dc11:date "2023-11-12" ;
+		rdf:value """Aligned with RiC-CM 1.0: updated the description
+               (rdfs:comment), skos:scopeNote."""@en ;
+	], [
+		dc11:date "2023-11-02" ;
+		rdf:value "Added a new rdfs:label in Spanish."@en ;
+	], [
+		dc11:date "2023-08-25" ;
+		rdf:value "Added a new rdfs:label in French."@en ;
+	], [
+		dc11:date "2023-04-19" ;
+		rdf:value "Removed the 0.2 existing unnecessary restriction."@en ;
+	], [
+		dc11:date "2020-10-23" ;
+		rdf:value """comment: updated. Scope note: updated and made several
+               paragraphs. Objective: to make RiC-O compliant with RiC-CM v0.2."""@en ;
+	] ;
+	skos:scopeNote """Record set is a kind of Record Resource. The member records in a
+         Record Set may physically reside together, though physical proximity is not essential. In a
+         particular context, an Agent (for example, administrator, records manager, archivist,
+         end-user, etc.) may select the member records of a Record Set based on any shared attribute
+         or attributes, or any shared relation or relations. The grouping of the records serves a
+         purpose or purposes specific to the context of the Agent. For example, all member records
+         of a Record Set have been accumulated by the same Agent; have the same Documentary Form
+         Type; or are related to and document the same Activity. A Record Set may represent the act
+         of classifying the records in accordance with a formal classification scheme that may be
+         based on activity, subject, organizational structure, or other criteria; an act of archival
+         arrangement (for example, based on common provenance); or some other selection and grouping
+         that fulfils a particular purpose or purposes (for example, a classification that reflects
+         or supports the purposes of a researcher). By exception, some records are brought together
+         based on their not belonging in the context of selection to other designated groups: a
+         'Miscellaneous' series, for example. A Record Sset accumulated by an Agent in the course of
+         life or work activity should be described in a manner that preserves context and evidential
+         value. Record Sets may also contain other Record Sets. A Record Set or Record may
+         simultaneously be a member of more than one Record Set, and over the course of its
+         existence, a Record Set or Record may be a member of an indeterminate number of Record Sets
+         in an indeterminate number of contexts. Record Sets and Records contained within a Record
+         Set may be ordered into a sequence based on a common property or relation, or common
+         properties or relations (for example, alphabetical by agent or related place);
+         chronological order by creation date; or some other criterion (for example, an imposed
+         order by relevance)."""@en ;
+	rico:RiCCMCorrespondingComponent """Corresponds to RiC-E03 (Record Set
+         entity)"""@en .
+
+rico:Record a owl:Class ;
+	rdfs:subClassOf rico:RecordResource ;
+	rdfs:comment """Discrete information content formed and inscribed, at least once,
+         by any method on any carrier in any persistent, recoverable form by an Agent in the course
+         of life or work activity."""@en ;
+	rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
+	rdfs:label "Record"@en, "Objet informationnel"@fr, "Documento"@es ;
+	skos:changeNote [
+		dc11:date "2023-11-12" ;
+		rdf:value """Aligned with RiC-CM 1.0: updated the description
+               (rdfs:comment), skos:scopeNote."""@en ;
+	], [
+		dc11:date "2023-11-02" ;
+		rdf:value "Added a new rdfs:label in Spanish."@en ;
+	], [
+		dc11:date "2023-08-25" ;
+		rdf:value "Added a new rdfs:label in French."@en ;
+	], [
+		dc11:date "2021-02-08" ;
+		rdf:value "Removed the Restriction."@en ;
+	], [
+		dc11:date "2020-10-23" ;
+		rdf:value """Scope note: updated and made several paragraphs. Objective: to
+               make RiC-O compliant with RiC-CM v0.2."""@en ;
+	] ;
+	skos:scopeNote """Record is a kind of Record Resource. A Record may itself contain
+         one or more Records, or may consist of one or more Record Parts. A Record must have or have
+         had at least one Instantiation. A Record may have more than one Instantiation. An
+         Instantiation derived from another Instantiation of a Record may be considered the
+         instantiation of the same Record or an instantiation of a new Record, depending on the
+         context. A Record may serve a variety of purposes, though it always documents or is
+         evidence of Activity."""@en ;
+	rico:RiCCMCorrespondingComponent """Corresponds to RiC-E04 (Record
+         entity)"""@en .
+
+rico:RecordPart a owl:Class ;
+	rdfs:subClassOf rico:RecordResource ;
+	rdfs:comment """Component of a Record with independent information content that
+         contributes to the intellectual completeness of the Record."""@en ;
+	rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
+	rdfs:label "Record Part"@en, "Partie d’objet informationnel"@fr, "Componente documental"@es ;
+	skos:changeNote [
+		dc11:date "2023-11-12" ;
+		rdf:value """Aligned with RiC-CM 1.0: updated the description
+               (rdfs:comment)."""@en ;
+	], [
+		dc11:date "2023-11-02" ;
+		rdf:value "Added a new rdfs:label in Spanish."@en ;
+	], [
+		dc11:date "2023-08-25" ;
+		rdf:value "Added a new rdfs:label in French."@en ;
+	], [
+		dc11:date "2021-02-08" ;
+		rdf:value "Removed the Restriction."@en ;
+	], [
+		dc11:date "2020-10-23" ;
+		rdf:value """comment: updated. Scope note: made several paragraphs.
+               Objective: to make RiC-O compliant with RiC-CM v0.2."""@en ;
+	] ;
+	skos:scopeNote """Record Part is a kind of Record Resource. A Record Part may
+         itself have Record Parts."""@en ;
+	rico:RiCCMCorrespondingComponent """Corresponds to RiC-E05 (Record Part
+         entity)"""@en .
+
+prov:Activity a owl:Class ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "Activity" ;
+    owl:disjointWith :Entity ;
+    :category "starting-point" ;
+    :component "entities-activities" ;
+    :constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+    :definition "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." ;
+    :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Activity"^^xsd:anyURI ;
+    :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Activity"^^xsd:anyURI .
+
+prov:Agent a owl:Class ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "Agent" ;
+    owl:disjointWith :InstantaneousEvent ;
+    :category "starting-point" ;
+    :component "agents-responsibility" ;
+    :definition "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity. "@en ;
+    :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^xsd:anyURI ;
+    :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Agent"^^xsd:anyURI .
+
+prov:SoftwareAgent a owl:Class ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "SoftwareAgent" ;
+    rdfs:subClassOf :Agent ;
+    :category "expanded" ;
+    :component "agents-responsibility" ;
+    :definition "A software agent is running software."@en ;
+    :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^xsd:anyURI ;
+    :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-types"^^xsd:anyURI .
+
+
+# https://github.com/johnBradley501/FPO/raw/master/fpo.owl#Assertion
+fpo:Assertion a owl:Class.
+
+# https://github.com/johnBradley501/FPO/raw/master/fpo.owl#Factoid
+fpo:Factoid a owl:Class ;
+	rdfs:subClassOf :Assertion .
+
+# https://github.com/johnBradley501/FPO/raw/master/fpo.owl#Source
+fpo:Source a owl:Class .
+
+# https://github.com/johnBradley501/FPO/raw/master/fpo.owl#SourceCitation
+fpo:SourceCitation a owl:Class .
+
+#####################################
+# ---- Objectproperty definition ----
+#####################################
+
+# ---- Imported properties ----
+
+rico:includesOrIncluded a owl:ObjectProperty ;
+	rdfs:subPropertyOf rico:hasOrHadPart, rico:isRecordResourceAssociatedWithRecordResource ;
+	owl:inverseOf rico:isOrWasIncludedIn ;
+	rdfs:domain rico:RecordSet ;
+	rdfs:range [
+		rdf:type owl:Class ;
+		owl:unionOf (
+			rico:Record
+			rico:RecordSet
+		) ;
+	] ;
+	rdfs:comment """Connects a Record Set to a Record or Record Set it aggregates, or
+         aggregated in the past."""@en ;
+	rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
+	rdfs:label "includes or included"@en, "inclut ou a inclus"@fr, "incluye o incluía"@es ;
+	skos:changeNote [
+		dc11:date "2023-11-02" ;
+		rdf:value "Added a new rdfs:label in Spanish."@en ;
+	], [
+		dc11:date "2023-08-28" ;
+		rdf:value "Added a new rdfs:label in French."@en ;
+	], [
+		dc11:date "2023-06-05" ;
+		rdf:value """Made this object property a subproperty of
+               hasOrHadPart."""@en ;
+	], [
+		dc11:date "2021-01-22" ;
+		rdf:value """changed the IRI, label, inverse property IRI, text definition
+               (changed made in order to make RiC-O compliant with RiC-CM 0.2; the name of this
+               property in RiC-O 0.1 was "includes")."""@en ;
+	] ;
+	skos:scopeNote """A Record or Record Set can be aggregated in one or many Record
+         Sets simultaneously or through time."""@en ;
+	rico:RiCCMCorrespondingComponent """RiC-R024 ('includes or included')"""
+
+rico:hasOrHadComponent a owl:ObjectProperty ;
+	rdfs:subPropertyOf rico:hasOrHadPart, rico:isInstantiationAssociatedWithInstantiation ;
+	owl:inverseOf rico:isOrWasComponentOf ;
+	rdfs:domain rico:Instantiation ;
+	rdfs:range rico:Instantiation ;
+	rdfs:comment """Connects an Instantiation to one of its present or past component
+         instantiations."""@en ;
+	rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
+	rdfs:label "has or had component"@en, "a ou a eu pour composant"@fr, "tiene o tenía como componente"@es ;
+	skos:changeNote [
+		dc11:date "2023-11-02" ;
+		rdf:value "Added a new rdfs:label in Spanish."@en ;
+	], [
+		dc11:date "2023-08-28" ;
+		rdf:value "Added a new rdfs:label in French."@en ;
+	], [
+		dc11:date "2021-01-22" ;
+		rdf:value """changed the IRI, label, inverse property IRI, textual
+               definition (changed made in order to make RiC-O compliant with RiC-CM 0.2; the name
+               of this property in RiC-O 0.1 was "hasComponent")."""@en ;
+	] ;
+	rico:RiCCMCorrespondingComponent """RiC-R004 ('has or had component'
+         relation)"""@en .
+
+rico:hasOrHadInstantiation a owl:ObjectProperty ;
+	rdfs:subPropertyOf rico:isRelatedTo ;
+	owl:inverseOf rico:isOrWasInstantiationOf ;
+	rdfs:domain rico:RecordResource ;
+	rdfs:range rico:Instantiation ;
+	owl:propertyChainAxiom (
+		rico:thingIsSourceOfRelation
+		rico:recordResourceToInstantiationRelation_role
+		rico:relationHasTarget
+	) ;
+	rdfs:comment """Connects a Record Resource to an Instantiation, which either may
+         exist or may have been lost or destroyed."""@en ;
+	rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
+	rdfs:label "has or had instantiation"@en, "a ou a eu pour instanciation"@fr, "tiene o tenía como instanciación"@es ;
+	skos:changeNote [
+		dc11:date "2023-11-27" ;
+		rdf:value "Added a new rdfs:label in Spanish."@en ;
+	], [
+		dc11:date "2023-11-12" ;
+		rdf:value """Aligned with RiC-CM 1.0: updated the description
+               (rdfs:comment)."""@en ;
+	], [
+		dc11:date "2023-11-08" ;
+		rdf:value """In order to get a system of rolified Relation classes: modified
+               the property chain axiom so that it now involves the new
+               recordResourceToInstantiationRelation_role object property."""@en ;
+	], [
+		dc11:date "2023-08-29" ;
+		rdf:value """Updated the IRI, inverse property, definition, labels and
+               RiCMCorrespondingComponent, and added a skos:scopeNote; this in order to make the
+               specification compliant with RiC-CM 1.0. The name of the property in RiC-O 0.2 was
+               'has instantiation'."""@en ;
+	], [
+		dc11:date "2023-08-28" ;
+		rdf:value "Added a new rdfs:label in French."@en ;
+	], [
+		dc11:date "2021-01-22" ;
+		rdf:value "changed the inverse property IRI."@en ;
+	] ;
+	skos:scopeNote """In some situations, it may be useful or necessary to connect a
+         record resource to an instantiation that no longer exists or or has been lost, when some of
+         its characteristics are known from some source, like an old finding aid."""@en ;
+	rico:RiCCMCorrespondingComponent """RiC-R025 ('has or had instantiation'
+         relation)"""@en .
+
+rico:hasOrHadDigitalInstantiation a owl:ObjectProperty ;
+	rdfs:subPropertyOf rico:hasOrHadInstantiation ;
+	owl:inverseOf rico:isOrWasDigitalInstantiationOf ;
+	rdfs:domain rico:RecordResource ;
+	rdfs:range rico:Instantiation ;
+	rdfs:comment """Connects a record resource to one of its digital instantiations,
+         whether it exists or has been lost or destroyed."""@en ;
+	rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
+	rdfs:label "has or had digital instantiation"@en, "a ou a eu pour instanciation numérique"@fr, "tiene o tenía como instanciación digital"@es ;
+	skos:changeNote [
+		dc11:date "2023-11-27" ;
+		rdf:value "Added a new rdfs:label in Spanish."@en ;
+	], [
+		dc11:date "2023-08-29" ;
+		rdf:value "Added the property."@en ;
+	] ;
+	skos:scopeNote """This property can be used, among other cases, when you want to
+         convert findings aids encoded in EAD/XML and need a simple and accurate migration path to
+         process dao or daogrp EAD elements. Also, in some situations, it may be useful or necessary
+         to connect a record resource to a digital instantiation that no longer exists or or has
+         been lost."""@en .
+
+prov:wasAssociatedWith a owl:ObjectProperty ;
+    rdfs:comment "An prov:Agent that had some (unspecified) responsibility for the occurrence of this prov:Activity."@en ;
+    rdfs:domain :Activity ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "wasAssociatedWith" ;
+    rdfs:range :Agent ;
+    rdfs:subPropertyOf :wasInfluencedBy ;
+    owl:propertyChainAxiom (:qualifiedAssociation
+        :agent
+    ) ;
+    :category "starting-point" ;
+    :component "agents-responsibility" ;
+    :inverse "wasAssociateFor" ;
+    :qualifiedForm :Association, :qualifiedAssociation .
+
+prov::used a owl:ObjectProperty ;
+    rdfs:comment "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven ."@en ;
+    rdfs:domain :Activity ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "used" ;
+    rdfs:range :Entity ;
+    rdfs:subPropertyOf :wasInfluencedBy ;
+    owl:propertyChainAxiom (:qualifiedUsage
+        :entity
+    ) ;
+    :category "starting-point" ;
+    :component "entities-activities" ;
+    :inverse "wasUsedBy" ;
+    :qualifiedForm :Usage, :qualifiedUsage .
+
+prov:wasGeneratedBy a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "wasGeneratedBy" ;
+    rdfs:range :Activity ;
+    rdfs:subPropertyOf :wasInfluencedBy ;
+    owl:propertyChainAxiom (:qualifiedGeneration
+        :activity
+    ) ;
+    :category "starting-point" ;
+    :component "entities-activities" ;
+    :inverse "generated" ;
+    :qualifiedForm :Generation, :qualifiedGeneration .
+
+# https://github.com/johnBradley501/FPO/raw/master/fpo.owl#fromSource
+fpo:fromSource a owl:ObjectProperty ;
+	rdfs:domain :SourceCitation ;
+	rdfs:range :Source .
+
+# https://github.com/johnBradley501/FPO/raw/master/fpo.owl#sourcedFrom
+fpo:sourcedFrom a owl:ObjectProperty ;
+	rdfs:domain :Assertion ;
+	rdfs:range :SourceCitation .
+
+###############################
+# ---- Datatype properties ----
+###############################
+
+# ---- Imported properties ----
+rdfs:label a owl:DatatypeProperty.

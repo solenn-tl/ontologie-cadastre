@@ -13,7 +13,7 @@
 @prefix gsp: <http://www.opengis.net/ont/geosparql#>.
 
 ##--Cadastre Nap Classes
-@prefix owner: <http://data.ign.fr/id/owner/>.
+@prefix owner: <http://data.ign.fr/def/cadastrenap#Owner>.
 
 owner:0001 a nap:Owner;
     rdfs:label "Prudhomme"@fr.

@@ -76,7 +76,7 @@
   <tr>
     <td>Plan parcellaire</td>
     <td><i>Le plan parcellaire est celui qui représente exactement le territoire d'une commune dans ses plus petites subdivisions, soit de cultures, soit de propriétés.</i><br>
-     - <a href="https://gallica.bnf.fr/ark:/12148/bpt6k96475008/f53.item">Recueil de 1810 (article 129, page 49)</a></td>
+     - <a href="https://gallica.bnf.fr/ark:/12148/bpt6k96475008/f53.item">Recueil de 1811 (article 129, page 49)</a></td>
   </tr>
   <tr>
     <td>Plan révisé</td>

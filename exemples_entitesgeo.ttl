@@ -1,0 +1,62 @@
+@prefix nap: <http://data.ign.fr/def/cadastrenap#>.
+@prefix addr: <http://rdf.geohistoricaldata.org/address#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix organization: <http://www.w3.org/ns/org#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix gsp: <http://www.opengis.net/ont/geosparql#>.
+
+# ---- Prefixes used for skos:ConceptScheme ---------------------------------------------------
+@prefix parceltype: <http://data.ign.fr/id/codes/topo/nap:ParcelTypeList/>.
+
+##--Cadastre Nap Classes
+@prefix comm: <http://data.ign.fr/def/cadastrenap#Commune/>.
+@prefix canton: <http://data.ign.fr/def/cadastrenap#Canton/>.
+@prefix arr: <http://data.ign.fr/def/cadastrenap#Arrondissement/>.
+@prefix dept: <http://data.ign.fr/def/cadastrenap#Departement/>.
+@prefix section: <http://data.ign.fr/def/cadastrenap#Section/>.
+@prefix locality: <http://data.ign.fr/def/cadastrenap#Locality/>.
+@prefix parcel: <http://data.ign.fr/def/cadastrenap#Parcel/>.
+@prefix owner: <http://data.ign.fr/def/cadastrenap#Owner/>.
+
+#Circonscriptions administratives
+comm:0001 a nap:Commune;
+    rdfs:label "Boissy-Saint-Léger"@fr;
+    nap:within canton:0001.
+
+canton:0001 a nap:Canton;
+    rdfs:label "Boissy-Saint-Léger"@fr;
+    nap:within arr:0001.
+
+arr:0001 a nap:Arrondissement;
+    rdfs:label "Corbeil"@fr;
+    nap:within dept:0001.
+
+dept:0001 a nap:Departement;
+    rdfs:label "Seine-et-Oise"@fr.
+
+#Description d'une parcelle
+owner:0001 a nap:Owner;
+    rdfs:label "Charlier"@fr.
+
+section:0001 a nap:Section;
+    rdfs:label "Section A dite du Piple"@fr;
+    nap:within comm:0001;
+    dcterms:identifier "A"@fr.
+
+locality:0001 a nap:Locality;
+    rdfs:label "Le Village"@fr.
+
+parcel:0001 a nap:Parcel;
+    rdfs:label "207"@fr;
+    nap:parcelType parceltype:BareGround;
+    nap:parcelOwner owner:0001;
+    nap:within locality:0001;
+    nap:within section:0001.
