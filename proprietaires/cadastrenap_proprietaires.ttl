@@ -12,6 +12,7 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix gsp: <http://www.opengis.net/ont/geosparql#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix add: <http://rdf.geohistoricaldata.org/address#> .
 
 # ---- Prefixes used for skos:ConceptScheme -----
 
@@ -74,21 +75,21 @@ nap:Owner a owl:Class;
   rdfs:label "Owner"@en , "Propriétaire ou usufruitier"@fr ;
   rdfs:comment "Propriétaire ou usufruitier : personne redevable de l'impôt foncier pour les terres dont elle a la pleine propriété ou l'usufruit."@fr .
   
-nap:Address a owl:Class;
-  rdfs:isDefinedBy <http://data.ign.fr/def/cadastrenap#>;
-  rdfs:label "Address"@en ,"Adresse"@fr ;
-  rdfs:comment "Adresse du propriétaire ou de l'usufruitier."@fr.
+#nap:Address a owl:Class;
+#  rdfs:isDefinedBy <http://data.ign.fr/def/cadastrenap#>;
+#  rdfs:label "Address"@en ,"Adresse"@fr ;
+#  rdfs:comment "Adresse du propriétaire ou de l'usufruitier."@fr.
 
 #############################
 # ---- Object properties ----
 #############################
 
-nap:address a owl:ObjectProperty;
-	rdfs:domain  nap:Owner;
-	rdfs:range nap:Address;
-	rdfs:label "address"@en ,"adresse"@fr ;
-	rdfs:comment "Propriété qui relie une personne à une adresse. Ex: à Paris."@fr ,
-                 "A property that links an owner to its address. E.g.: in Paris."@en .
+#nap:address a owl:ObjectProperty;
+#	rdfs:domain  nap:Owner;
+#	rdfs:range nap:Address;
+#	rdfs:label "address"@en ,"adresse"@fr ;
+#	rdfs:comment "Propriété qui relie une personne à une adresse. Ex: à Paris."@fr ,
+#                 "A property that links an owner to its address. E.g.: in Paris."@en .
 
 ###############################
 # ---- Datatype properties ----
@@ -103,6 +104,13 @@ nap:activity a owl:DatatypeProperty;
 	rdfs:comment "Activity of an owner. E.g.: farmer."@en , 
 	             "Activité d'un propriétaire. Ex.: cultivateur."@fr ;
 	rdfs:domain nap:Owner;
+	rdfs:range xsd:string;
 	rdfs:label "Activity"@en;
-	rdfs:label "Activité"@fr;
-	rdfs:range xsd:string.
+	rdfs:label "Activité"@fr.
+
+nap:address a owl:ObjectProperty;
+	rdfs:domain  nap:Owner;
+	rdfs:range xsd:string;
+	rdfs:label "address"@en ,"adresse"@fr ;
+	rdfs:comment "Propriété qui relie une personne à une adresse. Ex: à Paris."@fr ,
+                 "A property that links an owner to its address. E.g.: in Paris."@en .

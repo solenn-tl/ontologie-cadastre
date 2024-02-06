@@ -9,8 +9,8 @@ Suivi des mutations de parcelles à partir des comptes fonciers
 Un compte foncier est une liste d'états des parcelles associé à un ou plusieurs propriétaires. L'ensemble des comptes fonciers d'une commune sont consignés dans la matrice cadastrale. Ces comptes fonciers portent différents noms : **article, folio ou case**.
 
 Chaque compte est scindé en deux parties :
-- la liste des propriétaires sucessifs qui lui sont associés, appelés "articles de mutation" dans le <i>Recueil de 1810</i>. ;
-- les états des parcelles détenues par ce(s) propriétaire(s), appelés "articles de classement" dans le <i>Recueil de 1810</i>.
+- la liste des propriétaires sucessifs qui lui sont associés, appelés "articles de mutation" dans le <i>Recueil de 1811</i>. ;
+- les états des parcelles détenues par ce(s) propriétaire(s), appelés "articles de classement" dans le <i>Recueil de 1811</i>.
 
 Un compte foncier est associé à un numéro. Selon le formattage du pré-imprimé utilisé, ce numéro peut faire référence à un ou plusieurs comptes différents. 
 
