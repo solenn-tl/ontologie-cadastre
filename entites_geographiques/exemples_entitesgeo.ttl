@@ -13,50 +13,108 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix gsp: <http://www.opengis.net/ont/geosparql#>.
 
-# ---- Prefixes used for skos:ConceptScheme ---------------------------------------------------
-@prefix parceltype: <http://data.ign.fr/id/codes/topo/nap:ParcelTypeList/>.
-
-##--Cadastre Nap Classes
-@prefix comm: <http://data.ign.fr/def/cadastrenap#Commune/>.
-@prefix canton: <http://data.ign.fr/def/cadastrenap#Canton/>.
-@prefix arr: <http://data.ign.fr/def/cadastrenap#Arrondissement/>.
-@prefix dept: <http://data.ign.fr/def/cadastrenap#Departement/>.
-@prefix section: <http://data.ign.fr/def/cadastrenap#Section/>.
-@prefix locality: <http://data.ign.fr/def/cadastrenap#Locality/>.
-@prefix parcel: <http://data.ign.fr/def/cadastrenap#Parcel/>.
-@prefix owner: <http://data.ign.fr/def/cadastrenap#Owner/>.
-
 #Circonscriptions administratives
-comm:0001 a nap:Commune;
-    rdfs:label "Boissy-Saint-Léger"@fr;
-    nap:within canton:0001.
 
-canton:0001 a nap:Canton;
-    rdfs:label "Boissy-Saint-Léger"@fr;
-    nap:within arr:0001.
-
-arr:0001 a nap:Arrondissement;
-    rdfs:label "Corbeil"@fr;
-    nap:within dept:0001.
-
-dept:0001 a nap:Departement;
+#http://data.ign.fr/id/cadastrenap/departement/DEPT_Seine_et_Oise
+nap:DEPT_Seine_et_Oise a nap:Landmark;
+    nap:isLandmarkType nap:Departement;
     rdfs:label "Seine-et-Oise"@fr.
 
-#Description d'une parcelle
-owner:0001 a nap:Owner;
-    rdfs:label "Charlier"@fr.
+#http://data.ign.fr/id/cadastrenap/arrondissement/ARR_Corbeil
+nap:ARR_Corbeil a nap:Landmark;
+    nap:isLandmarkType nap:Arrondissement;
+    rdfs:label "Arrondissement de Corbeil"@fr;
+    nap:hasSpatialDescription [
+        a nap:SpatialDescription;
+        nap:targets nap:ARR_Corbeil;
+        nap:firstStep [
+            a nap:Segment;
+            nap:isSpatialRelationType nap:within;
+            nap:locatum nap:ARR_Corbeil;
+            nap:relatum nap:DEPT_Seine_et_Oise;
+        ]].
 
-section:0001 a nap:Section;
+#http://data.ign.fr/id/cadastrenap/canton/CA_Boissy_Saint_Leger
+nap:CA_Boissy_Saint_Leger a nap:Landmark;
+    nap:isLandmarkType nap:Canton;
+    rdfs:label "Canton de Boissy-Saint-Léger"@fr;
+    nap:hasSpatialDescription [
+        a nap:SpatialDescription;
+        nap:targets nap:CA_Boissy_Saint_Leger;
+        nap:firstStep [
+            a nap:Segment;
+            nap:isSpatialRelationType nap:within;
+            nap:locatum nap:CA_Boissy_Saint_Leger;
+            nap:relatum nap:ARR_Corbeil;
+        ]].
+
+#http://data.ign.fr/id/cadastrenap/commune/COMM_Boissy_Saint_Leger
+nap:COMM_Boissy_Saint_Leger a nap:Landmark;
+    nap:isLandmarkType nap:Commune;
+    rdfs:label "Boissy-Saint-Léger"@fr;
+    nap:hasSpatialDescription [
+        a nap:SpatialDescription;
+        nap:targets nap:COMM_Boissy_Saint_Leger;
+        nap:firstStep [
+            a nap:Segment;
+            nap:isSpatialRelationType nap:within;
+            nap:locatum nap:COMM_Boissy_Saint_Leger;
+            nap:relatum nap:CA_Boissy_Saint_Leger;
+        ]].
+
+#http://data.ign.fr/id/cadastrenap/section/SEC_Boissy_Saint_Leger_A
+nap:SEC_Boissy_Saint_Leger_A a nap:Landmark;
+    nap:isLandmarkType nap:Section;
     rdfs:label "Section A dite du Piple"@fr;
-    nap:within comm:0001;
-    dcterms:identifier "A"@fr.
+    dcterms:identifier "A"@fr;
+    nap:hasSpatialDescription [
+        a nap:SpatialDescription;
+        nap:targets nap:SEC_Boissy_Saint_Leger_A;
+        nap:firstStep [
+            a nap:Segment;
+            nap:isSpatialRelationType nap:within;
+            nap:locatum nap:SEC_Boissy_Saint_Leger_A;
+            nap:relatum nap:COMM_Boissy_Saint_Leger;
+        ]].
 
-locality:0001 a nap:Locality;
+#http://data.ign.fr/id/cadastrenap/place/Place0001
+nap:Place0001 a nap:Landmark;
+    nap:isLandmarkType nap:Place;
     rdfs:label "Le Village"@fr.
 
-parcel:0001 a nap:Parcel;
-    rdfs:label "207"@fr;
-    nap:parcelType parceltype:BareGround;
-    nap:parcelOwner owner:0001;
-    nap:within locality:0001;
-    nap:within section:0001.
+#http://data.ign.fr/id/cadastrenap/owner/owner0001
+nap:owner0001 a nap:Owner;
+    rdfs:label "Charlier"@fr;#ETS
+    skos:altLabel "Charlier Charles antoine"@fr;#MAT_1812 m1
+    nap:activity "B<sup>eois</sup>"@fr;#MAT_1812 m1
+    nap:address "à Paris"@fr.#MAT_1812 m1
+
+#http://data.ign.fr/id/cadastrenap/parcel/Boissy_Saint_Leger_A_207    
+nap:Boissy_Saint_Leger_A_207 a nap:Landmark;
+    rdfs:label "207";
+    nap:isLandmarkType nap:Parcel;
+    nap:isOwnedBy nap:owner0001;
+    nap:isParcelNature nap:Ground;
+    nap:hasSpatialDescription [
+        a nap:SpatialDescription;
+        rdfs:label "Boissy-Saint-Léger, Section A, Le Village, Parcelle 207"@fr;
+        nap:targets nap:Boissy_Saint_Leger_A_207;
+        nap:firstStep [
+            a nap:Segment;
+            nap:isSpatialRelationType nap:within;
+            nap:locatum nap:Boissy_Saint_Leger_A_207;
+            nap:relatum nap:COMM_Boissy_Saint_Leger;
+            nap:nextStep [
+                a nap:Segment;
+                nap:isSpatialRelationType nap:within;
+                nap:locatum nap:Boissy_Saint_Leger_A_207;
+                nap:relatum nap:SEC_Boissy_Saint_Leger_A;
+                nap:nextStep [
+                    a nap:FinalSegment;
+                    nap:isSpatialRelationType nap:within;
+                    nap:locatum nap:Boissy_Saint_Leger_A_207;
+                    nap:relatum nap:Place0001
+                ]
+            ]
+        ]
+    ].
