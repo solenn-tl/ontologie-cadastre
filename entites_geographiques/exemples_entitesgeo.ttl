@@ -65,8 +65,8 @@ nap:COMM_Boissy_Saint_Leger a nap:Landmark;
 #http://data.ign.fr/id/cadastrenap/section/SEC_Boissy_Saint_Leger_A
 nap:SEC_Boissy_Saint_Leger_A a nap:Landmark;
     nap:isLandmarkType nap:Section;
-    rdfs:label "Section A dite du Piple"@fr;
-    dcterms:identifier "A"@fr;
+    rdfs:label "Section A dite du Piple";
+    dcterms:identifier "A";
     nap:hasSpatialDescription [
         a nap:SpatialDescription;
         nap:targets nap:SEC_Boissy_Saint_Leger_A;
