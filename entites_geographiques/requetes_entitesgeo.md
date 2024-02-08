@@ -1,7 +1,7 @@
-## Requêtes SPARl pour le modelet Entités géographiques
+# Requêtes SPARQL pour le modelet Entités géographiques
 
 ## Connaître la liste des parcelles situées dans une commune/section/lieu-dit
-
+* Remplacer 
 ```sparql
 PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>

@@ -80,7 +80,16 @@ nap:SEC_Boissy_Saint_Leger_A a nap:Landmark;
 #http://data.ign.fr/id/cadastrenap/place/Place0001
 nap:Place0001 a nap:Landmark;
     nap:isLandmarkType nap:Place;
-    rdfs:label "Le Village"@fr.
+    rdfs:label "Le Village"@fr;
+    nap:hasSpatialDescription [
+        a nap:SpatialDescription;
+        nap:targets nap:Place0001;
+        nap:firstStep [
+            a nap:Segment;
+            nap:isSpatialRelationType nap:within;
+            nap:locatum nap:Place0001;
+            nap:relatum nap:COMM_Boissy_Saint_Leger;
+        ]].
 
 #http://data.ign.fr/id/cadastrenap/owner/owner0001
 nap:owner0001 a nap:Owner;
