@@ -2,7 +2,7 @@
 
 ## Question 1
 ### Question
-Quels sont les propriétaires de la commune X dont le nom commence par V ?
+Quels sont les propriétaires de la commune X ?
 ### Résultat attendu
 Liste des propriétaires dont le nom commence par V
 ### Exemple de réponse
@@ -13,14 +13,6 @@ Liste des propriétaires dont le nom commence par V
 
 ## Question 2
 ### Question
-Combien de parcelles y-a-t'il dans la commune X ?
-### Résultat attendu
-Nombre des parcelles de la commune X.
-### Exemple de réponse
-*Nombre entier* (207 parcelles dans la section C de Marolles-en-Brie)
-
-## Question 3
-### Question
 Qui est propriétaire de la parcelle X de la section C de la commune Y à la date TTTT ?
 ### Résultat attendu
 Identité du ou des propriétaires ou usufruitiers.
@@ -28,17 +20,7 @@ Identité du ou des propriétaires ou usufruitiers.
 *Propriétaire de la parcelle 104 de la section C de Marolles en Brie en 1810*
 * Barrey Pierre garde champêtre
 
-## Question 4
-### Question
-Qui hérite des parcelles du propriétaire X?
-### Résultat attendu
-Liste des toutes personnes ayant hérité du propriétaire X (propriété ou usufruit).
-
-<p style="color: green">Les noms des héritiers peuvent être aggrégés sous la mention héritiers XX</p>
-
-### Exemple de réponse
-
-## Question 5
+## Question 3
 ### Question
 Quels sont les propriétaires domiciliés dans la commune Y ?
 ### Résultat attendu
@@ -51,7 +33,7 @@ Liste des propriétaires identifiés aux moins une fois dans la commune depuis l
 * Vigoureux François vigon à id
 * Coudrai Augte André vigon à id
 
-## Question 6
+## Question 4
 ### Question
 Quels sont les propriétaires dont la profession est XX dans la commune YY?
 ### Résultat attendu
@@ -69,3 +51,13 @@ Liste des propriétaires dont la profession est XX dans la commune YY.
 * Galland Louis nicolas vig<sup>on</sup> à id
 * Mazarot Ve Pierre vig<up>one</sup> à id
 * Lefèvre Jacques vig<up>on</sup> et adjoint à id
+
+## Question 5
+### Question
+Qui hérite des parcelles du propriétaire X?
+### Résultat attendu
+Liste des toutes personnes ayant hérité du propriétaire X (propriété ou usufruit).
+
+<p style="color: green">Les noms des héritiers peuvent être aggrégés sous la mention héritiers XX</p>
+
+### Exemple de réponse
