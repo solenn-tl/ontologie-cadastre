@@ -12,7 +12,6 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix gsp: <http://www.opengis.net/ont/geosparql#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix addr: <http://rdf.geohistoricaldata.org/address>.
 
 # ---- Prefixes used for skos:ConceptScheme ---------------------------------------------------
@@ -176,7 +175,15 @@ nap:isOwnedBy a owl:ObjectProperty ;
                     rdfs:domain nap:Parcel ;
                     rdfs:range nap:Owner ;
                     rdfs:label "le propriétaire de la parcelle est"@fr ,
-                               "parcel owner is"@en . 
+                               "parcel owner is"@en ;
+                    owl:inverseOf nap:owns.
+
+nap:owns a owl:ObjectProperty ;
+                    rdfs:domain nap:Owner ;
+                    rdfs:range nap:Parcel ;
+                    rdfs:label "possède"@fr ,
+                               "owns"@en ;
+                    owl:inverseOf nap:isOwnedBy.
 
 ###  http://data.ign.fr/def/cadastrenap#hasLocalisation
 nap:hasSpatialDescription a owl:ObjectProperty ;
@@ -252,6 +259,11 @@ nap:undefinedSpatialRelation a owl:ObjectProperty ;
 #    Datatype Properties
 #################################################################
 
+nap:nature a owl:DatatypeProperty;
+  rdfs:domain nap:Landmark ;
+  rdfs:range xsd:string;
+  rdfs:label "a pour nature";
+  rdfs:comment "DEscription de la nature de la parcelle".
 
 #################################################################
 #    Individuals
