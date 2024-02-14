@@ -12,7 +12,6 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix gsp: <http://www.opengis.net/ont/geosparql#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix add: <http://rdf.geohistoricaldata.org/address#> .
 
 # ---- Prefixes used for skos:ConceptScheme -----
 
@@ -68,15 +67,6 @@ skos:definition rdf:type owl:AnnotationProperty.
 ###############################
 # ---- Classes definition ----
 ###############################
-
-## ---- Propriétaires ----
-nap:Owner a owl:Class;
-  rdfs:isDefinedBy <http://data.ign.fr/def/cadastrenap#>;
-  rdfs:label "Owner"@en , "Propriétaire ou usufruitier"@fr ;
-  rdfs:comment "Propriétaire ou usufruitier : personne redevable de l'impôt foncier pour les terres dont elle a la pleine propriété ou l'usufruit."@fr .
-  
-nap:Landmark a owl:Class ;
-              rdfs:label "Repère"@fr.
 
 nap:CompteFoncier a owl:Class;
     rdfs:isDefinedBy <http://data.ign.fr/def/cadastrenap#>;

@@ -1,0 +1,48 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix nap: <http://data.ign.fr/def/cadastrenap#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://data.ign.fr/id/cadastrenap/section/SEC_Marolles_en_Brie_A> a nap:Landmark ;
+    rdfs:label "Section A dite des Bruyères, Marolles-en-Brie" ;
+    nap:hasSpatialDescription [ a nap:SpatialDescription ;
+            nap:firstStep [ a nap:Segment ;
+                    nap:isSpatialRelationType nap:within ;
+                    nap:locatum <http://data.ign.fr/id/cadastrenap/section/SEC_Marolles_en_Brie_A> ;
+                    nap:relatum <http://data.ign.fr/id/cadastrenap/commune/Marolles_en_Brie> ] ;
+            nap:targets <http://data.ign.fr/id/cadastrenap/section/SEC_Marolles_en_Brie_A> ] ;
+    nap:isLandmarkType nap:Section ;
+    dcterms:identifier "A" .
+
+<http://data.ign.fr/id/cadastrenap/section/SEC_Marolles_en_Brie_B> a nap:Landmark ;
+    rdfs:label "Section B dite de la butte au berger, Marolles-en-Brie" ;
+    nap:hasSpatialDescription [ a nap:SpatialDescription ;
+            nap:firstStep [ a nap:Segment ;
+                    nap:isSpatialRelationType nap:within ;
+                    nap:locatum <http://data.ign.fr/id/cadastrenap/section/SEC_Marolles_en_Brie_B> ;
+                    nap:relatum <http://data.ign.fr/id/cadastrenap/commune/Marolles_en_Brie> ] ;
+            nap:targets <http://data.ign.fr/id/cadastrenap/section/SEC_Marolles_en_Brie_B> ] ;
+    nap:isLandmarkType nap:Section ;
+    dcterms:identifier "B" .
+
+<http://data.ign.fr/id/cadastrenap/section/SEC_Marolles_en_Brie_C> a nap:Landmark ;
+    rdfs:label "Section C dite du Village, Marolles-en-Brie" ;
+    nap:hasSpatialDescription [ a nap:SpatialDescription ;
+            nap:firstStep [ a nap:Segment ;
+                    nap:isSpatialRelationType nap:within ;
+                    nap:locatum <http://data.ign.fr/id/cadastrenap/section/SEC_Marolles_en_Brie_C> ;
+                    nap:relatum <http://data.ign.fr/id/cadastrenap/commune/Marolles_en_Brie> ] ;
+            nap:targets <http://data.ign.fr/id/cadastrenap/section/SEC_Marolles_en_Brie_C> ] ;
+    nap:isLandmarkType nap:Section ;
+    dcterms:identifier "C" .
+
+<http://data.ign.fr/id/cadastrenap/section/SEC_Marolles_en_Brie_D> a nap:Landmark ;
+    rdfs:label "Section D dite du pont de brie, Marolles-en-Brie" ;
+    nap:hasSpatialDescription [ a nap:SpatialDescription ;
+            nap:firstStep [ a nap:Segment ;
+                    nap:isSpatialRelationType nap:within ;
+                    nap:locatum <http://data.ign.fr/id/cadastrenap/section/SEC_Marolles_en_Brie_D> ;
+                    nap:relatum <http://data.ign.fr/id/cadastrenap/commune/Marolles_en_Brie> ] ;
+            nap:targets <http://data.ign.fr/id/cadastrenap/section/SEC_Marolles_en_Brie_D> ] ;
+    nap:isLandmarkType nap:Section ;
+    dcterms:identifier "D" .
+

@@ -2,6 +2,15 @@
 
 Cette ontologie a pour objectif de décrire les informations et documents qui constituent le cadastre napoléonien, premier cadastre produit à l'achelle de l'ensemble des départements français.
 
+## TO DO List
+
+- [ ] Ajouter les versions d'attributs (Nature, propriétaire, Lieux-dits)
+- [ ] Créer les communes, cantons, arrondissements départements de la zone d'étude
+- [ ] Créer les sources
+
+## Questions
+* Lieux-dits : Objectproperty ou Datatypeproperty
+
 ## Vocabulaires et ontologies
 
 ### Entités géographiques

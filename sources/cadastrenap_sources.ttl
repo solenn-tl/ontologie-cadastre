@@ -221,17 +221,17 @@ prov:SoftwareAgent a owl:Class ;
 
 
 # https://github.com/johnBradley501/FPO/raw/master/fpo.owl#Assertion
-fpo:Assertion a owl:Class.
+#fpo:Assertion a owl:Class.
 
 # https://github.com/johnBradley501/FPO/raw/master/fpo.owl#Factoid
-fpo:Factoid a owl:Class ;
-	rdfs:subClassOf :Assertion .
+#fpo:Factoid a owl:Class ;
+	#rdfs:subClassOf :Assertion .
 
 # https://github.com/johnBradley501/FPO/raw/master/fpo.owl#Source
-fpo:Source a owl:Class .
+#fpo:Source a owl:Class .
 
 # https://github.com/johnBradley501/FPO/raw/master/fpo.owl#SourceCitation
-fpo:SourceCitation a owl:Class .
+#fpo:SourceCitation a owl:Class .
 
 #####################################
 # ---- Objectproperty definition ----
@@ -410,18 +410,18 @@ prov:wasGeneratedBy a owl:ObjectProperty ;
     :qualifiedForm :Generation, :qualifiedGeneration .
 
 # https://github.com/johnBradley501/FPO/raw/master/fpo.owl#fromSource
-fpo:fromSource a owl:ObjectProperty ;
-	rdfs:domain :SourceCitation ;
-	rdfs:range :Source .
+#fpo:fromSource a owl:ObjectProperty ;
+	#rdfs:domain :SourceCitation ;
+	#rdfs:range :Source .
 
 # https://github.com/johnBradley501/FPO/raw/master/fpo.owl#sourcedFrom
-fpo:sourcedFrom a owl:ObjectProperty ;
-	rdfs:domain :Assertion ;
-	rdfs:range :SourceCitation .
+#fpo:sourcedFrom a owl:ObjectProperty ;
+	#rdfs:domain :Assertion ;
+	#rdfs:range :SourceCitation .
 
 ###############################
 # ---- Datatype properties ----
 ###############################
 
 # ---- Imported properties ----
-rdfs:label a owl:DatatypeProperty.
+#rdfs:label a owl:DatatypeProperty.
