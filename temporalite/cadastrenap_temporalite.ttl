@@ -1,0 +1,137 @@
+@prefix nap: <http://data.ign.fr/def/cadastrenap#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix addr: <http://rdf.geohistoricaldata.org/address>.
+
+# ---- Prefixes used for skos:ConceptScheme ---------------------------------------------------
+
+# ---- Imported annotation properties ----
+skos:inScheme a owl:AnnotationProperty.
+skos:prefLabel a owl:AnnotationProperty .
+skos:altLabel a owl:AnnotationProperty.
+skos:broader a owl:AnnotationProperty.
+skos:definition a owl:AnnotationProperty.
+
+#################################################################
+# ---- Classes definition ----
+#################################################################
+
+
+#################################################################
+# ---- Object Properties ----
+#################################################################
+
+### http://data.ign.fr/def/cadastrenap#after
+nap:after a owl:ObjectProperty ;
+           rdfs:domain addr:AttributeChange ;
+           rdfs:range addr:AttributeVersion ;
+           rdfs:comment "Décrit un état qui se passe après un changement"@fr ;
+           rdfs:label "suivi par"@fr, "followed by"@en.
+           #owl:equivalentClass addr:after.
+
+### http://data.ign.fr/def/cadastrenap#appliedTo
+nap:appliedTo a owl:ObjectProperty ;
+               rdfs:domain addr:Change ;
+               rdfs:range [ rdf:type owl:Class ;
+                            owl:unionOf ( addr:Attribute
+                                          addr:Landmark
+                                        )
+                          ] ;
+               rdfs:comment "Définit sur quoi s'applique le changement"@fr ;
+               rdfs:label "s'applique"@fr @"is applied on"@en.
+               #owl:equivalentClass addr:appliedTo.
+
+###  http://data.ign.fr/def/cadastrenap#before
+nap:before a owl:ObjectProperty ;
+            rdfs:domain addr:AttributeChange ;
+            rdfs:range addr:AttributeVersion ;
+            rdfs:comment "Décrit un état qui se passe avant un changement"@fr ;
+            rdfs:label "précédé par"@fr, "preceded by"@en.
+            #owl:equivalentClass addr:before.
+
+###  http://data.ign.fr/def/cadastrenap#dependsOn
+nap:dependsOn a owl:ObjectProperty ;
+            rdfs:domain addr:Change ;
+            rdfs:range addr:Event ;
+            rdfs:comment "Décrit l'appartenance d'un changement à un événement"@fr ;
+            rdfs:label "dépend de l'événement"@fr, "depends on the event"@en.
+            #owl:equivalentClass addr:dependsOn.
+
+
+###  http://data.ign.fr/def/cadastrenap#hasAttribute
+nap:hasAttribute a owl:ObjectProperty ;
+                  rdfs:domain addr:Landmark ;
+                  rdfs:range addr:Attribute ;
+                  rdfs:comment "Décrit l'attribut pour un repère"@fr ;
+                  rdfs:label "a pour attribut"@fr, "has attribute"@en .
+                  #owl:equivalentClass addr:hasAttribute.
+
+
+###  http://data.ign.fr/def/cadastrenap#hasBeginning
+nap:hasBeginning a owl:ObjectProperty ;
+                  rdfs:domain addr:TimeInterval ;
+                  rdfs:range addr:TimeInstant ;
+                  rdfs:comment "Début de l'intervalle temporel"@fr ;
+                  rdfs:label "commence par"@fr, "starts at"@ .
+                  #owl:equivalentClass addr:addr:hasBeginning.
+
+
+###  http://data.ign.fr/def/cadastrenap#hasEnd
+nap:hasEnd a owl:ObjectProperty ;
+            rdfs:domain addr:TimeInterval ;
+            rdfs:range addr:TimeInstant ;
+            rdfs:comment "Fin de l'intervalle temporel"@fr ;
+            rdfs:label "finit par"@fr, "ends at".
+            #owl:equivalentClass addr:hasEnd.
+
+
+###  http://data.ign.fr/def/cadastrenap#hasTime
+nap:hasTime rdf:type owl:ObjectProperty ;
+             rdfs:range addr:TemporalEntity .
+             #owl:equivalentClass addr:hasEnd.
+
+###  http://data.ign.fr/def/cadastrenap##timeCalendar
+nap:timeCalendar rdf:type owl:ObjectProperty ;
+                  rdfs:domain addr:TimeInstant ;
+                  rdfs:range time:TRS ;
+                  rdfs:comment "Calendrier lié à l'instant (grégorien, julien, révolutionnaire)"@fr ;
+                  rdfs:label "a pour calendrier"@fr, "has calendar"@en .
+                  #owl:equivalentClass addr:timeCalendar.
+
+
+###  http://data.ign.fr/def/cadastrenap##timePrecision
+nap:timePrecision rdf:type owl:ObjectProperty ;
+                   rdfs:domain addr:TimeInstant ;
+                   rdfs:range time:TemporalUnit ;
+                   rdfs:comment "Précision de l'instant (au jour, au mois, à l'année...)"@fr ;
+                   rdfs:label "a pour précision temporelle"@fr, "temporal precision is"@en .
+                   #owl:equivalentClass addr:timePrecision.
+
+
+###  http://data.ign.fr/def/cadastrenap##version
+nap:version rdf:type owl:ObjectProperty ;
+             rdfs:domain addr:Attribute ;
+             rdfs:range addr:AttributeVersion ;
+             rdfs:comment "Version d'une valeur associée à l'attribut"@fr ;
+             rdfs:label "a pour version"@fr, "has version"@en .
+             #owl:equivalentClass addr:version.
+
+###  http://data.ign.fr/def/cadastrenap##isChangeType
+nap:isChangeType rdf:type owl:ObjectProperty ;
+             rdfs:domain addr:Change ;
+             rdfs:range addr:ChangeType ;
+             rdfs:comment "Décrit la nature du changement"@fr ;
+             rdfs:label "est un changement de type"@fr, "is change of type"@en.
+             #owl:equivalentClass addr:isChangeType.
+
+###  http://data.ign.fr/def/cadastrenap##isAttributeType
+nap:isAttributeType rdf:type owl:ObjectProperty ;
+             rdfs:domain addr:Attribute ;
+             rdfs:range addr:AttributeType ;
+             rdfs:comment "Décrit la nature de l'attribut"@fr ;
+             rdfs:label "est un attribut de type"@fr, "is attribute type"@en .
+             #owl:equivalentClass addr:isAttributeType.

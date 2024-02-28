@@ -127,3 +127,53 @@ nap:Boissy_Saint_Leger_A_207 a nap:Landmark;
             ]
         ]
     ].
+
+
+#http://data.ign.fr/id/cadastrenap/parcel/Boissy_Saint_Leger_A_207    
+nap:Boissy_Saint_Leger_A_207 a nap:Landmark;
+    nap:isLandmarkType nap:Parcel;
+    rdfs:label "Parcelle 207, Section A, Boissy-Saint-Léger";
+    skos:prefLabel "Parcelle 207, Section A, Boissy-Saint-Léger";
+    nap:hasAttribute [ a nap:Owner;
+        nap:hasVersion [
+            nap:isOwnedBy nap:owner0001;#Est-ce qu'on a le droit inclure une classe dans elle même ?
+            time:hasBeginning "1810";
+            time:hasEnd "1822";
+            nap:sourcedFrom [ 
+                nap:hasSource nap:source0001
+                nap:hasSource nap:source0002
+            ]
+        ]
+    ];
+    nap:hasAttribute [ a nap:Nature;
+        nap:hasValue [
+            nap:isParcelNature nap:Ground;
+            nap:startDate 
+            nap:endDate
+            nap:sourcedFrom
+        ]
+    ];
+    nap:hasAttribute[ a nap:SpatialDescription;
+        nap:hasvalue [
+            rdfs:label "Boissy-Saint-Léger, Section A, Le Village, Parcelle 207"@fr;
+            nap:targets nap:Boissy_Saint_Leger_A_207;
+            nap:firstStep [
+                a nap:Segment;
+                nap:isSpatialRelationType nap:within;
+                nap:locatum nap:Boissy_Saint_Leger_A_207;
+                nap:relatum nap:COMM_Boissy_Saint_Leger;
+                nap:nextStep [
+                    a nap:Segment;
+                    nap:isSpatialRelationType nap:within;
+                    nap:locatum nap:Boissy_Saint_Leger_A_207;
+                    nap:relatum nap:SEC_Boissy_Saint_Leger_A;
+                    nap:nextStep [
+                        a nap:FinalSegment;
+                        nap:isSpatialRelationType nap:within;
+                        nap:locatum nap:Boissy_Saint_Leger_A_207;
+                        nap:relatum nap:Place0001
+                    ]
+                ]
+            ]
+        ]
+    ].

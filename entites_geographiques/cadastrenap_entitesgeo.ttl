@@ -169,7 +169,7 @@ nap:isParcelNature a owl:ObjectProperty ;
                     rdfs:domain nap:Parcel ;
                     rdfs:range nap:ParcelNature ;
                     rdfs:label "la nature de la parcelle est"@fr ,
-                               "parcel nature is"@en .    
+                               "parcel nature is"@en .
 
 nap:isOwnedBy a owl:ObjectProperty ;
                     rdfs:domain nap:Parcel ;

@@ -7,9 +7,11 @@ Cette ontologie a pour objectif de décrire les informations et documents qui co
 - [ ] Ajouter les versions d'attributs (Nature, propriétaire, Lieux-dits)
 - [ ] Créer les communes, cantons, arrondissements départements de la zone d'étude
 - [ ] Créer les sources
+- [ ] Créer la taxonomie de natures de parcelles
+- [ ] Tester modèle de langue pour 
 
 ## Questions
-* Lieux-dits : Objectproperty ou Datatypeproperty
+* Lieux-dits : ObjectProperty ou DatatypeProperty ?
 
 ## Vocabulaires et ontologies
 
