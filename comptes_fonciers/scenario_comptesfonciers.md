@@ -12,17 +12,19 @@ Chaque compte est scindé en deux parties :
 - la liste des propriétaires sucessifs qui lui sont associés, appelés "articles de mutation" dans le <i>Recueil de 1811</i>. ;
 - les états des parcelles détenues par ce(s) propriétaire(s), appelés "articles de classement" dans le <i>Recueil de 1811</i>.
 
-Un compte foncier est associé à un numéro. Selon le formattage du pré-imprimé utilisé, ce numéro peut faire référence à un ou plusieurs comptes différents. 
+Un compte foncier est associé à un numéro (plus rarement à plusieurs). Selon le type de tableau pré-imprimé utilisé, ce numéro peut faire référence à un ou à plusieurs comptes fonciers différents. 
 
-Pour chaque état de parcelle (article de classement = ligne de compte foncier), il est possible d'indiquer de quel compte foncier est issu la précéente mention de la parcelle ("Tiré de") et dans quel compte foncier se trouve la (ou les) mention(s) suivantes ("Porté à"). 
+Pour chaque état de parcelle (article de classement = ligne de compte foncier), il est possible d'indiquer de quel compte foncier est issu la précédente mention de la parcelle ("Tiré de") et dans quel compte foncier se trouve la (ou les) mention(s)(s) suivantes ("Porté à"). Les évènements qui concernent les propriétés bâties peuvent également être indiqués dans ces colonnes : "Nouvelle construction" (C.N/N.C), "Augmentation" (Aug), "Evaluation du bâti" (E.B.), "Destruction", "Ruine".
 
-Les lignes obsolètes d'un compte foncier sont généralement rayée. Un compte foncier clos peut également être barré. 
+Les lignes obsolètes d'un compte foncier sont rayées. Un compte foncier clos est généralement barré. 
 
 - Les propriétés d'un **article de matrice** sont :
     - *{obligatoire}* son/ses **numéro**(s)
     - *{obligatoire}* le ou les **propriétaires** auquel il a été associé
     - *{optionnel}* son **style** (barré ou non)
     - *{optionnel}* la **zone correspondant au compte dans la page**
+    - *{optionnel}* le **numéro du folio où se poursuit le compte foncier** (ex: en cas de manque de place dans la page)
+    - *{optionnel}* la **liste des états de parcelles** qu'il mentionne
 
 - Les propriétés d'un **état de parcelle** : 
     - *{obligatoire}* la **section** où se trouve la parcelle
