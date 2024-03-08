@@ -8,15 +8,11 @@
   </tr>
   <tr>
     <td>Article</td>
-    <td><i>Voir "Folio"</i></td>
+    <td><i>Voir "Folio"</i> - Terme utilisé de 1807 à 1822.</td>
   </tr>
   <tr>
-    <td>Article de mutation</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Article de classement</td>
-    <td></td>
+    <td>Année de la mutation</td>
+    <td>Titre de l'unique colonne date présente dans la matrice des propriétés foncières (1822-v.1882).</td>
   </tr>
   <tr>
     <td>Augmentations</td>
@@ -24,10 +20,15 @@
   </tr>
   <tr>
     <td>Case</td>
-    <td><i>Voir "Folio"</i></td>
+    <td><i>Voir "Folio"</i> - Terme utilisé à partir de 1882.</td>
   </tr>
   <tr>
-    <td>Compte foncier</td>
+    <td>Date d'entrée</td>
+    <td>Titre de l'une des colonnes relatives aux dates de mutations dans les matrices des propriétés non bâties (v.1882-rénovation). Date de début de validité d'un état d'une parcelle dans un compte foncier.</td>
+  </tr>
+  <tr>
+    <td>Date de sortie</td>
+    <td>Titre de l'une des colonnes relatives aux dates de mutations dans les matrices des propriétés non bâties (v.1882-rénovation). Date de fin de validité d'un état d'une parcelle dans un compte foncier.</td>
   </tr>
   <tr>
     <td>Diminutions</td>
@@ -35,7 +36,7 @@
   </tr>
   <tr>
     <td>Folio (aussi appelés <i>article</i> ou <i>case</i>)</td>
-    <td>Page de la matrice qui contient la liste des des parcelles appartenant à un propriétaire (et leurs différents états successifs). Un folio peut contenir 1 ou plusieurs comptes fonciers associés à des propriétaires différents.</td>
+    <td>Page de la matrice qui contient la liste des parcelles appartenant à un propriétaire (plus précisement les différents états successifs de des parcelles appartenant à un contribuable.). Un folio peut contenir 1 ou plusieurs comptes fonciers associés à des propriétaires différents.</td>
   </tr>
   <tr>
     <td>Mutation</td>
@@ -71,11 +72,16 @@
   <tr>
     <td><b>B</b></td>
     <td>Bâti / Bâtie</td>
-    <td>Principalement utilisée dans la colonne "Porté à" de la matrice des propriétés foncières en 1882, date de l'extraction des propriété bâties dans une nouvelle matrice spécicifiquement dédiée.</td>
+    <td>Principalement utilisée dans la colonne "Porté à" de la matrice des propriétés foncières en 1882, date de l'extraction des propriété bâties dans une nouvelle matrice spécicifiquement dédiée. Le <i>B</i> est généralement suivi du numéro de la case de la matrice des propriétés bâties.</td>
   </tr>
   <tr>
-    <td><b>C.N.</b></td>
-    <td>Construction nouvelle</td>
+    <td><b>B.R.</b></td>
+    <td>Bâtiment rural</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>C.N.</b> / <b>N. C.</b></td>
+    <td>Construction nouvelle / Nouvelle construction</td>
     <td></td>
   </tr>
   <tr>
@@ -84,9 +90,19 @@
     <td></td>
   </tr>
   <tr>
-    <td>Elévation</td>
+    <td><b>Dem</b></td>
+    <td>Démolition</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>Elévation</b></td>
     <td>Elévation</td>
     <td>Ajout d'un ou plusieurs étages à un bâtiment qui conserve sa superficie initiale.</td>
+  </tr>
+  <tr>
+    <td>ES</td>
+    <td>Etat de sections</td>
+    <td></td>
   </tr>
   <tr>
     <td><b>N.B.</b></td>
@@ -104,9 +120,19 @@
     <td></td>
   </tr>
   <tr>
-    <td><b>P</b></td>
+    <td><b>P</b> / <b>p</b></td>
     <td>Partie de</td>
     <td>Signifie qu'il s'agit d'une partie de la parcelle (qui a été divisée en plusieurs parties).</td>
+  </tr>
+  <tr>
+    <td><b>PB</b></td>
+    <td>Propriété bâtie</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>PNB</td>
+    <td>Propriété non bâtie</td>
+    <td></td>
   </tr>
   <tr>
     <td><b>Rec.</b> / <b>Rect.</b> / <b>Rectif.</b></td>
@@ -115,7 +141,17 @@
   </tr>
   <tr>
     <td><b>R.B.</b></td>
-    <td><i>Réévaluation de la valeur servant à l’imposition</i> (Sources: <a href="https://patrimoines-archives.morbihan.fr/fileadmin/Archives/Rechercher/Fiches_pratiques/Recherche_fonciere_cadastre.pdf">Archives du Morbihan</a>)</td>
+    <td>Révision du bâti</td>
+    <td>Réévaluation de la valeur servant de base à l’imposition</td>
+  </tr>
+  <tr>
+    <td><b>S</b></td>
+    <td>Sol</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>V.L.</b></td>
+    <td>Valeur locative</td>
     <td></td>
   </tr>
   <tr>
@@ -130,5 +166,6 @@
 * [Archives du Morbihan](https://patrimoines-archives.morbihan.fr/fileadmin/Archives/Rechercher/Fiches_pratiques/Recherche_fonciere_cadastre.pdf)
 * [Archives de Seine-et-Marne](https://archives.seine-et-marne.fr/fr/faire-une-recherche-dans-le-cadastre)
 * [Matrices noires, Archives nationales](https://francearchives.gouv.fr/findingaid/5d08f8387e7ba7e323049b57c3ea01ccd76e4224)
+* [Archives de l'Indre](https://www.archives36.fr/image/56063/19947?size=!800,800&region=full&format=pdf&download=1&crop=haut&realWidth=1240&realHeight=1754&force-inline)
 
 
