@@ -42,4 +42,17 @@ Un compte foncier entièrement barré est clôt.
 - **Matrice** : Matrice de rôles de Marolles-en-Brie (1810-1822)
 
 ### Exemple 2
-> 
+> Folio 602/1040, Matrice des propriétés foncières/non bâties (1822-1914), Champigny-sur-Marne (<a href="comptes_fonciers\img\folio_champigny_FRAD094_3P_000108_01_0004.PNG">Voir l'image</a>)
+- **Numéro** : 602 <i>ET</i> 1040
+- **Propriétaire**:
+    - Macreau Laurent à Chennevière
+    - Bessault Louis à Champigny, rue du Bousquet
+    - Coutable Eugène 141 Grande Rue à Champigny 1906
+- **Liste des parcelles mentionnées** :
+    - C-1474 (1822-1861)
+    - F-758p (1893-1847)
+    - C-1028 (1906-1914)
+- **Matrice** : Matrice des propriétés foncières/non bâties (1822-1914), Champigny-sur-Marne 
+
+### Exemple 3
+> Case , Matrice des propriétés non bâties (1914-rénovation), Champigny-sur-Marne 
