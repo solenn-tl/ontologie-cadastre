@@ -2,39 +2,44 @@
 
 ## Nom
 
-Suivi des mutations de parcelles à partir des comptes fonciers
+Comptes fonciers et mutations
 
 ## Description
 
-Un compte foncier est une liste d'états des parcelles associé à un ou plusieurs propriétaires. L'ensemble des comptes fonciers d'une commune sont consignés dans la matrice cadastrale. Ces comptes fonciers portent différents noms : **article, folio ou case**.
+Un compte foncier est une liste d'états des parcelles associé à un ou plusieurs propriétaires (sucessifs ou pas). L'ensemble des comptes fonciers d'une commune sont consignés dans la matrice cadastrale. Ces comptes fonciers portent différents noms dans la documentation cadastrale : **article, folio ou case**.
 
-Chaque compte est scindé en deux parties :
+Dans les documents cadastraux, chaque compte foncier est scindé en deux parties :
 - la liste des propriétaires sucessifs qui lui sont associés, appelés "articles de mutation" dans le <i>Recueil de 1811</i>. ;
 - les états des parcelles détenues par ce(s) propriétaire(s), appelés "articles de classement" dans le <i>Recueil de 1811</i>.
 
-Un compte foncier est associé à un numéro (plus rarement à plusieurs). Selon le type de tableau pré-imprimé utilisé, ce numéro peut faire référence à un ou à plusieurs comptes fonciers différents. 
+Un compte foncier est associé à un numéro (plus rarement à plusieurs, généralement quand plusieurs pages sont nécessaires pour lister l'ensemble des parcelles appartenant aux propriétaires mentionnés). Selon le type de matrice cadastrale traité, ce numéro peut faire référence à un ou à plusieurs comptes fonciers différents. 
 
-Pour chaque état de parcelle (article de classement = ligne de compte foncier), il est possible d'indiquer de quel compte foncier est issu la précédente mention de la parcelle ("Tiré de") et dans quel compte foncier se trouve la (ou les) mention(s)(s) suivantes ("Porté à"). Les évènements qui concernent les propriétés bâties peuvent également être indiqués dans ces colonnes : "Nouvelle construction" (C.N/N.C), "Augmentation" (Aug), "Evaluation du bâti" (E.B.), "Destruction", "Ruine".
+Pour chaque état de parcelle, il est possible d'indiquer le compte foncier où il se trouvait précédement ("Tiré de") et dans quel compte foncier se trouve il est porté après une modification de cet état ("Porté à"). Les évènements qui concernent les propriétés (principalement bâties) sont également indiqués dans ces colonnes : "Nouvelle construction" (C.N/N.C), "Augmentation" (Aug), "Evaluation du bâti" (E.B.), "Destruction", "Ruine".
+Ces passages d'un compte foncier à un autre sont des informations particulièrement utile pour ordonner les états d'une même parcelle dans l'ordre chronologique.
 
-Les lignes obsolètes d'un compte foncier sont rayées. Un compte foncier clos est généralement barré. 
+Les lignes obsolètes d'un compte foncier sont rayées. 
+Un compte foncier entièrement barré est clôt. 
 
-- Les propriétés d'un **article de matrice** sont :
-    - *{obligatoire}* son/ses **numéro**(s)
-    - *{obligatoire}* le ou les **propriétaires** auquel il a été associé
-    - *{optionnel}* son **style** (barré ou non)
-    - *{optionnel}* la **zone correspondant au compte dans la page**
+- Un **compte foncier** est caractérisé par:
+    - *{obligatoire}* son **numéro de folio/article/case**
+    - *{obligatoire}* la **matrice cadastrale** dans laquelle il se trouve
+    - *{obligatoire}* le ou les **propriétaires** qu'il mentionne
+    - *{obligatoire}* la **liste des états de parcelles** qu'il mentionne
     - *{optionnel}* le **numéro du folio où se poursuit le compte foncier** (ex: en cas de manque de place dans la page)
-    - *{optionnel}* la **liste des états de parcelles** qu'il mentionne
+    - *{optionnel}* le **numéro du folio précédent le folio actuel** (ex: en cas de manque de place dans la page)
+    - *{optionnel}* le **numéro de folio/article/case dans la matrice précédente**
 
-- Les propriétés d'un **état de parcelle** : 
-    - *{obligatoire}* la **section** où se trouve la parcelle
-    - *{obligatoire}* l'**identifiant de la parcelle**
-    - *{obligatoire}* la **nature** de la parcelle parcelle
-    - *{optionnel}* le **style de la ligne** (barré ou non)
-    - *{optionnel}* le **numéro de folio précédent**("Tiré de")
-    - *{obligatoire}* **le/les numéro(s) de folio(s) suivant**(s) ("Porté à")
-    - *{optionnel}* la **date de début de validité** des informations la ligne
-    - *{optionnel}* la **date de fin de validité** des informations la ligne
-    - *{optionnel}* la **zone où il se trouve dans la page numérisée**
+## Exemples
 
-Pour connaître la nature d'une mutation, il faut disposer de deux articles de classement sucessifs traitant de la même parcelle.
+### Exemple 1
+> Article 42, Matrice de rôles (1810-1822), Marolles-en-Brie
+- **Numéro** : 42
+- **Propriétaire** : Lhuillier Veuve Vigneronne à Marolles (1812-1822)
+- **Liste des parcelles mentionnées** :
+    - A-44 (1812-1822)
+    - D-115 (1812-1822)
+    - D-118 (1812-1822)
+- **Matrice** : Matrice de rôles de Marolles-en-Brie (1810-1822)
+
+### Exemple 2
+> 

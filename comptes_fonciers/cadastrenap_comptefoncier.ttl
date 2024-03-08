@@ -71,53 +71,57 @@ skos:definition rdf:type owl:AnnotationProperty.
 nap:CompteFoncier a owl:Class;
     rdfs:isDefinedBy <http://data.ign.fr/def/cadastrenap#>;
     rdfs:label "Property tax account"@en , "Compte foncier"@fr ;
-    skos:prefLabel "compte foncier"@fr;
-    skos:altLabel "article"@fr, "folio"@fr, "case"@fr.
+    skos:prefLabel "Compte foncier"@fr;
+    skos:altLabel "Article"@fr, "Folio"@fr, "Case"@fr.
 
+#Attribute
 nap:Presence a owl:Class;
     rdfs:isDefinedBy <http://data.ign.fr/def/cadastrenap#>;
-    rdfs:comment "Presence d'une parcelle ou d'un propriétaire dans un compte foncier"@fr;
+    rdfs:comment "Présence d'une parcelle ou d'un propriétaire dans un compte foncier"@fr;
     rdfs:label "Présence dans un compte foncier"@fr, "Mention in a property tax account"@en;
-    skos:altLabel "Occurence".
+    skos:altLabel "Occurence"@fr, "Mention".
 
 #############################
 # ---- Object properties ----
 #############################
 
-nap:isLinkedWith a owl:ObjectProperty;
-    rdfs:domain nap:Landmark ;
-    rdfs:range nap:Presence;
-    rdfs:comment "Une parcelle est présente [dans un compte foncier]."@fr.
+#nap:isLinkedWith a owl:ObjectProperty;
+#    rdfs:domain nap:Landmark ;
+#    rdfs:range nap:Presence;
+#    rdfs:comment "Une parcelle est présente [dans un compte foncier]."@fr.
 
-nap:linkedWith a owl:ObjectProperty;
-    rdfs:domain nap:Presence ;
-    rdfs:range nap:Owner;
-    rdfs:comment "Présence d'un propriétaire [dans un compte foncier]."@fr.
+#nap:linkedWith a owl:ObjectProperty;
+#    rdfs:domain nap:Presence ;
+#    rdfs:range nap:Owner;
+#    rdfs:comment "Présence d'un propriétaire [dans un compte foncier]."@fr.
 
 nap:isMentionnedIn a owl:ObjectProperty;
     rdfs:domain nap:Presence;
     rdfs:range nap:CompteFoncier;
-    rdfs:comment "Un compte foncier mentionne la présence d'une parcelle."@fr.
+    rdfs:comment "Une parcelle ou un propriétaire est mentionné dans un compte foncier."@fr;
+    owl:inverseOf nap:mentions.
 
 nap:mentions a owl:ObjectProperty;
     rdfs:domain nap:CompteFoncier;
     rdfs:range nap:Presence;
-    rdfs:comment "Un compte foncier mentionne la présence d'un propriétaire."@fr.
+    rdfs:comment "Un compte foncier mentionne la présence d'une parcelle ou d'un propriétaire."@fr;
+    owl:inverseOf nap:isMentionnedIn.
 
 nap:isContinuedWith a owl:ObjectProperty;
     rdfs:domain nap:CompteFoncier;
     rdfs:range nap:CompteFoncier;
-    rdfs:comment "Un compte foncier X a pour suite le compte foncier Y."@fr.
+    rdfs:comment "Un compte foncier X se poursuit dans le compte foncier Y (généralement si le compte s'étend sur plusieurs pages)."@fr.
 
 ###############################
 # ---- Datatype properties ----
 ###############################
 
-# ---- Imported properties ----
-rdfs:label a owl:DatatypeProperty.
-
 nap:hasNum a owl:DatatypeProperty;
     rdfs:domain nap:CompteFoncier ;
-    rdfs:range xsd:integer;
+    rdfs:range xsd:Literal;
     rdfs:label "a pour numéro de compte"@fr ,
-        "has property tax account number"@en .
+        "has property tax account number"@en ;
+    rdfs:comment "Numéro du compte foncier (article/folio/case) dans la documentation cadastrale."@fr.
+
+# ---- Imported properties ----
+rdfs:label a owl:DatatypeProperty.
