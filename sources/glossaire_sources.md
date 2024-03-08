@@ -1,31 +1,43 @@
 # Glossaire du modelet Sources
 
+## Glossaire général
+
 <table>
   <tr>
     <th>Terme</th>
     <th>Définition</th>
   </tr>
   <tr>
-    <td>Article</td>
-    <td><i>Voir "Folio"</i></td>
+    <td>Cote d'archive</td>
+    <td><i>Ensemble de symboles (lettres, chiffres, signes) identifiant chaque article d'un service d'archives et correspondant à sa place dans le cadre de classement ou à son adresse dans les magasins.</i></br> - <a href="https://archives.orleans-metropole.fr/boite-a-outils/vocabulaire-darchiviste#:~:text=Cote%20%3A%20Ensemble%20de%20symboles%20(lettres,son%20adresse%20dans%20les%20magasins.">Archives municipales d'Orléans</a></td>
   </tr>
   <tr>
-    <td>Case</td>
-    <td><i>Voir "Folio"</i></td>
+    <td>DOI</td>
+    <td><i>Un DOI (Digital Object Identifier) est identifiant pérenne et unique, qui permet de référencer, citer et fournir un lien stable vers un fichier en ligne.</i></br> - <a href="https://data.ird.fr/obtenir-un-doi/">data.ird.fr</a></td>
+  </tr>
+  <tr>
+    <td>Licence de diffusion</td>
+    <td><i>Une licence de diffusion est un instrument juridique, complémentaire au droit d’auteur. Elle permet au titulaire des droits sur une œuvre d’accorder à l’avance aux utilisateurs certains droits d’utilisation de cette œuvre. Elle préserve les droits moraux de l’auteur en imposant toujours l’obligation d’attribution (citation de la source).</i></br> - <a href="https://coop-ist.cirad.fr/etre-auteur/utiliser-les-licences-creative-commons/2-qu-est-ce-qu-une-licence-de-diffusion">CIRAD</a></td>
+  </tr>
+  <tr>
+    <td>Source</td>
+    <td><i>Documents, textes originaux auxquels on a recours pour indiquer l'origine d'une information.</i></br>- <a href="https://www.larousse.fr/dictionnaires/francais/source/73725">Dictionnaire Larousse</a></td>
+  </tr>
+  <tr>
+    <td>URI IIIF</td>
+    <td><i>IIIF (International Image Interoperability Framework) est un protocole d’échange qui rend les documents des archives ouvertes ou des bibliothèques numériques consultables, manipulables et annotables par n’importe quelle application ou logiciel compatible.</i> Chaque document rendu disponible par le protocole IIIF est associé à une URI pérenne.</br> - <a href="https://www.idnum.fr/memodoc/iiif-pour-les-bibliotheques-numeriques/">IdNum</a></td>
+  </tr>
+</table>
+
+## Types de sources
+<table>
+  <tr>
+    <th>Terme</th>
+    <th>Définition</th>
   </tr>
   <tr>
     <td>Etat de sections</td>
     <td>Registre établi à une date proche de la production du plan parcellaire et qui constitue sa légende en associant à chaque numéro de parcelle un ou plusieurs propriétaires, une nature, une contenance et une évaluation.<br>Il n'était pas prévu de mettre à jour le registre d'état de section après sa rédaction.</td>
-  </tr>
-  <tr>
-    <td>Folio (aussi appelés <i>article</i> ou <i>case</i>)</td>
-    <td>Page de la matrice qui contient la liste des des parcelles appartenant à un propriétaire (et leurs différents états successifs). Un folio peut contenir 1 ou plusieurs comptes fonciers associés à des propriétaires différents.</td>
-  </tr>
-  <tr>
-    <td>Géoréférencement</td>
-    <td><i>On dit d'une carte qu'elle est géoréférencée lorsque les données qu'elle contient comportent toutes, parmi leurs attributs, leurs coordonnées géographiques. Cela permet notamment d'ajuster la carte à la projection choisie, ou de changer d'échelle.</i><br>
-     - <a href="https://geoconfluences.ens-lyon.fr/glossaire/georeferencement">Géoréférencement, Géoconfluences</a>
-    </td>
   </tr>
   <tr>
     <td>Liste alphabétique des propriétaires</td>
@@ -88,15 +100,43 @@
     Plan, généralement produit à l'échelle 1:10 000, qui représente le découpage de la commune en section et la position des zones cartographiées décrites dans les plans parcellaires.
     </td>
   </tr>
-  <tr>
-    <td>Vectorisation</td>
-    <td>
-    Action qui vise à extraire des données vectorielles d'un plan ou d'une carte.
-    </td>
-  </tr>
 </table>
 
-## Resources 
+## Types de processus
+<table>
+  <tr>
+    <th>Processus</th>
+    <th>Définition</th>
+    <th>Résultat<th>
+  </tr>
+  <tr>
+    <td><b>Classification d'images</b></td>
+    <td></td>
+    <td>Image enrichie d'une métadonnée décrivant son type.</td>
+  </tr>
+  <tr>
+    <td><b>Détection et transcription du texte dans un document avec DAN</b></td>
+    <td></td>
+    <td>Document numérisé transcrit sous la forme de données structurées</td>
+  </tr>
+  <tr>
+    <td><b>Détection et reconnaissance des écritures dans une carte</b></td>
+    <td></td>
+    <td>Localisation et transcription des écritures de la carte traitée.</td>
+  </tr>
+  <tr>
+    <td><b>Géoréférencement</b></td>
+    <td></td>
+    <td>Carte/Plan géoréférencé</td>
+  </tr>
+  <tr>
+    <td><b>Vectorisation</b></td>
+    <td>Action qui vise à extraire les formes géométriques représentées dans une carte (image) sous la forme de données vectorielles.</td>
+    <td>Carte/Plan vectorisé</td>
+  </tr>
+<table>
+
+## Références bibliographiques
 * <a href="https://archives.finistere.fr/sites/default/files/aide_recherche_cadastre_precisions_matrices_cadastrales_0.pdf">Précis sur les types de matrices cadastrales</a>, Archives départementales du Finistère
 * <a href="https://archives.creuse.fr/rechercher/repertoires-et-aides-a-la-recherche/aides-a-la-recherche/bati-et-propriete/faire-une-recherche-dans-le-cadastre/les-differents-types-de-documents-cadastraux">Description de la documentation cadastrale</a>, Archives départementales de la Creuse
 * <a href="http://archives.brive.fr/matr.php">Précis sur les registres du cadastre napoléonien</a>, Archives de Brive

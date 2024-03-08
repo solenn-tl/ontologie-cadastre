@@ -8,27 +8,19 @@ Sources
 
 Le modelet Sources a pour objectif de faire le lien entre les informations décrites dans le graphe de connaissances et les sources dont elles sont extraites. 
 
-Une source peut prendre différentes formes : 
+Une source historique peut prendre différentes formes : 
 * concept : contenu de la source considéré indépendement de sa forme concrète;
-* physique : exemplaire précis d'un concept, généralement caractérisé par une référence et une localisation ;
-* numérisée : scan d'un exemplaire
-* autres formes dérivées faisant suite à un traitement automatique ou manuel (ex: plan géoréférencé).
+* physique : exemplaire physique d'un concept, généralement caractérisé par un identifiant et une localisation ;
+* numérisée : version numérisé d'un exemplaire
+* autres formes dérivées faisant suite à un traitement automatique ou manuel (ex: plan géoréférencé, page transcrite).
 
-Il peut exister plusieurs instances (physique, numérisée, dérivée) d'un même concept.
-
-Une source peut être scindée en plusieurs parties (ex : une matrice comprend la liste alphabétique des propriétaires, les augmentations/diminutions et les folios).
-
-Quatre principaux documents composent le cadastre napoléonien :
-* les plans parcellaires (plan)
-* le tableau d'assemblage (plan)
-* l'état de sections (registre)
-* la matrice des propriétaires (registre)
+Une source peut être scindée en plusieurs parties (ex : une matrice comprend la liste alphabétique des propriétaires, les augmentations/diminutions et les folios), elle peut comprendre plusieurs éléments. Ces éléments peuvent eux-mêmes être comprendre plusieurs zones
 
 Une **source** peut être décrite par les propriétés suivantes :
 * {*obligatoire*} son **titre ou intitulé**;
-* {*obligatoire*} son **type** (plan parcellaire, plan d'assemblage, etat de section, matrice...)
+* {*obligatoire*} son **type** (ex: plan parcellaire, plan d'assemblage, état de section, matrice, référentiel géographique...)
 * {*optionnel*} son **précision de son type** (ex: plan issu d'atlas, plan minute, plan révisé)
-* {*optionnel*} son **auteur**
+* {*optionnel*} son **auteur** (personne physique ou morale)
 * {*optionnel*} sa **date de création**
 * {*optionnel*} sa **date de début de validité**
 * {*optionnel*} sa **date de fin de validité**
@@ -40,16 +32,8 @@ Une **source** peut être décrite par les propriétés suivantes :
 * {numérisée: *optionnel*} son **URL IIIF**
 * {numérisée,dérivée:*obligatoire*} sa **licence de diffusion**
 * {dérivée: *obligatoire*} son **processus de création** 
-(géoréférencement, vectorisation, transcription)
+(ex: géoréférencement, vectorisation, transcription)
 * {dérivée: *optionnel*} son **DOI**
-
-Les **relations entre les différentes formes de sources** peuvent être décrites ainsi:
-* il existe toujours au moins un concept de source qui donne lieu à une source physique;
-* dans le cas des sources historiques, un concept possède au moins une instance physique ;
-* une instance physique peut être numérisée (mais pas forcément) ;
-* les sources physiques et numérisées peuvent faire l'objet d'instanciations dérivées (transcription, géoréférencement).
-
-Une source est généralement associée à une version d'un attribut (ex: nom du propriétaire, nature de la parcelle) ou à un évènement 
 
 ## Exemples
 
@@ -122,42 +106,3 @@ Exemple de description du plan parcellaire de la section C de Marolles en Brie d
 * **Type** : plan vectorisé
 * **Date de création** : mai 2023
 * **Processus de création** : annotation manuelle avec QGIS
-
-## Mémo
-<table>
-  <tr>
-    <th>Document</th>
-    <th>Informations fournies</th>
-    <th>Traitements associés</th>
-  </tr>
-  <tr>
-    <td>Plan parcellaire</td>
-    <td><ul>
-            <li>Localisation des parcelles dans les sections</li>
-            <li>Forme des parcelles (géométrie)</li>
-            <li>Association parcelle/numéro</li>
-            <li>Toponymie</li>
-            <li>Métadonnées (échelle du plan, nom du géomètre...)</li>
-        </ul>
-    </td>
-    <td>Géoréférencement, Vectorisation, Détection et reconnaissance de texte</td>
-  </tr>
-  <tr>
-    <td>Tableau d'assemblage</td>
-    <td>
-    <ul><li>Position relative des zones représentées dans les plans parcellaires au sein de la commune</li>
-    <li>Toponymie</li>
-    </ul></td>
-    <td>   Géoréférencement, Vectorisation, Détection et reconnaissance de texte</td>
-  </tr>
-  <tr>
-    <td>Etat de section</td>
-    <td>Etat des parcelles à T0</td>
-    <td>Classification des pages<br>DAN</td>
-  </tr>
-  <tr>
-    <td>Matrice des mutations</td>
-    <td>Etats sucessifs des parcelles au cours de la période de validité du cadastre.</td>
-    <td>Classification des pages<br>DAN</td>
-  </tr>
-</table>

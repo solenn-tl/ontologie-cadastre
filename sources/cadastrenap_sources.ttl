@@ -380,7 +380,7 @@ prov:wasAssociatedWith a owl:ObjectProperty ;
     :inverse "wasAssociateFor" ;
     :qualifiedForm :Association, :qualifiedAssociation .
 
-prov::used a owl:ObjectProperty ;
+prov:used a owl:ObjectProperty ;
     rdfs:comment "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven ."@en ;
     rdfs:domain :Activity ;
     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
@@ -409,13 +409,13 @@ prov:wasGeneratedBy a owl:ObjectProperty ;
     :inverse "generated" ;
     :qualifiedForm :Generation, :qualifiedGeneration .
 
-# https://github.com/johnBradley501/FPO/raw/master/fpo.owl#fromSource
-#fpo:fromSource a owl:ObjectProperty ;
+#https://github.com/johnBradley501/FPO/raw/master/fpo.owl#fromSource
+fpo:fromSource a owl:ObjectProperty ;
 	#rdfs:domain :SourceCitation ;
 	#rdfs:range :Source .
 
-# https://github.com/johnBradley501/FPO/raw/master/fpo.owl#sourcedFrom
-#fpo:sourcedFrom a owl:ObjectProperty ;
+#https://github.com/johnBradley501/FPO/raw/master/fpo.owl#sourcedFrom
+fpo:sourcedFrom a owl:ObjectProperty ;
 	#rdfs:domain :Assertion ;
 	#rdfs:range :SourceCitation .
 
