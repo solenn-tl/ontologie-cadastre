@@ -11,12 +11,8 @@
     <td><i>Voir "Folio"</i> - Terme utilisé de 1807 à 1822.</td>
   </tr>
   <tr>
-    <td>Année de la mutation</td>
-    <td>Titre de l'unique colonne date présente dans la matrice des propriétés foncières (1822-v.1882).</td>
-  </tr>
-  <tr>
     <td>Augmentations</td>
-    <td>Les augmentations sont tous les évènements qui conduisent à une réévaluation à la hausse d'un bien comme une augmentation de superficie ou une construction ou amélioration d'un bâtiment. Une section leur est spécifiquement dédiée au début des matrices des propriétés foncières (1822-1882), non bâties (1882-1914, 1914-rénovation).</td>
+    <td>Les augmentations sont tous les évènements qui conduisent à une réévaluation à la hausse d'un bien comme une augmentation de superficie, une construction ou amélioration d'un bâtiment. Une section leur est spécifiquement dédiée au début des matrices des propriétés foncières (1822-1882) et des propriétés non bâties (1882-1914, 1914-rénovation).</td>
   </tr>
   <tr>
     <td>Case</td>
@@ -24,11 +20,11 @@
   </tr>
   <tr>
     <td>Date d'entrée</td>
-    <td>Titre de l'une des colonnes relatives aux dates de mutations dans les matrices des propriétés non bâties (v.1882-rénovation). Date de début de validité d'un état d'une parcelle dans un compte foncier.</td>
+    <td>Date de début de validité d'un état d'une parcelle dans un compte foncier.</br><i>Titre de l'une des colonnes relatives aux dates de mutations dans les matrices des propriétés non bâties (v.1882-rénovation).</i></td>
   </tr>
   <tr>
     <td>Date de sortie</td>
-    <td>Titre de l'une des colonnes relatives aux dates de mutations dans les matrices des propriétés non bâties (v.1882-rénovation). Date de fin de validité d'un état d'une parcelle dans un compte foncier.</td>
+    <td>Date de fin de validité d'un état d'une parcelle dans un compte foncier.</br><i>Titre de l'une des colonnes relatives aux dates de mutations dans les matrices des propriétés non bâties (v.1882-rénovation).</i></td>
   </tr>
   <tr>
     <td>Diminutions</td>
@@ -40,7 +36,7 @@
   </tr>
   <tr>
     <td>Mutation</td>
-    <td>Une mutation est un changement qui impacte une parcelle, notamment son propriétaire (vente, transmission) ou encore sa nature. Elle est provoque soit un changement de contribuable soit une réévaluation.</td>
+    <td>Une mutation est un changement qui impacte une parcelle, notamment son propriétaire (vente, transmission) ou encore sa nature. Elle est provoque soit un changement de contribuable, soit une réévaluation fiscale, soit un passage dans le domaine publique.</td>
   </tr>
   <tr>
     <td>Numéro de compte foncier (aussi <i>Numéro d'article, de folio ou de case</i>)</td>
@@ -100,7 +96,7 @@
     <td>Ajout d'un ou plusieurs étages à un bâtiment qui conserve sa superficie initiale.</td>
   </tr>
   <tr>
-    <td>ES</td>
+    <td><b>ES</b></td>
     <td>Etat de sections</td>
     <td></td>
   </tr>
@@ -130,7 +126,7 @@
     <td></td>
   </tr>
   <tr>
-    <td>PNB</td>
+    <td><b>PNB</b></td>
     <td>Propriété non bâtie</td>
     <td></td>
   </tr>
