@@ -110,7 +110,14 @@ nap:mentions a owl:ObjectProperty;
 nap:isContinuedWith a owl:ObjectProperty;
     rdfs:domain nap:CompteFoncier;
     rdfs:range nap:CompteFoncier;
-    rdfs:comment "Un compte foncier X se poursuit dans le compte foncier Y (généralement si le compte s'étend sur plusieurs pages)."@fr.
+    rdfs:comment "Un compte foncier X se poursuit dans le compte foncier Y (généralement si le compte s'étend sur plusieurs pages)."@fr;
+    owl:inverseOf nap:isContinuationOf.
+
+nap:isContinuationOf a owl:ObjectProperty;
+    rdfs:domain nap:CompteFoncier;
+    rdfs:range nap:CompteFoncier;
+    rdfs:comment "Un compte foncier Y est la suite d'un compte foncier X (généralement si le compte s'étend sur plusieurs pages)."@fr;
+    owl:inverseOf nap:isContinuedWith.
 
 ###############################
 # ---- Datatype properties ----
