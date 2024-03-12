@@ -1,0 +1,30 @@
+@prefix nap: <http://data.ign.fr/def/cadastrenap#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix fpo: <https://github.com/johnBradley501/FPO/raw/master/fpo.owl#>.
+@prefix time: <http://www.w3.org/2006/time#> .
+
+#Création de l'objet compte foncier
+nap:comptefoncier0001 a nap:CompteFoncier;
+    nap:hasNum "43" xsd:string.
+
+#Association d'un CF avec un propriétaire
+nap:comptefoncier0002 a nap:CompteFoncier;
+    nap:hasNum "94" xsd:string.
+
+nap:owner0002 a nap:Owner;
+    skos:prefLabel "Mazarot Pierre cabaretier"@fr;
+    skos:altLabel "Mazarot Pierre cabaretier à Marolles"@fr;
+    rdfs:label "Mazarot Pierre"@fr;
+    nap:activity "cabaratier"@;
+    nap:address "à Marolles"@;
+    nap:hasAttribute [ a nap:Presence
+        nap:hasVersion [
+            #fpo:sourcedFrom ""
+            nap:hasBeginning "entre 1812 et 1822";
+            nap:hasEnd "entre 1812 et 1822";
+            nap:isMentionnedIn nap:comptefoncier0002
+        ]
+    ].

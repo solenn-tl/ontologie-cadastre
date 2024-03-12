@@ -86,52 +86,50 @@ nap:SpatialDescription a owl:Class ;
                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                owl:onClass nap:Landmark
                              ] ;
-             rdfs:label "Parcelle localisation"@en , "Localisation d'une parcelle"@fr;
+             rdfs:label "Localisation"@en , "Localisation"@fr;
              rdfs:comment "Localisation de la parcelle au sein du découpage cadastral et administratif"@fr.
             #owl:equivalentClass addr:Address.
 
 
 ###  http://data.ign.fr/def/cadastrenap#Segment
 nap:Segment a owl:Class ;
-                    rdfs:subClassOf [ a owl:Restriction ;
-                                      owl:onProperty nap:relatum ;
-                                      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass nap:Landmark
-                                    ] ,
-                                    [ a owl:Restriction ;
-                                      owl:onProperty nap:locatum ;
-                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass nap:Landmark
-                                    ] ,
-                                    [ a owl:Restriction ;
-                                      owl:onProperty nap:nextStep ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass nap:Segment
-                                    ] ;
-                    rdfs:label "Localisation segment"@en ,
-                               "Segment de localisation d'une parcelle"@fr.
-                    #owl:equivalentClass addr:AddressSegment.
+            rdfs:subClassOf [ a owl:Restriction ;
+                              owl:onProperty nap:relatum ;
+                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass nap:Landmark
+                            ] ,
+                            [ a owl:Restriction ;
+                              owl:onProperty nap:locatum ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass nap:Landmark
+                            ] ,
+                            [ a owl:Restriction ;
+                              owl:onProperty nap:nextStep ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass nap:Segment
+                            ] ;
+            rdfs:label "Localisation segment"@en ,
+                        "Segment de localisation d'une parcelle"@fr.
+            #owl:equivalentClass addr:AddressSegment.
 
 
 ###  http://data.ign.fr/def/cadastrenap#SegmentType
 nap:SegmentType a owl:Class ;
-                        rdfs:subClassOf skos:Concept ;
-                        rdfs:label "Type de segment"@fr ,
-                                   "Type of address"@en.
-                        #owl:equivalentClass addr:AddressSegmentType.
-
+          rdfs:subClassOf skos:Concept ;
+          rdfs:label "Type de segment"@fr ,
+                      "Type of address"@en.
+          #owl:equivalentClass addr:AddressSegmentType.
 
 ###  http://data.ign.fr/def/cadastrenap#FinalSegment
 nap:FinalSegment a owl:Class ;
-                         rdfs:subClassOf nap:Segment ,
-                                         [ a owl:Restriction ;
-                                           owl:onProperty nap:nextStep ;
-                                           owl:cardinality "0"^^xsd:nonNegativeInteger
-                                         ] ;
-                         rdfs:label "Final segment"@en ,
-                                    "Segment final"@fr.
-                        #owl:equivalentClass addr:FinalAddressSegment.
-
+                rdfs:subClassOf nap:Segment ,
+                                [ a owl:Restriction ;
+                                  owl:onProperty nap:nextStep ;
+                                  owl:cardinality "0"^^xsd:nonNegativeInteger
+                                ] ;
+                rdfs:label "Final segment"@en ,
+                          "Segment final"@fr.
+              #owl:equivalentClass addr:FinalAddressSegment.
 
 ###  http://data.ign.fr/def/cadastrenap#Landmark
 nap:Landmark a owl:Class ;
@@ -163,21 +161,33 @@ nap:isLandmarkType a owl:ObjectProperty ;
                     rdfs:label "le type de repère est"@fr ,
                                "is landmark type"@en .
 
-
-###  http://data.ign.fr/def/cadastrenap#isParcelNature
-nap:isParcelNature a owl:ObjectProperty ;
+####### NATURE
+###  http://data.ign.fr/def/cadastrenap#hasParcelNature
+nap:hasParcelNature a owl:ObjectProperty ;
                     rdfs:domain nap:Parcel ;
                     rdfs:range nap:ParcelNature ;
-                    rdfs:label "la nature de la parcelle est"@fr ,
-                               "parcel nature is"@en .
+                    rdfs:label "a pour nature"@fr ,
+                               "has parcel nature"@en;
+                    owl:inverseOf nap:isParcelNatureOf.
 
+###  http://data.ign.fr/def/cadastrenap#isParcelNatureOf
+nap:isParcelNatureOf a owl:ObjectProperty ;
+                    rdfs:domain nap:Parcel ;
+                    rdfs:range nap:ParcelNature ;
+                    rdfs:label "est la nature de la parcelle"@fr ,
+                               "is parcel nature of"@en;
+                    owl:inverseOf nap:hasParcelNature.
+
+######## PROPRIETAIRES
+###  http://data.ign.fr/def/cadastrenap#isOwnedBy
 nap:isOwnedBy a owl:ObjectProperty ;
                     rdfs:domain nap:Parcel ;
                     rdfs:range nap:Owner ;
-                    rdfs:label "le propriétaire de la parcelle est"@fr ,
-                               "parcel owner is"@en ;
+                    rdfs:label "est la propriété de"@fr ,
+                               "is owned by"@en ;
                     owl:inverseOf nap:owns.
 
+###  http://data.ign.fr/def/cadastrenap#owns
 nap:owns a owl:ObjectProperty ;
                     rdfs:domain nap:Owner ;
                     rdfs:range nap:Parcel ;
@@ -185,7 +195,8 @@ nap:owns a owl:ObjectProperty ;
                                "owns"@en ;
                     owl:inverseOf nap:isOwnedBy.
 
-###  http://data.ign.fr/def/cadastrenap#hasLocalisation
+######## LOCALISATIONdia
+###  http://data.ign.fr/def/cadastrenap#hasSpatialDescription
 nap:hasSpatialDescription a owl:ObjectProperty ;
                     rdfs:domain nap:Parcel ;
                     rdfs:range nap:SpatialDescription ;
@@ -259,33 +270,35 @@ nap:undefinedSpatialRelation a owl:ObjectProperty ;
 #    Datatype Properties
 #################################################################
 
+#Classe temporaire (tests de peuplement)
 nap:nature a owl:DatatypeProperty;
   rdfs:domain nap:Landmark ;
   rdfs:range xsd:string;
   rdfs:label "a pour nature";
-  rdfs:comment "DEscription de la nature de la parcelle".
+  rdfs:comment "Description de la nature de la parcelle".
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  http://data.ign.fr/def/cadastrenap#LandmarkList
+###  http://data.ign.fr/id/codes/cadastrenap/typeoflandmark/list
 nap:LandmarkList a owl:NamedIndividual ,
-                           skos:ConceptScheme ;
+                  skos:ConceptScheme ;
                   rdfs:comment "Liste des différents rôles pouvant être joués par un repère, représentés comme une liste de concepts SKOS."@fr ;
                   rdfs:label "type de repère"@fr ,
                              "type of landmark"@en .
 
-###  http://data.ign.fr/def/cadastrenap#AdministrativeUnit
+###  http://data.ign.fr/id/codes/cadastrenap/typeoflandmark/AdministrativeUnit
 nap:AdministrativeUnit a owl:NamedIndividual ,
-                                  nap:LandmarkType ,
-                                  skos:Concept ;
+                         nap:LandmarkType ,
+                         skos:Concept ;
                          skos:definition "Circonscription administrative (commune, canton, arrondissement, département)"@fr ;
                          skos:inScheme addr:LandmarkList ;
                          skos:prefLabel "circonscription administrative"@fr;
-                         skos:altLabel "administrative unit"@en.
+                         skos:altLabel "administrative unit"@en;
+                         skos:broader nap:Landmark.
 
-###  http://data.ign.fr/def/cadastrenap#Parcel
+###  http://data.ign.fr/id/codes/cadastrenap/typeoflandmark/Parcel
 nap:Parcel a owl:NamedIndividual ,
                    nap:LandmarkType ,
                    skos:Concept ;
@@ -293,9 +306,9 @@ nap:Parcel a owl:NamedIndividual ,
           skos:inScheme nap:LandmarkList ;
           skos:prefLabel "parcelle"@fr;
           skos:altLabel "parcel"@en ;
-        skos:broader nap:Landmark.
+          skos:broader nap:Landmark.
 
-###  http://data.ign.fr/def/cadastrenap#Parcel
+###  http://data.ign.fr/id/codes/cadastrenap/typeoflandmark/Section
 nap:Section a owl:NamedIndividual ,
                    nap:LandmarkType ,
                    skos:Concept ;
@@ -303,9 +316,9 @@ nap:Section a owl:NamedIndividual ,
           skos:inScheme nap:LandmarkList ;
           skos:prefLabel "section"@en ,
                          "section"@fr;
-        skos:broader nap:Landmark.
+          skos:broader nap:Landmark.
 
-###  http://data.ign.fr/def/cadastrenap#Place
+###  http://data.ign.fr/id/codes/cadastrenap/typeoflandmark/Place
 nap:Place a owl:NamedIndividual ,
                    nap:LandmarkType ,
                    skos:Concept ;
@@ -313,9 +326,9 @@ nap:Place a owl:NamedIndividual ,
           skos:inScheme nap:LandmarkList ;
           skos:prefLabel "place"@en ,
                          "lieu-dit"@fr;
-        skos:broader nap:Landmark.
+          skos:broader nap:Landmark.
 
-###  http://data.ign.fr/def/cadastrenap#Commune
+###  http://data.ign.fr/id/codes/cadastrenap/typeoflandmark/Commune
 nap:Commune a owl:NamedIndividual ,
                    nap:LandmarkType ,
                    skos:Concept ;
@@ -325,7 +338,7 @@ nap:Commune a owl:NamedIndividual ,
           skos:altLabel "town"@en.
         skos:broader nap:AdministrativeUnit.
 
-###  http://data.ign.fr/def/cadastrenap#Canton
+###  http://data.ign.fr/id/codes/cadastrenap/typeoflandmark/Canton
 nap:Canton a owl:NamedIndividual ,
                    nap:LandmarkType ,
                    skos:Concept ;
@@ -336,7 +349,7 @@ nap:Canton a owl:NamedIndividual ,
           skos:altLabel "justice de paix"@fr;
         skos:broader nap:AdministrativeUnit.
 
-###  http://data.ign.fr/def/cadastrenap#Arrondissement
+###  http://data.ign.fr/id/codes/cadastrenap/typeoflandmark/Arrondissement
 nap:Arrondissement a owl:NamedIndividual ,
                    nap:LandmarkType ,
                    skos:Concept ;
@@ -346,7 +359,7 @@ nap:Arrondissement a owl:NamedIndividual ,
                         "arrondissement"@en;
         skos:broader nap:AdministrativeUnit.
 
-###  http://data.ign.fr/def/cadastrenap#Departement
+###  http://data.ign.fr/id/codes/cadastrenap/typeoflandmark/Departement
 nap:Departement a owl:NamedIndividual ,
                    nap:LandmarkType ,
                    skos:Concept ;
@@ -356,24 +369,24 @@ nap:Departement a owl:NamedIndividual ,
                         "département"@en;
           skos:broader nap:AdministrativeUnit.
 
-###  http://data.ign.fr/def/cadastrenap#SegmentList
+###  http://data.ign.fr/id/codes/cadastrenap/typeofsegment/liste
 nap:SegmentList a owl:NamedIndividual ,
                         skos:ConceptScheme ;
                         rdfs:comment "Liste des différents types de relations spatiales pouvant être associées à un segment de localisation, représentés comme une liste de concepts SKOS."@fr ;
                         rdfs:label "type de segment"@fr ,
                                    "type of segment"@en .
 
-###  http://data.ign.fr/def/cadastrenap#Within
+### http://data.ign.fr/id/codes/cadastrenap/typeofsegment/Within
 nap:Within a owl:NamedIndividual ,
                      nap:SegmentType ,
                      skos:Concept ;
             skos:prefLabel "à l'intérieur"@fr ;
             skos:definition "Relation spatiale définissant que le locatum est situé dans le relatum"@fr ;
-            skos:inScheme nap:AdressSegmentList ;
+            skos:inScheme nap:SegmentList ;
             skos:prefLabel "dans"@fr ,
                            "within"@en .
 
-###  http://data.ign.fr/def/cadastrenap#UndifinedSpatialRelation
+###  http://data.ign.fr/id/codes/cadastrenap/typeofsegment/UndifinedSpatialRelation
 nap:UndifinedSpatialRelation a owl:NamedIndividual ,
                      nap:SegmentType ,
                      skos:Concept ;
@@ -382,51 +395,52 @@ nap:UndifinedSpatialRelation a owl:NamedIndividual ,
             skos:definition "Relation spatiale indéfinie entre le locatum et le relatum"@fr ;
             skos:inScheme nap:SegmentList.
 
-###  http://data.ign.fr/def/cadastrenap#SegmentList
+###  http://data.ign.fr/id/codes/cadastrenap/nature/liste
 nap:ParcelNatureList a owl:NamedIndividual ,
                         skos:ConceptScheme ;
                         rdfs:comment "Liste des différentes natures de parcelles, représentées comme une liste de concepts SKOS."@fr ;
                         rdfs:label "type de parcelle"@fr ,
                                    "type of parcel"@en .
 
-
-
-
+### http://data.ign.fr/id/codes/cadastrenap/nature/ProprieteNonBatie 
 nap:ProprieteNonBatie a owl:NamedIndividual, 
                         nap:ParcelNature, 
                         skos:Concept;
 	skos:definition "Propriété non bâtie."@fr;
 	skos:inScheme nap:nap:ParcelNatureList;
-	skos:prefLabel "propriété non bâtie"@fr;
-  skos:boader nap:ParcelNature.
+	skos:prefLabel "propriété non bâtie"@fr.
 
+### http://data.ign.fr/id/codes/cadastrenap/nature/ProprieteBatie
 nap:ProprieteBatie a owl:NamedIndividual, 
                         nap:ParcelNature, 
                         skos:Concept;
 	skos:definition "Propriété bâtie."@fr;
 	skos:inScheme nap:ParcelNatureList;
-	skos:prefLabel "propriété bâtie"@fr;
-  skos:boader nap:ParcelNature.
+	skos:prefLabel "propriété bâtie"@fr.
 
-nap:BareGround a skos:Concept;
+### http://data.ign.fr/id/codes/cadastrenap/nature/Terre
+nap:Terre a skos:Concept;
 	skos:definition "Terre"@fr, "Bare ground"@en;
 	skos:inScheme nap:ParcelNatureList;
 	skos:prefLabel "terre"@fr, "bare ground"@en;
   skos:boader nap:ProprieteNonBatie.
 
-nap:Vine a skos:Concept;
+### http://data.ign.fr/id/codes/cadastrenap/nature/Vigne
+nap:Vigne a skos:Concept;
 	skos:definition "Vigne"@fr, "Vine"@en;
 	skos:inScheme nap:ParcelNatureList;
 	skos:prefLabel "vigne"@fr, "vine"@en;
   skos:boader nap:ProprieteNonBatie.
 
-nap:VineGround a skos:Concept;
+### http://data.ign.fr/id/codes/cadastrenap/nature/TerreAVigne
+nap:TerreAVigne a skos:Concept;
 	skos:definition "Terre à vigne"@fr;
 	skos:inScheme nap:ParcelNatureList;
 	skos:prefLabel "terre à vigne"@fr;
   skos:boader nap:ProprieteNonBatie.
 
-nap:House a skos:Concept;
+### http://data.ign.fr/id/codes/cadastrenap/nature/Maison
+nap:Maison a skos:Concept;
 	skos:definition "Maison"@fr, "House"@fr;
 	skos:inScheme nap:ParcelNatureList;
 	skos:prefLabel "maison"@fr, "house"@en;

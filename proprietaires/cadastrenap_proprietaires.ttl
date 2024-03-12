@@ -105,8 +105,7 @@ nap:activity a owl:DatatypeProperty;
 	             "Activité d'un propriétaire. Ex.: cultivateur."@fr ;
 	rdfs:domain nap:Owner;
 	rdfs:range xsd:string;
-	rdfs:label "Activity"@en;
-	rdfs:label "Activité"@fr.
+	rdfs:label "activity"@en, "activité"@fr.
 
 nap:address a owl:ObjectProperty;
 	rdfs:domain  nap:Owner;

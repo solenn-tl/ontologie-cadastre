@@ -64,6 +64,7 @@ Les bornes de l'intervalle de validité d'une propriété peuvent être :
 Les états de sections fournissent l'état initial de la parcelle (dans une version du cadastre donnée). La date associée à cet état est l'année de production de cet état de section. Elle peut être indiquée/récupérée de plusieurs façons :
 * extraction depuis la source numérisée
 * **indiquée dans les métadonnées de la côte d'archive**
+
 #### Exemple
 >Année de production de l'état de sections de Marolles en Brie : *1810*
 * Date d'apparition de chaque parcelle : 1810
@@ -144,12 +145,4 @@ Ces états sont principalements décrits dans les matrices cadastrales.
         <td>1832</td>
     </tr>
 </table>
-
-*2. Etats résumés*
-
-* Pour chaque version d'attribut
-    - Valeur
-    - Date de début
-    - Date de fin
-    - Citations (= issues des documents qui confirme l'information, au moins de début et de fin)
 

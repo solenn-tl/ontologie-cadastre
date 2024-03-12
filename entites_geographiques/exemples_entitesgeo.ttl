@@ -1,4 +1,5 @@
-@prefix nap: <http://data.ign.fr/def/cadastrenap#>.
+
+@prefix napo: <http://data.ign.fr/def/cadastrenap#>.
 @prefix addr: <http://rdf.geohistoricaldata.org/address#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
@@ -24,155 +25,113 @@ nap:DEPT_Seine_et_Oise a nap:Landmark;
 nap:ARR_Corbeil a nap:Landmark;
     nap:isLandmarkType nap:Arrondissement;
     rdfs:label "Arrondissement de Corbeil"@fr;
-    nap:hasSpatialDescription [
+    nap:hasAttribute [
         a nap:SpatialDescription;
-        nap:targets nap:ARR_Corbeil;
-        nap:firstStep [
-            a nap:Segment;
-            nap:isSpatialRelationType nap:within;
-            nap:locatum nap:ARR_Corbeil;
-            nap:relatum nap:DEPT_Seine_et_Oise;
-        ]].
-
+        nap:hasVersion [
+                nap:targets nap:ARR_Corbeil;
+                nap:firstStep [
+                    a nap:Segment;
+                    nap:isSpatialRelationType nap:within;
+                    nap:locatum nap:ARR_Corbeil;
+                    nap:relatum nap:DEPT_Seine_et_Oise
+                ]]
+        ].
+    
 #http://data.ign.fr/id/cadastrenap/canton/CA_Boissy_Saint_Leger
 nap:CA_Boissy_Saint_Leger a nap:Landmark;
     nap:isLandmarkType nap:Canton;
     rdfs:label "Canton de Boissy-Saint-Léger"@fr;
-    nap:hasSpatialDescription [
+    nap:hasAttribute [
         a nap:SpatialDescription;
+        nap:hasVersion [
         nap:targets nap:CA_Boissy_Saint_Leger;
         nap:firstStep [
             a nap:Segment;
             nap:isSpatialRelationType nap:within;
             nap:locatum nap:CA_Boissy_Saint_Leger;
             nap:relatum nap:ARR_Corbeil;
-        ]].
+        ]]].
 
-#http://data.ign.fr/id/cadastrenap/commune/COMM_Boissy_Saint_Leger
-nap:COMM_Boissy_Saint_Leger a nap:Landmark;
+#http://data.ign.fr/id/cadastrenap/commune/COMM_Marolles_en_Brie
+nap:COMM_Marolles_en_Brie a nap:Landmark;
     nap:isLandmarkType nap:Commune;
-    rdfs:label "Boissy-Saint-Léger"@fr;
-    nap:hasSpatialDescription [
+    rdfs:label "Marolles-en-Brie"@fr;
+    nap:hasAttribute [
         a nap:SpatialDescription;
-        nap:targets nap:COMM_Boissy_Saint_Leger;
-        nap:firstStep [
-            a nap:Segment;
-            nap:isSpatialRelationType nap:within;
-            nap:locatum nap:COMM_Boissy_Saint_Leger;
-            nap:relatum nap:CA_Boissy_Saint_Leger;
-        ]].
-
-#http://data.ign.fr/id/cadastrenap/section/SEC_Boissy_Saint_Leger_A
-nap:SEC_Boissy_Saint_Leger_A a nap:Landmark;
-    nap:isLandmarkType nap:Section;
-    rdfs:label "Section A dite du Piple";
-    dcterms:identifier "A";
-    nap:hasSpatialDescription [
-        a nap:SpatialDescription;
-        nap:targets nap:SEC_Boissy_Saint_Leger_A;
-        nap:firstStep [
-            a nap:Segment;
-            nap:isSpatialRelationType nap:within;
-            nap:locatum nap:SEC_Boissy_Saint_Leger_A;
-            nap:relatum nap:COMM_Boissy_Saint_Leger;
-        ]].
-
-#http://data.ign.fr/id/cadastrenap/place/Place0001
-nap:Place0001 a nap:Landmark;
-    nap:isLandmarkType nap:Place;
-    rdfs:label "Le Village"@fr;
-    nap:hasSpatialDescription [
-        a nap:SpatialDescription;
-        nap:targets nap:Place0001;
-        nap:firstStep [
-            a nap:Segment;
-            nap:isSpatialRelationType nap:within;
-            nap:locatum nap:Place0001;
-            nap:relatum nap:COMM_Boissy_Saint_Leger;
-        ]].
-
-#http://data.ign.fr/id/cadastrenap/owner/owner0001
-nap:owner0001 a nap:Owner;
-    rdfs:label "Charlier"@fr;#ETS
-    skos:altLabel "Charlier Charles antoine"@fr;#MAT_1812 m1
-    nap:activity "B<sup>eois</sup>"@fr;#MAT_1812 m1
-    nap:address "à Paris"@fr.#MAT_1812 m1
-
-#http://data.ign.fr/id/cadastrenap/parcel/Boissy_Saint_Leger_A_207    
-nap:Boissy_Saint_Leger_A_207 a nap:Landmark;
-    rdfs:label "207";
-    nap:isLandmarkType nap:Parcel;
-    nap:isOwnedBy nap:owner0001;
-    nap:isParcelNature nap:Ground;
-    nap:hasSpatialDescription [
-        a nap:SpatialDescription;
-        rdfs:label "Boissy-Saint-Léger, Section A, Le Village, Parcelle 207"@fr;
-        nap:targets nap:Boissy_Saint_Leger_A_207;
-        nap:firstStep [
-            a nap:Segment;
-            nap:isSpatialRelationType nap:within;
-            nap:locatum nap:Boissy_Saint_Leger_A_207;
-            nap:relatum nap:COMM_Boissy_Saint_Leger;
-            nap:nextStep [
-                a nap:Segment;
-                nap:isSpatialRelationType nap:within;
-                nap:locatum nap:Boissy_Saint_Leger_A_207;
-                nap:relatum nap:SEC_Boissy_Saint_Leger_A;
-                nap:nextStep [
-                    a nap:FinalSegment;
-                    nap:isSpatialRelationType nap:within;
-                    nap:locatum nap:Boissy_Saint_Leger_A_207;
-                    nap:relatum nap:Place0001
-                ]
-            ]
-        ]
-    ].
-
-
-#http://data.ign.fr/id/cadastrenap/parcel/Boissy_Saint_Leger_A_207    
-nap:Boissy_Saint_Leger_A_207 a nap:Landmark;
-    nap:isLandmarkType nap:Parcel;
-    rdfs:label "Parcelle 207, Section A, Boissy-Saint-Léger";
-    skos:prefLabel "Parcelle 207, Section A, Boissy-Saint-Léger";
-    nap:hasAttribute [ a nap:Owner;
         nap:hasVersion [
-            nap:isOwnedBy nap:owner0001;#Est-ce qu'on a le droit inclure une classe dans elle même ?
-            time:hasBeginning "1810";
-            time:hasEnd "1822";
-            nap:sourcedFrom [ 
-                nap:hasSource nap:source0001
-                nap:hasSource nap:source0002
-            ]
-        ]
-    ];
-    nap:hasAttribute [ a nap:Nature;
-        nap:hasValue [
-            nap:isParcelNature nap:Ground;
-            nap:startDate 
-            nap:endDate
-            nap:sourcedFrom
-        ]
-    ];
-    nap:hasAttribute[ a nap:SpatialDescription;
-        nap:hasvalue [
-            rdfs:label "Boissy-Saint-Léger, Section A, Le Village, Parcelle 207"@fr;
-            nap:targets nap:Boissy_Saint_Leger_A_207;
+            nap:targets nap:COMM_Boissy_Saint_Leger;
             nap:firstStep [
                 a nap:Segment;
                 nap:isSpatialRelationType nap:within;
-                nap:locatum nap:Boissy_Saint_Leger_A_207;
-                nap:relatum nap:COMM_Boissy_Saint_Leger;
+                nap:locatum nap:COMM_Marolles_en_Brie;
+                nap:relatum nap:CA_Boissy_Saint_Leger;
+        ]]].
+
+#http://data.ign.fr/id/cadastrenap/section/SEC_Marolles_en_Brie_A
+nap:SEC_Marolles_en_Brie_C a nap:Landmark;
+    nap:isLandmarkType nap:Section;
+    rdfs:label "Section C dite du Village";
+    dcterms:identifier "C";
+    nap:hasAttribute [
+        nap:hasVersion [
+        a nap:SpatialDescription;
+        nap:targets nap:SEC_Marolles_en_Brie_C;
+        nap:firstStep [
+            a nap:Segment;
+            nap:isSpatialRelationType nap:within;
+            nap:locatum nap:SEC_Marolles_en_Brie_C;
+            nap:relatum nap:COMM_Marolles_en_Brie;
+        ]]].
+
+nap:owner0001 a nap:Owner;
+    skos:prefLabel "Mazarot Pierre";
+    nap:name "Mazarot Pierre";
+    nap:activity "cabaretier";
+    nap:address "à Marolles".
+
+#http://data.ign.fr/id/cadastrenap/parcel/Marolles_en_Brie_C_191  
+nap:Marolles_en_Brie_C_191 a nap:Landmark;
+    nap:isLandmarkType nap:Parcel;
+    rdfs:label "Parcelle 191, Section C, Marolles-en-Brie";
+    skos:prefLabel "Parcelle 191, Section C, Marolles-en-Brie";
+    nap:hasAttribute [ a nap:Owner;
+        nap:hasVersion [
+            nap:isOwnedBy nap:owner0001;
+            nap:hasBeginning "1810";
+            nap:hasEnd "1822"#;
+            #nap:source nap:source0001;
+            #nap:source nap:source0002.
+        ]
+    ];
+    nap:hasAttribute [ a nap:Nature;
+        nap:hasVersion [
+            nap:isParcelNature nap:Ground;
+            nap:hasBeginning "1810";
+            nap:hasEnd "entre 1832 et 1882";
+            nap:before _:b1
+        ]
+    ];
+    nap:hasAttribute _:b1.
+    _:b1 a nap:Nature;
+        nap:hasVersion [
+            nap:isParcelNature nap:House;
+            nap:hasBeginning "entre 1832 et 1882"
+        ]
+    ;
+    nap:hasAttribute[ a nap:SpatialDescription;
+        nap:hasVersion [
+            rdfs:label "Marolles-en-Brie, Section C, Le Village, Parcelle 191"@fr;
+            nap:targets nap:Marolles_en_Brie_C_191;
+            nap:firstStep [
+                a nap:Segment;
+                nap:isSpatialRelationType nap:within;
+                nap:locatum nap:Marolles_en_Brie_C_191;
+                nap:relatum nap:COMM_Marolles_en_Brie;
                 nap:nextStep [
                     a nap:Segment;
                     nap:isSpatialRelationType nap:within;
-                    nap:locatum nap:Boissy_Saint_Leger_A_207;
-                    nap:relatum nap:SEC_Boissy_Saint_Leger_A;
-                    nap:nextStep [
-                        a nap:FinalSegment;
-                        nap:isSpatialRelationType nap:within;
-                        nap:locatum nap:Boissy_Saint_Leger_A_207;
-                        nap:relatum nap:Place0001
-                    ]
+                    nap:locatum nap:Marolles_en_Brie_C_191;
+                    nap:relatum nap:SEC_Marolles_en_Brie_C;
                 ]
             ]
         ]

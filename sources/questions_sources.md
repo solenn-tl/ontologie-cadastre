@@ -2,7 +2,7 @@
 
 ## Question 1
 ### Question
-Quelle est la source de l'information X ?
+De quelle(s) source(s) est issue l'information X
 ### Résultat attendu
 Nom et description de la source 
 ### Exemple de réponse

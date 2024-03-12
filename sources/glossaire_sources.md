@@ -37,7 +37,11 @@
   </tr>
   <tr>
     <td>Etat de sections</td>
-    <td>Registre établi à une date proche de la production du plan parcellaire et qui constitue sa légende en associant à chaque numéro de parcelle un ou plusieurs propriétaires, une nature, une contenance et une évaluation.<br>Il n'était pas prévu de mettre à jour le registre d'état de section après sa rédaction.</td>
+    <td>Registre établi à une date proche de la production du plan parcellaire et qui constitue sa légende en associant à chaque numéro de parcelle un ou plusieurs propriétaires, une nature, une contenance et une évaluation.<br>Le registre d'état de sections n'était pas mis à jour après sa rédaction initiale.</td>
+  </tr>
+  <tr>
+    <td>Ligne de page tableau d'état de sections</td>
+    <td>Zone située dans une page de tableau d'état de section qui correspond à la description d'une parcelle.</td>
   </tr>
   <tr>
     <td>Liste alphabétique des propriétaires</td>

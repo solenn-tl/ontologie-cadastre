@@ -1,0 +1,71 @@
+@prefix nap: <http://data.ign.fr/def/cadastrenap#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix fpo: <https://github.com/johnBradley501/FPO/raw/master/fpo.owl#>.
+@prefix time: <http://www.w3.org/2006/time#> .
+
+# Activités
+
+
+<http://data.ign.fr/id/activity/0002> a prov:Activity; 
+    prov:atTime "2024-03-11"^^xsd:dateTime; 
+    prov:used nap:page_3P_387_XXX_register0001_Marolles_ets_1810_3P_387; 
+    rdfs:comment "Transcription et structuration"@fr.
+
+# Lieu de conservation des intanciations
+nap:archives_departementales_94 a nap:Landmark;
+    nap:isLandmarkType nap:Place;
+    rdfs:label 'Archives départementales du Val-de-Marne'.
+
+#Concept de l'état de sections initial de Marolles en Brie
+nap:register0001_Marolles_ets_1810 a rico:RecordSet;
+    rico:hasRicordSetType nap:EtatDeSectionsInitial;
+    fpo:hasSourceName "Etat de sections de Marolles-en-Brie (1810)";
+    rico:isCreationDate "1810"^^xsd:date;
+    time:hasBeginning "1810"^^xsd:date;
+    rico:hasOrHadInstantiation nap:register0001_Marolles_ets_1810_3P_387.
+
+nap:register0001_Marolles_ets_1810_3P_387 a rico:Instanciation, fpo:Source;
+    nap:hasID "3P387";
+    nap:localisation nap:archives_departementales_94;
+    rico:hasOrHadComponent nap:page_3P_387_XXX_register0001_Marolles_ets_1810_3P_387.
+
+nap:page_3P_387_XXX_register0001_Marolles_ets_1810_3P_387 a rico:Instanciation;
+    nap:hasID "3P_387_XXX";
+    nap:isType "Page de registre";
+    nap:isOrWasDigitalInstanciation [a rico:Record;
+        rico:isRecordType "Page de registre"
+    ];
+    nap:isSubType "Tableau principal"; #Classification result
+    rico:hasOrHadComponent nap:area_uuid_page_3P_387_XXX_register0001_Marolles_ets_1810_3P_387.
+    
+    <http://data.ign.fr/id/activity/0001> a prov:Activity; 
+    prov:atTime "2024-03-11"^^xsd:dateTime; 
+    prov:used nap:page_3P_387_XXX_register0001_Marolles_ets_1810_3P_387; 
+    rdfs:comment "Classification des pages numérisées"@fr.
+
+nap:area_uuid_page_3P_387_XXX_register0001_Marolles_ets_1810_3P_387 a rico:Instanciation, fpo:SourceCitation;
+    nap:hasID "Arkindexuuid";
+    nap:isType "ElementType";
+    nap:attentionZone "[[],[],[],[]]";
+    nap:isOrWasInstanciation [a rico:RecordPart;
+        rico:isRecordType "ElementType"
+    ];
+    fpo:fromSource nap:register0001_Marolles_ets_1810_3P_387;
+    prov:wasGeneratedBy <http://data.ign.fr/id/activity/0003>.
+
+# Document
+# |---- Registre
+#     |------ Etat de sections Record
+#     |------ Matrice cadastrale Record
+#           |----- Matrices de rôles (antérieures à 1822) Record
+#           |----- Matrice des propriétés foncières (1822-1882) & Matrice des propriétés non bâties (1882-1914) Record
+#           |----- Matrice des propriétés non bâties (1914-rénovation) Record
+#           |----- Matrice des propriétés bâties (1882-1911) Record
+#           |----- Matrice des propriétés bâties (1911-rénovation)
+# |---- Plan
+#     |------ Plan primitif
+#     |------ Plan rectifié
+#     |------ Plan rénové

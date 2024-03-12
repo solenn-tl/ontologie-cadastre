@@ -41,8 +41,8 @@ nap:appliedTo a owl:ObjectProperty ;
                                           addr:Landmark
                                         )
                           ] ;
-               rdfs:comment "Définit sur quoi s'applique le changement"@fr ;
-               rdfs:label "s'applique"@fr @"is applied on"@en.
+               rdfs:comment "Définit sur quoi s'applique le changement"@fr;
+               rdfs:label "s'applique"@fr, "is applied on"@en.
                #owl:equivalentClass addr:appliedTo.
 
 ###  http://data.ign.fr/def/cadastrenap#before
@@ -70,13 +70,12 @@ nap:hasAttribute a owl:ObjectProperty ;
                   rdfs:label "a pour attribut"@fr, "has attribute"@en .
                   #owl:equivalentClass addr:hasAttribute.
 
-
 ###  http://data.ign.fr/def/cadastrenap#hasBeginning
 nap:hasBeginning a owl:ObjectProperty ;
                   rdfs:domain addr:TimeInterval ;
                   rdfs:range addr:TimeInstant ;
                   rdfs:comment "Début de l'intervalle temporel"@fr ;
-                  rdfs:label "commence par"@fr, "starts at"@ .
+                  rdfs:label "commence par"@fr, "starts at"@en.
                   #owl:equivalentClass addr:addr:hasBeginning.
 
 
@@ -85,7 +84,7 @@ nap:hasEnd a owl:ObjectProperty ;
             rdfs:domain addr:TimeInterval ;
             rdfs:range addr:TimeInstant ;
             rdfs:comment "Fin de l'intervalle temporel"@fr ;
-            rdfs:label "finit par"@fr, "ends at".
+            rdfs:label "finit par"@fr, "ends at"@en.
             #owl:equivalentClass addr:hasEnd.
 
 
@@ -110,7 +109,6 @@ nap:timePrecision rdf:type owl:ObjectProperty ;
                    rdfs:comment "Précision de l'instant (au jour, au mois, à l'année...)"@fr ;
                    rdfs:label "a pour précision temporelle"@fr, "temporal precision is"@en .
                    #owl:equivalentClass addr:timePrecision.
-
 
 ###  http://data.ign.fr/def/cadastrenap##version
 nap:version rdf:type owl:ObjectProperty ;

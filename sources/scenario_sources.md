@@ -6,15 +6,15 @@ Sources
 
 ## Description
 
-Le modelet Sources a pour objectif de faire le lien entre les informations décrites dans le graphe de connaissances et les sources dont elles sont extraites. 
+Le modelet Sources a pour objectif de faire le lien entre les informations décrites dans le graphe de connaissances et les sources dont elles sont extraites. Plus précisément, chaque version d'un attribut est associée à une ou plusieurs extraits de documents.
 
-Une source historique peut prendre différentes formes : 
+Une source prend différentes formes : 
 * concept : contenu de la source considéré indépendement de sa forme concrète;
 * physique : exemplaire physique d'un concept, généralement caractérisé par un identifiant et une localisation ;
-* numérisée : version numérisé d'un exemplaire
-* autres formes dérivées faisant suite à un traitement automatique ou manuel (ex: plan géoréférencé, page transcrite).
+* numérisée : version numérisé d'un exemplaire donné ;
+* forme dérivée : obtenue suite à un traitement automatique ou manuel (ex: plan géoréférencé, page transcrite...). Il peut y avoir plusieurs formes dérivées d'une même source.
 
-Une source peut être scindée en plusieurs parties (ex : une matrice comprend la liste alphabétique des propriétaires, les augmentations/diminutions et les folios), elle peut comprendre plusieurs éléments. Ces éléments peuvent eux-mêmes être comprendre plusieurs zones
+Une source peut être scindée en plusieurs parties qui peuvent elles-mêmes êtres divisées en éléments documentaires cohérents (ex: registre contient plusieurs pages qui contiennent plusieurs zones).
 
 Une **source** peut être décrite par les propriétés suivantes :
 * {*obligatoire*} son **titre ou intitulé**;
@@ -37,10 +37,16 @@ Une **source** peut être décrite par les propriétés suivantes :
 
 ## Exemples
 
-### Exemple 1
-Exemple de description de l'état de sections primitifs de Marolles en Brie dans ses différentes instanciations
+### Exemple 1 : Formes de sources
+- Une matrice cadastrale comprend une liste alphabétique des propriétaires. Cette liste est un ensemble de pages composées de colonnes qui contiennent de multiples mentions de propriétaires.
+- Un exemplaire papier de la matrice est conservée dans un service d'archives et est identifiée par une cote. 
+- Chaque page a été numérisée et possède une cote. 
+- Les éléments contenus dans chaque page sont détectés et transcrits avec un modèle (DAN).
 
-#### [Concept de source]
+### Exemple 2
+Exemple de description de l'état de sections primitifs de Marolles en Brie dans ses différentes formes.
+
+#### [Concept]
 
 * **Intitulé** : Etat de sections de Marolles-en-Brie
 * **Type** : état de sections 
@@ -72,11 +78,11 @@ Exemple de description de l'état de sections primitifs de Marolles en Brie dans
 * **Date de création** : novembre et décembre 2023
 * **Processus de création** : annotation manuelle avec Callico
 
-### Exemple 2
+### Exemple 3
 
-Exemple de description du plan parcellaire de la section C de Marolles en Brie dans ses différentes instanciations
+Exemple de description du plan parcellaire de la section C de Marolles en Brie dans ses différentes formes
 
-#### [Concept de source]
+#### [Concept]
 
 * **Intitulé** : Plan parcellaire de la Section C "dite du Village" Marolles-en-Brie
 * **Type** : plan parcellaire

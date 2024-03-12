@@ -14,7 +14,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
-@prefix fpo: <https://github.com/johnBradley501/FPO/raw/master/fpo.owl>
+@prefix fpo: <https://github.com/johnBradley501/FPO/raw/master/fpo.owl#>.
 
 # ---- Prefixes used for skos:ConceptScheme -----
 
@@ -73,30 +73,13 @@ skos:definition rdf:type owl:AnnotationProperty.
 
 # ---- Imported classes ----
 
+# https://www.ica.org/standards/RiC/ontology#RecordSet
 rico:RecordSet a owl:Class ;
 	rdfs:subClassOf rico:RecordResource ;
 	rdfs:comment """One or more records that are grouped together by an Agent based on
          the records sharing one or more attributes or relations."""@en ;
 	rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
 	rdfs:label "Record Set"@en, "Ensemble d’objets informationnels"@fr, "Agrupación documental"@es ;
-	skos:changeNote [
-		dc11:date "2023-11-12" ;
-		rdf:value """Aligned with RiC-CM 1.0: updated the description
-               (rdfs:comment), skos:scopeNote."""@en ;
-	], [
-		dc11:date "2023-11-02" ;
-		rdf:value "Added a new rdfs:label in Spanish."@en ;
-	], [
-		dc11:date "2023-08-25" ;
-		rdf:value "Added a new rdfs:label in French."@en ;
-	], [
-		dc11:date "2023-04-19" ;
-		rdf:value "Removed the 0.2 existing unnecessary restriction."@en ;
-	], [
-		dc11:date "2020-10-23" ;
-		rdf:value """comment: updated. Scope note: updated and made several
-               paragraphs. Objective: to make RiC-O compliant with RiC-CM v0.2."""@en ;
-	] ;
 	skos:scopeNote """Record set is a kind of Record Resource. The member records in a
          Record Set may physically reside together, though physical proximity is not essential. In a
          particular context, an Agent (for example, administrator, records manager, archivist,
@@ -124,6 +107,7 @@ rico:RecordSet a owl:Class ;
 	rico:RiCCMCorrespondingComponent """Corresponds to RiC-E03 (Record Set
          entity)"""@en .
 
+# https://www.ica.org/standards/RiC/ontology#Record
 rico:Record a owl:Class ;
 	rdfs:subClassOf rico:RecordResource ;
 	rdfs:comment """Discrete information content formed and inscribed, at least once,
@@ -131,107 +115,111 @@ rico:Record a owl:Class ;
          of life or work activity."""@en ;
 	rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
 	rdfs:label "Record"@en, "Objet informationnel"@fr, "Documento"@es ;
-	skos:changeNote [
-		dc11:date "2023-11-12" ;
-		rdf:value """Aligned with RiC-CM 1.0: updated the description
-               (rdfs:comment), skos:scopeNote."""@en ;
-	], [
-		dc11:date "2023-11-02" ;
-		rdf:value "Added a new rdfs:label in Spanish."@en ;
-	], [
-		dc11:date "2023-08-25" ;
-		rdf:value "Added a new rdfs:label in French."@en ;
-	], [
-		dc11:date "2021-02-08" ;
-		rdf:value "Removed the Restriction."@en ;
-	], [
-		dc11:date "2020-10-23" ;
-		rdf:value """Scope note: updated and made several paragraphs. Objective: to
-               make RiC-O compliant with RiC-CM v0.2."""@en ;
-	] ;
 	skos:scopeNote """Record is a kind of Record Resource. A Record may itself contain
          one or more Records, or may consist of one or more Record Parts. A Record must have or have
-         had at least one Instantiation. A Record may have more than one Instantiation. An
-         Instantiation derived from another Instantiation of a Record may be considered the
-         instantiation of the same Record or an instantiation of a new Record, depending on the
+         had at least one . A Record may have more than one . An
+          derived from another  of a Record may be considered the
+          of the same Record or an  of a new Record, depending on the
          context. A Record may serve a variety of purposes, though it always documents or is
          evidence of Activity."""@en ;
 	rico:RiCCMCorrespondingComponent """Corresponds to RiC-E04 (Record
          entity)"""@en .
 
+# https://www.ica.org/standards/RiC/ontology#RecordPart
 rico:RecordPart a owl:Class ;
 	rdfs:subClassOf rico:RecordResource ;
 	rdfs:comment """Component of a Record with independent information content that
          contributes to the intellectual completeness of the Record."""@en ;
 	rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
 	rdfs:label "Record Part"@en, "Partie d’objet informationnel"@fr, "Componente documental"@es ;
-	skos:changeNote [
-		dc11:date "2023-11-12" ;
-		rdf:value """Aligned with RiC-CM 1.0: updated the description
-               (rdfs:comment)."""@en ;
-	], [
-		dc11:date "2023-11-02" ;
-		rdf:value "Added a new rdfs:label in Spanish."@en ;
-	], [
-		dc11:date "2023-08-25" ;
-		rdf:value "Added a new rdfs:label in French."@en ;
-	], [
-		dc11:date "2021-02-08" ;
-		rdf:value "Removed the Restriction."@en ;
-	], [
-		dc11:date "2020-10-23" ;
-		rdf:value """comment: updated. Scope note: made several paragraphs.
-               Objective: to make RiC-O compliant with RiC-CM v0.2."""@en ;
-	] ;
 	skos:scopeNote """Record Part is a kind of Record Resource. A Record Part may
          itself have Record Parts."""@en ;
 	rico:RiCCMCorrespondingComponent """Corresponds to RiC-E05 (Record Part
          entity)"""@en .
 
+# https://www.ica.org/standards/RiC/ontology#Instantiation
+rico:Instantiation
+  a owl:Class ;
+  #rdfs:subClassOf rico:Thing ;
+  rdfs:comment """The inscription of information made by an Agent on a physical
+         carrier in any persistent, recoverable form as a means of communicating information through
+         time and space."""@en ;
+  rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
+  rdfs:label "Instantiation"@en, "Instanciation"@fr, "Instanciación"@es ;
+  skos:scopeNote """A Record or Record Part must have been instantiated at least
+         once, though this instantiation may no longer exist at the moment of description. An
+         instantiation might also exist at the moment of description, but be destroyed at a later
+         moment in time, when, for example, a derived instantiation might become the only remaining
+         instantiation. A Record Set may have an instantiation, which is to say that it is not a
+         necessary condition. An Instantiation may be derived from another Instantiation. A Record
+         Resource may have many Instantiations simultaneously (for instance, a record printed and
+         saved in the same time as DOCX and PDF/A would have 3 concurrent instantiations) or through
+         time (for example, copy of a record). Depending on the context, a new instantiation may be
+         seen as a new or as the same record resource. During in the process of re-instantiation
+         something is lost and something is preserved, but it is up to the context and the Agent
+         that produces or uses that Instantiation to assess whether the two instantiations are
+         functionally equivalent or not. For instance, a postcard representing a town map from 1874
+         (Instantiation 1) is digitized and kept as a JPEG file (Instantiation 2). The digital copy
+         may be considered as instantiating the "same" Record by an Agent considering the
+         information transmitted by the Record (e.g., the urban landscape displayed), but as a"
+         different" Record by an antiquarian more focused on the materiality of the carrier.
+         Successive instantiations may change the perceivable boundaries of a Record Resource. For
+         instance, a case file comprising many records may be digitized and saved as one single PDF
+         file, which, from management perspective, may be treated as one Record. Similarly, a large
+         Record Set (a fonds or a series) may be maintained as one database. On the other hand, one
+         record (main document and its annexes) may be digitized in separate files and each one may
+         be managed as a discrete “physical” item. Instantiations may require mediation to
+         communicate the information in the Record Resource. While a traditional Record on paper can
+         simply be read by an Agent in order to understand the information, a vinyl recording, a
+         video cassette or a digital file needs a device (mediator) to codify or decodify the
+         information conveyed. This mediator may imply simple physical components (a turntable
+         needle, for example), or a complex gallery of software and hardware elements.
+         Instantiations are more than the mere informational content of Record Resource and may be
+         the focus of preservation and physical management of records. The use of particular
+         document types for records, such as a medieval charter, may have implications for the
+         authenticity of the records. Hence, the way a Record Resource is instantiated contributes
+         to the contextualizing of the content.record resource is instantiated contributes to the
+         contextualizing the content. Distinguishing the message conveyed (Record Resource) and its
+         physical representations (Instantiation) allows for the efficient management of their
+         descriptions, and preserve information about a Record Resource even when no physical
+         representation of it exists or is known to exist anymore. The relations between distinct
+         instantiations can then be expressed wherever they coexist, and they can be related to the
+         Record Resource they instantiate."""@en ;
+  rico:RiCCMCorrespondingComponent """Corresponds to RiC-E06 (Instantiation
+         entity)"""@en ;
+  rico:closeTo "PREMIS Representation"@en .
+
 prov:Activity a owl:Class ;
     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
     rdfs:label "Activity" ;
-    owl:disjointWith :Entity ;
-    :category "starting-point" ;
-    :component "entities-activities" ;
-    :constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
-    :definition "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." ;
-    :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Activity"^^xsd:anyURI ;
-    :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Activity"^^xsd:anyURI .
+    owl:disjointWith prov:Entity.
 
 prov:Agent a owl:Class ;
     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
     rdfs:label "Agent" ;
-    owl:disjointWith :InstantaneousEvent ;
-    :category "starting-point" ;
-    :component "agents-responsibility" ;
-    :definition "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity. "@en ;
-    :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^xsd:anyURI ;
-    :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Agent"^^xsd:anyURI .
+    owl:disjointWith prov:InstantaneousEvent.
 
 prov:SoftwareAgent a owl:Class ;
     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
     rdfs:label "SoftwareAgent" ;
-    rdfs:subClassOf :Agent ;
-    :category "expanded" ;
-    :component "agents-responsibility" ;
-    :definition "A software agent is running software."@en ;
-    :dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^xsd:anyURI ;
-    :n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-types"^^xsd:anyURI .
-
+    rdfs:subClassOf prov:Agent.
 
 # https://github.com/johnBradley501/FPO/raw/master/fpo.owl#Assertion
-#fpo:Assertion a owl:Class.
+fpo:Assertion a owl:Class;
+	rdfs:isDefinedBy <https://www.kcl.ac.uk/factoid-prosopography/fpo-factoids#>.
 
 # https://github.com/johnBradley501/FPO/raw/master/fpo.owl#Factoid
-#fpo:Factoid a owl:Class ;
-	#rdfs:subClassOf :Assertion .
+fpo:Factoid a owl:Class ;
+	rdfs:subClassOf fpo:Assertion ;
+	rdfs:isDefinedBy <https://www.kcl.ac.uk/factoid-prosopography/fpo-factoids#>.
 
-# https://github.com/johnBradley501/FPO/raw/master/fpo.owl#Source
-#fpo:Source a owl:Class .
+#https://github.com/johnBradley501/FPO/raw/master/fpo.owl#Source
+fpo:Source a owl:Class ;
+	rdfs:isDefinedBy <https://www.kcl.ac.uk/factoid-prosopography/fpo-sources#>.
 
 # https://github.com/johnBradley501/FPO/raw/master/fpo.owl#SourceCitation
-#fpo:SourceCitation a owl:Class .
+fpo:SourceCitation a owl:Class ;
+	rdfs:isDefinedBy <https://www.kcl.ac.uk/factoid-prosopography/fpo-sources#>.
 
 #####################################
 # ---- Objectproperty definition ----
@@ -254,25 +242,9 @@ rico:includesOrIncluded a owl:ObjectProperty ;
          aggregated in the past."""@en ;
 	rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
 	rdfs:label "includes or included"@en, "inclut ou a inclus"@fr, "incluye o incluía"@es ;
-	skos:changeNote [
-		dc11:date "2023-11-02" ;
-		rdf:value "Added a new rdfs:label in Spanish."@en ;
-	], [
-		dc11:date "2023-08-28" ;
-		rdf:value "Added a new rdfs:label in French."@en ;
-	], [
-		dc11:date "2023-06-05" ;
-		rdf:value """Made this object property a subproperty of
-               hasOrHadPart."""@en ;
-	], [
-		dc11:date "2021-01-22" ;
-		rdf:value """changed the IRI, label, inverse property IRI, text definition
-               (changed made in order to make RiC-O compliant with RiC-CM 0.2; the name of this
-               property in RiC-O 0.1 was "includes")."""@en ;
-	] ;
 	skos:scopeNote """A Record or Record Set can be aggregated in one or many Record
          Sets simultaneously or through time."""@en ;
-	rico:RiCCMCorrespondingComponent """RiC-R024 ('includes or included')"""
+	rico:RiCCMCorrespondingComponent """RiC-R024 ('includes or included')""".
 
 rico:hasOrHadComponent a owl:ObjectProperty ;
 	rdfs:subPropertyOf rico:hasOrHadPart, rico:isInstantiationAssociatedWithInstantiation ;
@@ -283,18 +255,6 @@ rico:hasOrHadComponent a owl:ObjectProperty ;
          instantiations."""@en ;
 	rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
 	rdfs:label "has or had component"@en, "a ou a eu pour composant"@fr, "tiene o tenía como componente"@es ;
-	skos:changeNote [
-		dc11:date "2023-11-02" ;
-		rdf:value "Added a new rdfs:label in Spanish."@en ;
-	], [
-		dc11:date "2023-08-28" ;
-		rdf:value "Added a new rdfs:label in French."@en ;
-	], [
-		dc11:date "2021-01-22" ;
-		rdf:value """changed the IRI, label, inverse property IRI, textual
-               definition (changed made in order to make RiC-O compliant with RiC-CM 0.2; the name
-               of this property in RiC-O 0.1 was "hasComponent")."""@en ;
-	] ;
 	rico:RiCCMCorrespondingComponent """RiC-R004 ('has or had component'
          relation)"""@en .
 
@@ -312,35 +272,28 @@ rico:hasOrHadInstantiation a owl:ObjectProperty ;
          exist or may have been lost or destroyed."""@en ;
 	rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
 	rdfs:label "has or had instantiation"@en, "a ou a eu pour instanciation"@fr, "tiene o tenía como instanciación"@es ;
-	skos:changeNote [
-		dc11:date "2023-11-27" ;
-		rdf:value "Added a new rdfs:label in Spanish."@en ;
-	], [
-		dc11:date "2023-11-12" ;
-		rdf:value """Aligned with RiC-CM 1.0: updated the description
-               (rdfs:comment)."""@en ;
-	], [
-		dc11:date "2023-11-08" ;
-		rdf:value """In order to get a system of rolified Relation classes: modified
-               the property chain axiom so that it now involves the new
-               recordResourceToInstantiationRelation_role object property."""@en ;
-	], [
-		dc11:date "2023-08-29" ;
-		rdf:value """Updated the IRI, inverse property, definition, labels and
-               RiCMCorrespondingComponent, and added a skos:scopeNote; this in order to make the
-               specification compliant with RiC-CM 1.0. The name of the property in RiC-O 0.2 was
-               'has instantiation'."""@en ;
-	], [
-		dc11:date "2023-08-28" ;
-		rdf:value "Added a new rdfs:label in French."@en ;
-	], [
-		dc11:date "2021-01-22" ;
-		rdf:value "changed the inverse property IRI."@en ;
-	] ;
 	skos:scopeNote """In some situations, it may be useful or necessary to connect a
          record resource to an instantiation that no longer exists or or has been lost, when some of
          its characteristics are known from some source, like an old finding aid."""@en ;
 	rico:RiCCMCorrespondingComponent """RiC-R025 ('has or had instantiation'
+         relation)"""@en .
+
+rico:isOrWasInstantiationOf
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf rico:isRelatedTo ;
+  owl:inverseOf rico:hasOrHadInstantiation ;
+  rdfs:domain rico:Instantiation ;
+  rdfs:range rico:RecordResource ;
+  owl:propertyChainAxiom (
+   rico:thingIsTargetOfRelation
+   rico:recordResourceToInstantiationRelation_role
+   rico:relationHasSource
+ ) ;
+  rdfs:comment """Inverse of 'has or had instantiation' object
+         property."""@en ;
+  rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
+  rdfs:label "is or was instantiation of"@en, "est ou a été une instanciation de"@fr, "es o era instanciación de"@es ;
+  rico:RiCCMCorrespondingComponent """RiC-R025i ('is or was instantiation of'
          relation)"""@en .
 
 rico:hasOrHadDigitalInstantiation a owl:ObjectProperty ;
@@ -352,13 +305,6 @@ rico:hasOrHadDigitalInstantiation a owl:ObjectProperty ;
          whether it exists or has been lost or destroyed."""@en ;
 	rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
 	rdfs:label "has or had digital instantiation"@en, "a ou a eu pour instanciation numérique"@fr, "tiene o tenía como instanciación digital"@es ;
-	skos:changeNote [
-		dc11:date "2023-11-27" ;
-		rdf:value "Added a new rdfs:label in Spanish."@en ;
-	], [
-		dc11:date "2023-08-29" ;
-		rdf:value "Added the property."@en ;
-	] ;
 	skos:scopeNote """This property can be used, among other cases, when you want to
          convert findings aids encoded in EAD/XML and need a simple and accurate migration path to
          process dao or daogrp EAD elements. Also, in some situations, it may be useful or necessary
@@ -367,61 +313,49 @@ rico:hasOrHadDigitalInstantiation a owl:ObjectProperty ;
 
 prov:wasAssociatedWith a owl:ObjectProperty ;
     rdfs:comment "An prov:Agent that had some (unspecified) responsibility for the occurrence of this prov:Activity."@en ;
-    rdfs:domain :Activity ;
+    rdfs:domain prov:Activity ;
     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
     rdfs:label "wasAssociatedWith" ;
-    rdfs:range :Agent ;
-    rdfs:subPropertyOf :wasInfluencedBy ;
-    owl:propertyChainAxiom (:qualifiedAssociation
-        :agent
-    ) ;
-    :category "starting-point" ;
-    :component "agents-responsibility" ;
-    :inverse "wasAssociateFor" ;
-    :qualifiedForm :Association, :qualifiedAssociation .
+    rdfs:range prov:Agent ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    owl:propertyChainAxiom (prov:qualifiedAssociation
+        prov:agent
+    ).
 
 prov:used a owl:ObjectProperty ;
     rdfs:comment "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven ."@en ;
-    rdfs:domain :Activity ;
+    rdfs:domain prov:Activity ;
     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
     rdfs:label "used" ;
-    rdfs:range :Entity ;
-    rdfs:subPropertyOf :wasInfluencedBy ;
-    owl:propertyChainAxiom (:qualifiedUsage
-        :entity
-    ) ;
-    :category "starting-point" ;
-    :component "entities-activities" ;
-    :inverse "wasUsedBy" ;
-    :qualifiedForm :Usage, :qualifiedUsage .
+    rdfs:range prov:Entity ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    owl:propertyChainAxiom (prov:qualifiedUsage
+        prov:Entity
+    ).
 
 prov:wasGeneratedBy a owl:ObjectProperty ;
-    rdfs:domain :Entity ;
+    rdfs:domain prov:Entity ;
     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
     rdfs:label "wasGeneratedBy" ;
-    rdfs:range :Activity ;
-    rdfs:subPropertyOf :wasInfluencedBy ;
-    owl:propertyChainAxiom (:qualifiedGeneration
-        :activity
-    ) ;
-    :category "starting-point" ;
-    :component "entities-activities" ;
-    :inverse "generated" ;
-    :qualifiedForm :Generation, :qualifiedGeneration .
+    rdfs:range prov:Activity ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    owl:propertyChainAxiom (prov:qualifiedGeneration
+        prov:activity
+    ).
 
 #https://github.com/johnBradley501/FPO/raw/master/fpo.owl#fromSource
 fpo:fromSource a owl:ObjectProperty ;
-	#rdfs:domain :SourceCitation ;
-	#rdfs:range :Source .
+	rdfs:domain fpo:SourceCitation ;
+	rdfs:range fpo:Source .
 
 #https://github.com/johnBradley501/FPO/raw/master/fpo.owl#sourcedFrom
 fpo:sourcedFrom a owl:ObjectProperty ;
-	#rdfs:domain :Assertion ;
-	#rdfs:range :SourceCitation .
+	rdfs:domain fpo:Assertion ;
+	rdfs:range fpo:SourceCitation .
 
 ###############################
 # ---- Datatype properties ----
 ###############################
 
 # ---- Imported properties ----
-#rdfs:label a owl:DatatypeProperty.
+rdfs:label a owl:DatatypeProperty.

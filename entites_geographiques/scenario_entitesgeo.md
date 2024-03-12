@@ -5,11 +5,15 @@ Entités géographiques
 
 ## Description
 
-La parcelle est l'entité géographique élémentaire utilisée pour définir le montant de l'allivrement. Elle est caractérisée par son numéro, sa géométrie, sa nature et son appartenance à un ou plusieurs propriétaires.
+La parcelle est l'entité géographique élémentaire utilisée pour définir le montant de l'allivrement. Elle est caractérisée par son numéro, sa nature, son appartenance à un ou plusieurs propriétaires et sa contenance.
 
-Une parcelle est rattachée à une section cadastrale qui se trouve elle-même dans une commune. Par ce biais, elle est rattachée aux différentes circonscriptions administratives/électorales françaises. La production du cadastre imcombait aux départements. L'organisation des opérations cadastrales étaient basée sur une distribution par canton et arrondissement. Ces circonscriptions étaient également utilisées pour effectuer des résumés statistiques. 
+Une parcelle est localisée dans une section cadastrale. La numérotation des parcelles était réalisée par section.
+La section se trouve elle-même dans une commune. Cette commune est rattachée aux différentes circonscriptions administratives/électorales françaises : cantons, arrondissements et déprtements. 
+La production du cadastre était sous la responsabilité des départements.
 
-Les parcelles et les objets du domaine non cadastrés - tels que les routes ou les cours d'eau - constituent les deux unités géographiques élémentaires qui permettent de reconstituer la géométrie complète des sections puis des communes.
+Pour faciliter la localisation d'une parcelle dans une section, la parcelle était associée à un lieu-dit, à une voie, une rue (ou à un autre type de point de repère).
+
+Les parcelles et les objets du domaine non cadastrés - tels que les routes ou les cours d'eau - constituent les deux unités géographiques élémentaires qui permettent de recouvrir l'intégralité du territoire.
 
 Une **parcelle** est caractérisée par :
 - {*obligatoire*} son **numéro cadastral**
@@ -32,7 +36,7 @@ Une **section cadastrale** est caractérisée par :
 - {*optionnelle*} sa **géométrie**
 
 Une **circonscription administrative** est caractérisée par :
-- {*obligatoire*} son **classe** : commune => canton => arrondissement => département
+- {*obligatoire*} son **type** : commune => canton => arrondissement => département
 - {*obligatoire*} son **nom**
 - {*obligatoire*} sa **localisation** : par rapport aux autres circonscriptions administratives
 - {*optionnelle*} sa **géométrie**
