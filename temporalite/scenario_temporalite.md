@@ -140,8 +140,8 @@ Ces états sont principalements décrits dans les matrices cadastrales.
         <td>Jardin</td>
         <td></td>
         <td></td>
-        <td>45</td>
-        <td>1832</td>
+        <td></td>
+        <td></td>
     </tr>
 </table>
 
