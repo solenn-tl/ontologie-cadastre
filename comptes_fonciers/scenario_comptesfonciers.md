@@ -6,16 +6,17 @@ Comptes fonciers et mutations
 
 ## Description
 
-Un compte foncier est une liste d'états des parcelles associé à un ou plusieurs propriétaires (sucessifs ou pas). L'ensemble des comptes fonciers d'une commune sont consignés dans la matrice cadastrale. Ces comptes fonciers portent différents noms dans la documentation cadastrale : **article, folio ou case**.
+Un compte foncier est une liste d'états des parcelles associée à un ou plusieurs propriétaires (successifs ou pas). L'ensemble des comptes fonciers d'une commune sont consignés dans la matrice cadastrale. Les comptes fonciers portent différents noms dans la documentation cadastrale : **article, folio ou case**.
 
 Dans les documents cadastraux, chaque compte foncier est scindé en deux parties :
-- la liste des propriétaires sucessifs qui lui sont associés, appelés "articles de mutation" dans le <i>Recueil de 1811</i>. ;
+- la liste des propriétaires successifs qui lui sont associés, appelés "articles de mutation" dans le <i>Recueil de 1811</i>. ;
 - les états des parcelles détenues par ce(s) propriétaire(s), appelés "articles de classement" dans le <i>Recueil de 1811</i>.
 
 Un compte foncier est associé à un numéro (plus rarement à plusieurs, généralement quand plusieurs pages sont nécessaires pour lister l'ensemble des parcelles appartenant aux propriétaires mentionnés). Selon le type de matrice cadastrale traité, ce numéro peut faire référence à un ou à plusieurs comptes fonciers différents. 
 
-Pour chaque état de parcelle, il est possible d'indiquer le compte foncier où il se trouvait précédement ("Tiré de") et dans quel compte foncier se trouve il est porté après une modification de cet état ("Porté à"). Les évènements qui concernent les propriétés (principalement bâties) sont également indiqués dans ces colonnes : "Nouvelle construction" (C.N/N.C), "Augmentation" (Aug), "Evaluation du bâti" (E.B.), "Destruction", "Ruine".
-Ces passages d'un compte foncier à un autre sont des informations particulièrement utile pour ordonner les états d'une même parcelle dans l'ordre chronologique.
+Pour chaque état de parcelle, il est possible d'indiquer le compte foncier dans lequel se trouvait précédement ("Tiré de") et dans quel compte foncier il est porté après une modification ("Porté à"). 
+Les évènements qui concernent les propriétés (principalement bâties) sont également indiqués dans ces colonnes : "Nouvelle construction" (C.N/N.C), "Augmentation" (Aug), "Evaluation du bâti" (E.B.), "Destruction", "Ruine".
+Ces passages d'un compte foncier à un autre sont des informations particulièrement utile pour ordonner les différents états d'une même parcelle dans l'ordre chronologique.
 
 Les lignes obsolètes d'un compte foncier sont rayées. 
 Un compte foncier entièrement barré est clôt. 
