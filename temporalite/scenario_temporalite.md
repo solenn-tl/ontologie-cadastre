@@ -12,8 +12,7 @@ Une parcelle est caractérisée par plusieurs propriétés (à une date donnée)
 * un **propriétaire** (ou groupe de propriétaires)
 * une ou plusieurs **natures** de sol (ex: bâtiment et cour)
 * une **géométrie**
-* une **localisation** (section, commune)
-* une **précision de la localisation** (lieu-dit)
+* une **localisation** (lieu-dit, section, commune)
 
 Ces propriétés peuvent changer au cours du temps. Un évènement intervenant sur une parcelle peut concerner une ou plusieurs propriétés.
 
