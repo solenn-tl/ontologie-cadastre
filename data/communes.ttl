@@ -1,6 +1,0 @@
-@prefix nap:<http://data.ign.fr/def/cadastrenap#>.
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-
-<http://data.ign.fr/id/cadastrenap/commune/COMM_Marolles_en_Brie> a nap:Landmark;
-    nap:isLandmarkType nap:Commune;
-    rdfs:label "Marolles-en-Brie"@fr.
