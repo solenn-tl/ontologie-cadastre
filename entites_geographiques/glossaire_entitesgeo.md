@@ -204,7 +204,7 @@
   <tr>
     <td>Pépinière</td>
     <td>Pep</td>
-    <td>Associé à *Verger* dans certains documents</td>
+    <td>Associé à <i>Verger</i> dans certains documents</td>
   </tr>
   <tr>
     <td>Prés</td>
