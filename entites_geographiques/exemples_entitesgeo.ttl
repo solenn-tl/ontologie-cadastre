@@ -1,4 +1,4 @@
-
+### Vocabularies
 @prefix nap: <http://data.ign.fr/def/cadastrenap#>.
 @prefix addr: <http://rdf.geohistoricaldata.org/address#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
@@ -14,6 +14,7 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix gsp: <http://www.opengis.net/ont/geosparql#>.
 
+### Individuals
 @prefix dept: <http://data.ign.fr/id/cadastrenap/departement/>.
 @prefix arr: <http://data.ign.fr/id/cadastrenap/arrondissement/>.
 @prefix cant: <http://data.ign.fr/id/cadastrenap/canton/>.
@@ -22,44 +23,49 @@
 @prefix parc: <http://data.ign.fr/id/cadastrenap/parcelle/>.
 @prefix owner: <http://data.ign.fr/id/cadastrenap/owner/>.
 
+#### SKOS Concept
+@prefix nature: <http://data.ign.fr/id/codes/cadastrenap/nature/>.
+@prefix segment: <http://data.ign.fr/id/codes/cadastrenap/segment/>.
+@prefix landmark: <http://data.ign.fr/id/codes/cadastrenap/landmark/>.
+
 ######################################
 ########## Unités admin #############
 ######################################
 
 #http://data.ign.fr/id/cadastrenap/departement/DEPT_Seine_et_Oise
 dept:DEPT_Seine_et_Oise a nap:Landmark;
-    nap:isLandmarkType nap:Departement;
+    nap:isLandmarkType landmark:Departement;
     rdfs:label "Seine-et-Oise"@fr.
 
 #http://data.ign.fr/id/cadastrenap/arrondissement/ARR_Corbeil
 arr:ARR_Corbeil a nap:Landmark;
-    nap:isLandmarkType nap:Arrondissement;
+    nap:isLandmarkType landmark:Arrondissement;
     rdfs:label "Arrondissement de Corbeil"@fr;
     nap:hasAttribute [
         a nap:SpatialDescription;
         nap:hasVersion [
-                nap:targets nap:ARR_Corbeil;
+                nap:targets arr:ARR_Corbeil;
                 nap:firstStep [
                     a nap:Segment;
-                    nap:isSpatialRelationType nap:within;
-                    nap:locatum nap:ARR_Corbeil;
-                    nap:relatum nap:DEPT_Seine_et_Oise
+                    nap:isSpatialRelationType segment:Within;
+                    nap:locatum arr:ARR_Corbeil;
+                    nap:relatum dept:DEPT_Seine_et_Oise
                 ]]
         ].
     
 #http://data.ign.fr/id/cadastrenap/canton/CA_Boissy_Saint_Leger
 cant:CA_Boissy_Saint_Leger a nap:Landmark;
-    nap:isLandmarkType nap:Canton;
+    nap:isLandmarkType landmark:Canton;
     rdfs:label "Canton de Boissy-Saint-Léger"@fr;
     nap:hasAttribute [
         a nap:SpatialDescription;
         nap:hasVersion [
-        nap:targets nap:CA_Boissy_Saint_Leger;
+        nap:targets cant:CA_Boissy_Saint_Leger;
         nap:firstStep [
             a nap:Segment;
-            nap:isSpatialRelationType nap:within;
-            nap:locatum nap:CA_Boissy_Saint_Leger;
-            nap:relatum nap:ARR_Corbeil;
+            nap:isSpatialRelationType segment:Within;
+            nap:locatum cant:CA_Boissy_Saint_Leger;
+            nap:relatum arr:ARR_Corbeil;
         ]]].
 
 #http://data.ign.fr/id/cadastrenap/commune/COMM_Marolles_en_Brie
@@ -69,12 +75,12 @@ comm:COMM_Marolles_en_Brie a nap:Landmark;
     nap:hasAttribute [
         a nap:SpatialDescription;
         nap:hasVersion [
-            nap:targets nap:COMM_Boissy_Saint_Leger;
+            nap:targets comm:COMM_Boissy_Saint_Leger;
             nap:firstStep [
                 a nap:Segment;
-                nap:isSpatialRelationType nap:within;
-                nap:locatum nap:COMM_Marolles_en_Brie;
-                nap:relatum nap:CA_Boissy_Saint_Leger;
+                nap:isSpatialRelationType segment:Within;
+                nap:locatum comm:COMM_Marolles_en_Brie;
+                nap:relatum cant:CA_Boissy_Saint_Leger;
         ]]].
 
 #http://data.ign.fr/id/cadastrenap/section/SEC_Marolles_en_Brie_A
@@ -85,12 +91,13 @@ sec:SEC_Marolles_en_Brie_C a nap:Landmark;
     nap:hasAttribute [
         nap:hasVersion [
         a nap:SpatialDescription;
-        nap:targets nap:SEC_Marolles_en_Brie_C;
+        nap:hasBeginning "1810";
+        nap:targets sec:SEC_Marolles_en_Brie_C;
         nap:firstStep [
             a nap:Segment;
-            nap:isSpatialRelationType nap:within;
-            nap:locatum nap:SEC_Marolles_en_Brie_C;
-            nap:relatum nap:COMM_Marolles_en_Brie;
+            nap:isSpatialRelationType segment:Within;
+            nap:locatum sec:SEC_Marolles_en_Brie_C;
+            nap:relatum comm:COMM_Marolles_en_Brie;
         ]]].
 
 #http://data.ign.fr/id/cadastrenap/parcel/Marolles_en_Brie_C_191  
@@ -115,17 +122,17 @@ parc:Marolles_en_Brie_C_191 a nap:Landmark;
             nap:targets parc:Marolles_en_Brie_C_191;
             nap:firstStep [
                 a nap:Segment;
-                nap:isSpatialRelationType nap:within;
+                nap:isSpatialRelationType segment:Within;
                 nap:locatum parc:Marolles_en_Brie_C_191;
                 nap:relatum comm:COMM_Marolles_en_Brie;
                 nap:nextStep [
                     a nap:Segment;
-                    nap:isSpatialRelationType nap:within;
+                    nap:isSpatialRelationType segment:Within;
                     nap:locatum parc:Marolles_en_Brie_C_191;
                     nap:relatum sec:SEC_Marolles_en_Brie_C;
                     nap:nextStep [
                         a nap:Segment;
-                        nap:isSpatialRelationType nap:within;
+                        nap:isSpatialRelationType segment:Within;
                         nap:locatum parc:Marolles_en_Brie_C_191;
                         nap:relatum "Le Village";
                 ]
@@ -163,11 +170,11 @@ parc:Marolles_en_Brie_C_191 a nap:Landmark;
         #nap:source nap:source0002.
     .
 
-    _:n0 nap:isParcelNature nap:Ground;
+    _:n0 nap:isParcelNature nature:Ground;
         nap:hasBeginning "1810";
         nap:hasEnd "entre 1832 et 1882";
         nap:before _:n1
     .
-    _:n1 nap:isParcelNature nap:House;
+    _:n1 nap:isParcelNature nature:House;
         nap:hasBeginning "entre 1832 et 1882"
     .
