@@ -14,9 +14,9 @@ Dans les documents cadastraux, chaque compte foncier est scindé en deux parties
 
 Un compte foncier est associé à un numéro (plus rarement à plusieurs, généralement quand plusieurs pages sont nécessaires pour lister l'ensemble des parcelles appartenant aux propriétaires mentionnés). Selon le type de matrice cadastrale traité, ce numéro peut faire référence à un ou à plusieurs comptes fonciers différents. 
 
-Pour chaque état de parcelle, il est possible d'indiquer le compte foncier dans lequel se trouvait précédement ("Tiré de") et dans quel compte foncier il est porté après une modification ("Porté à"). 
+Pour chaque état de parcelle, il est possible d'indiquer le compte foncier dans lequel il se trouvait précédement ("Tiré de") et dans quel compte foncier il est porté après une modification ("Porté à"). 
 Les évènements qui concernent les propriétés (principalement bâties) sont également indiqués dans ces colonnes : "Nouvelle construction" (C.N/N.C), "Augmentation" (Aug), "Evaluation du bâti" (E.B.), "Destruction", "Ruine".
-Ces passages d'un compte foncier à un autre sont des informations particulièrement utile pour ordonner les différents états d'une même parcelle dans l'ordre chronologique.
+Ces passages d'un compte foncier à un autre sont des informations particulièrement utiles pour ordonner les différents états d'une même parcelle dans l'ordre chronologique.
 
 Les lignes obsolètes d'un compte foncier sont rayées. 
 Un compte foncier entièrement barré est clôt. 
@@ -26,9 +26,10 @@ Un compte foncier entièrement barré est clôt.
     - *{obligatoire}* la **matrice cadastrale** dans laquelle il se trouve
     - *{obligatoire}* le ou les **propriétaires** qu'il mentionne
     - *{obligatoire}* la **liste des états de parcelles** qu'il mentionne
-    - *{optionnel}* le **numéro du folio où se poursuit le compte foncier** (ex: en cas de manque de place dans la page)
-    - *{optionnel}* le **numéro du folio précédent le folio actuel** (ex: en cas de manque de place dans la page)
+    - *{optionnel}* le **numéro du folio où se poursuit le compte foncier** dans la même matrice (ex: en cas de manque de place dans la page)
+    - *{optionnel}* le **numéro du folio précédent le folio actuel** dans la même matrice (ex: en cas de manque de place dans la page)
     - *{optionnel}* le **numéro de folio/article/case dans la matrice précédente**
+     - *{optionnel}* le **numéro de folio/article/case dans la matrice suivante**
 
 ## Exemples
 
