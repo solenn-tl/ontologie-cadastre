@@ -18,9 +18,9 @@ Les parcelles et les objets du domaine non cadastrés - tels que les routes ou l
 Une **entité géographique** est caractérisée par:
 - {*obligatoire*} son **nom** ou son **libellé**
 - {*obligatoire*} son **type** (parcelle, section, circonscription administrative, objet du domaine non cadastré...)
-- {*obligatoire*} sa **localisation** (référence spaciale indirecte)
+- {*obligatoire*} sa **localisation**
 - {*optionnel*} sa **géométrie**
-- {parcelle, section:*obligatoire*} son identifiant cadastral (numéro de parcelle et lettre de la section)
+- {parcelle, section:*obligatoire*} son **identifiant cadastral** (parcelle: lettre de la section et numéro de parcelle ; section: lettre)
 - {parcelle: *obligatoire*} sa **nature de sol**
 - {parcelle: *obligatoire*} son/ses **propriétaire(s) ou usufruitiers**
 - {parcelle: *obligatoire*} sa **présence dans un compte foncier**
