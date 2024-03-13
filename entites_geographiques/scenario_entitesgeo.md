@@ -15,39 +15,22 @@ Pour faciliter la localisation d'une parcelle dans une section, la parcelle éta
 
 Les parcelles et les objets du domaine non cadastrés - tels que les routes ou les cours d'eau - constituent les deux unités géographiques élémentaires qui permettent de recouvrir l'intégralité du territoire.
 
-Une **parcelle** est caractérisée par :
-- {*obligatoire*} son **numéro cadastral**
-- {*obligatoire*} sa **localisation** : (lieu-dit) => section => commune
-- {*obligatoire*} sa **nature**
-- {*obligatoire*} son/ses **propriétaire(s) ou usufruitiers**
+Une **entité géographique** est caractérisée par:
+- {*obligatoire*} son **nom** ou son **libellé**
+- {*obligatoire*} son **type** (parcelle, section, circonscription administrative, objet du domaine non cadastré...)
+- {*obligatoire*} sa **localisation** (référence spaciale indirecte)
 - {*optionnel*} sa **géométrie**
-
-Un **objet du domaine non cadastré** est caractérisé par : 
-- {*obligatoire*} son **nom**
-- {*optionnel*} sa **nature**
-- {*optionnel*} sa **géométrie**
-- {*optionnelle*} sa **localisation**
-<p><span style="color:red">Comment gérer les objets qui se trouvent dans plusieurs sections, voir communes, voir département (ex : "La Seine", "Grande route de Paris à Provins") ? => "portion de" ?</span>=> Portion d'un objet théorique ? Apparaît dans telle section ?</p>
-
-Une **section cadastrale** est caractérisée par :
-- {*obligatoire*} son **identifiant** (lettre)
-- {*obligatoire*} son **nom**
-- {*obligatoire*} sa **localisation** : commune => canton => arrondissement => département
-- {*optionnelle*} sa **géométrie**
-
-Une **circonscription administrative** est caractérisée par :
-- {*obligatoire*} son **type** : commune => canton => arrondissement => département
-- {*obligatoire*} son **nom**
-- {*obligatoire*} sa **localisation** : par rapport aux autres circonscriptions administratives
-- {*optionnelle*} sa **géométrie**
-
-*Remarque : l'existance des entités administratives et la valeur de leurs propriétés est possède une dimension temporelle décrite en détails dans le modelet "Temporalité". Les exemples fournis ici décrivent les entités géographiques à un instant T*.
+- {parcelle, section:*obligatoire*} son identifiant cadastral (numéro de parcelle et lettre de la section)
+- {parcelle: *obligatoire*} sa **nature de sol**
+- {parcelle: *obligatoire*} son/ses **propriétaire(s) ou usufruitiers**
+- {parcelle: *obligatoire*} sa **présence dans un compte foncier**
 
 ## Exemples
 
 ### Exemple 1 [Parcelle]
 <ul>
-    <li>Numéro : 207</li>
+    <li>Numéro : A-207</li>
+    <li>Type : Parcelle</li>
     <li>Localisation : Lieu-dit Le Village, Section A, Commune de Boissy-Saint-Léger</li>
     <li>Propriétaire : Charlier</li>
     <li>Nature : Pâture</li>
@@ -57,7 +40,7 @@ Une **circonscription administrative** est caractérisée par :
  ### Exemple 2 [Objet du domaine non cadastré]
 <ul>
     <li>Nom : Grande route de Paris à Provins</li>
-    <li>Nature : route</li>
+    <li>Type : route</li>
     <li>Localisation : Section A, Commune de Boissy-Saint-Léger</li>
 </ul>
  - FRA094_3P_000851, Plan parcellaire de la section C de Boissy-Saint-Léger, 1810
@@ -66,6 +49,7 @@ Une **circonscription administrative** est caractérisée par :
 <ul>
     <li>Identifiant (lettre) : A</li>
     <li>Nom : Section A dite du Piple</li>
+    <li>Type : Section cadastrale</li>
     <li>Localisation : Commune de Boissy-Saint-Léger, Justice de Paix de Boissy-Saint-Léger, Arrondissement de Corbeil, Département de Seine-et-Oise</li>
 </ul>
  - FRA094_3P_000065_01_0001, Etats de sections de Boissy-Saint-Léger, 1810
@@ -73,6 +57,7 @@ Une **circonscription administrative** est caractérisée par :
 ### Exemple 4 [Commune]
 <ul>
     <li>Nom : Boissy-Saint-Léger</li>
+    <li>Type : Commune</li>
     <li>Localisation : Justice de Paix de Boissy-Saint-Léger, Arrondissement de Corbeil, Département de Seine-et-Oise</li>
 </ul>
  - FRA094_3P_000065_01_0001, Etats de sections de Boissy-Saint-Léger, 1810

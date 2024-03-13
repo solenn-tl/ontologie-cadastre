@@ -1,5 +1,5 @@
 
-@prefix napo: <http://data.ign.fr/def/cadastrenap#>.
+@prefix nap: <http://data.ign.fr/def/cadastrenap#>.
 @prefix addr: <http://rdf.geohistoricaldata.org/address#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
@@ -14,15 +14,25 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix gsp: <http://www.opengis.net/ont/geosparql#>.
 
-#Circonscriptions administratives
+@prefix dept: <http://data.ign.fr/id/cadastrenap/departement/>.
+@prefix arr: <http://data.ign.fr/id/cadastrenap/arrondissement/>.
+@prefix cant: <http://data.ign.fr/id/cadastrenap/canton/>.
+@prefix comm: <http://data.ign.fr/id/cadastrenap/commune/>.
+@prefix sec: <http://data.ign.fr/id/cadastrenap/section/>.
+@prefix parc: <http://data.ign.fr/id/cadastrenap/parcelle/>.
+@prefix owner: <http://data.ign.fr/id/cadastrenap/owner/>.
+
+######################################
+########## Unités admin #############
+######################################
 
 #http://data.ign.fr/id/cadastrenap/departement/DEPT_Seine_et_Oise
-nap:DEPT_Seine_et_Oise a nap:Landmark;
+dept:DEPT_Seine_et_Oise a nap:Landmark;
     nap:isLandmarkType nap:Departement;
     rdfs:label "Seine-et-Oise"@fr.
 
 #http://data.ign.fr/id/cadastrenap/arrondissement/ARR_Corbeil
-nap:ARR_Corbeil a nap:Landmark;
+arr:ARR_Corbeil a nap:Landmark;
     nap:isLandmarkType nap:Arrondissement;
     rdfs:label "Arrondissement de Corbeil"@fr;
     nap:hasAttribute [
@@ -38,7 +48,7 @@ nap:ARR_Corbeil a nap:Landmark;
         ].
     
 #http://data.ign.fr/id/cadastrenap/canton/CA_Boissy_Saint_Leger
-nap:CA_Boissy_Saint_Leger a nap:Landmark;
+cant:CA_Boissy_Saint_Leger a nap:Landmark;
     nap:isLandmarkType nap:Canton;
     rdfs:label "Canton de Boissy-Saint-Léger"@fr;
     nap:hasAttribute [
@@ -53,7 +63,7 @@ nap:CA_Boissy_Saint_Leger a nap:Landmark;
         ]]].
 
 #http://data.ign.fr/id/cadastrenap/commune/COMM_Marolles_en_Brie
-nap:COMM_Marolles_en_Brie a nap:Landmark;
+comm:COMM_Marolles_en_Brie a nap:Landmark;
     nap:isLandmarkType nap:Commune;
     rdfs:label "Marolles-en-Brie"@fr;
     nap:hasAttribute [
@@ -68,7 +78,7 @@ nap:COMM_Marolles_en_Brie a nap:Landmark;
         ]]].
 
 #http://data.ign.fr/id/cadastrenap/section/SEC_Marolles_en_Brie_A
-nap:SEC_Marolles_en_Brie_C a nap:Landmark;
+sec:SEC_Marolles_en_Brie_C a nap:Landmark;
     nap:isLandmarkType nap:Section;
     rdfs:label "Section C dite du Village";
     dcterms:identifier "C";
@@ -83,56 +93,81 @@ nap:SEC_Marolles_en_Brie_C a nap:Landmark;
             nap:relatum nap:COMM_Marolles_en_Brie;
         ]]].
 
-nap:owner0001 a nap:Owner;
-    skos:prefLabel "Mazarot Pierre";
-    nap:name "Mazarot Pierre";
-    nap:activity "cabaretier";
-    nap:address "à Marolles".
-
 #http://data.ign.fr/id/cadastrenap/parcel/Marolles_en_Brie_C_191  
-nap:Marolles_en_Brie_C_191 a nap:Landmark;
+parc:Marolles_en_Brie_C_191 a nap:Landmark;
     nap:isLandmarkType nap:Parcel;
     rdfs:label "Parcelle 191, Section C, Marolles-en-Brie";
     skos:prefLabel "Parcelle 191, Section C, Marolles-en-Brie";
+    # Attributs
     nap:hasAttribute [ a nap:Owner;
-        nap:hasVersion [
-            nap:isOwnedBy nap:owner0001;
-            nap:hasBeginning "1810";
-            nap:hasEnd "1822"#;
-            #nap:source nap:source0001;
-            #nap:source nap:source0002.
-        ]
-    ];
+        nap:hasVersion _:o0;
+        nap:hasVersion _:o1;
+        nap:hasVersion _:o2;
+        nap:hasVersion _:o3;
+        ];
     nap:hasAttribute [ a nap:Nature;
-        nap:hasVersion [
-            nap:isParcelNature nap:Ground;
-            nap:hasBeginning "1810";
-            nap:hasEnd "entre 1832 et 1882";
-            nap:before _:b1
-        ]
+        nap:hasVersion _:n0;
+        nap:hasVersion _:n1;
     ];
-    nap:hasAttribute _:b1.
-    _:b1 a nap:Nature;
-        nap:hasVersion [
-            nap:isParcelNature nap:House;
-            nap:hasBeginning "entre 1832 et 1882"
-        ]
-    ;
     nap:hasAttribute[ a nap:SpatialDescription;
         nap:hasVersion [
             rdfs:label "Marolles-en-Brie, Section C, Le Village, Parcelle 191"@fr;
-            nap:targets nap:Marolles_en_Brie_C_191;
+            nap:targets parc:Marolles_en_Brie_C_191;
             nap:firstStep [
                 a nap:Segment;
                 nap:isSpatialRelationType nap:within;
-                nap:locatum nap:Marolles_en_Brie_C_191;
-                nap:relatum nap:COMM_Marolles_en_Brie;
+                nap:locatum parc:Marolles_en_Brie_C_191;
+                nap:relatum comm:COMM_Marolles_en_Brie;
                 nap:nextStep [
                     a nap:Segment;
                     nap:isSpatialRelationType nap:within;
-                    nap:locatum nap:Marolles_en_Brie_C_191;
-                    nap:relatum nap:SEC_Marolles_en_Brie_C;
+                    nap:locatum parc:Marolles_en_Brie_C_191;
+                    nap:relatum sec:SEC_Marolles_en_Brie_C;
+                    nap:nextStep [
+                        a nap:Segment;
+                        nap:isSpatialRelationType nap:within;
+                        nap:locatum parc:Marolles_en_Brie_C_191;
+                        nap:relatum "Le Village";
+                ]
                 ]
             ]
         ]
     ].
+
+    _:o0 nap:isOwnedBy owner:0001;
+        nap:hasBeginning "1810";
+        nap:hasEnd "1812";
+        nap:before _:o1
+        #nap:source nap:source0001;
+        #nap:source nap:source0002.
+            .
+    _:o1 nap:isOwnedBy owner:0001;
+        nap:hasBeginning "1812";
+        nap:hasEnd "entre 1812 et 1832";
+        nap:after _:o1
+        #nap:source nap:source0001;
+        #nap:source nap:source0002.
+    .
+    _:o2 nap:isOwnedBy owner:0002;
+        nap:hasBeginning "1812";
+        nap:hasEnd "entre 1812 et 1832";
+        nap:after _:o1
+        #nap:source nap:source0001;
+        #nap:source nap:source0002.
+    .
+    _:o3 nap:isOwnedBy owner:0003;
+        nap:hasBeginning "1812";
+        nap:hasEnd "entre 1812 et 1832";
+        nap:after _:o1
+        #nap:source nap:source0001;
+        #nap:source nap:source0002.
+    .
+
+    _:n0 nap:isParcelNature nap:Ground;
+        nap:hasBeginning "1810";
+        nap:hasEnd "entre 1832 et 1882";
+        nap:before _:n1
+    .
+    _:n1 nap:isParcelNature nap:House;
+        nap:hasBeginning "entre 1832 et 1882"
+    .
