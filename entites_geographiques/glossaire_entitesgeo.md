@@ -133,7 +133,7 @@
 <table>
   <tr>
     <th>Nature</th>
-    <th>Abréviations</th>
+    <th>Abréviations/Nom alternatif</th>
     <th>Remarque</th>
   </tr>
   <tr>
@@ -168,7 +168,7 @@
   </tr>
   <tr>
     <td>Jardin</td>
-    <td></td>
+    <td>J</td>
     <td></td>
   </tr>
   <tr>
@@ -204,7 +204,7 @@
   <tr>
     <td>Pépinière</td>
     <td>Pep</td>
-    <td>Peut être associé à Verger dans certains documents</td>
+    <td>Associé à *Verger* dans certains documents</td>
   </tr>
   <tr>
     <td>Prés</td>
@@ -214,7 +214,7 @@
     <tr>
     <td>Sol</td>
     <td>Terrain de maison, Sol des propriétés bâties</td>
-    <td>Emprise d'une construction quelque soit sa nature. Apparaît après la réforme des matrices de rôles de 1822.</td>
+    <td>Emprise d'une construction quelque soit sa nature. Apparaît après la réforme des matrices de 1822.</td>
   </tr>
   <tr>
     <td>Terre</td>
@@ -228,8 +228,8 @@
   </tr>
   <tr>
     <td>Terre plantée</td>
-    <td></td>
-    <td colspan="2">A fusionner ???</td>
+    <td>T. p.</td>
+    <td</td>
   </tr>
   <tr>
     <td>Verger</td>
