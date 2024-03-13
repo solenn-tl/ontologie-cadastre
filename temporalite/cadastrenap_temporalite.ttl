@@ -61,7 +61,6 @@ nap:dependsOn a owl:ObjectProperty ;
             rdfs:label "dépend de l'événement"@fr, "depends on the event"@en.
             #owl:equivalentClass addr:dependsOn.
 
-
 ###  http://data.ign.fr/def/cadastrenap#hasAttribute
 nap:hasAttribute a owl:ObjectProperty ;
                   rdfs:domain addr:Landmark ;
