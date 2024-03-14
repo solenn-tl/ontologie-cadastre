@@ -282,11 +282,10 @@ nap:nature a owl:DatatypeProperty;
 #################################################################
 
 ###  http://data.ign.fr/id/codes/cadastrenap/landmark/list
-landmark:list a owl:NamedIndividual ,
-                  skos:ConceptScheme ;
-                  rdfs:comment "Liste des différents rôles pouvant être joués par un repère, représentés comme une liste de concepts SKOS."@fr ;
-                  rdfs:label "type de repère"@fr ,
-                             "type of landmark"@en .
+landmark:list a skos:ConceptScheme ;
+                rdfs:comment "Liste des différents rôles pouvant être joués par un repère, représentés comme une liste de concepts SKOS."@fr ;
+                rdfs:label "type de repère"@fr ,
+                           "type of landmark"@en .
 
 ### http://data.ign.fr/id/codes/cadastrenap/landmark/Parcel
 landmark:Parcel a owl:NamedIndividual ,
