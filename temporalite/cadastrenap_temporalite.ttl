@@ -5,7 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix nap: <http://data.ign.fr/def/cadastrenap>.
+@prefix addr: <http://rdf.geohistoricaldata.org/address#>.
 
 # ---- Prefixes used for skos:ConceptScheme --------------------
 @prefix change: <http://data.ign.fr/id/codes/cadastrenap/change/>.
@@ -293,6 +293,15 @@ change:CompteFoncierChange a owl:NamedIndividual ,
             skos:inScheme change:list ;
             skos:prefLabel "changement de compte foncier"@fr ,
                            "properties list change"@en .
+
+change:GeometryChange a owl:NamedIndividual ,
+                     nap:ChangeType ,
+                     skos:Concept ;
+            skos:prefLabel "Changement de la géométrie d'un repère."@fr ;
+            skos:definition "Changement appliqué à la géométrie d'un repère."@fr ;
+            skos:inScheme change:list ;
+            skos:prefLabel "changement de géométrie"@fr ,
+                           "geometry change"@en .
 
 ###  http://data.ign.fr/id/codes/cadastrenap/change/Creation
 change:Creation rdf:type owl:NamedIndividual ,
