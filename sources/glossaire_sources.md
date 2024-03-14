@@ -37,15 +37,11 @@
   </tr>
   <tr>
     <td>Etat de sections</td>
-    <td>Registre établi à une date proche de la production du plan parcellaire et qui constitue sa légende en associant à chaque numéro de parcelle un ou plusieurs propriétaires, une nature, une contenance et une évaluation.<br>Le registre d'état de sections n'était pas mis à jour après sa rédaction initiale.</td>
-  </tr>
-  <tr>
-    <td>Ligne de page tableau d'état de sections</td>
-    <td>Zone située dans une page de tableau d'état de section qui correspond à la description d'une parcelle.</td>
+    <td>Registre établi à une date proche de la production du plan parcellaire. Il constitue la légende du plan. L'état de sections contient autant de chapitres qu'il y a de sections dans la commune. Les parcelles sont listées dans un ordre numérique croissant. Chaque parcelle est associée à son.ses propriétaire.s, une nature, une contenance et une évaluation.<br>Le registre d'état de sections n'était pas mis à jour après sa rédaction initiale.</td>
   </tr>
   <tr>
     <td>Liste alphabétique des propriétaires</td>
-    <td>Liste des propriétaires mentionnés dans la matrice et classés par ordre alphabétique. Ils sont généralement associés à leurs numéros de folios.</td>
+    <td>Partie de la matrice cadastrale qui liste les propriétaires qui y sont mentionnés. Les propriétaires sont classés par ordre alphabétique. Ils sont généralement associés à leur.s numéro.s de folio.s.</td>
   </tr>
   <tr>
     <td>Matrice cadastrale</td>
@@ -53,7 +49,7 @@
     <ul>
       <li>les matrices de rôles (1807-1821), bâties et non bâties</li>
       <li>les matrices des propriétés foncières (1822-1882)</li>
-      <li>les matrices des propriétés non bâties (1882-1914)</li>
+      <li>les matrices des propriétés non bâties (1882-1914) <i>en pratique: suite de la matrice des propriétés foncières</i></li>
       <li>les matrices des propriétés bâties (1882-1911)</li>
       <li>les matrices des propriétés non bâties (1914-rénovation)</li>
       <li>les matrices des propriétés bâties (1911-rénovation)</li>
@@ -62,32 +58,37 @@
   <tr>
     <td>Matrices de rôle (1807-1821)<br>(aussi <i>Matrice de rôle de la contribution foncière</i> et </i>Matrices de rôle de la contribution cadastrale</i>)</td>
     <td>Premier type de matrices cadastrales utilisé de la création du cadastre en 1807 à la réforme du 26 novembre 1821.
-    Il existe une matrice pour les propriétés bâties et une matrice pour les propriétés non bâties (qui peuvent se trouver dans un même registre). Les comptes des propriétaires sont appelés <i>articles</i>. Il n'était pas prévu d'espace pour inclure les évolutions d'un compte foncier. En cas de nouvelles acquisitions, un nouvel article était créé dans une portion de matrice dédiée à l'année en cours à la fin de la matrice. Le précédent article du propriétaire est barré.</td>
+    Il existe une matrice pour les propriétés bâties et une matrice pour les propriétés non bâties (qui peuvent se trouver dans un même registre). Les comptes des propriétaires sont appelés <i>articles</i>. Il n'était pas prévu d'espace pour inclure les évolutions d'un compte foncier. En cas de modifications, un nouvel article était créé dans une portion de matrice dédiée à l'année en cours à la fin du registre. Le précédent article du propriétaire est annulé (rayé/barré).</td>
   </tr>
   <tr>
     <td>Matrice des propriétés foncières (1821-1881)</td>
-    <td>Registre initialisé à la suite de la réforme du 26 novembre 1821. Les folios des propriétaires contiennent les états des propriétés bâties et non bâties.<br>
-    A chaque changement intervenant sur une parcelle, la ligne obsolète est rayée. La mise à jour peut-être portée dans le même compte foncier ou dans un nouveau compte. Les colonnes "Tiré de" et "Porté à" permettent de suivre ces changements de comptes.</td>
+    <td>Registre initialisé à la suite de la réforme du 26 novembre 1821. Les comptes fonciers des propriétaires contiennent les états des propriétés bâties et non bâties.<br>
+    A chaque changement intervenant sur une parcelle, la ligne obsolète est rayée. La mise à jour est portée dans le même compte foncier ou dans un nouveau compte selon le type de mutation. Les colonnes "Tiré de" et "Porté à" permettent de suivre ces changements de comptes.</td>
   </tr>
   <tr>
     <td>Matrice des propriétés bâties (1881-1911)</td>
-    <td>A la suite de la loi du 26 novembre 1881, il est recommandé de séparé les revenus liés aux propriétés bâties et aux propriétés non bâties. Après production d'un état balance qui liste les propriétés bâties de chaque propriétaire de la matrice des propriétés foncières, les propriétés bâties sont reportées dans une nouvelle matrice.</td>
+    <td>A la suite de la loi du 26 novembre 1881, il est recommandé de séparer les revenus liés aux propriétés bâties et aux propriétés non bâties. Après production d'un état balance qui liste les propriétés bâties de chaque propriétaire de la matrice des propriétés foncières, les propriétés bâties sont extraites dans une nouvelle matrice. Les comptes fonciers y sont appelés <b>cases</b>.</td>
   </tr>
   <tr>
     <td>Matrice des propriétés non bâties (1881-1914)</td>
-    <td>A la suite de la loi du 26 novembre 1881, les propriétés bâties sont reportées dans un nouveau cahier. Les propriétés non bâties contiunent d'êtres reportés dans l'ancien cachier désormais appelé "Matrice des propriétés foncières".</td>
+    <td>A la suite de la loi du 26 novembre 1881, les propriétés bâties sont reportées dans un nouveau cahier. En pratique, les propriétés non bâties <b>continuent d'être reportés dans la <i>Matrice des propriétés foncières</i>.</td>
   </tr>
   <tr>
     <td>Matrice des propriétés bâties (1911-rénovation)</td>
-    <td>Refonte de la matrice des propriétés bâties après la révision décennale des évaluations des propriétés bâties de 1910.</td>
+    <td>Refonte de la matrice des propriétés bâties après la révision décennale des évaluations des propriétés bâties de 1910. Cette refonte de matrice n'entraîne aucun changement de section ou de numérotation.</br>Cette matrice est utilisée jusqu'à la rénovation du cadastre (date très variable selon les communes).</td>
   </tr>
   <tr>
     <td>Matrice des propriétés non bâties (1914-rénovation)</td>
-    <td>Refonte des matrices des propriétés non bâties ayant eu lieu après un phase de réévaluation.</td>
+    <td>Refonte des matrices des propriétés non bâties ayant eu lieu à la suite de la révision de 1913. Cette refonte de matrice n'entraîne aucun changement de section ou de numérotation. Elle a pour vocation principale à réviser le revenu net par parcelle (sa valeur locative).</br>Cette matrice est utilisée jusqu'à la rénovation du cadastre (date très variable selon les communes).</td>
   </tr>
   <tr>
-    <td>Plan minute</td>
-    <td>Version de travail du plan parcellaire, généralement utilisée sur le terrain par le géomètre chargé de la production du cadastre.</td>
+    <td>Plan Copie</td>
+    <td>Version du plan cadastral conservée dans chaque commune.</td>
+  </tr>
+  <tr>
+    <td>Plan Minute</td>
+    <td>Version du plan cadastral conservé au Bureau des Contributions directes de chaque département. Il s'agit de la version de travail du plan, généralement utilisée sur le terrain par le géomètre chargé de la production du cadastre.
+    </td>
   </tr>
   <tr>
     <td>Plan parcellaire</td>
