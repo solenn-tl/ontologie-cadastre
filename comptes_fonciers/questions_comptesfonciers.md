@@ -17,7 +17,7 @@ Liste des comptes fonciers mentionnant la parcelle XX dans l'ensemble des matric
 
 ## Question 2
 ### Question
-Dans quel(s) compte(s) foncier(s) de la commune est mentionné le propriétaire XX dans les matrices successives de la commune Z ?
+Dans quel(s) compte(s) foncier(s) est mentionné le propriétaire XX dans les matrices successives de la commune Z ?
 ### Résultat attendu
 Liste des comptes fonciers correspondants
 ### Exemple de réponse

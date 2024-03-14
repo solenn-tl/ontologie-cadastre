@@ -20,7 +20,7 @@
   </tr>
   <tr>
     <td>Date d'entrée</td>
-    <td>Date de début de validité d'un état d'une parcelle dans un compte foncier.</br><i>Titre de l'une des colonnes relatives aux dates de mutations dans les matrices des propriétés non bâties (v.1882-rénovation).</i></td>
+    <td>Correspond àDate de début de validité d'un état d'une parcelle dans un compte foncier.</br><i>Titre de l'une des colonnes relatives aux dates de mutations dans les matrices des propriétés non bâties (v.1882-rénovation).</i></td>
   </tr>
   <tr>
     <td>Date de sortie</td>
@@ -36,7 +36,7 @@
   </tr>
   <tr>
     <td>Mutation</td>
-    <td>Une mutation est un changement qui impacte une parcelle, notamment son propriétaire (vente, transmission) ou encore sa nature. Elle est provoque soit un changement de contribuable, soit une réévaluation fiscale, soit un passage dans le domaine publique.</td>
+    <td>Une mutation est un changement qui impacte une parcelle, notamment son propriétaire (achat, vente, donation, partage, sucession) ou encore sa nature. Elle est provoque soit un changement de contribuable, soit une modification de l'évaluation fiscale, soit un passage dans le domaine publique.</td>
   </tr>
   <tr>
     <td>Numéro de compte foncier (aussi <i>Numéro d'article, de folio ou de case</i>)</td>

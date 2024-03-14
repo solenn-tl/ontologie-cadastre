@@ -2,7 +2,7 @@
 
 ## Nom
 
-Comptes fonciers et mutations
+Comptes fonciers, mutations, augmentations et diminutions
 
 ## Description
 
@@ -14,9 +14,9 @@ Dans les documents cadastraux, chaque compte foncier est scindé en deux parties
 
 Un compte foncier est associé à un numéro (plus rarement à plusieurs, généralement quand plusieurs pages sont nécessaires pour lister l'ensemble des parcelles appartenant aux propriétaires mentionnés). Selon le type de matrice cadastrale traité, ce numéro peut faire référence à un ou à plusieurs comptes fonciers différents. 
 
-Pour chaque état de parcelle, il est possible d'indiquer le compte foncier dans lequel il se trouvait précédement ("Tiré de") et dans quel compte foncier il est porté après une modification ("Porté à"). 
-Les évènements qui concernent les propriétés (principalement bâties) sont également indiqués dans ces colonnes : "Nouvelle construction" (C.N/N.C), "Augmentation" (Aug), "Evaluation du bâti" (E.B.), "Destruction", "Ruine".
-Ces passages d'un compte foncier à un autre sont des informations particulièrement utiles pour ordonner les différents états d'une même parcelle dans l'ordre chronologique.
+Dans chaque état de parcelle, il est indiqué le compte foncier dans lequel la parcelle se trouvait avant sa dernière modification ("Tiré de") et dans quel compte foncier elle est ajoutée après la modification suivante ("Porté à"). 
+Des évènements qui concernent les propriétés (principalement bâties) sont également indiqués dans ces colonnes : "Nouvelle construction" (C.N/N.C), "Augmentation" (Aug), "Evaluation du bâti" (E.B.), "Destruction", "Ruine".
+Les passages d'un compte foncier à un autre sont des informations particulièrement utiles pour ordonner les différents états d'une même parcelle dans l'ordre chronologique.
 
 Les lignes obsolètes d'un compte foncier sont rayées. 
 Un compte foncier entièrement barré est clôt. 
