@@ -246,6 +246,25 @@ rico:includesOrIncluded a owl:ObjectProperty ;
          Sets simultaneously or through time."""@en ;
 	rico:RiCCMCorrespondingComponent """RiC-R024 ('includes or included')""".
 
+rico:isOrWasIncludedIn
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf rico:isOrWasPartOf, rico:isRecordResourceAssociatedWithRecordResource ;
+  owl:inverseOf rico:includesOrIncluded ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     rico:Record
+     rico:RecordSet
+   )
+  ] ;
+  rdfs:range rico:RecordSet ;
+  rdfs:comment "Inverse of 'includes or included' object property."@en ;
+  rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
+  rdfs:label "is or was included in"@en, "est ou a été inclus dans"@fr, "está o estaba incluido en"@es ;
+  rico:RiCCMCorrespondingComponent """RiC-R024i ('is or was included in'
+         relation)"""@en .
+
+
 rico:hasOrHadComponent a owl:ObjectProperty ;
 	rdfs:subPropertyOf rico:hasOrHadPart, rico:isInstantiationAssociatedWithInstantiation ;
 	owl:inverseOf rico:isOrWasComponentOf ;
@@ -359,3 +378,38 @@ fpo:sourcedFrom a owl:ObjectProperty ;
 
 # ---- Imported properties ----
 rdfs:label a owl:DatatypeProperty.
+
+rico:identifier
+  a owl:DatatypeProperty ;
+  rdfs:domain rico:Thing ;
+  rdfs:range rdfs:Literal ;
+  rdfs:comment """A word, number, letter, symbol, or any combination of these used
+         to uniquely identify or reference an individual instance of an entity within a specific
+         information domain. Can include Global Persistent Identifiers (globally unique and
+         persistently resolvable identifier for the entity) and/or Local Identifiers. Both the
+         domain within which the identifier is unique, and the rules used in forming the identifier
+         value should be provided with the identifier value."""@en ;
+  rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
+  rdfs:label "identifier"@en, "identifiant"@fr, "identificador"@es ;
+  rico:RiCCMCorrespondingComponent """Corresponds to RiC-A22 (Identifier
+         attribute)"""@en .
+
+###############################
+# ---- SkosConcept ----
+###############################
+
+
+
+# Document
+# |---- Registre
+#     |------ Etat de sections Record
+#     |------ Matrice cadastrale Record
+#           |----- Matrices de rôles (antérieures à 1822) Record
+#           |----- Matrice des propriétés foncières (1822-1882) & Matrice des propriétés non bâties (1882-1914) Record
+#           |----- Matrice des propriétés non bâties (1914-rénovation) Record
+#           |----- Matrice des propriétés bâties (1882-1911) Record
+#           |----- Matrice des propriétés bâties (1911-rénovation)
+# |---- Plan
+#     |------ Plan primitif
+#     |------ Plan rectifié
+#     |------ Plan rénové
