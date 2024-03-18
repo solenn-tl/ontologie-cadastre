@@ -48,13 +48,11 @@ nap:Presence a owl:Class;
 
 nap:mentions a owl:ObjectProperty;
     rdfs:domain nap:PropertyAccount;
-    rdfs:range nap:Presence;
     rdfs:comment "Un compte foncier mentionne la présence d'une parcelle ou d'un propriétaire."@fr;
     rdfs:label "mentionne";
     owl:inverseOf nap:isMentionnedIn.
 
 nap:isMentionnedIn a owl:ObjectProperty;
-    rdfs:domain nap:Presence;
     rdfs:range nap:PropertyAccount;
     rdfs:comment "Une parcelle ou un propriétaire est mentionné dans un compte foncier."@fr;
     rdfs:label "est mentionné dans";
