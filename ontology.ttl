@@ -1,18 +1,19 @@
+@base <http://data.ign.fr/def/cadastrenap#> .
+@prefix nap: <http://data.ign.fr/def/cadastrenap#> .
 @prefix : <http://data.ign.fr/def/cadastrenap#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix nap: <http://data.ign.fr/def/cadastrenap#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix time: <http://www.w3.org/2006/time#>.
+# Skos Concepts IRI
 @prefix atype: <http://data.ign.fr/id/codes/cadastrenap/attributeType/> .
 @prefix ctype: <http://data.ign.fr/id/codes/cadastrenap/changeType/> .
 @prefix ltype: <http://data.ign.fr/id/codes/cadastrenap/landmarkType/> .
 @prefix lrtype: <http://data.ign.fr/id/codes/cadastrenap/landmarkRelationType/> .
 @prefix pnature: <http://data.ign.fr/id/codes/cadastrenap/parcelNature/> .
-@base <http://data.ign.fr/def/cadastrenap#> .
 
 <http://http://data.ign.fr/def/cadastrenap> a owl:Ontology .
 
@@ -607,7 +608,7 @@ nap:isParcelNatureOf a owl:ObjectProperty ;
 
 ###  http://data.ign.fr/def/cadastrenap#hasOwner
 nap:hasOwner a owl:ObjectProperty ;
-                    rdfs:domain nap:Owner ;
+                    rdfs:domain atype:Owner ;
                     rdfs:range nap:AttributeVersion ;
                     rdfs:label "a pour propriétaire"@fr ,
                                "has owner"@en ;
@@ -616,7 +617,7 @@ nap:hasOwner a owl:ObjectProperty ;
 ###  http://data.ign.fr/def/cadastrenap#isOwnedBy
 nap:isOwnedBy a owl:ObjectProperty ;
                     rdfs:domain nap:AttributeVersion ;
-                    rdfs:range nap:Owner ;
+                    rdfs:range atype:Owner ;
                     rdfs:label "est la propriété de"@fr ,
                                "is owned by"@en ;
                     owl:inverseOf nap:hasOwner.
@@ -677,13 +678,13 @@ rdfs:label a owl:DatatypeProperty.
 nap:activity a owl:DatatypeProperty;
 	rdfs:comment "Activity of an owner. E.g.: farmer."@en , 
 	             "Activité d'un propriétaire. Ex.: cultivateur."@fr ;
-	rdfs:domain nap:Owner;
+	rdfs:domain atype:Owner;
 	rdfs:range xsd:string;
 	rdfs:label "activity"@en, "activité"@fr.
 
 ## http://data.ign.fr/def/cadastrenap#address
 nap:address a owl:ObjectProperty;
-	rdfs:domain  nap:Owner;
+	rdfs:domain atype:Owner;
 	rdfs:range xsd:string;
 	rdfs:label "address"@en ,"adresse d'un propriétaire"@fr ;
 	rdfs:comment "Propriété qui relie un propriétaire à son adresse. Ex: à Paris."@fr ,
