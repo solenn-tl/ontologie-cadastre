@@ -36,7 +36,6 @@ nap:PropertyAccount a owl:Class;
 ###  http://data.ign.fr/id/codes/cadastrenap/attributeType/Presence
 nap:Presence a owl:Class;
     skos:definition "Attribut décrivant la présence/mention d'une parcelle ou d'un propriétaire dans un compte foncier"@fr ;
-    skos:inScheme nap:AttributeList ;
     skos:prefLabel "Compte foncier"@fr ,
                    "Property account"@en ;
     skos:altLabel "Mention d'une parcelle ou d'un proprétaire dans un compte foncier"@fr ,
