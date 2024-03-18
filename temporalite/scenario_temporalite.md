@@ -2,7 +2,7 @@
 
 ## Nom
 
-Evolution des parcelles
+Evolution des entités géographiques
 
 ## Description
 
@@ -14,13 +14,13 @@ Une parcelle est caractérisée par plusieurs propriétés (à une date donnée)
 * une **géométrie**
 * une **localisation** (lieu-dit, section, commune)
 
-Ces propriétés peuvent changer au cours du temps. Un évènement intervenant sur une parcelle peut concerner une ou plusieurs propriétés.
+Ces propriétés peuvent changer au cours du temps. Un événement intervenant sur une parcelle peut concerner une ou plusieurs propriétés.
 
 De ce fait, la parcelle possède une période d'existance (de sa création à sa disparition) et chacune de ses propriétés possède des versions qui elles-mêmes ont une période de validité.
 
-On distingue deux types d'évènements : les évènements liés directement à l'identité de la parcelle et les évènements liés à ses propriétés.
+On distingue deux types d'événements : les événements liés directement à l'identité de la parcelle et les événements liés à ses propriétés.
 
-### Evènements qui affectent les propriétés de la parcelle sans changer son identité
+### Evénements qui affectent les propriétés de la parcelle sans changer son identité
 
 Une version d'un attribut correspond à une période de stabilité de sa valeur. Cet état stable peut être attesté par un ou plusieurs états de classement sucessifs extrait des documents (ligne d'état de classement dans les matrices). La compilation des états qui attestent de cette stabilité permet d'en déduire les dates de la période de validité.
 
@@ -30,14 +30,13 @@ Les changements liés aux propriétés sont :
 * un changement de **géométrie**
     * division de parcelle (avec persistance du numéro)
     * fusion de parcelles (avec persistance du numéro)
-* un changement de **localisation** (échange de sections entre communes) <span style="color:red">A discuter (changement d'ientité ?)</span>
+* un changement de **libellé de localisation** (échange de sections entre communes)
 
-### Evènements qui affectent l'identité de la parcelle
+### Evénements qui affectent l'identité de la parcelle
 
-<span style="color:red">Identité d'une parcelle ???</span>
 Identité d'une parcelle : même numéro/section/commune ???
 
-Les **évènements qui affectent l'identité** de la parcelle sont les suivants:
+Les **événements qui affectent l'identité** de la parcelle sont les suivants:
 * apparition
 * disparition
 * fusion de parcelles (sans persistance du numéro)
@@ -45,7 +44,7 @@ Les **évènements qui affectent l'identité** de la parcelle sont les suivants:
 * re-numérotation
 
 Ils interviennent généralement en même temps que des changements majeurs de la documentation cadastrale (nouvelle cadastration ou création d'une nouvelle commune). 
-A la suite de ces évènements, il est possible d'**établir des liens de parentés entre les parcelles** qui recouvrent une même surface.
+A la suite de ces événements, il est possible d'**établir des liens de parentés entre les parcelles** qui recouvrent une même surface.
 
 ### Temporalité
 

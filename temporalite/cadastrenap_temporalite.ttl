@@ -1,24 +1,40 @@
 @prefix nap: <http://data.ign.fr/def/cadastrenap#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix time: <http://www.w3.org/2006/time#> .
+@prefix nap: <http://data.ign.fr/def/cadastrenap#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix addr: <http://rdf.geohistoricaldata.org/address#>.
+@prefix time: <http://www.w3.org/2006/time#>.
+@prefix ctype: <http://data.ign.fr/id/codes/cadastrenap/changeType/> .
 
-# ---- Prefixes used for skos:ConceptScheme --------------------
-@prefix change: <http://data.ign.fr/id/codes/cadastrenap/change/>.
-
-# ---- Imported annotation properties ----
-skos:inScheme a owl:AnnotationProperty.
-skos:prefLabel a owl:AnnotationProperty .
-skos:altLabel a owl:AnnotationProperty.
-skos:broader a owl:AnnotationProperty.
-skos:definition a owl:AnnotationProperty.
+<http://http://data.ign.fr/def/cadastrenap> a owl:Ontology .
 
 #################################################################
-# ---- Classes definition ----
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2002/07/owl#maxQualifiedCardinality
+owl:maxQualifiedCardinality a owl:AnnotationProperty .
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+skos:altLabel a owl:AnnotationProperty .
+
+###  http://www.w3.org/2004/02/skos/core#broader
+skos:broader a owl:AnnotationProperty .
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition a owl:AnnotationProperty .
+
+###  http://www.w3.org/2004/02/skos/core#inScheme
+skos:inScheme a owl:AnnotationProperty .
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel a owl:AnnotationProperty .
+
+#################################################################
+#    Classes
 #################################################################
 
 ###  http://www.w3.org/2004/02/skos/core#Concept
@@ -27,25 +43,22 @@ skos:Concept a owl:Class .
 ###  http://www.w3.org/2004/02/skos/core#ConceptScheme
 skos:ConceptScheme a owl:Class .
 
-###  http://data.ign.fr/def/cadastrenap#Landmark
-nap:Landmark a owl:Class .
-  #owl:equivalentClass addr:Landmark.
-
 ###  http://data.ign.fr/def/cadastrenap#Attribute
 nap:Attribute a owl:Class ;
                rdfs:label "Attribut"@fr .
-               #owl:equivalentClass addr:Attribute.
 
-###  http://data.ign.fr/def/cadastrenap#AttributeType
-nap:AttributeType a owl:Class ;
-                   rdfs:subClassOf skos:Concept ;
-                   rdfs:label "Type d'attribut"@fr .
-                   #owl:equivalentClass addr:AttributeType.
+
+###  http://data.ign.fr/def/cadastrenap#AttributeChange
+nap:AttributeChange a owl:Class ;
+                     rdfs:subClassOf nap:Change ;
+                     rdfs:label "Changement sur l'attribut"@fr ,
+                                "Change on an attribute"@en .
 
 ###  http://data.ign.fr/def/cadastrenap#AttributeVersion
 nap:AttributeVersion a owl:Class ;
-                      rdfs:label "Version de l'attribut"@fr .
-                      #owl:equivalentClass addr:AttributeVersion.
+                      rdfs:label "Attribute version"@en ,
+                                 "Version de l'attribut"@fr .
+
 
 ###  http://data.ign.fr/def/cadastrenap#Change
 nap:Change a owl:Class ;
@@ -54,132 +67,249 @@ nap:Change a owl:Class ;
                               owl:allValuesFrom [ a owl:Class ;
                                                   owl:unionOf ( nap:Attribute
                                                                 nap:Landmark
+                                                                nap:LandmarkRelation
                                                               )
                                                 ]
                             ] ;
             rdfs:label "Changement"@fr .
-            #owl:equivalentClass addr:Change.
+
 
 ###  http://data.ign.fr/def/cadastrenap#ChangeType
 nap:ChangeType a owl:Class ;
                 rdfs:subClassOf skos:Concept ;
                 rdfs:label "Type de changement"@fr .
-                #owl:equivalentClass addr:ChangeType.
 
-###  http://data.ign.fr/def/cadastrenap#AttributeChange
-nap:AttributeChange a owl:Class ;
-                     rdfs:subClassOf nap:Change ;
-                     rdfs:label "Changement de valeur d'attribut"@fr .
-                     #owl:equivalentClass addr:AttributeChange.
+
+###  http://data.ign.fr/def/cadastrenap#CrispTemporalEntity
+nap:CrispTemporalEntity a owl:Class ;
+                         rdfs:subClassOf nap:TemporalEntity ;
+                         rdfs:label "Crisp temporal entity"@en ,
+                                    "Entité temporelle non floue"@fr .
+
+
+###  http://data.ign.fr/def/cadastrenap#CrispTimeInstant
+nap:CrispTimeInstant a owl:Class ;
+                      rdfs:subClassOf nap:CrispTemporalEntity ,
+                                      nap:TimeInstant ,
+                                      [ a owl:Restriction ;
+                                        owl:onProperty nap:timeCalendar ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass time:TRS
+                                      ] ,
+                                      [ a owl:Restriction ;
+                                        owl:onProperty nap:timePrecision ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass time:TemporalUnit
+                                      ] ,
+                                      [ a owl:Restriction ;
+                                        owl:onProperty nap:timeStamp ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:dateTimeStamp
+                                      ] ;
+                      rdfs:label "Crisp time instant"@en ,
+                                 "Instant temporel précis"@fr .
+
+
+###  http://data.ign.fr/def/cadastrenap#CrispTimeInterval
+nap:CrispTimeInterval a owl:Class ;
+                       rdfs:subClassOf nap:CrispTemporalEntity ,
+                                       nap:TimeInterval ;
+                       rdfs:label "Crisp time interval"@en ,
+                                  "Intervalle temporel précis"@fr .
+
+
+###  http://data.ign.fr/def/cadastrenap#Event
+nap:Event a owl:Class ;
+           rdfs:subClassOf [ a owl:Restriction ;
+                             owl:onProperty nap:hasTime ;
+                             owl:allValuesFrom nap:TimeInstant
+                           ] ;
+           rdfs:comment "Événément décrivant une évolution impliquant une ou plusieurs ressources à un instant donné."@fr ;
+           rdfs:label "Event"@en ,
+                      "Événément"@fr .
+
+
+###  http://data.ign.fr/def/cadastrenap#FuzzyTemporalEntity
+nap:FuzzyTemporalEntity a owl:Class ;
+                         rdfs:subClassOf nap:TemporalEntity ;
+                         rdfs:label "Entité temporelle floue"@fr ,
+                                    "Fuzzy temporal entity"@en .
+
+
+###  http://data.ign.fr/def/cadastrenap#FuzzyTimeInstant
+nap:FuzzyTimeInstant a owl:Class ;
+                      rdfs:subClassOf nap:FuzzyTemporalEntity ,
+                                      nap:TimeInstant ;
+                      rdfs:label "Fuzzy time instant"@en ,
+                                 "Instant temporel flou"@fr .
+
+
+###  http://data.ign.fr/def/cadastrenap#FuzzyTimeInterval
+nap:FuzzyTimeInterval a owl:Class ;
+                       rdfs:subClassOf nap:FuzzyTemporalEntity ,
+                                       nap:TimeInterval ;
+                       rdfs:label "Fuzzy time interval"@en ,
+                                  "Intervalle temporel flou"@fr .
+
+
+###  http://data.ign.fr/def/cadastrenap#Landmark
+nap:Landmark a owl:Class ;
+              rdfs:label "Landmark"@en ,
+                         "Repère"@fr ,
+                         "repère"@fr .
+
 
 ###  http://data.ign.fr/def/cadastrenap#LandmarkChange
 nap:LandmarkChange a owl:Class ;
                     rdfs:subClassOf nap:Change ;
-                    rdfs:label "Changement intervenant sur le repère"@fr .
-                    #owl:equivalentClass addr:LandmarkChange.
+                    rdfs:label "Change on a landmark"@en ,
+                               "Changement sur le repère"@fr .
 
-###  http://data.ign.fr/def/cadastrenap#Event
-nap:Event a owl:Class  ;
-          rdfs:subClassOf [ a owl:Restriction ;
-                            owl:onProperty nap:hasTime ;
-                            owl:allValuesFrom nap:TimeInstant
-                          ] ;
-           rdfs:label "Evénement"@fr .
-          #owl:equivalentClass addr:Event.
+
+###  http://data.ign.fr/def/cadastrenap#LandmarkRelation
+nap:LandmarkRelation a owl:Class ;
+                      rdfs:label "Landmark relation"@en ,
+                                 "Relation entre repères"@fr .
+
+
+###  http://data.ign.fr/def/cadastrenap#LandmarkRelationChange
+nap:LandmarkRelationChange a owl:Class ;
+                            rdfs:subClassOf nap:Change ;
+                            rdfs:label "Change on a landmark relation"@en ,
+                                       "changement sur la relation entre repères"@fr .
+
+
+
+###  http://data.ign.fr/def/cadastrenap#LandmarkType
+nap:LandmarkType a owl:Class ;
+                  rdfs:subClassOf skos:Concept ;
+                  rdfs:label "Type de repère"@fr ,
+                             "Type of landmark"@en .
+
+
+###  http://data.ign.fr/def/cadastrenap#LandmarkVersion
+nap:LandmarkVersion a owl:Class ;
+                     rdfs:subClassOf [ a owl:Restriction ;
+                                       owl:onProperty nap:hasTime ;
+                                       owl:allValuesFrom nap:TimeInterval
+                                     ] ;
+                     rdfs:label "Landmark version"@en ,
+                                "Version de repère"@fr .
 
 ###  http://data.ign.fr/def/cadastrenap#TemporalEntity
 nap:TemporalEntity a owl:Class ;
-                    rdfs:label "Entité temporelle"@fr .
-                    #owl:equivalentClass addr:TemporalEntity.
+                    rdfs:label "Entité temporelle"@fr ,
+                               "Temporal entity"@en .
+
 
 ###  http://data.ign.fr/def/cadastrenap#TimeInstant
 nap:TimeInstant a owl:Class ;
-                 rdfs:subClassOf nap:TemporalEntity ,
-                                 [ a owl:Restriction ;
-                                   owl:onProperty nap:timeCalendar ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass time:TRS
-                                 ] ,
-                                 [ a owl:Restriction ;
-                                   owl:onProperty nap:timePrecision ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass time:TemporalUnit
-                                 ] ,
-                                 [ a owl:Restriction ;
-                                   owl:onProperty nap:timeStamp ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onDataRange xsd:dateTimeStamp
-                                 ] ;
-                 rdfs:label "Instant"@fr .
-                 #owl:equivalentClass addr:TimeInstant.
+                 rdfs:subClassOf nap:TemporalEntity ;
+                 rdfs:label "Instant"@fr ,
+                            "Time instant"@en .
+
 
 ###  http://data.ign.fr/def/cadastrenap#TimeInterval
 nap:TimeInterval a owl:Class ;
                   rdfs:subClassOf nap:TemporalEntity ;
-                  rdfs:label "intervalle temporel"@fr .
-                  #owl:equivalentClass addr:TimeInterval.
+                  rdfs:label "Intervalle temporel"@fr ,
+                             "Time interval"@en .
 
 ###  http://www.w3.org/2006/time#TRS
 time:TRS a owl:Class .
 
 ###  http://www.w3.org/2006/time#TemporalUnit
-time:TemporalUnit a owl:Class 
+time:TemporalUnit a owl:Class .
 
 #################################################################
-# ---- Object Properties ----
+#    Object Properties
 #################################################################
 
-### http://data.ign.fr/def/cadastrenap#after
+###  http://data.ign.fr/def/cadastrenap#after
 nap:after a owl:ObjectProperty ;
-           rdfs:domain nap:AttributeChange ;
-           rdfs:range nap:AttributeVersion ;
-           rdfs:comment "Décrit un état qui se passe après un changement"@fr ;
-           rdfs:label "suivi par"@fr, "followed by"@en.
-           #owl:equivalentClass nap:after.
+           owl:inverseOf nap:before ;
+           rdfs:domain nap:Change ;
+           rdfs:range nap:Change ;
+           rdfs:comment "Décrit la relation temporelle de postériorité entre deux changements"@fr ;
+           rdfs:label "est après"@fr .
 
-### http://data.ign.fr/def/cadastrenap#appliedTo
+###  http://data.ign.fr/def/cadastrenap#changedBy
+nap:changedBy a owl:ObjectProperty ;
+               owl:inverseOf nap:appliedTo;
+               rdfs:range nap:Change;
+               rdfs:domain [ a owl:Class ;
+                            owl:unionOf ( nap:Attribute
+                                          nap:Landmark
+                                          nap:LandmarkRelation
+                                        )
+                          ] ;
+               rdfs:comment "Définit le changement qui est appliqué à l'élément"@fr ;
+               rdfs:label "changé par"@fr .
+
+###  http://data.ign.fr/def/cadastrenap#appliedTo
 nap:appliedTo a owl:ObjectProperty ;
                rdfs:domain nap:Change ;
                rdfs:range [ a owl:Class ;
                             owl:unionOf ( nap:Attribute
                                           nap:Landmark
+                                          nap:LandmarkRelation
                                         )
                           ] ;
-               rdfs:comment "Définit sur quoi s'applique le changement"@fr;
-               rdfs:label "s'applique"@fr, "is applied on"@en.
-               #owl:equivalentClass nap:appliedTo.
+               rdfs:comment "Définit sur quoi s'applique le changement"@fr ;
+               rdfs:label "s'applique"@fr .
+
 
 ###  http://data.ign.fr/def/cadastrenap#before
 nap:before a owl:ObjectProperty ;
-            rdfs:domain nap:AttributeChange ;
-            rdfs:range nap:AttributeVersion ;
-            rdfs:comment "Décrit un état qui se passe avant un changement"@fr ;
-            rdfs:label "précédé par"@fr, "preceded by"@en.
-            #owl:equivalentClass nap:before.
+            rdfs:domain nap:Change ;
+            rdfs:range nap:Change ;
+            rdfs:comment "Décrit la relation temporelle de précédence entre deux changements"@fr ;
+            rdfs:label "est avant"@fr .
+
 
 ###  http://data.ign.fr/def/cadastrenap#dependsOn
 nap:dependsOn a owl:ObjectProperty ;
-            rdfs:domain nap:Change ;
-            rdfs:range nap:Event ;
-            rdfs:comment "Décrit l'appartenance d'un changement à un événement"@fr ;
-            rdfs:label "dépend de l'événement"@fr, "depends on the event"@en.
-            #owl:equivalentClass nap:dependsOn.
+               owl:inverseOf nap:hasChange ;
+               rdfs:domain nap:Change ;
+               rdfs:range nap:Event ;
+               rdfs:comment "Décrit l'appartenance d'un changement à un événement"@fr ;
+               rdfs:label "dépend de l'événement"@fr .
+
+
+###  http://data.ign.fr/def/cadastrenap#firstStep
+nap:firstStep a owl:ObjectProperty ;
+               rdfs:domain nap:SpatialDescription ;
+               rdfs:range nap:Segment ;
+               rdfs:comment "Première étape de l'adresse."@fr ;
+               rdfs:label "a pour première étape"@fr ,
+                          "has first step"@en ;
+               skos:altLabel "a pour premier segment d'adresse"@fr .
+
 
 ###  http://data.ign.fr/def/cadastrenap#hasAttribute
 nap:hasAttribute a owl:ObjectProperty ;
+                  owl:inverseOf nap:isAttributeOf ;
                   rdfs:domain nap:Landmark ;
                   rdfs:range nap:Attribute ;
                   rdfs:comment "Décrit l'attribut pour un repère"@fr ;
-                  rdfs:label "a pour attribut"@fr, "has attribute"@en .
-                  #owl:equivalentClass nap:hasAttribute.
+                  rdfs:label "a pour attribut"@fr .
+
 
 ###  http://data.ign.fr/def/cadastrenap#hasBeginning
 nap:hasBeginning a owl:ObjectProperty ;
                   rdfs:domain nap:TimeInterval ;
                   rdfs:range nap:TimeInstant ;
                   rdfs:comment "Début de l'intervalle temporel"@fr ;
-                  rdfs:label "commence par"@fr, "starts at"@en.
-                  #owl:equivalentClass nap:nap:hasBeginning.
+                  rdfs:label "commence par"@fr .
+
+
+###  http://data.ign.fr/def/cadastrenap#hasChange
+nap:hasChange a owl:ObjectProperty ;
+               rdfs:domain nap:Event ;
+               rdfs:range nap:Change ;
+               rdfs:comment "Définit les changements qui sont liés à l'événement"@fr ;
+               rdfs:label "comporte le changement"@fr ,
+                          "has change"@en .
 
 
 ###  http://data.ign.fr/def/cadastrenap#hasEnd
@@ -187,136 +317,245 @@ nap:hasEnd a owl:ObjectProperty ;
             rdfs:domain nap:TimeInterval ;
             rdfs:range nap:TimeInstant ;
             rdfs:comment "Fin de l'intervalle temporel"@fr ;
-            rdfs:label "finit par"@fr, "ends at"@en.
-            #owl:equivalentClass nap:hasEnd.
+            rdfs:label "finit par"@fr .
+
+
+###  http://data.ign.fr/def/cadastrenap#hasFuzzyBeggining
+nap:hasFuzzyBeggining a owl:ObjectProperty ;
+                       rdfs:domain nap:FuzzyTimeInstant ;
+                       rdfs:range nap:CrispTimeInstant ;
+                       rdfs:comment "Définit le début de validité pour un instant flou"@fr ;
+                       rdfs:label "a pour début flou"@fr .
+
+
+###  http://data.ign.fr/def/cadastrenap#hasFuzzyEnd
+nap:hasFuzzyEnd a owl:ObjectProperty ;
+                 rdfs:domain nap:FuzzyTimeInstant ;
+                 rdfs:range nap:CrispTimeInstant ;
+                 rdfs:comment "Définit la fin de validité pour un instant flou"@fr ;
+                 rdfs:label "a pour fin floue"@fr .
+
+
+###  http://data.ign.fr/def/cadastrenap#hasFuzzyPeak
+nap:hasFuzzyPeak a owl:ObjectProperty ;
+                  rdfs:domain nap:FuzzyTimeInstant ;
+                  rdfs:range nap:CrispTimeInstant ;
+                  rdfs:comment "Définit le pic de validité pour un instant flou"@fr ;
+                  rdfs:label "a pour pic flou"@fr .
+
+
+###  http://data.ign.fr/def/cadastrenap#hasStep
+nap:hasStep a owl:ObjectProperty ;
+             owl:inverseOf nap:isStepOf ;
+             rdfs:domain nap:SpatialDescription ;
+             rdfs:range nap:Segment ;
+             rdfs:label "a pour étape"@fr ,
+                        "has step"@en .
 
 
 ###  http://data.ign.fr/def/cadastrenap#hasTime
 nap:hasTime a owl:ObjectProperty ;
-             rdfs:range nap:TemporalEntity .
-             #owl:equivalentClass nap:hasEnd.
+             rdfs:range nap:TemporalEntity ;
+             rdfs:comment "Valeur temporelle liée à une ressource"@fr ;
+             rdfs:label "a pour valeur temporelle"@fr .
+
+
+###  http://data.ign.fr/def/cadastrenap#isAttributeOf
+nap:isAttributeOf a owl:ObjectProperty ;
+                   rdfs:comment "Définit le repère pour lequel l'attribut existe"@fr ;
+                   rdfs:label "est un attribut de"@fr .
+
+
+###  http://data.ign.fr/def/cadastrenap#isAttributeType
+nap:isAttributeType a owl:ObjectProperty ;
+                     rdfs:domain nap:Attribute ;
+                     rdfs:range nap:AttributeType ;
+                     rdfs:comment "Décrit le type d'attribut."@fr ;
+                     rdfs:label "est un attribut de type"@fr .
+
+
+###  http://data.ign.fr/def/cadastrenap#isChangeType
+nap:isChangeType a owl:ObjectProperty ;
+                  rdfs:domain nap:Change ;
+                  rdfs:range nap:ChangeType ;
+                  rdfs:comment "Décrit le type de changement."@fr ;
+                  rdfs:label "est une changement de type"@fr .
+
+
+###  http://data.ign.fr/def/cadastrenap#isLandmarkRelationType
+nap:isLandmarkRelationType a owl:ObjectProperty ;
+                            rdfs:domain nap:LandmarkRelation ;
+                            rdfs:range nap:LandmarkRelationType ;
+                            rdfs:comment "Décrit le type de relation entre repères définie par la ressource."@fr ;
+                            rdfs:label "est une relation entre repères de type"@fr .
+
+
+###  http://data.ign.fr/def/cadastrenap#isLandmarkType
+nap:isLandmarkType a owl:ObjectProperty ;
+                    rdfs:domain nap:Landmark ;
+                    rdfs:range nap:LandmarkType ;
+                    rdfs:comment "Décrit le type de repère définie par la ressource."@fr ;
+                    rdfs:label "est un repère de type"@fr ,
+                               "is landmark type"@en .
+
+###  http://data.ign.fr/def/cadastrenap#makesEffective
+nap:makesEffective a owl:ObjectProperty ;
+                    rdfs:domain nap:AttributeChange ;
+                    rdfs:range nap:AttributeVersion ;
+                    rdfs:comment "Décrit le fait qu'un changement rend effectif une version d'un attribut"@fr ;
+                    rdfs:label "rend effectif"@fr .
+
+
+###  http://data.ign.fr/def/cadastrenap#outdates
+nap:outdates a owl:ObjectProperty ;
+              rdfs:domain nap:AttributeChange ;
+              rdfs:range nap:AttributeVersion ;
+              rdfs:comment "Décrit le fait qu'un changement rend caduc une version d'un attribut"@fr ;
+              rdfs:label "rend caduc"@fr .
+
+
+###  http://data.ign.fr/def/cadastrenap#sameTime
+nap:sameTime a owl:ObjectProperty ,
+                       owl:SymmetricProperty ;
+              rdfs:domain nap:Change ;
+              rdfs:range nap:Change ;
+              rdfs:comment "Décrit la relation temporelle de simultanéité entre deux changements"@fr ;
+              rdfs:label "est en même temps"@fr .
+
 
 ###  http://data.ign.fr/def/cadastrenap#timeCalendar
 nap:timeCalendar a owl:ObjectProperty ;
-                  rdfs:domain nap:TimeInstant ;
+                  rdfs:domain nap:CrispTimeInstant ;
                   rdfs:range time:TRS ;
                   rdfs:comment "Calendrier lié à l'instant (grégorien, julien, révolutionnaire)"@fr ;
-                  rdfs:label "a pour calendrier"@fr, "has calendar"@en .
-                  #owl:equivalentClass nap:timeCalendar.
+                  rdfs:label "a pour calendrier"@fr .
 
 
 ###  http://data.ign.fr/def/cadastrenap#timePrecision
 nap:timePrecision a owl:ObjectProperty ;
-                   rdfs:domain nap:TimeInstant ;
+                   rdfs:domain nap:CrispTimeInstant ;
                    rdfs:range time:TemporalUnit ;
                    rdfs:comment "Précision de l'instant (au jour, au mois, à l'année...)"@fr ;
-                   rdfs:label "a pour précision temporelle"@fr, "temporal precision is"@en .
-                   #owl:equivalentClass nap:timePrecision.
+                   rdfs:label "a pour précision temporelle"@fr .
 
-###  http://data.ign.fr/def/cadastrenap#version
-nap:version a owl:ObjectProperty ;
+
+###  http://data.ign.fr/def/cadastrenap#hasAttributeVersion
+nap:hasAttributeVersion a owl:ObjectProperty ;
+             owl:inverseOf nap:isAttributeVersionOf ;
              rdfs:domain nap:Attribute ;
              rdfs:range nap:AttributeVersion ;
              rdfs:comment "Version d'une valeur associée à l'attribut"@fr ;
-             rdfs:label "a pour version"@fr, "has version"@en .
-             #owl:equivalentClass nap:version.
+             rdfs:label "a pour version"@fr .
 
-###  http://data.ign.fr/def/cadastrenap#isChangeType
-nap:isChangeType a owl:ObjectProperty ;
-             rdfs:domain nap:Change ;
-             rdfs:range nap:ChangeType ;
-             rdfs:comment "Décrit la nature du changement"@fr ;
-             rdfs:label "est un changement de type"@fr, "is change of type"@en.
-             #owl:equivalentClass nap:isChangeType.
+###  http://data.ign.fr/def/cadastrenap#isAttributeVersionOf
+nap:isAttributeVersionOf a owl:ObjectProperty ;
+            rdfs:domain nap:AttributeVersion ;
+            rdfs:range nap:Attribute ;
+            rdfs:comment "Attribut associée à la version d'attribut"@fr ;
+            rdfs:label "est une version de l'attribut"@fr .
 
-###  http://data.ign.fr/def/cadastrenap#isAttributeType
-nap:isAttributeType a owl:ObjectProperty ;
-             rdfs:domain nap:Attribute ;
-             rdfs:range nap:AttributeType ;
-             rdfs:comment "Décrit la nature de l'attribut"@fr ;
-             rdfs:label "est un attribut de type"@fr, "is attribute type"@en .
-             #owl:equivalentClass nap:isAttributeType.
+###  http://data.ign.fr/def/cadastrenap#versionOf
+nap:versionOf a owl:ObjectProperty ;
+               rdfs:domain nap:LandmarkVersion ;
+               rdfs:range nap:Landmark ;
+               rdfs:comment "Définit pour une version de quel repère elle dépend"@fr ;
+               rdfs:label "est une version de repère de"@fr .
+
 
 #################################################################
 #    Data properties
 #################################################################
 
 ###  http://data.ign.fr/def/cadastrenap#timeStamp
-nap:timeStamp rdf:type owl:DatatypeProperty ;
-               rdfs:domain nap:TimeInstant ;
-               rdfs:range xsd:dateTimeStamp .
+nap:timeStamp a owl:DatatypeProperty ;
+               rdfs:domain nap:CrispTimeInstant ;
+               rdfs:range xsd:dateTimeStamp ;
+               rdfs:comment "Timestamp lié à l'instant"@fr ;
+               rdfs:label "a pour timestamp"@fr .
 
 
-###  http://data.ign.fr/def/cadastrenap#value
-nap:value rdf:type owl:DatatypeProperty ;
+###  http://data.ign.fr/def/cadastrenap#versionValue
+nap:versionValue a owl:DatatypeProperty ;
            rdfs:domain nap:AttributeVersion ;
-           #rdfs:range rdfs:Literal ;
-           rdfs:comment "Valeur liée à une version d'attribut"@fr ;
+           rdfs:comment "Valeur de liée à une version d'attribut"@fr ;
            rdfs:label "a pour valeur"@fr .
 
 #################################################################
-# ---- Individuals ----
+#    Individuals
 #################################################################
 
-### http://data.ign.fr/id/codes/cadastrenap/change/list
-change:list a skos:ConceptScheme ;
-              rdfs:comment "Liste des différents types de changements pouvant être appliqués à un objet ou à ses attributs, représentés comme une liste de concepts SKOS."@fr ;
-              rdfs:label "type de changement"@fr ,
-                         "type of change"@en .
+###  http://data.ign.fr/def/cadastrenap#ChangeList
+nap:ChangeList a owl:NamedIndividual ,
+                skos:ConceptScheme ;
+                rdfs:comment "Liste des différents rôles pouvant être joués par un changement, représentés comme une liste de concepts SKOS."@fr ;
+                rdfs:label "Type d'événement"@fr .
 
-### http://data.ign.fr/id/codes/cadastrenap/change/NatureChange
-change:NatureChange a owl:NamedIndividual ,
-                     nap:ChangeType ,
-                     skos:Concept ;
-            skos:prefLabel "Changement de l'attribut Nature"@fr ;
-            skos:definition "Changement appliqué à l'attribut Nature d'une parcelle"@fr ;
-            skos:inScheme change:list ;
-            skos:prefLabel "changement de nature"@fr ,
-                           "nature change"@en .
 
-### http://data.ign.fr/id/codes/cadastrenap/change/OwnerChange
-change:OwnerChange a owl:NamedIndividual ,
-                     nap:ChangeType ,
-                     skos:Concept ;
-            skos:prefLabel "Changement de l'attribut Propriétaire"@fr ;
-            skos:definition "Changement appliqué à l'attribut Propriétaire d'une parcelle"@fr ;
-            skos:inScheme change:list ;
-            skos:prefLabel "changement de propriétaire"@fr ,
-                           "owner change"@en .
+###  http://data.ign.fr/id/codes/cadastrenap/changeType/AttributeVersionAppearance
+ctype:AttributeVersionAppearance a owl:NamedIndividual ,
+                                          nap:ChangeType ,
+                                          skos:Concept ;
+                                 skos:definition "Changement décrivant l'apparition d'une version d'un attribut"@fr ;
+                                 skos:inScheme nap:ChangeList ;
+                                 skos:prefLabel "Apparition d'une version d'un attribut"@fr ,
+                                                "Appearance of an attribute version"@en .
 
-### http://data.ign.fr/id/codes/cadastrenap/change/CompteFoncierChange
-change:CompteFoncierChange a owl:NamedIndividual ,
-                     nap:ChangeType ,
-                     skos:Concept ;
-            skos:prefLabel "Changement de l'attribut Compte foncier"@fr ;
-            skos:definition "Changement appliqué à l'attribut Compte foncier"@fr ;
-            skos:inScheme change:list ;
-            skos:prefLabel "changement de compte foncier"@fr ,
-                           "properties list change"@en .
 
-change:GeometryChange a owl:NamedIndividual ,
-                     nap:ChangeType ,
-                     skos:Concept ;
-            skos:prefLabel "Changement de la géométrie d'un repère."@fr ;
-            skos:definition "Changement appliqué à la géométrie d'un repère."@fr ;
-            skos:inScheme change:list ;
-            skos:prefLabel "changement de géométrie"@fr ,
-                           "geometry change"@en .
+###  http://data.ign.fr/id/codes/cadastrenap/changeType/AttributeVersionDisappearance
+ctype:AttributeVersionDisappearance a owl:NamedIndividual ,
+                                             nap:ChangeType ,
+                                             skos:Concept ;
+                                    skos:definition "Changement décrivant la disparition d'une version d'un attribut"@fr ;
+                                    skos:inScheme nap:ChangeList ;
+                                    skos:prefLabel "Disappearance of an attribute version"@en ,
+                                                   "Disparition d'une version d'un attribut"@fr .
 
-###  http://data.ign.fr/id/codes/cadastrenap/change/Creation
-change:Creation rdf:type owl:NamedIndividual ,
-                       addr:ChangeType ,
-                       skos:Concept ;
-              skos:definition "Changement décrivant la création de l'objet"@fr ;
-              skos:inScheme change:list ;
-              skos:prefLabel "création"@fr .
-              #owl:equivalentClass addr:Creation.
 
-###  http://data.ign.fr/id/codes/cadastrenap/change/Dissolution
-change:Dissolution rdf:type owl:NamedIndividual ,
-                          addr:ChangeType ,
-                          skos:Concept ;
-                 skos:definition "Changement décrivant la dissolution de l'objet"@fr ;
-                 skos:inScheme change:list ;
-                 skos:prefLabel "dissolution"@fr .
-                 #owl:equivalentClass addr:Dissolution.
+###  http://data.ign.fr/id/codes/cadastrenap/changeType/AttributeVersionTransition
+ctype:AttributeVersionTransition a owl:NamedIndividual ,
+                                          nap:ChangeType ,
+                                          skos:Concept ;
+                                 skos:definition "Changement décrivant la transition entre des versions (apparition et disparition) d'un attribut"@fr ;
+                                 skos:inScheme nap:ChangeList ;
+                                 skos:prefLabel "Transition between attribute versions"@en ,
+                                                "Transition de versions d'un attribut"@fr .
+
+
+###  http://data.ign.fr/id/codes/cadastrenap/changeType/LandmarkAppearance
+ctype:LandmarkAppearance a owl:NamedIndividual ,
+                                  nap:ChangeType ,
+                                  skos:Concept ;
+                         skos:definition "Changement décrivant l'apparition du repère"@fr ;
+                         skos:inScheme nap:ChangeList ;
+                         skos:prefLabel "Apparition du repère"@fr ,
+                                        "Appearance of a landmark"@en .
+
+
+###  http://data.ign.fr/id/codes/cadastrenap/changeType/LandmarkDisappearance
+ctype:LandmarkDisappearance a owl:NamedIndividual ,
+                                     nap:ChangeType ,
+                                     skos:Concept ;
+                            skos:definition "Changement décrivant la disparition du repère"@fr ;
+                            skos:inScheme nap:ChangeList ;
+                            skos:prefLabel "Disappearance of a landmark"@en ,
+                                           "Disparition du repère"@fr .
+
+
+###  http://data.ign.fr/id/codes/cadastrenap/changeType/LandmarkRelationAppearance
+ctype:LandmarkRelationAppearance a owl:NamedIndividual ,
+                                          nap:ChangeType ,
+                                          skos:Concept ;
+                                 skos:definition "Changement décrivant l'apparition d'une relation entre repères."@fr ;
+                                 skos:inScheme nap:ChangeList ;
+                                 skos:prefLabel "Apparition de la relation entre repères"@fr ,
+                                                "Appearance of a landmark relation"@en .
+
+
+###  http://data.ign.fr/id/codes/cadastrenap/changeType/LandmarkRelationDisappearance
+ctype:LandmarkRelationDisappearance a owl:NamedIndividual ,
+                                             nap:ChangeType ,
+                                             skos:Concept ;
+                                    skos:definition "Changement décrivant la dissolution d'une relation entre repères."@fr ;
+                                    skos:inScheme nap:ChangeList ;
+                                    skos:prefLabel "Disappearance of a landmark relation"@en ,
+                                                   "Dissolution de la relation entre repères"@fr .
