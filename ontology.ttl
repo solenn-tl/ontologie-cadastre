@@ -593,14 +593,14 @@ nap:versionOf a owl:ObjectProperty ;
 ###  http://data.ign.fr/def/cadastrenap#hasParcelNature
 nap:hasParcelNature a owl:ObjectProperty ;
                     rdfs:domain nap:AttributeVersion ;
-                    rdfs:range nap:ParcelNature ;
+                    rdfs:range atype:ParcelNature ;
                     rdfs:label "a pour nature"@fr ,
                                "has parcel nature"@en;
                     owl:inverseOf nap:isParcelNatureOf.
 
 ###  http://data.ign.fr/def/cadastrenap#isParcelNature
 nap:isParcelNatureOf a owl:ObjectProperty ;
-                    rdfs:domain nap:ParcelNature ;
+                    rdfs:domain atype:ParcelNature ;
                     rdfs:range nap:AttributeVersion ;
                     rdfs:label "est une nature de "@fr ,
                                "is parcel nature of"@en;
@@ -735,7 +735,7 @@ lrtype:Along a owl:NamedIndividual ,
                       nap:LandmarkRelationType ,
                       skos:Concept ;
              skos:definition "Relation spatiale définissant que le locatum longe le relatum"@fr ;
-             skos:inScheme nap:AdressSegmentList ;
+             skos:inScheme nap:SegmentList ;
              skos:prefLabel "Along"@en ,
                             "Le long de"@fr .
 
@@ -754,7 +754,7 @@ lrtype:Between a owl:NamedIndividual ,
                         nap:LandmarkRelationType ,
                         skos:Concept ;
                skos:definition "Relation spatiale définissant que le locatum est entre deux relatums"@fr ;
-               skos:inScheme nap:AdressSegmentList ;
+               skos:inScheme nap:SegmentList ;
                skos:prefLabel "Between"@en ,
                               "Entre"@fr .
 
@@ -764,7 +764,7 @@ lrtype:Corner a owl:NamedIndividual ,
                        nap:LandmarkRelationType ,
                        skos:Concept ;
               skos:definition "Relation spatiale définissant que le locatum est au coin du relatum"@fr ;
-              skos:inScheme nap:AdressSegmentList ;
+              skos:inScheme nap:SegmentList ;
               skos:prefLabel "Coin"@fr ,
                              "Corner"@en .
 
@@ -773,7 +773,7 @@ lrtype:IsPartOf a owl:NamedIndividual ,
                      nap:LandmarkRelationType ,
                      skos:Concept ;
             skos:definition "Relation spatiale définissant que le locatum fait partie du relatum"@fr ;
-            skos:inScheme nap:AdressSegmentList ;
+            skos:inScheme nap:SegmentList ;
             skos:prefLabel "Is part of"@en ,
                            "Fait partie de"@fr .
 
@@ -782,7 +782,7 @@ lrtype:IsSimilar a owl:NamedIndividual ,
                     nap:LandmarkRelationType ,
                     skos:Concept ;
            skos:definition "Relation spatiale définissant que le locatum est la même chose que le relatum"@fr ;
-           skos:inScheme nap:AdressSegmentList ;
+           skos:inScheme nap:SegmentList ;
            skos:prefLabel "Is similar as of"@en ,
                           "Est similaire à"@fr .
 
@@ -794,7 +794,7 @@ lrtype:Touches a owl:NamedIndividual ,
                              "Limitrophe"@fr ;
                skos:definition "Relation spatiale définissant que le locatum est en contact avec le relatum"@fr ,
                                "Relation spatiale définissant que le locatum touche le relatum"@fr ;
-               skos:inScheme nap:AdressSegmentList ;
+               skos:inScheme nap:SegmentList ;
                skos:prefLabel "Touche"@fr ,
                               "Touches"@en .
 
@@ -806,7 +806,7 @@ lrtype:Within a owl:NamedIndividual ,
               skos:altLabel "À l'intérieur"@fr ;
               skos:definition "Relation spatiale définissant que le locatum est situé dans le relatum"@fr ,
                               "Relation spatiale entre des repères définissant que le locatum est dans un relatum"@fr ;
-              skos:inScheme nap:AdressSegmentList ,
+              skos:inScheme nap:SegmentList ,
                             nap:LandmarkRelationList ;
               skos:prefLabel "Dans"@fr ,
                              "Within"@en .
