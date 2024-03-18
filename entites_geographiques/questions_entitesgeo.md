@@ -10,17 +10,20 @@ Nombre de parcelles à Marolles en Brie
 
 ## Question 2
 ### Question
-Quelle est la nature de la parcelle XXX située dans la section A de la commune Y ? (*Question précisée dans le modelet Temporalité*)
+Quelle est la nature de la parcelle XXX située dans la section Y de la commune W ?
 ### Résultat attendu
 Nature de la parcelle
 ### Exemple de réponse
+- Jardin
+- Maison
 
 ## Question 3
 ### Question
 Qui sont le /les propriétaire(s) de la parcelle XXX située dans la section A de la commune Y ?
 ### Résultat attendu
-Liste des propriétaires de la parcelle
+Liste des propriétaires de la parcelle C-191 à Marolles
 ### Exemple de réponse
+- Pierre Mazarot
 
 ## Question 4
 ### Question
