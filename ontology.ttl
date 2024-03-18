@@ -671,6 +671,24 @@ nap:versionValue a owl:DatatypeProperty ;
            rdfs:comment "Valeur de liée à une version d'attribut"@fr ;
            rdfs:label "a pour valeur"@fr .
 
+rdfs:label a owl:DatatypeProperty.
+
+## http://data.ign.fr/def/cadastrenap#activity
+nap:activity a owl:DatatypeProperty;
+	rdfs:comment "Activity of an owner. E.g.: farmer."@en , 
+	             "Activité d'un propriétaire. Ex.: cultivateur."@fr ;
+	rdfs:domain nap:Owner;
+	rdfs:range xsd:string;
+	rdfs:label "activity"@en, "activité"@fr.
+
+## http://data.ign.fr/def/cadastrenap#address
+nap:address a owl:ObjectProperty;
+	rdfs:domain  nap:Owner;
+	rdfs:range xsd:string;
+	rdfs:label "address"@en ,"adresse d'un propriétaire"@fr ;
+	rdfs:comment "Propriété qui relie un propriétaire à son adresse. Ex: à Paris."@fr ,
+              "A property that links an owner to its address. E.g.: in Paris."@en .
+
 #################################################################
 #    Individuals
 #################################################################
