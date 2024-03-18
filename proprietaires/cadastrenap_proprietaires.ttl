@@ -75,5 +75,5 @@ nap:address a owl:ObjectProperty;
 	rdfs:domain  nap:Owner;
 	rdfs:range xsd:string;
 	rdfs:label "address"@en ,"adresse"@fr ;
-	rdfs:comment "Propriété qui relie une personne à une adresse. Ex: à Paris."@fr ,
+	rdfs:comment "Propriété qui relie un propriétaire à son adresse. Ex: à Paris."@fr ,
                  "A property that links an owner to its address. E.g.: in Paris."@en .
