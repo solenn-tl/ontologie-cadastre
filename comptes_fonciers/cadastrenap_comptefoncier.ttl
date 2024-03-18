@@ -81,4 +81,4 @@ nap:isContinuationOf a owl:ObjectProperty;
 # ---- Imported properties ----
 rdfs:label a owl:DatatypeProperty. #Sert à indiquer le numéro du compte foncier
 
-#sourceFrom rico:Instance => rico:RecordPart  #Sert à indiquer le registre d'origine du compte
+#sourceFrom rico:Instance => rico:RecordSet=Registre  #Sert à indiquer le registre d'origine du compte
