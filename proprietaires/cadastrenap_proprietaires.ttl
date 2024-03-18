@@ -2,81 +2,29 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix voaf: <http://purl.org/vocommons/voaf#> .
-@prefix cc: <http://creativecommons.org/ns#> .
-@prefix vann: <http://purl.org/vocab/vann/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix organization: <http://www.w3.org/ns/org#> .
-@prefix time: <http://www.w3.org/2006/time#> .
-@prefix gsp: <http://www.opengis.net/ont/geosparql#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix add: <http://rdf.geohistoricaldata.org/address#> .
-
-# ---- Prefixes used for skos:ConceptScheme -----
-
 
 # ---- Ontology metadata -----
-<http://data.ign.fr/def/cadastrenap> a owl:Ontology, voaf:Vocabulary ;
-        dcterms:creator [
-	      rdf:type foaf:Person ;
-	      organization:hasMembership [
-	          rdf:type organization:Membership ;
-	          organization:memberDuring [
-	              rdf:type time:Interval ;
-	              time:hasBeginning [
-	                  rdf:type time:Instant ;
-	                  time:inXSDDateTimeStamp "2024-01-24"^^xsd:dateTimeStamp ;
-	                ] ;
-	            ] ;
-	          organization:organization <http://www.ign.fr/> ;
-	          organization:organization <http://www.umr-lastig.fr/> ;
-	          organization:role [
-	              rdf:type organization:Role ;
-	              rdfs:label "Doctorante"@fr, "PhD Student"@en ;
-	            ] ;
-	        ] ;
-	      foaf:family_name "Tual" ;
-	      foaf:firstName "Solenn" ;
-	      foaf:mbox <mailto:solenn.tual@ign.fr> ;
-	      foaf:name "Solenn Tual" ;
-          foaf:workInfoHomepage <https://www.umr-lastig.fr/solenn-tual/> ;
-	    ] ; 
-        dcterms:description "Ontologie décrivant le contenu des séries du cadastre napoléonien"@fr, 
-		                    "Ontology describing the napoleonic cadaster documents."@en;
-        dcterms:issued "2024-01-24"^^xsd:date ;
-        dcterms:modified "2024-01-24"^^xsd:date ;
-        dcterms:publisher <http://fr.dbpedia.org/resource/Institut_national_de_l%27information_g%C3%A9ographique_et_foresti%C3%A8re> ;
-        dcterms:title "Ontologie du cadastre napoléonien"@fr, "Ontology of the Napoleonic Cadaster"@en ;
-        vann:preferredNamespacePrefix "nap" ;
-		vann:preferredNamespaceUri <http://data.ign.fr/def/cadastrenap#> ;
-		dcterms:rights "Copyright 2024, IGN" ;
-		cc:license <http://www.data.gouv.fr/Licence-Ouverte-Open-Licence> ;
-		cc:license <http://creativecommons.org/licenses/by/2.0/> ;
-		cc:license <http://opendatacommons.org/licenses/by/> ;
-        #owl:priorVersion <> ;
-		owl:versionInfo "Version 0.0 - 2024-01-24" .
+<http://data.ign.fr/def/cadastrenap> a owl:Ontology, voaf:Vocabulary.
 
 # ---- Imported properties for annotation ----
-skos:inScheme rdf:type owl:AnnotationProperty.
-skos:prefLabel rdf:type owl:AnnotationProperty .
-skos:altLabel rdf:type owl:AnnotationProperty.
-skos:broader rdf:type owl:AnnotationProperty.
-skos:definition rdf:type owl:AnnotationProperty.
+skos:inScheme a owl:AnnotationProperty.
+skos:prefLabel a owl:AnnotationProperty .
+skos:altLabel a owl:AnnotationProperty.
+skos:broader a owl:AnnotationProperty.
+skos:definition a owl:AnnotationProperty.
 
 ###############################
 # ---- Classes definition ----
 ###############################
 
-## ---- Propriétaires ----
+## http://data.ign.fr/def/cadastrenap#Owner
 nap:Owner a owl:Class;
-  rdfs:isDefinedBy <http://data.ign.fr/def/cadastrenap#>;
   rdfs:label "Owner"@en , "Propriétaire ou usufruitier"@fr ;
   rdfs:comment "Propriétaire ou usufruitier : personne redevable de l'impôt foncier pour les terres dont elle a la pleine propriété ou l'usufruit."@fr .
-  
+
+## http://data.ign.fr/def/cadastrenap#Address
 #nap:Address a owl:Class;
-#  rdfs:isDefinedBy <http://data.ign.fr/def/cadastrenap#>;
 #  rdfs:label "Address"@en ,"Adresse"@fr ;
 #  rdfs:comment "Adresse du propriétaire ou de l'usufruitier."@fr.
 
@@ -84,6 +32,7 @@ nap:Owner a owl:Class;
 # ---- Object properties ----
 #############################
 
+## http://data.ign.fr/def/cadastrenap#address
 #nap:address a owl:ObjectProperty;
 #	rdfs:domain  nap:Owner;
 #	rdfs:range nap:Address;
@@ -91,15 +40,29 @@ nap:Owner a owl:Class;
 #	rdfs:comment "Propriété qui relie une personne à une adresse. Ex: à Paris."@fr ,
 #                 "A property that links an owner to its address. E.g.: in Paris."@en .
 
+###  http://data.ign.fr/def/cadastrenap#owns
+nap:hasOwner a owl:ObjectProperty ;
+                    rdfs:domain nap:Owner ;
+                    rdfs:range nap:Landmark ;
+                    rdfs:label "a pour propriétaire"@fr ,
+                               "has owner"@en ;
+                    owl:inverseOf nap:isOwnedBy.
+
+###  http://data.ign.fr/def/cadastrenap#isOwnedBy
+nap:isOwnedBy a owl:ObjectProperty ;
+                    rdfs:domain nap:Landmark ;
+                    rdfs:range nap:Owner ;
+                    rdfs:label "est la propriété de"@fr ,
+                               "is owned by"@en ;
+                    owl:inverseOf nap:hasOwner.
+
 ###############################
 # ---- Datatype properties ----
 ###############################
 
-# ---- Imported properties ----
 rdfs:label a owl:DatatypeProperty.
 
-# ---- Propriétaires ----
-
+## http://data.ign.fr/def/cadastrenap#activity
 nap:activity a owl:DatatypeProperty;
 	rdfs:comment "Activity of an owner. E.g.: farmer."@en , 
 	             "Activité d'un propriétaire. Ex.: cultivateur."@fr ;
@@ -107,6 +70,7 @@ nap:activity a owl:DatatypeProperty;
 	rdfs:range xsd:string;
 	rdfs:label "activity"@en, "activité"@fr.
 
+## http://data.ign.fr/def/cadastrenap#address
 nap:address a owl:ObjectProperty;
 	rdfs:domain  nap:Owner;
 	rdfs:range xsd:string;
