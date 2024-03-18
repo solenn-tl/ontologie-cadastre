@@ -134,13 +134,6 @@ nap:LandmarkType a owl:Class ;
                              "Type of landmark"@en .
 
 
-###  http://data.ign.fr/def/cadastrenap#PropertyAccount
-nap:PropertyAccount a owl:Class;
-    rdfs:label "Property account"@en, "Compte foncier"@fr ;
-    skos:prefLabel "Property account"@en, "Compte foncier"@fr;
-    skos:altLabel "Article"@fr, "Folio"@fr, "Case"@fr.
-
-
 #################################################################
 #    Object Properties
 #################################################################
