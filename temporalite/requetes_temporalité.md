@@ -1,7 +1,7 @@
 # Questions de compétences Temporalité
 *A jour le 19/03/2024*
 
-## Quelles sont les natures sucessives d'une parcelle ?
+## Quelles sont les natures successives d'une parcelle ?
 ```sparql
 PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -45,8 +45,8 @@ WHERE {
 GROUP BY ?parcel ?version ?Cstart ?FSstart ?FEstart ?Cend ?FSend ?FEend ?eventtitle
 ```
 
-## Quels sont les propriétaires sucessifs d'une parcelle ?
-```
+## Quels sont les propriétaires successifs d'une parcelle ?
+```sparql
 PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
