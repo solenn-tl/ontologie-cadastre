@@ -42,18 +42,18 @@ nap:Owner a owl:Class;
 
 ###  http://data.ign.fr/def/cadastrenap#owns
 nap:hasOwner a owl:ObjectProperty ;
-                    rdfs:domain nap:Owner ;
-                    rdfs:range nap:Landmark ;
+                    rdfs:domain nap:Landmark ;
+                    rdfs:range nap:Owner;
                     rdfs:label "a pour propriétaire"@fr ,
                                "has owner"@en ;
-                    owl:inverseOf nap:isOwnedBy.
+                    owl:inverseOf nap:isOwnerOf.
 
 ###  http://data.ign.fr/def/cadastrenap#isOwnedBy
-nap:isOwnedBy a owl:ObjectProperty ;
-                    rdfs:domain nap:Landmark ;
-                    rdfs:range nap:Owner ;
-                    rdfs:label "est la propriété de"@fr ,
-                               "is owned by"@en ;
+nap:isOwnerOf a owl:ObjectProperty ;
+                    rdfs:domain nap:Owner ;
+                    rdfs:range nap:Landmark ;
+                    rdfs:label "est le propriétaire de"@fr ,
+                               "is owner of"@en ;
                     owl:inverseOf nap:hasOwner.
 
 ###############################
