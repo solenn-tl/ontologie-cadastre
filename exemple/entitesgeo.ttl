@@ -47,7 +47,7 @@ landmark:DEPT_Seine_et_Oise a nap:Landmark;
             nap:targets landmark:DEPT_Seine_et_Oise;
             nap:firstStep [
                 a nap:Segment;
-                nap:isSpatialRelationType lrtype:Within;
+                nap:isLandmarkRelationType lrtype:Within;
                 nap:locatum landmark:COUNTRY_France;
                 nap:relatum landmark:DEPT_Seine_et_Oise
             ];
@@ -106,7 +106,7 @@ landmark:ARR_Corbeil a nap:Landmark;
             nap:targets landmark:ARR_Corbeil;
             nap:firstStep [
                 a nap:Segment;
-                nap:isSpatialRelationType lrtype:Within;
+                nap:isLandmarkRelationType lrtype:Within;
                 nap:locatum landmark:DEPT_Seine_et_Oise;
                 nap:relatum landmark:ARR_Corbeil
             ];
@@ -147,7 +147,7 @@ landmark:CA_Boissy_Saint_Leger a nap:Landmark;
             nap:targets landmark:CA_Boissy_Saint_Leger;
             nap:firstStep [
                 a nap:Segment;
-                nap:isSpatialRelationType lrtype:Within;
+                nap:isLandmarkRelationType lrtype:Within;
                 nap:locatum landmark:ARR_Corbeil;
                 nap:relatum landmark:CA_Boissy_Saint_Leger
             ];
@@ -205,7 +205,7 @@ landmark:COMM_Marolles_en_Brie a nap:Landmark;
             nap:targets landmark:COMM_Marolles_en_Brie;
             nap:firstStep [
                 a nap:Segment;
-                nap:isSpatialRelationType lrtype:Within;
+                nap:isLandmarkRelationType lrtype:Within;
                 nap:locatum landmark:CA_Boissy_Saint_Leger;
                 nap:relatum landmark:COMM_Marolles_en_Brie
             ];
@@ -247,7 +247,7 @@ landmark:SEC_Marolles_en_Brie_A_1810 a nap:Landmark;
             nap:targets landmark:SEC_Marolles_en_Brie_A_1810;
             nap:firstStep [
                 a nap:Segment;
-                nap:isSpatialRelationType lrtype:Within;
+                nap:isLandmarkRelationType lrtype:Within;
                 nap:locatum landmark:COMM_Marolles_en_Brie;
                 nap:relatum landmark:SEC_Marolles_en_Brie_A_1810
             ];
@@ -262,7 +262,6 @@ landmark:SEC_Marolles_en_Brie_A_1810 a nap:Landmark;
             nap:timePrecision time:Year ;
             nap:timeStamp "1810"^^xsd:dateTimeStamp
         ];
-        fpo:sourcedFrom "AD94"
     .
 
     _:ch06 a nap:LandmarkChange;
@@ -273,7 +272,8 @@ landmark:SEC_Marolles_en_Brie_A_1810 a nap:Landmark;
 #http://data.ign.fr/id/cadastrenap/landmark/PARC_Marolles_en_Brie_C_1810
 landmark:PARC_Marolles_en_Brie_C_191_1810 a nap:Landmark;
     rdfs:label "Parcelle 191, Section C dite du Village, Marolles-en-Brie";
-    skos:altLabel "191";
+    skos:altLabel "191","C-191";
+    dcterms:identifier "C-191";
     nap:isLandmarkType ltype:Parcel;
     nap:hasAttribute[ a nap:Attribute;
         nap:isAttributeType atype:SpatialDescription;
@@ -281,12 +281,25 @@ landmark:PARC_Marolles_en_Brie_C_191_1810 a nap:Landmark;
         nap:hasAttributeVersion [ a nap:AttributeVersion;
             nap:isMadeEffectiveBy  _:ch08;
             nap:targets landmark:PARC_Marolles_en_Brie_C_191_1810;
-            nap:firstStep [
-                a nap:Segment;
-                nap:isSpatialRelationType lrtype:Within;
-                nap:locatum landmark:SEC_Marolles_en_Brie_A_1810;
-                nap:relatum landmark:PARC_Marolles_en_Brie_C_191_1810
-            ];
+            nap:firstStep [ a nap:Segment;
+                nap:isLandmarkRelationType lrtype:Within;
+                nap:locatum landmark:COMM_Marolles_en_Brie;
+                nap:relatum landmark:PARC_Marolles_en_Brie_C_191_1810;
+                nap:nextStep [
+                    a nap:Segment;
+                    nap:isLandmarkRelationType lrtype:Within;
+                    nap:locatum landmark:SEC_Marolles_en_Brie_A_1810;
+                    nap:relatum landmark:PARC_Marolles_en_Brie_C_191_1810;
+                    nap:nextStep [
+                        a nap:Segment;
+                        nap:isLandmarkRelationType lrtype:Within;
+                        nap:locatum [ a nap:Landmark;
+                                    nap:isLandmarkType ltype:District;
+                                    rdfs:label "Du Village"];
+                        nap:relatum landmark:PARC_Marolles_en_Brie_C_191_1810
+                        ]
+                ]  
+            ]
         ]
     ];
     nap:hasAttribute[ a nap:Attribute;
@@ -296,12 +309,15 @@ landmark:PARC_Marolles_en_Brie_C_191_1810 a nap:Landmark;
         nap:hasAttributeVersion [ a nap:AttributeVersion;
             nap:isMadeEffectiveBy  _:ch09;
             nap:isMadeOutdatedBy _:ch10;
-            nap:hasParcelNature pnature:Jardin
+            nap:hasParcelNature pnature:Jardin;
+            #src fin
         ];
         nap:hasAttributeVersion [ a nap:AttributeVersion;
             nap:isMadeEffectiveBy  _:ch10;
             nap:hasParcelNature pnature:Maison;
             nap:hasParcelNature pnature:Fournil
+            #src début
+            #src fin
         ];
     ];
     nap:hasAttribute[ a nap:Attribute;
@@ -315,7 +331,7 @@ landmark:PARC_Marolles_en_Brie_C_191_1810 a nap:Landmark;
         nap:hasAttributeVersion [ a nap:AttributeVersion;
             nap:hasOwner owner:0001;
             nap:isMadeEffectiveBy _:ch11;
-            nap:isMadeOutdatedBy _:ch12
+            nap:isMadeOutdatedBy _:ch12;
         ];
         nap:hasAttributeVersion [ a nap:AttributeVersion;
             nap:hasOwner owner:0001;
@@ -375,7 +391,6 @@ landmark:PARC_Marolles_en_Brie_C_191_1810 a nap:Landmark;
                 nap:timePrecision time:Year ;
                 nap:timeStamp "1882"^^xsd:dateTimeStamp];
         ];
-        fpo:sourcedFrom "AD94"
     .
 
     _:ch10 a nap:AttributeChange;
