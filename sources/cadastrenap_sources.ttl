@@ -269,7 +269,7 @@ nap:hasClasse a owl:ObjectProperty ;
 
 ###  http://data.ign.fr/def/cadastrenap#nap:hasClasseValue
 nap:hasClasseValue a owl:ObjectProperty ;
-                    rdfs:range mlclasse:nap:MLClasse;
+                    rdfs:range nap:MLClasse;
                     rdfs:comment "Classe attribuée à un document ou à une zone de document par un prov:Agent."@fr ;
                     rdfs:label "a pour classe"@fr ,
                                "has classe value"@en .
@@ -296,6 +296,31 @@ nap:hasValidTime a owl:ObjectProperty ;
                     rdfs:label "a pour temps valide"@fr ,
                                "has valid time"@en .
 
+###  http://data.ign.fr/def/cadastrenap#isPropertyAccountEquivalentOf
+nap:isPropertyAccountEquivalentOf a owl:ObjectProperty ;
+                    rdfs:domain nap:PropertyAccount;
+                    rdfs:range rico:RecordPart ;
+                    rdfs:comment "Indique le compte foncier auquel est lié un record"@fr ;
+                    rdfs:label "est le compte foncier équivalent à"@fr ,
+                               "is property account equivalent of"@en ;
+                    owl:inverseOf nap:isRecordEquivalentOf.
+
+###  http://data.ign.fr/def/cadastrenap#isRecordEquivalentOf
+nap:isRecordEquivalentOf a owl:ObjectProperty ;
+                    rdfs:domain rico:RecordPart;
+                    rdfs:range nap:PropertyAccount;
+                    rdfs:comment "Indique le Record Part auquel est lié un compte foncier"@fr ;
+                    rdfs:label "est le Record Part équivalent à"@fr ,
+                               "is record part equivalent of"@en ;
+                    owl:inverseOf nap:isPropertyAccountEquivalentOf.
+
+###  http://data.ign.fr/def/cadastrenap#existsIn
+nap:existsIn a owl:ObjectProperty ;
+                    rdfs:domain nap:PropertyAccount;
+                    rdfs:range rico:RecordSet;
+                    rdfs:comment "Indique le registre auquel appartient un compte foncier"@fr ;
+                    rdfs:label "existe dans"@fr ,
+                               "exists in"@en .
 ###############################
 # ---- Datatype properties ----
 ###############################
@@ -440,7 +465,8 @@ srctype:PageDeRegistre a owl:NamedIndividual ,
                             skos:Concept ;
                           skos:definition "Page issue d'un registre."@fr ;
                           skos:inScheme nap:SourceList ;
-                          skos:prefLabel "Page de registre"@fr. 
+                          skos:prefLabel "Page de registre"@fr;
+                          skos:broader srctype:RegistreCadastral.
 
 ###  http://data.ign.fr/id/codes/cadastrenap/sourceType/ZoneDePageDeRegistre
 srctype:ZoneDePageDeRegistre a owl:NamedIndividual ,
@@ -448,7 +474,24 @@ srctype:ZoneDePageDeRegistre a owl:NamedIndividual ,
                             skos:Concept ;
                           skos:definition "Zone située dans une page de registre."@fr ;
                           skos:inScheme nap:SourceList ;
-                          skos:prefLabel "Zone de page de registre"@fr. 
+                          skos:prefLabel "Zone de page de registre"@fr;
+                          skos:broader srctype:RegistreCadastral. 
+
+srctype:LigneEtatDeSection a owl:NamedIndividual ,
+                            nap:SourceType ,
+                            skos:Concept ;
+                          skos:definition "Ligne du tableau principal d'un registre d'état de sections décrivant une parcelle."@fr ;
+                          skos:inScheme nap:SourceList ;
+                          skos:prefLabel "Ligne de tableau d'état de sections"@fr;
+                          skos:broader srctype:ZoneDePageDeRegistre. 
+
+srctype:CompteFoncier a owl:NamedIndividual ,
+                            nap:SourceType ,
+                            skos:Concept ;
+                          skos:definition "Compte foncier décrivant les propriétés d'un ou plusieurs propriétaires."@fr ;
+                          skos:inScheme nap:SourceList ;
+                          skos:prefLabel "Ligne de tableau d'état de sections"@fr;
+                          skos:broader srctype:ZoneDePageDeRegistre. 
 
 ###  http://data.ign.fr/id/codes/cadastrenap/sourceType/InventaireAD94
 srctype:InventaireAD94 a owl:NamedIndividual ,
