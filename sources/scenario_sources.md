@@ -6,13 +6,14 @@ Sources
 
 ## Description
 
-Le modelet Sources a pour objectif de faire le lien entre les informations décrites dans le graphe de connaissances et les sources dont elles sont extraites. Plus précisément, chaque version d'un attribut est associée à une ou plusieurs extraits de documents.
+Le modelet Sources a pour objectif de faire le lien entre les informations décrites dans le graphe de connaissances et les sources dont elles sont issues.
 
-Une source prend différentes formes : 
-* concept : contenu de la source considéré indépendement de sa forme concrète;
-* physique : exemplaire physique d'un concept, généralement caractérisé par un identifiant et une localisation ;
-* numérisée : version numérisé d'un exemplaire donné ;
-* forme dérivée : obtenue suite à un traitement automatique ou manuel (ex: plan géoréférencé, page transcrite...). Il peut y avoir plusieurs formes dérivées d'une même source.
+Une source possède deux principales formes : 
+* concept/idée générale : contenu de la source considéré indépendement de sa forme concrète;
+* forme concrète, qui peut être :
+    * physique : exemplaire physique d'un document, généralement caractérisé par un identifiant et une localisation ;
+    * numérique : version numérisée d'un document physique, base de donnée, inventaire d'archive ... ;
+    * dérivée : version obtenue suite à un traitement automatique ou manuel (ex: plan géoréférencé, page transcrite...) d'une source physique/numérique. Il peut y avoir plusieurs formes dérivées d'une même source.
 
 Une source peut être scindée en plusieurs parties qui peuvent elles-mêmes êtres divisées en éléments documentaires cohérents (ex: registre contient plusieurs pages qui contiennent plusieurs zones).
 
@@ -25,12 +26,13 @@ Une **source** peut être décrite par les propriétés suivantes :
 * {*optionnel*} sa **date de début de validité**
 * {*optionnel*} sa **date de fin de validité**
 * {*optionnel*} sa **description**
-* {physique, numérisée:*obligatoire*} sa **cote d'archive**
+* {si archive physique ou numérisée:*obligatoire*} sa **cote d'archive**
 * {physique: *optionnel*} sa **localisation**
 * {physique: *optionnel*} ses **dimensions** 
-* {numérisée: *optionnel*} sa **résolution**
-* {numérisée: *optionnel*} son **URL IIIF**
-* {numérisée,dérivée:*obligatoire*} sa **licence de diffusion**
+* {source numérique: *optionnel*} son **URL**
+* {archive numérisée: *optionnel*} sa **résolution**
+* {archive numérisée: *optionnel*} son **URL IIIF**
+* {archive numérisée,dérivée:*obligatoire*} sa **licence de diffusion**
 * {dérivée: *obligatoire*} son **processus de création** 
 (ex: géoréférencement, vectorisation, transcription)
 * {dérivée: *optionnel*} son **DOI**
@@ -44,7 +46,7 @@ Une **source** peut être décrite par les propriétés suivantes :
 - Les éléments contenus dans chaque page sont détectés et transcrits avec un modèle (DAN).
 
 ### Exemple 2
-Exemple de description de l'état de sections primitifs de Marolles en Brie dans ses différentes formes.
+>Exemple de description de l'état de sections primitifs de Marolles en Brie dans ses différentes formes.
 
 #### [Concept]
 
@@ -80,7 +82,7 @@ Exemple de description de l'état de sections primitifs de Marolles en Brie dans
 
 ### Exemple 3
 
-Exemple de description du plan parcellaire de la section C de Marolles en Brie dans ses différentes formes
+> Exemple de description du plan parcellaire de la section C de Marolles en Brie dans ses différentes formes
 
 #### [Concept]
 

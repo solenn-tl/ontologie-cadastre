@@ -2,63 +2,17 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix voaf: <http://purl.org/vocommons/voaf#> .
-@prefix cc: <http://creativecommons.org/ns#> .
-@prefix vann: <http://purl.org/vocab/vann/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix organization: <http://www.w3.org/ns/org#> .
 @prefix time: <http://www.w3.org/2006/time#> .
-@prefix gsp: <http://www.opengis.net/ont/geosparql#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
 @prefix fpo: <https://github.com/johnBradley501/FPO/raw/master/fpo.owl#>.
 
 # ---- Prefixes used for skos:ConceptScheme -----
-
-
-# ---- Ontology metadata -----
-<http://data.ign.fr/def/cadastrenap> a owl:Ontology, voaf:Vocabulary ;
-        dcterms:creator [
-	      rdf:type foaf:Person ;
-	      organization:hasMembership [
-	          rdf:type organization:Membership ;
-	          organization:memberDuring [
-	              rdf:type time:Interval ;
-	              time:hasBeginning [
-	                  rdf:type time:Instant ;
-	                  time:inXSDDateTimeStamp "2024-01-24"^^xsd:dateTimeStamp ;
-	                ] ;
-	            ] ;
-	          organization:organization <http://www.ign.fr/> ;
-	          organization:organization <http://www.umr-lastig.fr/> ;
-	          organization:role [
-	              rdf:type organization:Role ;
-	              rdfs:label "Doctorante"@fr, "PhD Student"@en ;
-	            ] ;
-	        ] ;
-	      foaf:family_name "Tual" ;
-	      foaf:firstName "Solenn" ;
-	      foaf:mbox <mailto:solenn.tual@ign.fr> ;
-	      foaf:name "Solenn Tual" ;
-          foaf:workInfoHomepage <https://www.umr-lastig.fr/solenn-tual/> ;
-	    ] ; 
-        dcterms:description "Ontologie décrivant le contenu des séries du cadastre napoléonien"@fr, 
-		                    "Ontology describing the napoleonic cadaster documents."@en;
-        dcterms:issued "2024-01-24"^^xsd:date ;
-        dcterms:modified "2024-01-24"^^xsd:date ;
-        dcterms:publisher <http://fr.dbpedia.org/resource/Institut_national_de_l%27information_g%C3%A9ographique_et_foresti%C3%A8re> ;
-        dcterms:title "Ontologie du cadastre napoléonien"@fr, "Ontology of the Napoleonic Cadaster"@en ;
-        vann:preferredNamespacePrefix "nap" ;
-		vann:preferredNamespaceUri <http://data.ign.fr/def/cadastrenap#> ;
-		dcterms:rights "Copyright 2024, IGN" ;
-		cc:license <http://www.data.gouv.fr/Licence-Ouverte-Open-Licence> ;
-		cc:license <http://creativecommons.org/licenses/by/2.0/> ;
-		cc:license <http://opendatacommons.org/licenses/by/> ;
-        #owl:priorVersion <> ;
-		owl:versionInfo "Version 0.0 - 2024-01-24" .
+@prefix srctype: <http://data.ign.fr/id/codes/cadastrenap/sourceType/>.
+@prefix mlclasse: <http://data.ign.fr/id/codes/cadastrenap/mlClasse/>.
 
 # ---- Imported properties for annotation ----
 skos:inScheme rdf:type owl:AnnotationProperty.
@@ -80,30 +34,6 @@ rico:RecordSet a owl:Class ;
          the records sharing one or more attributes or relations."""@en ;
 	rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
 	rdfs:label "Record Set"@en, "Ensemble d’objets informationnels"@fr, "Agrupación documental"@es ;
-	skos:scopeNote """Record set is a kind of Record Resource. The member records in a
-         Record Set may physically reside together, though physical proximity is not essential. In a
-         particular context, an Agent (for example, administrator, records manager, archivist,
-         end-user, etc.) may select the member records of a Record Set based on any shared attribute
-         or attributes, or any shared relation or relations. The grouping of the records serves a
-         purpose or purposes specific to the context of the Agent. For example, all member records
-         of a Record Set have been accumulated by the same Agent; have the same Documentary Form
-         Type; or are related to and document the same Activity. A Record Set may represent the act
-         of classifying the records in accordance with a formal classification scheme that may be
-         based on activity, subject, organizational structure, or other criteria; an act of archival
-         arrangement (for example, based on common provenance); or some other selection and grouping
-         that fulfils a particular purpose or purposes (for example, a classification that reflects
-         or supports the purposes of a researcher). By exception, some records are brought together
-         based on their not belonging in the context of selection to other designated groups: a
-         'Miscellaneous' series, for example. A Record Sset accumulated by an Agent in the course of
-         life or work activity should be described in a manner that preserves context and evidential
-         value. Record Sets may also contain other Record Sets. A Record Set or Record may
-         simultaneously be a member of more than one Record Set, and over the course of its
-         existence, a Record Set or Record may be a member of an indeterminate number of Record Sets
-         in an indeterminate number of contexts. Record Sets and Records contained within a Record
-         Set may be ordered into a sequence based on a common property or relation, or common
-         properties or relations (for example, alphabetical by agent or related place);
-         chronological order by creation date; or some other criterion (for example, an imposed
-         order by relevance)."""@en ;
 	rico:RiCCMCorrespondingComponent """Corresponds to RiC-E03 (Record Set
          entity)"""@en .
 
@@ -115,13 +45,6 @@ rico:Record a owl:Class ;
          of life or work activity."""@en ;
 	rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
 	rdfs:label "Record"@en, "Objet informationnel"@fr, "Documento"@es ;
-	skos:scopeNote """Record is a kind of Record Resource. A Record may itself contain
-         one or more Records, or may consist of one or more Record Parts. A Record must have or have
-         had at least one . A Record may have more than one . An
-          derived from another  of a Record may be considered the
-          of the same Record or an  of a new Record, depending on the
-         context. A Record may serve a variety of purposes, though it always documents or is
-         evidence of Activity."""@en ;
 	rico:RiCCMCorrespondingComponent """Corresponds to RiC-E04 (Record
          entity)"""@en .
 
@@ -132,8 +55,6 @@ rico:RecordPart a owl:Class ;
          contributes to the intellectual completeness of the Record."""@en ;
 	rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
 	rdfs:label "Record Part"@en, "Partie d’objet informationnel"@fr, "Componente documental"@es ;
-	skos:scopeNote """Record Part is a kind of Record Resource. A Record Part may
-         itself have Record Parts."""@en ;
 	rico:RiCCMCorrespondingComponent """Corresponds to RiC-E05 (Record Part
          entity)"""@en .
 
@@ -146,45 +67,6 @@ rico:Instantiation
          time and space."""@en ;
   rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
   rdfs:label "Instantiation"@en, "Instanciation"@fr, "Instanciación"@es ;
-  skos:scopeNote """A Record or Record Part must have been instantiated at least
-         once, though this instantiation may no longer exist at the moment of description. An
-         instantiation might also exist at the moment of description, but be destroyed at a later
-         moment in time, when, for example, a derived instantiation might become the only remaining
-         instantiation. A Record Set may have an instantiation, which is to say that it is not a
-         necessary condition. An Instantiation may be derived from another Instantiation. A Record
-         Resource may have many Instantiations simultaneously (for instance, a record printed and
-         saved in the same time as DOCX and PDF/A would have 3 concurrent instantiations) or through
-         time (for example, copy of a record). Depending on the context, a new instantiation may be
-         seen as a new or as the same record resource. During in the process of re-instantiation
-         something is lost and something is preserved, but it is up to the context and the Agent
-         that produces or uses that Instantiation to assess whether the two instantiations are
-         functionally equivalent or not. For instance, a postcard representing a town map from 1874
-         (Instantiation 1) is digitized and kept as a JPEG file (Instantiation 2). The digital copy
-         may be considered as instantiating the "same" Record by an Agent considering the
-         information transmitted by the Record (e.g., the urban landscape displayed), but as a"
-         different" Record by an antiquarian more focused on the materiality of the carrier.
-         Successive instantiations may change the perceivable boundaries of a Record Resource. For
-         instance, a case file comprising many records may be digitized and saved as one single PDF
-         file, which, from management perspective, may be treated as one Record. Similarly, a large
-         Record Set (a fonds or a series) may be maintained as one database. On the other hand, one
-         record (main document and its annexes) may be digitized in separate files and each one may
-         be managed as a discrete “physical” item. Instantiations may require mediation to
-         communicate the information in the Record Resource. While a traditional Record on paper can
-         simply be read by an Agent in order to understand the information, a vinyl recording, a
-         video cassette or a digital file needs a device (mediator) to codify or decodify the
-         information conveyed. This mediator may imply simple physical components (a turntable
-         needle, for example), or a complex gallery of software and hardware elements.
-         Instantiations are more than the mere informational content of Record Resource and may be
-         the focus of preservation and physical management of records. The use of particular
-         document types for records, such as a medieval charter, may have implications for the
-         authenticity of the records. Hence, the way a Record Resource is instantiated contributes
-         to the contextualizing of the content.record resource is instantiated contributes to the
-         contextualizing the content. Distinguishing the message conveyed (Record Resource) and its
-         physical representations (Instantiation) allows for the efficient management of their
-         descriptions, and preserve information about a Record Resource even when no physical
-         representation of it exists or is known to exist anymore. The relations between distinct
-         instantiations can then be expressed wherever they coexist, and they can be related to the
-         Record Resource they instantiate."""@en ;
   rico:RiCCMCorrespondingComponent """Corresponds to RiC-E06 (Instantiation
          entity)"""@en ;
   rico:closeTo "PREMIS Representation"@en .
@@ -221,6 +103,16 @@ fpo:Source a owl:Class ;
 fpo:SourceCitation a owl:Class ;
 	rdfs:isDefinedBy <https://www.kcl.ac.uk/factoid-prosopography/fpo-sources#>.
 
+# https://data.ign.fr/def/cadastrenap#SourceType
+nap:SourceType a owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Type de source"@fr, "Type of source"@en.
+
+# https://data.ign.fr/def/cadastrenap#MLClasse
+nap:MLClasse a owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Classe d'un document"@fr, "Classe of document"@en.
+
 #####################################
 # ---- Objectproperty definition ----
 #####################################
@@ -242,8 +134,6 @@ rico:includesOrIncluded a owl:ObjectProperty ;
          aggregated in the past."""@en ;
 	rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
 	rdfs:label "includes or included"@en, "inclut ou a inclus"@fr, "incluye o incluía"@es ;
-	skos:scopeNote """A Record or Record Set can be aggregated in one or many Record
-         Sets simultaneously or through time."""@en ;
 	rico:RiCCMCorrespondingComponent """RiC-R024 ('includes or included')""".
 
 rico:isOrWasIncludedIn
@@ -291,9 +181,6 @@ rico:hasOrHadInstantiation a owl:ObjectProperty ;
          exist or may have been lost or destroyed."""@en ;
 	rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
 	rdfs:label "has or had instantiation"@en, "a ou a eu pour instanciation"@fr, "tiene o tenía como instanciación"@es ;
-	skos:scopeNote """In some situations, it may be useful or necessary to connect a
-         record resource to an instantiation that no longer exists or or has been lost, when some of
-         its characteristics are known from some source, like an old finding aid."""@en ;
 	rico:RiCCMCorrespondingComponent """RiC-R025 ('has or had instantiation'
          relation)"""@en .
 
@@ -323,12 +210,7 @@ rico:hasOrHadDigitalInstantiation a owl:ObjectProperty ;
 	rdfs:comment """Connects a record resource to one of its digital instantiations,
          whether it exists or has been lost or destroyed."""@en ;
 	rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
-	rdfs:label "has or had digital instantiation"@en, "a ou a eu pour instanciation numérique"@fr, "tiene o tenía como instanciación digital"@es ;
-	skos:scopeNote """This property can be used, among other cases, when you want to
-         convert findings aids encoded in EAD/XML and need a simple and accurate migration path to
-         process dao or daogrp EAD elements. Also, in some situations, it may be useful or necessary
-         to connect a record resource to a digital instantiation that no longer exists or or has
-         been lost."""@en .
+	rdfs:label "has or had digital instantiation"@en, "a ou a eu pour instanciation numérique"@fr, "tiene o tenía como instanciación digital"@es .
 
 prov:wasAssociatedWith a owl:ObjectProperty ;
     rdfs:comment "An prov:Agent that had some (unspecified) responsibility for the occurrence of this prov:Activity."@en ;
@@ -372,6 +254,19 @@ fpo:sourcedFrom a owl:ObjectProperty ;
 	rdfs:domain fpo:Assertion ;
 	rdfs:range fpo:SourceCitation .
 
+###  http://data.ign.fr/def/cadastrenap#isSourceType
+nap:isSourceType a owl:ObjectProperty ;
+                    rdfs:range nap:SourceType ;
+                    rdfs:comment "Décrit le type de source."@fr ;
+                    rdfs:label "est une source de type"@fr ,
+                               "is source type"@en .
+
+nap:hasClasse a owl:ObjectProperty ;
+                    rdfs:range nap:MLClasse ;
+                    rdfs:comment "Décrit la classe d'un document ou d'une zone de document attribuée par un algorithme de classification."@fr ;
+                    rdfs:label "a pour classe"@fr ,
+                               "has classe"@en .
+
 ###############################
 # ---- Datatype properties ----
 ###############################
@@ -379,8 +274,7 @@ fpo:sourcedFrom a owl:ObjectProperty ;
 # ---- Imported properties ----
 rdfs:label a owl:DatatypeProperty.
 
-rico:identifier
-  a owl:DatatypeProperty ;
+rico:identifier a owl:DatatypeProperty ;
   rdfs:domain rico:Thing ;
   rdfs:range rdfs:Literal ;
   rdfs:comment """A word, number, letter, symbol, or any combination of these used
@@ -394,22 +288,167 @@ rico:identifier
   rico:RiCCMCorrespondingComponent """Corresponds to RiC-A22 (Identifier
          attribute)"""@en .
 
+rico:name a owl:DatatypeProperty ;
+  rdfs:domain rico:Thing ;
+  rdfs:range rdfs:Literal ;
+  rdfs:comment """A label, title or term designating an entity in order to make it
+         distinguishable from other similar entities."""@en ;
+  rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
+  rdfs:label "name"@en, "nom"@fr, "nombre"@es ;
+  rico:RiCCMCorrespondingComponent """Corrresponds to RiC-A28 (Name
+         attribute)"""@en .
+
 ###############################
 # ---- SkosConcept ----
 ###############################
 
+###  http://data.ign.fr/def/cadastrenap#SourceList
+nap:SourceList a owl:NamedIndividual ,
+                  skos:ConceptScheme ;
+                  rdfs:comment "Liste des différents types de sources, représentés comme une liste de concepts SKOS."@fr ;
+                  rdfs:label "Type de source"@fr ,
+                             "Type of source"@en .
 
+###  http://data.ign.fr/def/cadastrenap#MLClasseList
+nap:MLClasseList a owl:NamedIndividual ,
+                  skos:ConceptScheme ;
+                  rdfs:comment "Liste des différentes classes pouvant être attribuées à un document ou à une zone dans un document, représentés comme une liste de concepts SKOS."@fr ;
+                  rdfs:label "Liste de classes"@fr ,
+                             "List of classes"@en .
 
-# Document
-# |---- Registre
-#     |------ Etat de sections Record
-#     |------ Matrice cadastrale Record
-#           |----- Matrices de rôles (antérieures à 1822) Record
-#           |----- Matrice des propriétés foncières (1822-1882) & Matrice des propriétés non bâties (1882-1914) Record
-#           |----- Matrice des propriétés non bâties (1914-rénovation) Record
-#           |----- Matrice des propriétés bâties (1882-1911) Record
-#           |----- Matrice des propriétés bâties (1911-rénovation)
-# |---- Plan
-#     |------ Plan primitif
-#     |------ Plan rectifié
-#     |------ Plan rénové
+###  http://data.ign.fr/id/codes/cadastrenap/sourceType/RegistreCadastral
+srctype:RegistreCadastral a owl:NamedIndividual ,
+                            nap:SourceType ,
+                            skos:Concept ;
+                          skos:definition "Registre appartenant à la documentation cadastrale"@fr ;
+                          skos:inScheme nap:SourceList ;
+                          skos:prefLabel "Register"@en ,
+                                         "Registre"@fr .
+
+###  http://data.ign.fr/id/codes/cadastrenap/sourceType/EtatDeSections
+srctype:EtatDeSections a owl:NamedIndividual ,
+                            nap:SourceType ,
+                            skos:Concept ;
+                          skos:definition "Registre d'état de sections décrivant le parcellaire d'une commune à une date donnée, proche de la réalisation d'un plan cadastral."@fr ;
+                          skos:inScheme nap:SourceList ;
+                          skos:prefLabel "Etat de sections"@fr ;
+                          skos:broader srctype:RegistreCadastral.
+
+###  http://data.ign.fr/id/codes/cadastrenap/sourceType/MatriceCadastrale
+srctype:MatriceCadastrale a owl:NamedIndividual ,
+                            nap:SourceType ,
+                            skos:Concept ;
+                          skos:definition "Registre contenant l'ensemble des mutations affectant les parcelles pendant la période de validité de la matrice."@fr ;
+                          skos:inScheme nap:SourceList ;
+                          skos:prefLabel "Matrice cadastrale"@fr ;
+                          skos:broader srctype:RegistreCadastral.
+
+###  http://data.ign.fr/id/codes/cadastrenap/sourceType/MatriceCadastrale1807_1822
+srctype:MatriceCadastrale1807_1822 a owl:NamedIndividual ,
+                            nap:SourceType ,
+                            skos:Concept ;
+                          skos:definition "Matrice cadastrale utilisée entre 1807 et 1822, décrit les propriétés bâties et non bâties."@fr ;
+                          skos:inScheme nap:SourceList ;
+                          skos:prefLabel "Matrice de rôles des propriétés bâties et non bâties (1807-1822)"@fr ;
+                          skos:altLabel "Matrice de rôles des propriétés bâties et non bâties"@fr;
+                          skos:broader srctype:MatriceCadastrale.
+
+###  http://data.ign.fr/id/codes/cadastrenap/sourceType/MatriceCadastrale1822_1914
+srctype:MatriceCadastrale1822_1914 a owl:NamedIndividual ,
+                            nap:SourceType ,
+                            skos:Concept ;
+                          skos:definition "Matrice cadastrale utilisée entre 1822 et 1914, décrit les propriétés bâties et non bâties jusqu'à 1822 puis uniquement les propriétés non bâties jusqu'à 1914."@fr ;
+                          skos:inScheme nap:SourceList ;
+                          skos:prefLabel "Matrice des propriétés foncières (1822-1882) puis matrice des propriétés non bâties (1882-1914)"@fr ;
+                          skos:altLabel "Matrice des propriétés foncières"@fr;
+                          skos:broader srctype:MatriceCadastrale.
+
+###  http://data.ign.fr/id/codes/cadastrenap/sourceType/MatriceCadastraleBatie1882_1911
+srctype:MatriceCadastraleBatie1882_1911 a owl:NamedIndividual ,
+                            nap:SourceType ,
+                            skos:Concept ;
+                          skos:definition "Matrice cadastrale utilisée à partir de 1882 pour décrire les propriétés bâties."@fr ;
+                          skos:inScheme nap:SourceList ;
+                          skos:prefLabel "Matrice des propriétés bâties (1882-1911)"@fr ;
+                          skos:broader srctype:MatriceCadastrale.
+
+###  http://data.ign.fr/id/codes/cadastrenap/sourceType/MatriceCadastraleNonBatie1914
+srctype:MatriceCadastraleNonBatie1914 a owl:NamedIndividual ,
+                            nap:SourceType ,
+                            skos:Concept ;
+                          skos:definition "Matrice cadastrale utilisée à partir de 1914 pour décrire les propriétés non bâties."@fr ;
+                          skos:inScheme nap:SourceList ;
+                          skos:prefLabel "Matrice des propriétés non bâties (1914-rénovation)"@fr ;
+                          skos:broader srctype:MatriceCadastrale. 
+
+###  http://data.ign.fr/id/codes/cadastrenap/sourceType/MatriceCadastraleBatie1911
+srctype:MatriceCadastraleBatie1911 a owl:NamedIndividual ,
+                            nap:SourceType ,
+                            skos:Concept ;
+                          skos:definition "Matrice cadastrale utilisée à partir de 1911 pour décrire les propriétés bâties."@fr ;
+                          skos:inScheme nap:SourceList ;
+                          skos:prefLabel "Matrice des propriétés bâties (1911-rénovation)"@fr ;
+                          skos:broader srctype:MatriceCadastrale.                
+
+###  http://data.ign.fr/id/codes/cadastrenap/sourceType/PageDeRegistre
+srctype:PageDeRegistre a owl:NamedIndividual ,
+                            nap:SourceType ,
+                            skos:Concept ;
+                          skos:definition "Page issue d'un registre."@fr ;
+                          skos:inScheme nap:SourceList ;
+                          skos:prefLabel "Page de registre"@fr. 
+
+###  http://data.ign.fr/id/codes/cadastrenap/sourceType/ZoneDePageDeRegistre
+srctype:ZoneDePageDeRegistre a owl:NamedIndividual ,
+                            nap:SourceType ,
+                            skos:Concept ;
+                          skos:definition "Zone située dans une page de registre."@fr ;
+                          skos:inScheme nap:SourceList ;
+                          skos:prefLabel "Zone de page de registre"@fr. 
+
+###  http://data.ign.fr/id/codes/cadastrenap/sourceType/InventaireAD94
+srctype:InventaireAD94 a owl:NamedIndividual ,
+                            nap:SourceType ,
+                            skos:Concept ;
+                          skos:definition "Fiches d'inventaire décrivant le contenu des archives localisées aux Archives Départementales du Val-de-Marne."@fr ;
+                          skos:inScheme nap:SourceList ;
+                          skos:prefLabel "Inventaire AD94"@fr;
+                          skos:altLabel "Inventaire des Archives départementales du Val-de-Marne". 
+
+### http://data.ign.fr/id/codes/cadastrenap/mlclasse/PageClasse
+mlclasse:PageClasses a owl:NamedIndividual ,
+                            nap:MLClasse ,
+                            skos:Concept ;
+                          skos:definition "Liste des classes pouvant être attribuées à une Page de registre."@fr ;
+                          skos:inScheme nap:MLClasseList ;
+                          skos:prefLabel "Classes de Page"@fr.
+
+### http://data.ign.fr/id/codes/cadastrenap/mlclasse/Page_tab_p1
+mlclasse:Page_tab_p1 a owl:NamedIndividual ,
+                            nap:MLClasse ,
+                            skos:Concept ;
+                          skos:definition "Page de registre cadastral contenant le tableau principal, duquel on souhaite extraire des informations."@fr ;
+                          skos:inScheme nap:MLClasseList ;
+                          skos:prefLabel "Tableau principal, ppremière page (souvent unique page)"@fr;
+                          skos:altLabel "tab_p1";
+                          skos:broader mlclasse:PageClasses.
+
+### http://data.ign.fr/id/codes/cadastrenap/mlclasse/Page_tab_p2
+mlclasse:Page_tab_p2 a owl:NamedIndividual ,
+                            nap:MLClasse ,
+                            skos:Concept ;
+                          skos:definition "Page de registre cadastral contenant le tableau principal dans le cas où celui-ci est imprimé sur une double page. N'existe que pour certains pré-imprimés."@fr ;
+                          skos:inScheme nap:MLClasseList ;
+                          skos:prefLabel "Tableau principal, deuxième page (si double-page)"@fr;
+                          skos:altLabel "tab_p2";
+                          skos:broader mlclasse:PageClasses.
+
+### http://data.ign.fr/id/codes/cadastrenap/mlclasse/Page_ets_couv
+mlclasse:Page_ets_couv a owl:NamedIndividual ,
+                            nap:MLClasse ,
+                            skos:Concept ;
+                          skos:definition "Page correspondant à une couverture de section dans un registre d'états de sections."@fr ;
+                          skos:inScheme nap:MLClasseList ;
+                          skos:prefLabel "Couverture décrivant une section"@fr;
+                          skos:altLabel "ets_couv";
+                          skos:broader mlclasse:PageClasses.
