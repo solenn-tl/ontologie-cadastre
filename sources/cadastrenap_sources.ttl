@@ -419,9 +419,9 @@ srctype:InventaireAD94 a owl:NamedIndividual ,
 mlclasse:PageClasses a owl:NamedIndividual ,
                             nap:MLClasse ,
                             skos:Concept ;
-                          skos:definition "Liste des classes pouvant être attribuées à une Page de registre."@fr ;
+                          skos:definition "Liste des classes pouvant être attribuées à une page de registre numérisée (image)."@fr ;
                           skos:inScheme nap:MLClasseList ;
-                          skos:prefLabel "Classes de Page"@fr.
+                          skos:prefLabel "Classes de pages de registres"@fr.
 
 ### http://data.ign.fr/id/codes/cadastrenap/mlclasse/Page_tab_p1
 mlclasse:Page_tab_p1 a owl:NamedIndividual ,
@@ -452,3 +452,31 @@ mlclasse:Page_ets_couv a owl:NamedIndividual ,
                           skos:prefLabel "Couverture décrivant une section"@fr;
                           skos:altLabel "ets_couv";
                           skos:broader mlclasse:PageClasses.
+
+### http://data.ign.fr/id/codes/cadastrenap/mlclasse/ZoneClasses
+mlclasse:ZoneClasses a owl:NamedIndividual ,
+                            nap:MLClasse ,
+                            skos:Concept ;
+                          skos:definition "Liste des classes pouvant être attribuées à une zone contenue dans une page de registre numérisée."@fr ;
+                          skos:inScheme nap:MLClasseList ;
+                          skos:prefLabel "Classes de zones situées dans des pages de registres numérisées."@fr.
+
+### http://data.ign.fr/id/codes/cadastrenap/mlclasse/ETS_tab_line
+mlclasse:ETS_tab_line a owl:NamedIndividual ,
+                            nap:MLClasse ,
+                            skos:Concept ;
+                          skos:definition "Ligne de tableau principal d'un registre d'état de sections."@fr ;
+                          skos:inScheme nap:MLClasseList ;
+                          skos:prefLabel "Ligne de tableau d'états de sections"@fr;
+                          skos:altLabel "ets_tab_line";
+                          skos:broader mlclasse:ZoneClasses.
+
+### http://data.ign.fr/id/codes/cadastrenap/mlclasse/MAT_property_account
+mlclasse:MAT_property_account a owl:NamedIndividual ,
+                            nap:MLClasse ,
+                            skos:Concept ;
+                          skos:definition "Zone correspondant à un compte foncier dans une matrice cadastrale."@fr ;
+                          skos:inScheme nap:MLClasseList ;
+                          skos:prefLabel "Compte foncier (zone)"@fr;
+                          skos:altLabel "mat_cf";
+                          skos:broader mlclasse:ZoneClasses.
