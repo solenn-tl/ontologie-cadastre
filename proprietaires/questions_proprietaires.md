@@ -13,12 +13,17 @@ Liste des propriétaires dont le nom commence par V
 
 ## Question 2
 ### Question
-Qui est propriétaire de la parcelle X de la section C de la commune Y à la date TTTT ?
+Qui est propriétaire de la parcelle X de la section C de la commune Y ?
 ### Résultat attendu
-Identité du ou des propriétaires ou usufruitiers.
+Liste des propriétaires ou usufruitiers de la parcelle
 ### Exemple de réponse
-*Propriétaire de la parcelle 104 de la section C de Marolles en Brie en 1810*
-* Barrey Pierre garde champêtre
+>Propriétaires de la parcelle 191 de la section C de Marolles en Brie
+* Mazarot Pierre
+* D’Auvergne
+* Fleury Jn Btp
+* Guillot Pierre Louis Victor
+* Guillot Pierre Louis Nicolas
+* Vandermassen Rémy
 
 ## Question 3
 ### Question

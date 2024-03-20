@@ -1,70 +1,114 @@
-## Requêtes SPARL du modelet Propriétaires
+## Requêtes SPARQL du modelet Propriétaires
+*A jour le 20 mars 2024*
 
-## Liste des propriétaires
+## Liste des propriétaires dans l'ordre alphabétique
 ```sparql
 PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+select * where { 
+	?owner a nap:Owner;
+        rdfs:label ?name
+}
+ORDER BY ?name
+```
 
-SELECT ?name ?othername ?activity ?address
-WHERE {
-  ?owner a nap:Owner;
-         rdfs:label ?name.
-  OPTIONAL{?owner skos:altLabel ?othername;
-         		nap:activity ?activity;
-                nap:address ?address}.
+## Liste des propriétaires dont le nom commence par ...
+>Exemple : Liste des propriétaires dont le nom commence par G
+```sparql
+PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select * where { 
+	?owner a nap:Owner;
+        rdfs:label ?name
+       FILTER(regex(lcase(?owner),'^g'))
 }
 ```
 
-## Liste des parcelles d'un propriétaire dans une commune donnée
+## Liste des parcelles appartenant à un propriétaire
 ```sparql
 PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX owner: <http://data.ign.fr/id/cadastrenap/owner/>
+select distinct ?parcelname where { 
+	?owner a nap:Owner ;
+        nap:isOwnerOf ?parcelversion.
+    ?parcelversion nap:isAttributeVersionOf ?attribute.
+    ?attribute nap:isAttributeOf ?landmark.
+    ?landmark rdfs:label ?parcelname.
+    FILTER(?owner = owner:0001)
+}
+```
 
-SELECT ?parcelnum ?SECname ?COMMname ?name ?othername ?activity ?address 
-WHERE {
-  ?owner a nap:Owner;
-         rdfs:label ?name.
-  OPTIONAL{?owner skos:altLabel ?othername;
-         nap:activity ?activity;
-         nap:address ?address}.
-  ?parcel a nap:Landmark;
-    nap:isLandmarkType nap:Parcel;
-    rdfs:label ?parcelnum;
-    nap:hasSpatialDescription [
-        a nap:SpatialDescription;
-        nap:targets ?parcel;
-        nap:firstStep [
-            a nap:Segment;
-            nap:isSpatialRelationType nap:within;
-            nap:locatum ?parcel;
-            nap:relatum ?commune;
-            nap:nextStep [
-                a nap:Segment;
-                nap:isSpatialRelationType nap:within;
-                nap:locatum ?parcel;
-                nap:relatum ?section]]].
-  ?section rdfs:label ?SECname.
-  ?commune rdfs:label ?COMMname.
-  ?parcel nap:isOwnedBy ?owner.
-  FILTER(?commune=nap:COMM_Boissy_Saint_Leger)
-  FILTER(regex(?name,"^Charlier"))
+## Liste des propriétaires d'une parcelle
+```sparql
+PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
+PREFIX ltype: <http://data.ign.fr/id/codes/cadastrenap/landmarkType/>
+PREFIX atype: <http://data.ign.fr/id/codes/cadastrenap/attributeType/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX landmark: <http://data.ign.fr/id/cadastrenap/landmark/>
+select distinct ?owner ?ownername ?owneraddress ?owneractivity where { 
+	?parcel a nap:Landmark ;
+         nap:isLandmarkType ltype:Parcel;
+         nap:hasAttribute [a nap:Attribute;
+         nap:isAttributeType atype:ParcelOwner;
+         	nap:hasAttributeVersion[ a nap:AttributeVersion;
+                                  nap:hasOwner ?owner]
+].
+    ?owner rdfs:label ?ownername.
+    OPTIONAL{?owner nap:address ?owneraddress}
+    OPTIONAL{?owner nap:activity ?owneractivity}
+    FILTER(?parcel = landmark:PARC_Marolles_en_Brie_C_191_1810)
+}
+ORDERBY ?ownername
+```
+
+## Liste des parcelles appartenant à un propriétaire dans une commune donnée
+```sparql
+PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owner: <http://data.ign.fr/id/cadastrenap/owner/>
+PREFIX atype: <http://data.ign.fr/id/codes/cadastrenap/attributeType/>
+PREFIX landmark: <http://data.ign.fr/id/cadastrenap/landmark/>
+
+select distinct ?parcelname where { 
+	?owner a nap:Owner ;
+        nap:isOwnerOf ?parcelversion.
+    ?parcelversion nap:isAttributeVersionOf ?attribute.
+    ?attribute nap:isAttributeOf ?landmark.
+    ?landmark rdfs:label ?parcelname;
+              nap:hasAttribute [ a nap:Attribute;
+              nap:isAttributeType atype:SpatialDescription;
+    	      nap:hasAttributeVersion [ a nap:AttributeVersion;
+    				nap:firstStep/nap:locatum ?commune
+              ]
+    ].
+    FILTER(?owner = owner:0001)
+    FILTER(?commune = landmark:COMM_Marolles_en_Brie)
 }
 ```
 
 ## Liste des propriétaires domiciliés à une addresse
-*Exemple : liste de propriétaires vivant à Paris*
+*Exemple : liste de propriétaires vivant à Marolles-en-Brie*
 ```sparql
-SELECT ?name ?othername ?activity ?address 
-WHERE {
-  ?owner a nap:Owner;
-         rdfs:label ?name;
-         skos:altLabel ?othername;
-         nap:activity ?activity;
-         nap:address ?address.
-  FILTER(regex(?address,"Paris$"))
+PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select ?owner ?name ?address where { 
+	?owner a nap:Owner;
+        rdfs:label ?name;
+        nap:address ?address.
+    FILTER(regex(lcase(?address),"marolles"))
+}
+```
+
+## Liste des propriétaires exerçant une profession donnée
+*Exemple : liste de propriétaires cabaretier*
+```sparql
+PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select ?owner ?name ?address where { 
+	?owner a nap:Owner;
+        rdfs:label ?name;
+        nap:activity ?activity.
+    FILTER(regex(lcase(?activity),"cabaretier"))
 }
 ```
