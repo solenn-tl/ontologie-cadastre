@@ -24,22 +24,8 @@ select * where {
 }
 ```
 
-## Liste des parcelles appartenant à un propriétaire
-```sparql
-PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX owner: <http://data.ign.fr/id/cadastrenap/owner/>
-select distinct ?parcelname where { 
-	?owner a nap:Owner ;
-        nap:isOwnerOf ?parcelversion.
-    ?parcelversion nap:isAttributeVersionOf ?attribute.
-    ?attribute nap:isAttributeOf ?landmark.
-    ?landmark rdfs:label ?parcelname.
-    FILTER(?owner = owner:0001)
-}
-```
-
 ## Liste des propriétaires d'une parcelle
+>Liste des propriétaires de la parcelle C-191 à Marolles-en-Brie
 ```sparql
 PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
 PREFIX ltype: <http://data.ign.fr/id/codes/cadastrenap/landmarkType/>
@@ -61,8 +47,24 @@ select distinct ?owner ?ownername ?owneraddress ?owneractivity where {
 }
 ORDERBY ?ownername
 ```
+## Liste des parcelles appartenant à un propriétaire
+>Liste des parcelles de Pierre Mazarot
+```sparql
+PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owner: <http://data.ign.fr/id/cadastrenap/owner/>
+select distinct ?parcelname where { 
+	?owner a nap:Owner ;
+        nap:isOwnerOf ?parcelversion.
+    ?parcelversion nap:isAttributeVersionOf ?attribute.
+    ?attribute nap:isAttributeOf ?landmark.
+    ?landmark rdfs:label ?parcelname.
+    FILTER(?owner = owner:0001)
+}
+```
 
 ## Liste des parcelles appartenant à un propriétaire dans une commune donnée
+>Liste des parcelles de Pierre Mazarot à Marolles-en-Brie 
 ```sparql
 PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -87,8 +89,8 @@ select distinct ?parcelname where {
 }
 ```
 
-## Liste des propriétaires domiciliés à une addresse
-*Exemple : liste de propriétaires vivant à Marolles-en-Brie*
+## Liste des propriétaires domiciliés à une addresse donnée
+>Exemple : liste de propriétaires domicilliés à Marolles-en-Brie
 ```sparql
 PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -101,7 +103,7 @@ select ?owner ?name ?address where {
 ```
 
 ## Liste des propriétaires exerçant une profession donnée
-*Exemple : liste de propriétaires cabaretier*
+>Exemple : liste de propriétaires exerçant la profession de cabaretier
 ```sparql
 PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
