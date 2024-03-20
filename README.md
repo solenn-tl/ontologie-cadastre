@@ -42,4 +42,6 @@ Elle comporte cinq modelets:
     - [X] Modelet Propriétaires
     - [ ] Modelet Sources
     - [ ] Modelet Comptes fonciers
-- [ ] Test de création du KG avec les données annotées
+- Création du KG avec les données annotées
+    - [ ] Code python
+    - [ ] Test
