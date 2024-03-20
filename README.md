@@ -27,3 +27,13 @@ Elle comporte cinq modelets:
 
 ### Temporalité
 * [Adresses, modelet Temporalité](https://github.com/charlybernard/phd-ontologie)
+
+## TO DO
+
+- [X] Intégrer le modelet Entités Géographiques à l'ontologie
+- [X] Intégrer le modelet Temps à l'ontologie
+- [X] Intégrer le modelet Propriétaires à l'ontologie
+- [ ] Intégrer le modelet Sources à l'ontologie
+- [X] Intégrer le modelet Comptes fonciers à l'ontologie
+- [ ] Exemple complet =>
+- [ ] Test avec les données annotées
