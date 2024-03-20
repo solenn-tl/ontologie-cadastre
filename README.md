@@ -29,11 +29,17 @@ Elle comporte cinq modelets:
 * [Adresses, modelet Temporalité](https://github.com/charlybernard/phd-ontologie)
 
 ## TO DO
-
-- [X] Intégrer le modelet Entités Géographiques à l'ontologie
-- [X] Intégrer le modelet Temps à l'ontologie
-- [X] Intégrer le modelet Propriétaires à l'ontologie
-- [ ] Intégrer le modelet Sources à l'ontologie
-- [X] Intégrer le modelet Comptes fonciers à l'ontologie
-- [ ] Exemple complet =>
-- [ ] Test avec les données annotées
+- Intégrer à l'ontologie ```ontologie.ttl```
+    - [X] le modelet Entités Géographiques 
+    - [X] le modelet Temps à l'ontologie
+    - [X] le modelet Propriétaires à l'ontologie
+    - [ ] le modelet Sources à l'ontologie
+    - [X] le modelet Comptes fonciers à l'ontologie
+- [ ] Ecrire exemple complet => *quasi finalisé*
+- Ecrire les requêtes SPARQL + vérifier questions de compétences
+    - [ ] Modelet Entités Géographiques => *en cours*
+    - [ ] Modelet Temps => *en cours*
+    - [X] Modelet Propriétaires
+    - [ ] Modelet Sources
+    - [ ] Modelet Comptes fonciers
+- [ ] Test de création du KG avec les données annotées
