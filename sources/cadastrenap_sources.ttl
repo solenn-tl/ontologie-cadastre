@@ -254,18 +254,45 @@ fpo:sourcedFrom a owl:ObjectProperty ;
 	rdfs:domain fpo:Assertion ;
 	rdfs:range fpo:SourceCitation .
 
-###  http://data.ign.fr/def/cadastrenap#isSourceType
-nap:isSourceType a owl:ObjectProperty ;
+###  http://data.ign.fr/def/cadastrenap#hasSourceType
+nap:hasSourceType a owl:ObjectProperty ;
                     rdfs:range nap:SourceType ;
                     rdfs:comment "Décrit le type de source."@fr ;
                     rdfs:label "est une source de type"@fr ,
                                "is source type"@en .
 
+###  http://data.ign.fr/def/cadastrenap#hasClasse
 nap:hasClasse a owl:ObjectProperty ;
-                    rdfs:range nap:MLClasse ;
                     rdfs:comment "Décrit la classe d'un document ou d'une zone de document attribuée par un algorithme de classification."@fr ;
                     rdfs:label "a pour classe"@fr ,
                                "has classe"@en .
+
+###  http://data.ign.fr/def/cadastrenap#isLocalisedIn
+nap:isLocalisedIn a owl:ObjectProperty ;
+                    rdfs:domain rico:Instantiation;
+                    rdfs:range nap:Landmark ;
+                    rdfs:comment "Indique la localisation d'un document physique."@fr ;
+                    rdfs:label "est localisé à"@fr ,
+                               "is located in"@en .
+
+###  http://data.ign.fr/def/cadastrenap#hasCreationDate
+nap:hasCreationDate a owl:ObjectProperty ;
+                    rdfs:range nap:TemporalEntity ;
+                    rdfs:comment "Indique la date de création d'une source."@fr ;
+                    rdfs:label "a pour date de création"@fr ,
+                               "has creation date"@en .
+
+###  http://data.ign.fr/def/cadastrenap#hasValidTime
+nap:hasValidTime a owl:ObjectProperty ;
+                    rdfs:range nap:TemporalInterval ;
+                    rdfs:comment "Indique la date de validité/d'usage d'un document, pendant lequel il a été complété/utilisé par un ou plusieurs agents. Correcpond également à la période de validité des informations qu'il contient (ex: dans le cas d'une copie ultérieure d'un ancien document abimé)"@fr ;
+                    rdfs:label "a pour temps valide"@fr ,
+                               "has valid time"@en .
+
+nap:hasValue a owl:ObjectProperty ;
+                    rdfs:comment "Indique la date de validité/d'usage d'un document, pendant lequel il a été complété/utilisé par un ou plusieurs agents. Correcpond également à la période de validité des informations qu'il contient (ex: dans le cas d'une copie ultérieure d'un ancien document abimé)"@fr ;
+                    rdfs:label "a pour valeur un SKOS Conept"@fr ,
+                               "has value Concept"@en .
 
 ###############################
 # ---- Datatype properties ----
@@ -297,6 +324,16 @@ rico:name a owl:DatatypeProperty ;
   rdfs:label "name"@en, "nom"@fr, "nombre"@es ;
   rico:RiCCMCorrespondingComponent """Corrresponds to RiC-A28 (Name
          attribute)"""@en .
+
+nap:transcription a owl:DatatypeProperty ;
+  rdfs:range rdfs:Literal ;
+  rdfs:label "transcription"@en, "transcription"@fr;
+  rdfs:comment "Correspond à la transcription d'une zone obtenue automatiquement ou manuellement."
+
+nap:coordinates a owl:DatatypeProperty ;
+  rdfs:range rdfs:Literal ;
+  rdfs:label "coordinates"@en, "coordonnées"@fr;
+  rdfs:comment "Correspond à aux coordonnées images d'une zone annotée (manuellement ou automatiquement) dans un document numérisé.".
 
 ###############################
 # ---- SkosConcept ----
