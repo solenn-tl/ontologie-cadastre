@@ -35,7 +35,7 @@ Elle comporte cinq modelets:
     - [X] le modelet Propriétaires à l'ontologie
     - [ ] le modelet Sources à l'ontologie
     - [X] le modelet Comptes fonciers à l'ontologie
-- [ ] Ecrire exemple complet => *quasi finalisé*
+- [ ] Ecrire exemple complet => *quasi finalisé, reste à finir les sources*
 - Ecrire les requêtes SPARQL + vérifier questions de compétences
     - [ ] Modelet Entités Géographiques => *en cours*
     - [ ] Modelet Temps => *en cours*
