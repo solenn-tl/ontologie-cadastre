@@ -12,6 +12,7 @@
 ### Individuals
 @prefix landmark: <http://data.ign.fr/id/cadastrenap/landmark/>.
 @prefix owner: <http://data.ign.fr/id/cadastrenap/owner/>.
+@prefix source: <http://data.ign.fr/id/cadastrenap/source/>.
 @prefix cf: <http://data.ign.fr/id/cadastrenap/propertyaccount/>.
 
 #### SKOS Concept
@@ -310,7 +311,7 @@ landmark:PARC_Marolles_en_Brie_C_191_1810 a nap:Landmark;
             nap:isMadeEffectiveBy  _:ch09;
             nap:isMadeOutdatedBy _:ch10;
             nap:hasParcelNature pnature:Jardin;
-            fpo:sourcedFrom source:abd4ddb3-1c7f-427e-b498-f4927468825e
+            fpo:sourcedFrom source:abd4ddb3_1c7f_427e_b498_f4927468825e
         ];
         nap:hasAttributeVersion [ a nap:AttributeVersion;
             nap:isMadeEffectiveBy  _:ch10;
@@ -330,14 +331,16 @@ landmark:PARC_Marolles_en_Brie_C_191_1810 a nap:Landmark;
             nap:hasOwner owner:0001;
             nap:isMadeEffectiveBy _:ch11;
             nap:isMadeOutdatedBy _:ch12;
-            fpo:sourcedFrom source:abd4ddb3-1c7f-427e-b498-f4927468825e
+            fpo:sourcedFrom source:abd4ddb3_1c7f_427e_b498_f4927468825e;
+            fpo:sourcedFrom source:9053dbe6_7410_483f_82b1_45d9129f551a
         ];
         nap:hasAttributeVersion [ a nap:AttributeVersion;
             nap:hasOwner owner:0001;
             nap:hasOwner owner:0002;
             nap:hasOwner owner:0003;
             nap:isMadeEffectiveBy _:ch12;
-            nap:isMadeOutdatedBy _:ch13
+            nap:isMadeOutdatedBy _:ch13;
+            fpo:sourcedFrom source:9053dbe6_7410_483f_82b1_45d9129f551a
         ];
         nap:hasAttributeVersion [ a nap:AttributeVersion;
             nap:hasOwner owner:0001;

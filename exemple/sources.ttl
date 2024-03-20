@@ -38,8 +38,8 @@ landmark:archives_departementales_94 a nap:Landmark;
    ];
    prov:used source:Marolles_en_Brie_ETS_1810_FRAD094_3P_000387_01_0061.
 
-#Objets
-# Concept
+# Objets
+######### Concept "Etats de sections de Marolles-en-Brie"
 source:Marolles_en_Brie_ETS_1810 a rico:RecordSet, fpo:Source;
     rdfs:label "Etats de sections de Marolles-en-Brie (1810)";
     nap:hasSourceType srctype:EtatDeSections;
@@ -48,7 +48,7 @@ source:Marolles_en_Brie_ETS_1810 a rico:RecordSet, fpo:Source;
                 nap:timePrecision time:Year ;
                 nap:timeStamp "1810"^^xsd:dateTimeStamp
         ];
-    nap:hasValidTime  [ a nap:TimeInterval ;
+    nap:hasValidTime [ a nap:TimeInterval ;
             nap:hasBeginning [
                 nap:timeCalendar time:Gregorian ;
                 nap:timePrecision time:Year ;
@@ -77,26 +77,90 @@ source:Marolles_en_Brie_ETS_1810_FRAD094_3P_000387_01 a rico:Instantiation;
 source:Marolles_en_Brie_ETS_1810_FRAD094_3P_000387_01_0061 a rico:Instantiation;
     rico:identifier "FRAD094_3P_000387_01_0061";
     nap:hasClasse [
-        nap:hasValue mlclasse:Page_tab_p1;
+        nap:nap:hasClasseValue mlclasse:Page_tab_p1;
         prov:wasGeneratedBy <http://data.ign.fr/id/codes/activity/0001>
     ];
-    rico:hasComponentTransitive source:abd4ddb3-1c7f-427e-b498-f4927468825e;
+    rico:hasComponentTransitive source:abd4ddb3_1c7f_427e_b498_f4927468825e;
     rico:isOrWasDigitalInstanciation _:p01.
-
-#Instance numérique de zone
-source:abd4ddb3-1c7f-427e-b498-f4927468825e
- a rico:Instantiation, a fpo:SourceCitation;
-    rico:identifier "abd4ddb3-1c7f-427e-b498-f4927468825e";
-    prov:wasGeneratedBy <http://data.ign.fr/id/codes/activity/0002>;
-    nap:hasClasse [ nap:hasValue mlclasse:ETS_tab_line];
-    nap:transcription "Du Village Mazarot Pierre cabaretier à id";
-    nap:coordinates "[[],[],[],[],[]]";
-    fpo:fromSource source:Marolles_en_Brie_ETS_1810;
-    rico:isOrWasDigitalInstanciation _:zp01.
-
-_:zp01 a rico:RecordPart;
-        nap:hasSourceType srctype:ZoneDePageDeRegistre.
 
 _:p01 a rico:Record;
         nap:hasSourceType srctype:PageDeRegistre;
         rico:includesOrIncluded _:zp01.
+
+#Instance numérique de zone
+source:abd4ddb3_1c7f_427e_b498_f4927468825e a rico:Instantiation, fpo:SourceCitation;
+    rico:identifier "abd4ddb3_1c7f_427e_b498_f4927468825e";
+    prov:wasGeneratedBy <http://data.ign.fr/id/codes/activity/0002>;
+    nap:hasClasse [ nap:nap:hasClasseValue mlclasse:ETS_tab_line];
+    nap:transcription "Du Village Mazarot Pierre cabaretier à id";
+    nap:coordinatesInImageRef "[[],[],[],[],[]]";
+    fpo:fromSource source:Marolles_en_Brie_ETS_1810;
+    rico:isOrWasDigitalInstanciation _:zp01.
+
+_:zp01 a rico:RecordPart;
+        nap:hasSourceType srctype:LigneEtatDeSection.
+
+
+########## Matrice de rôles bâtis/non bâtis
+# Record de registre
+source:Marolles_en_Brie_MAT_NB_B_1812 a rico:RecordSet, fpo:Source;
+    rdfs:label "Matrice de rôles des propriétés bâties et non bâties de Marolles-en-Brie (1812-1822)";
+    nap:hasSourceType srctype:MatriceCadastrale1807_1822;
+    nap:hasCreationDate [ a nap:CrispTimeInstant ;
+                nap:timeCalendar time:Gregorian ;
+                nap:timePrecision time:Year ;
+                nap:timeStamp "1812"^^xsd:dateTimeStamp
+        ];
+    nap:hasValidTime [ a nap:TimeInterval ;
+            nap:hasBeginning [
+                nap:timeCalendar time:Gregorian ;
+                nap:timePrecision time:Year ;
+                nap:timeStamp "1812"^^xsd:dateTimeStamp];
+            nap:hasEnd [
+                nap:timeCalendar time:Gregorian ;
+                nap:timePrecision time:Year ;
+                nap:timeStamp "1822"^^xsd:dateTimeStamp];
+        ];
+    rico:hasOrAddInstantiation source:Marolles_en_Brie_MAT_NB_B_1812_39388;
+    rico:hasOrAddDigitalInstantiation source:Marolles_en_Brie_MAT_NB_B_1812_FRAD094_3P_000388_01.
+
+#Instance physique de registre
+source:Marolles_en_Brie_MAT_NB_B_1812_3P388 a rico:Instantiation;
+    rico:identifier "3P388";
+    nap:isLocalisedIn landmark:archives_departementales_94;
+    rico:hasOrHadDerivedInstanciation source:Marolles_en_Brie_MAT_NB_B_1812_FRAD094_3P_000388_01.
+
+#Instance numérique de registre
+source:Marolles_en_Brie_MAT_NB_B_1812_FRAD094_3P_000388_01 a rico:Instantiation;
+    rico:identifier "FRAD094_3P_000388_01";
+    rico:hasOrhadComponent source:Marolles_en_Brie_MAT_NB_B_1812_FRAD094_3P_000387_01_0017.
+
+# Instance numérique de page
+source:Marolles_en_Brie_MAT_NB_B_1812_FRAD094_3P_000387_01_0017 a rico:Instantiation;
+    rico:identifier "FRAD094_3P_000388_01_0017";
+    nap:hasClasse [
+        nap:nap:hasClasseValue mlclasse:Page_tab_p1;
+        prov:wasGeneratedBy <http://data.ign.fr/id/codes/activity/0001>
+    ];
+    rico:isOrWasDigitalInstanciation _:p02;
+    rico:hasComponentTransitive source:9053dbe6_7410_483f_82b1_45d9129f551a.
+
+# Record de page
+_:p02 a rico:Record;
+        nap:hasSourceType srctype:PageDeRegistre;
+        nap:isOrWasIncludedIn _:p02.
+
+#Instance numérique de zone
+source:9053dbe6_7410_483f_82b1_45d9129f551a a rico:Instantiation, fpo:SourceCitation;
+    rico:identifier "9053dbe6_7410_483f_82b1_45d9129f551a";
+    prov:wasGeneratedBy <http://data.ign.fr/id/codes/activity/0002>;
+    nap:hasClasse [ nap:nap:hasClasseValue mlclasse:MAT_property_account];
+    nap:transcription "transcription";
+    nap:coordinatesInImageRef "[[],[],[],[],[]]";
+    fpo:fromSource source:Marolles_en_Brie_MAT_NB_B_1812.
+
+#Record Part de zone
+source:9053dbe6_7410_483f_82b1_45d9129f551a_recordpart a rico:RecordPart;
+    nap:hasSourceType srctype:CompteFoncier;
+    rico:hasOrHadDigitalInstanciation source:9053dbe6_7410_483f_82b1_45d9129f551a;
+    rico:isOrWasIncludedIn source:9053dbe6_7410_483f_82b1_45d9129f551a_recordpart.

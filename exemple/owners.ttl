@@ -20,7 +20,19 @@ owner:0001 a nap:Owner;
     skos:prefLabel "Mazarot Pierre";
     rdfs:label "Mazarot Pierre";
     nap:activity "cabaretier";
-    nap:address "à Marolles".
+    nap:address "à Marolles";
+    nap:hasOwnerAttribute [ a nap:OwnerAttribute;
+        nap:hasOwnerAttributeType nap:OwnerPresence;
+        nap:hasOwnerAttributeVersion [ a nap:OwnerAttributeVersion;
+            nap:hasOwnerAttributeValue cf:0001;
+        ];
+        nap:hasOwnerAttributeVersion [ a nap:OwnerAttributeVersion;
+            nap:hasOwnerAttributeValue cf:0002;
+        ];
+        nap:hasOwnerAttributeVersion [ a nap:OwnerAttributeVersion;
+            nap:hasOwnerAttributeValue cf:0003;
+        ];
+        ].
 
 owner:0002 a nap:Owner;
     skos:prefLabel "D'Auvergne";
