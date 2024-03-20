@@ -23,22 +23,29 @@ nap:Owner a owl:Class;
   rdfs:label "Owner"@en , "Propriétaire ou usufruitier"@fr ;
   rdfs:comment "Propriétaire ou usufruitier : personne redevable de l'impôt foncier pour les terres dont elle a la pleine propriété ou l'usufruit."@fr .
 
-## http://data.ign.fr/def/cadastrenap#Address
-#nap:Address a owl:Class;
-#  rdfs:label "Address"@en ,"Adresse"@fr ;
-#  rdfs:comment "Adresse du propriétaire ou de l'usufruitier."@fr.
+## http://data.ign.fr/def/cadastrenap#OwnerAttribute
+nap:OwnerAttribute a owl:Class;
+  rdfs:label "Owner attribute"@en , "Attribut associé à un propriétaire ou usufruitier"@fr ;
+  rdfs:comment "Attribut servant à décrire un propriétaire ou usufruitier."@fr .
+
+## http://data.ign.fr/def/cadastrenap#OwnerAttribute
+nap:OwnerAttributeVersion a owl:Class;
+  rdfs:label "Owner attribute version"@en , "Version d'un attribut associé à un propriétaire ou usufruitier"@fr ;
+  rdfs:comment "Version d'un attribut servant à décrire un propriétaire ou usufruitier."@fr .
+
+## http://data.ign.fr/def/cadastrenap#OwnerAttribute
+nap:OwnerAttributeType a owl:Class;
+  rdfs:label "Owner Attribute type"@en , "Type d'un attribut associé à un propriétaire ou usufruitier"@fr ;
+  rdfs:comment "Type d'un attribut servant à décrire un propriétaire ou usufruitier."@fr .
+
+## http://data.ign.fr/def/cadastrenap#OwnerPresence
+nap:OwnerPresence a owl:Class;
+  rdfs:label "Presence of an owner in a property account"@en ,"Mention d'un propriétaire dans un compte foncier"@fr ;
+  rdfs:comment "Présence d'un propriétaire dans un compte foncier."@fr.
 
 #############################
 # ---- Object properties ----
 #############################
-
-## http://data.ign.fr/def/cadastrenap#address
-#nap:address a owl:ObjectProperty;
-#	rdfs:domain  nap:Owner;
-#	rdfs:range nap:Address;
-#	rdfs:label "address"@en ,"adresse"@fr ;
-#	rdfs:comment "Propriété qui relie une personne à une adresse. Ex: à Paris."@fr ,
-#                 "A property that links an owner to its address. E.g.: in Paris."@en .
 
 ###  http://data.ign.fr/def/cadastrenap#owns
 nap:hasOwner a owl:ObjectProperty ;
@@ -55,6 +62,36 @@ nap:isOwnerOf a owl:ObjectProperty ;
                     rdfs:label "est le propriétaire de"@fr ,
                                "is owner of"@en ;
                     owl:inverseOf nap:hasOwner.
+
+###  http://data.ign.fr/def/cadastrenap#hasOwnerAttribute
+nap:hasOwnerAttribute a owl:ObjectProperty ;
+                    rdfs:domain nap:Owner ;
+                    rdfs:domain nap:OwnerAttribute ;
+                    rdfs:label "a pour attribut de propriétaire"@fr ,
+                               "has owner attribute"@en;
+                    rdfs:comment "Attribut de propriétaire."
+
+###  http://data.ign.fr/def/cadastrenap#hasOwnerAttributeType
+nap:hasOwnerAttributeType a owl:ObjectProperty ;
+                    rdfs:domain nap:OwnerAttribute ;
+                    rdfs:domain nap:OwnerAttributeType ;
+                    rdfs:label "a pour type d'attribut de propriétaire"@fr ,
+                               "has owner attribute type"@en;
+                    rdfs:comment "Type de l'attribut de propriétaire."
+
+###  http://data.ign.fr/def/cadastrenap#hasOwnerAttributeType
+nap:hasOwnerAttributeVersion a owl:ObjectProperty ;
+                    rdfs:domain nap:OwnerAttribute ;
+                    rdfs:domain nap:OwnerAttributeVersion ;
+                    rdfs:label "a pour version d'attribut de propriétaire"@fr ,
+                               "has version of owner attribute"@en;
+                    rdfs:comment "Version d'un attribut de propriétaire."
+
+nap:hasOwnerAttributeValue a owl:ObjectProperty ;
+              rdfs:domain nap:OwnerAttributeVersion ;
+              rdfs:label "a pour version d'attribut de propriétaire"@fr ,
+                               "has version of owner attribute"@en;
+              rdfs:comment "Version d'un attribut de propriétaire."
 
 ###############################
 # ---- Datatype properties ----
