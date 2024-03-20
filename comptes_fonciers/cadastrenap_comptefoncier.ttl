@@ -33,14 +33,6 @@ nap:PropertyAccount a owl:Class;
     skos:prefLabel "Property account"@en, "Compte foncier"@fr;
     skos:altLabel "Article"@fr, "Folio"@fr, "Case"@fr.
 
-###  http://data.ign.fr/id/codes/cadastrenap/attributeType/Presence
-nap:Presence a owl:Class;
-    skos:definition "Attribut décrivant la présence/mention d'une parcelle ou d'un propriétaire dans un compte foncier"@fr ;
-    skos:prefLabel "Compte foncier"@fr ,
-                   "Property account"@en ;
-    skos:altLabel "Mention d'une parcelle ou d'un proprétaire dans un compte foncier"@fr ,
-                  "Mention of a parcel or an owner in a property account"@en .
-
 #############################
 # ---- Object properties ----
 #############################
@@ -76,6 +68,4 @@ nap:isContinuationOf a owl:ObjectProperty;
 ###############################
 
 # ---- Imported properties ----
-rdfs:label a owl:DatatypeProperty. #Sert à indiquer le numéro du compte foncier
-
-#sourceFrom rico:Instance => rico:RecordSet=Registre  #Sert à indiquer le registre d'origine du compte
+rdfs:label a owl:DatatypeProperty.
