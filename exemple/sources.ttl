@@ -80,11 +80,12 @@ source:Marolles_en_Brie_ETS_1810_FRAD094_3P_000387_01_0061 a rico:Instantiation;
         nap:hasValue mlclasse:Page_tab_p1;
         prov:wasGeneratedBy <http://data.ign.fr/id/codes/activity/0001>
     ];
-    rico:hasComponentTransitive source:Marolles_en_Brie_ETS_1810_FRAD094_3P_000387_01_0061_uuid01;
+    rico:hasComponentTransitive source:abd4ddb3-1c7f-427e-b498-f4927468825e;
     rico:isOrWasDigitalInstanciation _:p01.
 
 #Instance numérique de zone
-source:Marolles_en_Brie_ETS_1810_FRAD094_3P_000387_01_0061_uuid01 a rico:Instantiation, a fpo:SourceCitation;
+source:abd4ddb3-1c7f-427e-b498-f4927468825e
+ a rico:Instantiation, a fpo:SourceCitation;
     rico:identifier "abd4ddb3-1c7f-427e-b498-f4927468825e";
     prov:wasGeneratedBy <http://data.ign.fr/id/codes/activity/0002>;
     nap:hasClasse [ nap:hasValue mlclasse:ETS_tab_line];

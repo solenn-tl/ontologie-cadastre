@@ -310,14 +310,12 @@ landmark:PARC_Marolles_en_Brie_C_191_1810 a nap:Landmark;
             nap:isMadeEffectiveBy  _:ch09;
             nap:isMadeOutdatedBy _:ch10;
             nap:hasParcelNature pnature:Jardin;
-            #src fin
+            fpo:sourcedFrom source:abd4ddb3-1c7f-427e-b498-f4927468825e
         ];
         nap:hasAttributeVersion [ a nap:AttributeVersion;
             nap:isMadeEffectiveBy  _:ch10;
             nap:hasParcelNature pnature:Maison;
             nap:hasParcelNature pnature:Fournil
-            #src début
-            #src fin
         ];
     ];
     nap:hasAttribute[ a nap:Attribute;
@@ -332,6 +330,7 @@ landmark:PARC_Marolles_en_Brie_C_191_1810 a nap:Landmark;
             nap:hasOwner owner:0001;
             nap:isMadeEffectiveBy _:ch11;
             nap:isMadeOutdatedBy _:ch12;
+            fpo:sourcedFrom source:abd4ddb3-1c7f-427e-b498-f4927468825e
         ];
         nap:hasAttributeVersion [ a nap:AttributeVersion;
             nap:hasOwner owner:0001;
