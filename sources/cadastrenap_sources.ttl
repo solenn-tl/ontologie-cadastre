@@ -263,9 +263,16 @@ nap:hasSourceType a owl:ObjectProperty ;
 
 ###  http://data.ign.fr/def/cadastrenap#hasClasse
 nap:hasClasse a owl:ObjectProperty ;
-                    rdfs:comment "Décrit la classe d'un document ou d'une zone de document attribuée par un algorithme de classification."@fr ;
+                    rdfs:comment "Indique qu'un document ou d'une zone de document possède au moins une classe attribuée manuellement ou automatique."@fr ;
+                    rdfs:label "a au moins une classe"@fr ,
+                               "has at least one classe"@en .
+
+###  http://data.ign.fr/def/cadastrenap#nap:hasClasseValue
+nap:hasClasseValue a owl:ObjectProperty ;
+                    rdfs:range mlclasse:nap:MLClasse;
+                    rdfs:comment "Classe attribuée à un document ou à une zone de document par un prov:Agent."@fr ;
                     rdfs:label "a pour classe"@fr ,
-                               "has classe"@en .
+                               "has classe value"@en .
 
 ###  http://data.ign.fr/def/cadastrenap#isLocalisedIn
 nap:isLocalisedIn a owl:ObjectProperty ;
@@ -288,11 +295,6 @@ nap:hasValidTime a owl:ObjectProperty ;
                     rdfs:comment "Indique la date de validité/d'usage d'un document, pendant lequel il a été complété/utilisé par un ou plusieurs agents. Correcpond également à la période de validité des informations qu'il contient (ex: dans le cas d'une copie ultérieure d'un ancien document abimé)"@fr ;
                     rdfs:label "a pour temps valide"@fr ,
                                "has valid time"@en .
-
-nap:hasValue a owl:ObjectProperty ;
-                    rdfs:comment "Indique la date de validité/d'usage d'un document, pendant lequel il a été complété/utilisé par un ou plusieurs agents. Correcpond également à la période de validité des informations qu'il contient (ex: dans le cas d'une copie ultérieure d'un ancien document abimé)"@fr ;
-                    rdfs:label "a pour valeur un SKOS Conept"@fr ,
-                               "has value Concept"@en .
 
 ###############################
 # ---- Datatype properties ----
@@ -328,12 +330,17 @@ rico:name a owl:DatatypeProperty ;
 nap:transcription a owl:DatatypeProperty ;
   rdfs:range rdfs:Literal ;
   rdfs:label "transcription"@en, "transcription"@fr;
-  rdfs:comment "Correspond à la transcription d'une zone obtenue automatiquement ou manuellement."
+  rdfs:comment "Transcription d'une zone obtenue automatiquement ou manuellement à partir d'un document numérisé.".
 
-nap:coordinates a owl:DatatypeProperty ;
+nap:coordinatesInImageRef a owl:DatatypeProperty ;
   rdfs:range rdfs:Literal ;
-  rdfs:label "coordinates"@en, "coordonnées"@fr;
-  rdfs:comment "Correspond à aux coordonnées images d'une zone annotée (manuellement ou automatiquement) dans un document numérisé.".
+  rdfs:label "coordinates in image"@en, "coordonnées dans l'image"@fr;
+  rdfs:comment "Coordonnées (référentiel image) d'une zone annotée (manuellement ou automatiquement) dans un document numérisé.".
+
+nap:URL a owl:DatatypeProperty ;
+  rdfs:range rdfs:Literal ;
+  rdfs:label "url de la source"@fr, "source URL"@en;
+  rdfs:comment 'Correspond à l\'URL de la source (image, base de donnée)'.
 
 ###############################
 # ---- SkosConcept ----
