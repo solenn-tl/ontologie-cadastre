@@ -5,7 +5,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 # ---- Ontology metadata -----
-<http://data.ign.fr/def/cadastrenap> a owl:Ontology, voaf:Vocabulary.
+<http://data.ign.fr/def/cadastrenap> a owl:Ontology.
 
 # ---- Imported properties for annotation ----
 skos:inScheme a owl:AnnotationProperty.
@@ -28,12 +28,12 @@ nap:OwnerAttribute a owl:Class;
   rdfs:label "Owner attribute"@en , "Attribut associé à un propriétaire ou usufruitier"@fr ;
   rdfs:comment "Attribut servant à décrire un propriétaire ou usufruitier."@fr .
 
-## http://data.ign.fr/def/cadastrenap#OwnerAttribute
+## http://data.ign.fr/def/cadastrenap#OwnerAttributeVersion
 nap:OwnerAttributeVersion a owl:Class;
   rdfs:label "Owner attribute version"@en , "Version d'un attribut associé à un propriétaire ou usufruitier"@fr ;
   rdfs:comment "Version d'un attribut servant à décrire un propriétaire ou usufruitier."@fr .
 
-## http://data.ign.fr/def/cadastrenap#OwnerAttribute
+## http://data.ign.fr/def/cadastrenap#OwnerAttributeType
 nap:OwnerAttributeType a owl:Class;
   rdfs:label "Owner Attribute type"@en , "Type d'un attribut associé à un propriétaire ou usufruitier"@fr ;
   rdfs:comment "Type d'un attribut servant à décrire un propriétaire ou usufruitier."@fr .
@@ -47,7 +47,7 @@ nap:OwnerPresence a owl:Class;
 # ---- Object properties ----
 #############################
 
-###  http://data.ign.fr/def/cadastrenap#owns
+###  http://data.ign.fr/def/cadastrenap#hasOwner
 nap:hasOwner a owl:ObjectProperty ;
                     rdfs:domain nap:Landmark ;
                     rdfs:range nap:Owner;
@@ -69,7 +69,7 @@ nap:hasOwnerAttribute a owl:ObjectProperty ;
                     rdfs:domain nap:OwnerAttribute ;
                     rdfs:label "a pour attribut de propriétaire"@fr ,
                                "has owner attribute"@en;
-                    rdfs:comment "Attribut de propriétaire."
+                    rdfs:comment "Attribut de propriétaire.".
 
 ###  http://data.ign.fr/def/cadastrenap#hasOwnerAttributeType
 nap:hasOwnerAttributeType a owl:ObjectProperty ;
@@ -77,21 +77,22 @@ nap:hasOwnerAttributeType a owl:ObjectProperty ;
                     rdfs:domain nap:OwnerAttributeType ;
                     rdfs:label "a pour type d'attribut de propriétaire"@fr ,
                                "has owner attribute type"@en;
-                    rdfs:comment "Type de l'attribut de propriétaire."
+                    rdfs:comment "Type de l'attribut de propriétaire.".
 
-###  http://data.ign.fr/def/cadastrenap#hasOwnerAttributeType
+###  http://data.ign.fr/def/cadastrenap#hasOwnerAttributeVersion
 nap:hasOwnerAttributeVersion a owl:ObjectProperty ;
                     rdfs:domain nap:OwnerAttribute ;
                     rdfs:domain nap:OwnerAttributeVersion ;
                     rdfs:label "a pour version d'attribut de propriétaire"@fr ,
                                "has version of owner attribute"@en;
-                    rdfs:comment "Version d'un attribut de propriétaire."
+                    rdfs:comment "Version d'un attribut de propriétaire.".
 
+###  http://data.ign.fr/def/cadastrenap#hasOwnerAttributeValue
 nap:hasOwnerAttributeValue a owl:ObjectProperty ;
               rdfs:domain nap:OwnerAttributeVersion ;
               rdfs:label "a pour version d'attribut de propriétaire"@fr ,
                                "has version of owner attribute"@en;
-              rdfs:comment "Version d'un attribut de propriétaire."
+              rdfs:comment "Version d'un attribut de propriétaire.".
 
 ###############################
 # ---- Datatype properties ----
