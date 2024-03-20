@@ -260,6 +260,10 @@ nap:LandmarkVersion a owl:Class ;
                      rdfs:label "Landmark version"@en ,
                                 "Version de repère"@fr .
 
+nap:Nature a owl:Class ;
+              rdfs:label "Nature de parcelle"@en ,
+                          "Nature de parcelle"@fr .
+
 ###  http://data.ign.fr/def/cadastrenap#PropertyAccount
 nap:PropertyAccount a owl:Class;
     rdfs:label "Property account"@en, "Compte foncier"@fr ;
@@ -505,6 +509,13 @@ nap:makesEffective a owl:ObjectProperty ;
                     rdfs:comment "Décrit le fait qu'un changement rend effectif une version d'un attribut"@fr ;
                     rdfs:label "rend effectif"@fr .
 
+###  http://data.ign.fr/def/cadastrenap#makesEffective
+nap:isMadeEffectiveBy a owl:ObjectProperty ;
+                    owl:inverseOf nap:makesEffective ;
+                    rdfs:domain nap:AttributeChange ;
+                    rdfs:range nap:AttributeVersion ;
+                    rdfs:comment "Décrit le fait qu'une version d'un attribut est rendue effective par un changement"@fr ;
+                    rdfs:label "est rendu effectif par"@fr .
 
 ###  http://data.ign.fr/def/cadastrenap#nextStep
 nap:nextStep a owl:ObjectProperty ;
@@ -518,11 +529,18 @@ nap:nextStep a owl:ObjectProperty ;
 
 ###  http://data.ign.fr/def/cadastrenap#outdates
 nap:outdates a owl:ObjectProperty ;
+              owl:inverseOf nap:isMadeOutdatedBy ;
               rdfs:domain nap:AttributeChange ;
               rdfs:range nap:AttributeVersion ;
               rdfs:comment "Décrit le fait qu'un changement rend caduc une version d'un attribut"@fr ;
               rdfs:label "rend caduc"@fr .
 
+###  http://data.ign.fr/def/cadastrenap#outdates
+nap:isMadeOutdatedBy a owl:ObjectProperty ;
+              rdfs:domain nap:AttributeChange ;
+              rdfs:range nap:AttributeVersion ;
+              rdfs:comment "Décrit le fait qu'une version d'un attribut est rendu caduc par un changement"@fr ;
+              rdfs:label "est rendu caduc"@fr .
 
 ###  http://data.ign.fr/def/cadastrenap#relatum
 nap:relatum a owl:ObjectProperty ;
@@ -593,14 +611,14 @@ nap:versionOf a owl:ObjectProperty ;
 ###  http://data.ign.fr/def/cadastrenap#hasParcelNature
 nap:hasParcelNature a owl:ObjectProperty ;
                     rdfs:domain nap:AttributeVersion ;
-                    rdfs:range atype:ParcelNature ;
+                    rdfs:range nap:Nature ;
                     rdfs:label "a pour nature"@fr ,
                                "has parcel nature"@en;
                     owl:inverseOf nap:isParcelNatureOf.
 
 ###  http://data.ign.fr/def/cadastrenap#isParcelNature
 nap:isParcelNatureOf a owl:ObjectProperty ;
-                    rdfs:domain atype:ParcelNature ;
+                    rdfs:domain nap:Nature ;
                     rdfs:range nap:AttributeVersion ;
                     rdfs:label "est une nature de "@fr ,
                                "is parcel nature of"@en;
@@ -608,24 +626,24 @@ nap:isParcelNatureOf a owl:ObjectProperty ;
 
 ###  http://data.ign.fr/def/cadastrenap#hasOwner
 nap:hasOwner a owl:ObjectProperty ;
-                    rdfs:domain atype:Owner ;
-                    rdfs:range nap:AttributeVersion ;
+                    rdfs:domain nap:AttributeVersion ;
+                    rdfs:range nap:Owner ;
                     rdfs:label "a pour propriétaire"@fr ,
                                "has owner"@en ;
-                    owl:inverseOf nap:isOwnedBy.
+                    owl:inverseOf nap:isOwnerOf.
 
 ###  http://data.ign.fr/def/cadastrenap#isOwnedBy
-nap:isOwnedBy a owl:ObjectProperty ;
-                    rdfs:domain nap:AttributeVersion ;
-                    rdfs:range atype:Owner ;
-                    rdfs:label "est la propriété de"@fr ,
-                               "is owned by"@en ;
+nap:isOwnerOf a owl:ObjectProperty ;
+                    rdfs:domain nap:Owner ;
+                    rdfs:range nap:AttributeVersion ;
+                    rdfs:label "est le propriétaire de"@fr ,
+                               "is owner of"@en ;
                     owl:inverseOf nap:hasOwner.
 
 ###  http://data.ign.fr/def/cadastrenap#mentions
 nap:mentions a owl:ObjectProperty;
     rdfs:domain nap:PropertyAccount;
-    rdfs:range nap:PropertyAccount;
+    rdfs:range nap:AttributeVersion;
     rdfs:comment "Un compte foncier mentionne la présence d'une parcelle ou d'un propriétaire."@fr;
     rdfs:label "mentionne";
     owl:inverseOf nap:isMentionnedIn.
@@ -724,7 +742,7 @@ nap:LandmarkRelationList a owl:NamedIndividual ,
                                      "Type of landmark relation"@en .
 
 ###  http://data.ign.fr/def/cadastrenap#ParcelNatureList
-nap:ParcelNatureList a owl:NamedIndividual ,
+nap:NatureList a owl:NamedIndividual ,
                           skos:ConceptScheme ;
                           rdfs:comment "Liste des différentes natures de parcelles, représentés comme une liste de concepts SKOS."@fr ;
                           rdfs:label "Type de natures de parcelles"@fr ,
@@ -846,14 +864,14 @@ atype:Name a owl:NamedIndividual ,
                                   "Name attribute"@en .
 
 ###  http://data.ign.fr/id/codes/cadastrenap/attributeType/Owner
-atype:Owner a owl:NamedIndividual ,
-                             nap:AttributeType ,
-                             skos:Concept ;
+atype:ParcelOwner a owl:NamedIndividual ,
+                    nap:AttributeType ,
+                    skos:Concept ;
                     skos:definition "Attribut décrivant la.les propriétaires d'un landmark de type parcelle"@fr ;
                     skos:inScheme nap:AttributeList ;
-                    skos:prefLabel "Propriétaire"@fr ,
-                                   "Owner"@en ;
-                    skos:altLabel "Attribut prorpiétaire de parcelle"@fr ,
+                    skos:prefLabel "Propriétaire de la parcelle"@fr ,
+                                   "Owner of the parcel"@en ;
+                    skos:altLabel "Attribut propriétaire d'une parcelle donnée"@fr ,
                                   "Parcel owner"@en .
 
 ###  http://data.ign.fr/id/codes/cadastrenap/attributeType/ParcelNature
@@ -1110,51 +1128,58 @@ ltype:Undefined a owl:NamedIndividual ,
 
 ### http://data.ign.fr/id/codes/cadastrenap/parcelNature/ProprieteNonBatie 
 pnature:ProprieteNonBatie a owl:NamedIndividual, 
-                        atype:ParcelNature, 
+                        nap:Nature, 
                         skos:Concept;
 	skos:definition "Propriété non bâtie."@fr;
-	skos:inScheme nap:ParcelNatureList;
+	skos:inScheme nap:NatureList;
 	skos:prefLabel "Propriété non bâtie"@fr.
 
 ### http://data.ign.fr/id/codes/cadastrenap/parcelNature/ProprieteBatie
 pnature:ProprieteBatie a owl:NamedIndividual, 
-                        atype:ParcelNature, 
+                        nap:Nature, 
                         skos:Concept;
 	skos:definition "Propriété bâtie."@fr;
-	skos:inScheme nap:ParcelNatureList;
+	skos:inScheme nap:NatureList;
 	skos:prefLabel "Propriété bâtie"@fr.
 
 ### http://data.ign.fr/id/codes/cadastrenap/parcelNature/Terre
 pnature:Terre a skos:Concept;
 	skos:definition "Terre"@fr, "Bare ground"@en;
-	skos:inScheme nap:ParcelNatureList;
+	skos:inScheme nap:NatureList;
 	skos:prefLabel "Terre"@fr, "Bare ground"@en;
   skos:boader pnature:ProprieteNonBatie.
 
 ### http://data.ign.fr/id/codes/cadastrenap/parcelNature/Jardin
 pnature:Jardin a skos:Concept;
 	skos:definition "Jardin"@fr, "Garden"@en;
-	skos:inScheme nap:ParcelNatureList;
+	skos:inScheme nap:NatureList;
 	skos:prefLabel "Jardin"@fr, "Garden"@en;
   skos:boader pnature:ProprieteNonBatie.
 
 ### http://data.ign.fr/id/codes/cadastrenap/parcelNature/Vigne
 pnature:Vigne a skos:Concept;
 	skos:definition "Vigne"@fr, "Vine"@en;
-	skos:inScheme nap:ParcelNatureList;
+	skos:inScheme nap:NatureList;
 	skos:prefLabel "Vigne"@fr, "Vine"@en;
   skos:boader pnature:ProprieteNonBatie.
 
 ### http://data.ign.fr/id/codes/cadastrenap/parcelNature/TerreAVigne
 pnature:TerreAVigne a skos:Concept;
 	skos:definition "Terre à vigne"@fr;
-	skos:inScheme nap:ParcelNatureList;
+	skos:inScheme nap:NatureList;
 	skos:prefLabel "Terre à vigne"@fr;
   skos:boader pnature:ProprieteNonBatie.
 
 ### http://data.ign.fr/id/codes/cadastrenap/parcelNature/Maison
 pnature:Maison a skos:Concept;
 	skos:definition "Maison"@fr, "House"@fr;
-	skos:inScheme nap:ParcelNatureList;
+	skos:inScheme nap:NatureList;
 	skos:prefLabel "Maison"@fr, "House"@en;
+  skos:boader pnature:ProprieteBatie.
+
+### http://data.ign.fr/id/codes/cadastrenap/parcelNature/Fournil
+pnature:Fournil a skos:Concept;
+	skos:definition "Fournil"@fr, "Bakehouse"@fr;
+	skos:inScheme nap:NatureList;
+	skos:prefLabel "Fournil"@fr, "Bakehouse"@en;
   skos:boader pnature:ProprieteBatie.
