@@ -13,7 +13,7 @@ Liste des propriétaires dont le nom commence par V
 
 ## Question 2
 ### Question
-Qui est propriétaire de la parcelle X de la section C de la commune Y ?
+Qui sont les propriétaires de la parcelle X de la section C d'une commune donnée ?
 ### Résultat attendu
 Liste des propriétaires ou usufruitiers de la parcelle
 ### Exemple de réponse
@@ -27,7 +27,7 @@ Liste des propriétaires ou usufruitiers de la parcelle
 
 ## Question 3
 ### Question
-Quels sont les propriétaires domiciliés dans la commune Y ?
+Quels sont les propriétaires domiciliés dans une commune donnée ?
 ### Résultat attendu
 Liste des propriétaires identifiés aux moins une fois dans la commune depuis la création du cadastre.
 ### Exemple de réponse
@@ -40,9 +40,9 @@ Liste des propriétaires identifiés aux moins une fois dans la commune depuis l
 
 ## Question 4
 ### Question
-Quels sont les propriétaires dont la profession est XX dans la commune YY?
+Quels sont les propriétaires dont la profession est XX dans une commune donnée ?
 ### Résultat attendu
-Liste des propriétaires dont la profession est XX dans la commune YY.
+Liste des propriétaires correspondants
 ### Exemple de réponse
 *Extrait de la liste des vignerons de la commune de Marolles en Brie*
 * Guérin Joseph fils vig<sup>on</sup> à idem

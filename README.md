@@ -37,11 +37,11 @@ Elle comporte cinq modelets:
     - [X] le modelet Comptes fonciers à l'ontologie
 - [ ] Ecrire exemple complet => *quasi finalisé, reste à finir les sources*
 - Ecrire les requêtes SPARQL + vérifier questions de compétences
-    - [ ] Modelet Entités Géographiques => *en cours*
+    - [X] Modelet Entités Géographiques
     - [ ] Modelet Temps => *en cours*
     - [X] Modelet Propriétaires
     - [ ] Modelet Sources
     - [ ] Modelet Comptes fonciers
-- Création du KG avec les données annotées
+- Initialisation du KG avec les données annotées pour les états de sections
     - [ ] Code python
     - [ ] Test
