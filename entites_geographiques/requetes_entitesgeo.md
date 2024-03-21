@@ -1,6 +1,7 @@
 # Requêtes SPARQL pour le modelet Entités géographiques
 
 Remarque : les requêtes impliquant une dimension temporelle sont décrites dans le modelet Temporalité
+
 *A jour le 21 mars 2024*
 
 ## Compter le nombre de parcelles dans une commune
@@ -110,7 +111,7 @@ PREFIX atype: <http://data.ign.fr/id/codes/cadastrenap/attributeType/>
 PREFIX landmark: <http://data.ign.fr/id/cadastrenap/landmark/>
 PREFIX pnature: <http://data.ign.fr/id/codes/cadastrenap/parcelNature/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-select ?parcel where { 
+select distinct ?parcel where { 
 	?parcel a nap:Landmark ;
          nap:isLandmarkType ltype:Parcel;
          nap:hasAttribute [ a nap:Attribute;

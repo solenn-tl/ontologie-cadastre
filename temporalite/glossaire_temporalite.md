@@ -1,4 +1,4 @@
-# Glossaire du modelet Temporalité
+# Glossaire du modelet Temps
 
 <table>
   <tr>
@@ -6,7 +6,7 @@
     <th>Définition</th>
   </tr>
   <tr>
-    <td></td>
+    <td>Historique</td>
     <td></td>
   </tr>
 </table>

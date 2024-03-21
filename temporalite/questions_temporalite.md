@@ -1,48 +1,82 @@
-# Questions de compétences liées au module temporalités
+# Questions de compétences du modelet Temps
 
 ## Question 1
 ### Question
-Quelles sont les parcelles de *Nature de sol* dans la commune X en 1820 ?
+Quelles sont les parcelles d'une certaine nature dans une commune donnée à une date donnée ?
 ### Résultat attendu
-Liste des parcelles de la commune X ayant la nature demandée en 1820.
-### Exemple de réponse
-- A-190
-- A-191
-- A-192bis
-- B-2
-- B-3
-- C-110
+Liste des parcelles de la commune ayant la nature demandée à la date demandée.
+### Exemple
+**Question** : Parcelles de type Jardin à Marolles-en-Brie en 1820
+
+**Réponse** :
+> C-191
+> ...
 
 ## Question 2
-Quelle est la nature de la parcelle XXX située dans la section A de la commune Y en 1830 ?
+### Question 
+Quelles sont les natures sucessives d'une parcelle ?
 ### Résultat attendu
-Nature de la parcelle XXX en 1830
+Liste des natures sucessives de la parcelle accompagnées de leurs dates de validité
 ### Exemple de réponse
-"Jardin"
+**Question** : Quelle sont les natures succesives de la parcelle C-191 à Marolles ?
 
-## Question 3
+**Réponse** : 
+> Jardin, de 1810 à entre 1832 et 1882
+> Maison et Fournil, de "entre 1832 et 1882" à 1921
+
+## Question 3 
 ### Question
-Quelles sont les natures sucessives de la parcelle XXX située dans la section A dans la commune Y ?
+Quelle est la nature d'une parcelle à une date donnée ?
 ### Résultat attendu
-Liste des natures sucessives de la parcelle X ordonnées et fournies avec leur date de validité pour l'ensemble de la période couverte par les données.
+Nature de la parcelle à la date demandée
 ### Exemple de réponse
-- "Jardin", de 1810 à 1832
-- "Maison", à partir de 1832
+**Question**: Quelle est/sont la/les nature(s) de la parcelle 191 située dans la section C de Marolles-en-Brie en 1914 ?
+
+**Réponse** :
+> Maison et Fournil
 
 ## Question 4
 ### Question
-Quelles sont les propriétaires sucessifs de la parcelle X de la section A dans la commune Y ?
+Quels sont les propriétaires dans une commune donnée à une certaine date ?
 ### Résultat attendu
-Liste des propriétaires sucessifs de la parcelle X ordonnés et fournis avec leur date de d'acquisition et de cession pour l'ensemble de la période couverte par les données.
+Liste des propriétaires correspondants
 ### Exemple de réponse
-- Pierre Mazarot
-- Pierre Louis Victor Guillot
-- Pierre Louis Nicolas Guillot
-- Vandermassen Rémy
+**Question** : Quels sont les propriétaires à Marolles-en-Brie en 1810 ?
+
+**Réponse** : 
+> Alexandre Berthier
+>...
 
 ## Question 5
 ### Question
-Quels est l'historique des parcelles ayant appartenues à un propriétaire donné ?
+Quelles sont les propriétaires sucessifs d'une parcelle ?
+### Résultat attendu
+Liste des propriétaires sucessifs de la parcelle X fournis avec leur date de d'acquisition et de cession.
+### Exemple de réponse
+**Question** : Quels sont les propriétaires suceesifs de la parcelle C-191 à Marolles-en-Brie ?
+
+**Réponse** :
+>- Pierre Mazarot, de 1810 à 1812
+>- Pierre Mazarot & D’Auvergne & Jn Bt Fleury, de 1812 à "entre 1812 et 1832"
+>- Pierre Mazarot, de "entre 1812 et 1832" à 1832
+>- Pierre Louis Victor Guillot, de 1832 à "entre 1832 et 1882"
+>- Pierre Louis Nicolas Guillot, de "entre 1832 et 1882" et 1921
+>- Vandermassen Rémy, de 1921 à "au moins 1932"
+
+## Question 6
+### Question
+Quel est/sont le/les propriétaire(s) d'une parcelle à une date donnée ?
+### Résultat attendu
+Liste des propriétaires de la parcelle à la date attendue
+### Exemple de réponse
+**Question** : Propriétaire de la parcelle C-191 à Marolles-en-Brie en 1810.
+
+**Réponse** : 
+> Pierre Mazarot
+
+## Question 7
+### Question
+Quels est l'historique des parcelles acquises et vendues par un propriétaire ?
 ### Résultat attendu
 Liste des propriétés du propriétaire X fournies avec leur date de d'acquisition et de cession pour l'ensemble de la période couverte par les données.
 ### Exemple de réponse

@@ -1,4 +1,4 @@
-# Scénario de motivation Temporalité
+# Scénario de motivation du modelet Temps
 
 ## Nom
 
@@ -25,16 +25,16 @@ On distingue deux types d'événements : les événements liés directement à l
 Une version d'un attribut correspond à une période de stabilité de sa valeur. Cet état stable peut être attesté par un ou plusieurs états de classement sucessifs extrait des documents (ligne d'état de classement dans les matrices). La compilation des états qui attestent de cette stabilité permet d'en déduire les dates de la période de validité.
 
 Les changements liés aux propriétés sont :
-* un chagement de **nature**
+* un changement de **nature**
 * un changement de **propriétaire(s)**
 * un changement de **géométrie**
     * division de parcelle (avec persistance du numéro)
     * fusion de parcelles (avec persistance du numéro)
-* un changement de **libellé de localisation** (échange de sections entre communes)
+* un changement/une nouvelle alternative de **libellé de localisation**
 
 ### Evénements qui affectent l'identité de la parcelle
 
-Identité d'une parcelle : même numéro/section/commune ???
+Identité d'une parcelle : même numéro/section/commune ?
 
 Les **événements qui affectent l'identité** de la parcelle sont les suivants:
 * apparition
@@ -43,8 +43,8 @@ Les **événements qui affectent l'identité** de la parcelle sont les suivants:
 * division de parcelle (sans persistance du numéro)
 * re-numérotation
 
-Ils interviennent généralement en même temps que des changements majeurs de la documentation cadastrale (nouvelle cadastration ou création d'une nouvelle commune). 
-A la suite de ces événements, il est possible d'**établir des liens de parentés entre les parcelles** qui recouvrent une même surface.
+Certains évènements sont associés à des changements majeurs de la documentation cadastrale (nouvelle cadastration) ou à des redécoupages important des unités administratives (création d'une nouvelle commune). 
+A la suite de ces événements particuliers, le parcellaire peut être complètement remanié. Il est alors particulièrement intéressant d'**établir des liens de parentés entre les parcelles** qui recouvrent une même surface.
 
 ### Temporalité
 
@@ -53,6 +53,7 @@ La précision temporelle dans le cadastre napoléonien est de l'ordre de l'anné
 Les bornes de l'intervalle de validité d'une propriété peuvent être :
 * deux années (ex : <i>1810-1850</i>,<i>1856-1856</i>)
 * une année et une intervalle (ex : <i>1810-entre 1832 et 1882</i>,<i>entre 1832 et 1882-1914</i>)
+* deux intervalles (ex : <i>entre 1810 et 1812-entre 1832 et 1882</i>,<i>entre 1832 et 1882-1914</i>)
 
 ## Exemples
 
