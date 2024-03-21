@@ -46,7 +46,7 @@ Les **événements qui affectent l'identité** de la parcelle sont les suivants:
 Certains évènements sont associés à des changements majeurs de la documentation cadastrale (nouvelle cadastration) ou à des redécoupages important des unités administratives (création d'une nouvelle commune). 
 A la suite de ces événements particuliers, le parcellaire peut être complètement remanié. Il est alors particulièrement intéressant d'**établir des liens de parentés entre les parcelles** qui recouvrent une même surface.
 
-### Temporalité
+### Temps
 
 La précision temporelle dans le cadastre napoléonien est de l'ordre de l'année.
 
