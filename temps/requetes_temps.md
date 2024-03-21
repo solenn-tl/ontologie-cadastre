@@ -137,9 +137,7 @@ WHERE {
 GROUP BY ?parcel ?version ?Cstart ?FSstart ?FEstart ?Cend ?FSend ?FEend
 ```
 
-## Propriétaires dans une commune à une date donnée
-
-## Quels sont les propriétaires successifs d'une parcelle ?
+## Propriétaires successifs d'une parcelle
 >Propriétaires successifs de la parcelle C-191 à Marolles-en-Brie
 ```sparql
 PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
@@ -184,7 +182,7 @@ WHERE {
 GROUP BY ?parcel ?version ?Cstart ?FSstart ?FEstart ?Cend ?FSend ?FEend
 ```
 
-## Quels est l'historique des parcelles ayant appartenues à un propriétaire donné ?
+## Historique des parcelles ayant appartenues à un propriétaire donné ?
 ```sparql
 PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -221,4 +219,48 @@ WHERE {
         OPTIONAL {?tEntityEnd nap:hasFuzzyBeginning/nap:timeStamp ?FSend; 
                                                    nap:hasFuzzyEnd/nap:timeStamp ?FEend.}
   }}
+```
+
+## Liste des propriétaires dans une commune à une date donnée
+```sparql
+PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owner: <http://data.ign.fr/id/cadastrenap/owner/>
+PREFIX atype: <http://data.ign.fr/id/codes/cadastrenap/attributeType/>
+PREFIX landmark: <http://data.ign.fr/id/cadastrenap/landmark/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+select ?owner ?ownername (count (distinct ?parcel) as ?num_parcels) where { 
+	?owner a nap:Owner ;
+        rdfs:label ?ownername;
+        nap:isOwnerOf ?version.
+    ?version nap:isAttributeVersionOf ?attribute.
+    ?attribute nap:isAttributeOf ?parcel.
+    ?parcel rdfs:label ?parcelname;
+              nap:hasAttribute [ a nap:Attribute;
+              nap:isAttributeType atype:SpatialDescription;
+    	      nap:hasAttributeVersion [ a nap:AttributeVersion;
+    				nap:firstStep/nap:locatum ?commune
+              ]
+    ].
+    FILTER(?commune = landmark:COMM_Marolles_en_Brie)
+    
+      ?version nap:isMadeEffectiveBy ?changeStart.
+  ?changeStart nap:dependsOn ?eventStart.
+  ?eventStart nap:hasTime ?tEntityStart.
+
+  OPTIONAL {?tEntityStart nap:timeStamp ?Cstart.}
+  OPTIONAL {?tEntityStart nap:hasFuzzyBeginning/nap:timeStamp ?FSstart; 
+                                               nap:hasFuzzyEnd/nap:timeStamp ?FEstart.} 
+  OPTIONAL{?version nap:isMadeOutdatedBy ?changeEnd.
+        ?changeEnd nap:dependsOn ?eventEnd.
+        ?eventEnd nap:hasTime ?tEntityEnd.
+        OPTIONAL {?tEntityEnd nap:timeStamp ?Cend.}
+        OPTIONAL {?tEntityEnd nap:hasFuzzyBeginning/nap:timeStamp ?FSend; 
+                                                   nap:hasFuzzyEnd/nap:timeStamp ?FEend.}		
+  }
+  FILTER((?Cstart <= "1820"^^xsd:dateTimeStamp || ?FSstart <= "1820"^^xsd:dateTimeStamp) && (?Cend >= "1820"^^xsd:dateTimeStamp || ?FEend >= "1820"^^xsd:dateTimeStamp))
+}
+GROUP BY ?owner ?ownername
+ORDER BY ?ownername
 ```
