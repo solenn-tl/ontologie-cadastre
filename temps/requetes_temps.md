@@ -1,7 +1,7 @@
 # Questions de compétences du modelet Temps
-*A jour le 19/03/2024*
+*A jour le 21 mars 2024*
 
-## Parcelles d'une nature donnée à une date donnée dans une commune donnée ?
+## Parcelles d'une nature donnée à une date donnée dans une commune donnée
 > Parcelles de nature "Jardin" en 1820 à Marolles-en-Brie ?
 ```sparql
 PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
@@ -182,7 +182,7 @@ WHERE {
 GROUP BY ?parcel ?version ?Cstart ?FSstart ?FEstart ?Cend ?FSend ?FEend
 ```
 
-## Historique des parcelles ayant appartenues à un propriétaire donné ?
+## Historique des parcelles ayant appartenues à un propriétaire donné
 ```sparql
 PREFIX nap: <http://data.ign.fr/def/cadastrenap#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>

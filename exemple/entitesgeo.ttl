@@ -49,8 +49,8 @@ landmark:DEPT_Seine_et_Oise a nap:Landmark;
             nap:firstStep [
                 a nap:Segment;
                 nap:isLandmarkRelationType lrtype:Within;
-                nap:locatum landmark:COUNTRY_France;
-                nap:relatum landmark:DEPT_Seine_et_Oise
+                nap:locatum landmark:DEPT_Seine_et_Oise;
+                nap:relatum landmark:COUNTRY_France
             ];
         ]
     ]
@@ -108,8 +108,8 @@ landmark:ARR_Corbeil a nap:Landmark;
             nap:firstStep [
                 a nap:Segment;
                 nap:isLandmarkRelationType lrtype:Within;
-                nap:locatum landmark:DEPT_Seine_et_Oise;
-                nap:relatum landmark:ARR_Corbeil
+                nap:locatum landmark:ARR_Corbeil;
+                nap:relatum landmark:DEPT_Seine_et_Oise
             ];
         ]
     ]
@@ -149,8 +149,8 @@ landmark:CA_Boissy_Saint_Leger a nap:Landmark;
             nap:firstStep [
                 a nap:Segment;
                 nap:isLandmarkRelationType lrtype:Within;
-                nap:locatum landmark:ARR_Corbeil;
-                nap:relatum landmark:CA_Boissy_Saint_Leger
+                nap:locatum landmark:CA_Boissy_Saint_Leger;
+                nap:relatum landmark:ARR_Corbeil
             ];
         ]
     ]
@@ -207,8 +207,8 @@ landmark:COMM_Marolles_en_Brie a nap:Landmark;
             nap:firstStep [
                 a nap:Segment;
                 nap:isLandmarkRelationType lrtype:Within;
-                nap:locatum landmark:CA_Boissy_Saint_Leger;
-                nap:relatum landmark:COMM_Marolles_en_Brie
+                nap:locatum landmark:COMM_Marolles_en_Brie;
+                nap:relatum landmark:CA_Boissy_Saint_Leger
             ];
         ]
     ]
@@ -249,8 +249,8 @@ landmark:SEC_Marolles_en_Brie_A_1810 a nap:Landmark;
             nap:firstStep [
                 a nap:Segment;
                 nap:isLandmarkRelationType lrtype:Within;
-                nap:locatum landmark:COMM_Marolles_en_Brie;
-                nap:relatum landmark:SEC_Marolles_en_Brie_A_1810
+                nap:locatum landmark:SEC_Marolles_en_Brie_A_1810;
+                nap:relatum landmark:COMM_Marolles_en_Brie
             ];
         ]
     ]
@@ -284,20 +284,20 @@ landmark:PARC_Marolles_en_Brie_C_191_1810 a nap:Landmark;
             nap:targets landmark:PARC_Marolles_en_Brie_C_191_1810;
             nap:firstStep [ a nap:Segment;
                 nap:isLandmarkRelationType lrtype:Within;
-                nap:locatum landmark:COMM_Marolles_en_Brie;
-                nap:relatum landmark:PARC_Marolles_en_Brie_C_191_1810;
+                nap:locatum landmark:PARC_Marolles_en_Brie_C_191_1810;
+                nap:relatum landmark:COMM_Marolles_en_Brie;
                 nap:nextStep [
                     a nap:Segment;
                     nap:isLandmarkRelationType lrtype:Within;
-                    nap:locatum landmark:SEC_Marolles_en_Brie_A_1810;
-                    nap:relatum landmark:PARC_Marolles_en_Brie_C_191_1810;
+                    nap:locatum landmark:PARC_Marolles_en_Brie_C_191_1810;
+                    nap:relatum landmark:SEC_Marolles_en_Brie_A_1810;
                     nap:nextStep [
                         a nap:Segment;
                         nap:isLandmarkRelationType lrtype:Within;
-                        nap:locatum [ a nap:Landmark;
+                        nap:locatum landmark:PARC_Marolles_en_Brie_C_191_1810
+                        nap:relatum [ a nap:Landmark;
                                     nap:isLandmarkType ltype:District;
                                     rdfs:label "Du Village"];
-                        nap:relatum landmark:PARC_Marolles_en_Brie_C_191_1810
                         ]
                 ]  
             ]

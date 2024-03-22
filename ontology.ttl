@@ -1286,3 +1286,189 @@ pnature:Fournil a skos:Concept;
 	skos:inScheme nap:NatureList;
 	skos:prefLabel "Fournil"@fr, "Bakehouse"@en;
   skos:boader pnature:ProprieteBatie.
+
+pnature:Abreuvoir a skos:Concept ;
+    skos:broader pnature:ProprieteNonBatie ;
+    skos:definition "Abreuvoir" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Abreuvoir" .
+
+pnature:Batiment a skos:Concept ;
+    skos:broader pnature:ProprieteBatie ;
+    skos:definition "Bâtiment" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Bâtiment" .
+
+pnature:BoisDAgrement a skos:Concept ;
+    skos:broader pnature:Bois ;
+    skos:definition "Bois d'agrément" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Bois d'agrément" .
+
+pnature:CanalDAgrement a skos:Concept ;
+    skos:broader pnature:Canal ;
+    skos:definition "Canal d'agrément" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Canal d'agrément" .
+
+pnature:Chemin a skos:Concept ;
+    skos:broader pnature:ProprieteNonBatie ;
+    skos:definition "Chemin" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Chemin" .
+
+pnature:Cimetiere a skos:Concept ;
+    skos:broader pnature:ProprieteBatie ;
+    skos:definition "Cimetière" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Cimetière" .
+
+pnature:Clos a skos:Concept ;
+    skos:broader pnature:ProprieteNonBatie ;
+    skos:definition "Clos" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Clos" .
+
+pnature:CourCommune a skos:Concept ;
+    skos:broader pnature:Cour ;
+    skos:definition "Cour commune" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Cour commune" .
+
+pnature:Eglise a skos:Concept ;
+    skos:broader pnature:ProprieteBatie ;
+    skos:definition "Eglise" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Eglise" .
+
+pnature:EtangEmpoissone a skos:Concept ;
+    skos:broader pnature:Etang ;
+    skos:definition "Etang empoissonné" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Etang empoissonné" .
+
+pnature:Friche a skos:Concept ;
+    skos:broader pnature:ProprieteNonBatie ;
+    skos:definition "Friche" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Friche" .
+
+pnature:Inconnue a skos:Concept ;
+    skos:broader pnature:ProprieteNonBatie ;
+    skos:definition "NaN" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "NaN" .
+
+pnature:MaisonBatiment a skos:Concept ;
+    skos:broader pnature:ProprieteBatie ;
+    skos:definition "Maison et bâtiment" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Maison et bâtiment" .
+
+pnature:MaisonBatimentCour a skos:Concept ;
+    skos:broader pnature:ProprieteBatie ;
+    skos:definition "Maison, bâtiment et cour" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Maison, bâtiment et cour" .
+
+pnature:MaisonCour a skos:Concept ;
+    skos:broader pnature:ProprieteBatie ;
+    skos:definition "Maison et cour" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Maison et cour" .
+
+pnature:Mare a skos:Concept ;
+    skos:broader pnature:ProprieteNonBatie ;
+    skos:definition "Mare" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Mare" .
+
+pnature:Neant a skos:Concept ;
+    skos:broader pnature:ProprieteNonBatie ;
+    skos:definition "Néant" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Néant" .
+
+pnature:Parterre a skos:Concept ;
+    skos:broader pnature:ProprieteNonBatie ;
+    skos:definition "Parterre" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Parterre" .
+
+pnature:Passage a skos:Concept ;
+    skos:broader pnature:ProprieteNonBatie ;
+    skos:definition "Passage" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Passage" .
+
+pnature:Pature a skos:Concept ;
+    skos:broader pnature:ProprieteNonBatie ;
+    skos:definition "Pâture" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Pâture" .
+
+pnature:PieceEau a skos:Concept ;
+    skos:broader pnature:ProprieteNonBatie ;
+    skos:definition "Pièce d'eau" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Pièce d'eau" .
+
+pnature:Plantation a skos:Concept ;
+    skos:broader pnature:ProprieteNonBatie ;
+    skos:definition "Plantation" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Plantation" .
+
+pnature:Potager a skos:Concept ;
+    skos:broader pnature:ProprieteNonBatie ;
+    skos:definition "Potager" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Potager" .
+
+pnature:Pre a skos:Concept ;
+    skos:broader pnature:ProprieteNonBatie ;
+    skos:definition "Pré" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Pré" .
+
+pnature:Saulaie a skos:Concept ;
+    skos:broader pnature:ProprieteNonBatie ;
+    skos:definition "Saulaie" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Saulaie" .
+
+pnature:TerrainPlante a skos:Concept ;
+    skos:broader pnature:ProprieteNonBatie ;
+    skos:definition "Terrain planté" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Terrain planté" .
+
+pnature:Vigne a skos:Concept ;
+    skos:broader pnature:ProprieteNonBatie ;
+    skos:definition "Vigne" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Vigne" .
+
+pnature:Bois a skos:Concept ;
+    skos:broader pnature:ProprieteNonBatie ;
+    skos:definition "Bois" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Bois" .
+
+pnature:Canal a skos:Concept ;
+    skos:broader pnature:ProprieteNonBatie ;
+    skos:definition "Canal" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Canal" .
+
+pnature:Cour a skos:Concept ;
+    skos:broader pnature:ProprieteBatie ;
+    skos:definition "Cour" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Cour" .
+
+pnature:Etang a skos:Concept ;
+    skos:broader pnature:ProprieteNonBatie ;
+    skos:definition "Etang" ;
+    skos:inScheme nap:NatureList ;
+    skos:prefLabel "Etang" .

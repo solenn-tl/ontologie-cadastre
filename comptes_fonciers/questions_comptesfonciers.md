@@ -2,9 +2,9 @@
 
 ## Question 1
 ### Question
-Dans quel(s) compte(s) foncier(s) est mentionnée la parcelle XX de la section Y de la commune Z ?
+Dans quel(s) compte(s) foncier(s) est mentionnée une parcelle ?
 ### Résultat attendu
-Liste des comptes fonciers mentionnant la parcelle XX dans l'ensemble des matrices cadastrales de la commune Z
+Liste des comptes fonciers mentionnant la parcelle
 ### Exemple de réponse
 > Parcelle 191, Section C à Marolles-en-Brie
 - Article 43, Matrice de rôles des propriétés bâties et non bâties (1812-1822)
@@ -17,7 +17,7 @@ Liste des comptes fonciers mentionnant la parcelle XX dans l'ensemble des matric
 
 ## Question 2
 ### Question
-Dans quel(s) compte(s) foncier(s) est mentionné le propriétaire XX dans les matrices successives de la commune Z ?
+Dans quel(s) compte(s) foncier(s) est mentionné un propriétaire ?
 ### Résultat attendu
 Liste des comptes fonciers correspondants
 ### Exemple de réponse
@@ -26,7 +26,7 @@ Liste des comptes fonciers correspondants
 
 ## Question 3
 ### Question
-Quelles sont les parcelles mentionnées dans le compte foncier X de la matrice Y de la commune Z ?
+Quelles sont les parcelles mentionnées dans un compte foncier donné ?
 ### Résultat attendu
 Liste des parcelles
 ### Exemple de réponse
@@ -40,7 +40,7 @@ Liste des parcelles
 
 ## Question 4
 ### Question
-Quelles sont les propriétaires mentionnés dans le compte foncier X de la matrice Y de la commune Z ?
+Quelles sont les propriétaires mentionnés dans un compte foncier donné ?
 ### Résultat attendu
 Liste de propriétaires
 ### Exemple de réponse
