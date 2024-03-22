@@ -1,0 +1,642 @@
+@prefix nap: <http://data.ign.fr/def/cadastrenap#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://data.ign.fr/id/cadastrenap/owner/0> a nap:Owner ;
+    rdfs:label "Galland Louis N↑as↓ vig↑on↓ à marolles" ;
+    skos:altLabel "Galland Louis n↑as↓ vig↑on à id",
+        "Galland Louis n↑as↓ vig↑on↓ à id" ;
+    skos:prefLabel "Galland Louis N↑as↓ vig↑on↓ à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/1> a nap:Owner ;
+    rdfs:label "Simon louis simon an↑te↓" ;
+    skos:altLabel "Simon Louis",
+        "id Simon antoine" ;
+    skos:prefLabel "Simon louis simon an↑te↓" .
+
+<http://data.ign.fr/id/cadastrenap/owner/10> a nap:Owner ;
+    rdfs:label "Lhuillier Veuve" ;
+    skos:altLabel "veuve" ;
+    skos:prefLabel "Lhuillier Veuve" .
+
+<http://data.ign.fr/id/cadastrenap/owner/100> a nap:Owner ;
+    rdfs:label "habert Général Dalton Bourgeois à marolles" ;
+    skos:prefLabel "habert Général Dalton Bourgeois à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/101> a nap:Owner ;
+    rdfs:label "Lemenil Euphrasie fille à id" ;
+    skos:prefLabel "Lemenil Euphrasie fille à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/102> a nap:Owner ;
+    rdfs:label "Piedquin f↑ois↓ marie" ;
+    skos:altLabel "Piedquin f↑ois↓ Marie" ;
+    skos:prefLabel "Piedquin f↑ois↓ marie" .
+
+<http://data.ign.fr/id/cadastrenap/owner/103> a nap:Owner ;
+    rdfs:label "Soutier V↑e↓ vigneron à marolles" ;
+    skos:prefLabel "Soutier V↑e↓ vigneron à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/104> a nap:Owner ;
+    rdfs:label "Jacquemin Jean V↑on↓ à Santeny" ;
+    skos:prefLabel "Jacquemin Jean V↑on↓ à Santeny" .
+
+<http://data.ign.fr/id/cadastrenap/owner/105> a nap:Owner ;
+    rdfs:label "Piquet f↑ois↓ militaire" ;
+    skos:prefLabel "Piquet f↑ois↓ militaire" .
+
+<http://data.ign.fr/id/cadastrenap/owner/106> a nap:Owner ;
+    rdfs:label "Piedquin, f↑ois↓ marie Charon à Brie" ;
+    skos:altLabel "Piedquin f↑ois↓ marie Charon à Brie",
+        "Piequin f↑ois↓ marie Charon à Brie" ;
+    skos:prefLabel "Piedquin, f↑ois↓ marie Charon à Brie" .
+
+<http://data.ign.fr/id/cadastrenap/owner/107> a nap:Owner ;
+    rdfs:label "Guillot, Pierre Cultiv à marolles" ;
+    skos:altLabel "Guillot Pierre Cultiv à marolles" ;
+    skos:prefLabel "Guillot, Pierre Cultiv à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/108> a nap:Owner ;
+    rdfs:label "Lamblet, Pierre vig↑on↓ à id" ;
+    skos:altLabel "Lamblet pierre" ;
+    skos:prefLabel "Lamblet, Pierre vig↑on↓ à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/109> a nap:Owner ;
+    rdfs:label "La Commune par le maître d'Ecole" ;
+    skos:prefLabel "La Commune par le maître d'Ecole" .
+
+<http://data.ign.fr/id/cadastrenap/owner/11> a nap:Owner ;
+    rdfs:label "Mazareau V↑e↓ pierre à marolles" ;
+    skos:altLabel "Mazareau pierre" ;
+    skos:prefLabel "Mazareau V↑e↓ pierre à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/110> a nap:Owner ;
+    rdfs:label "boulay" ;
+    skos:prefLabel "boulay" .
+
+<http://data.ign.fr/id/cadastrenap/owner/111> a nap:Owner ;
+    rdfs:label "Berthier alexandre" ;
+    skos:prefLabel "Berthier alexandre" .
+
+<http://data.ign.fr/id/cadastrenap/owner/112> a nap:Owner ;
+    rdfs:label "Lefevre J↑es↓" ;
+    skos:prefLabel "Lefevre J↑es↓" .
+
+<http://data.ign.fr/id/cadastrenap/owner/113> a nap:Owner ;
+    rdfs:label "Mignon françois macon à id" ;
+    skos:prefLabel "Mignon françois macon à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/114> a nap:Owner ;
+    rdfs:label "Moreau f↑ois↓ terrassier" ;
+    skos:prefLabel "Moreau f↑ois↓ terrassier" .
+
+<http://data.ign.fr/id/cadastrenap/owner/115> a nap:Owner ;
+    rdfs:label "Pesson pierre georges a Santeny" ;
+    skos:prefLabel "Pesson pierre georges a Santeny" .
+
+<http://data.ign.fr/id/cadastrenap/owner/116> a nap:Owner ;
+    rdfs:label "Lhuillier V↑e↓ à Brie" ;
+    skos:prefLabel "Lhuillier V↑e↓ à Brie" .
+
+<http://data.ign.fr/id/cadastrenap/owner/117> a nap:Owner ;
+    rdfs:label "Gaillon Pierre Cultivat↑r↓ à id" ;
+    skos:prefLabel "Gaillon Pierre Cultivat↑r↓ à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/118> a nap:Owner ;
+    rdfs:label "Galland antoine romain V↑on↓" ;
+    skos:prefLabel "Galland antoine romain V↑on↓" .
+
+<http://data.ign.fr/id/cadastrenap/owner/119> a nap:Owner ;
+    rdfs:label "Bordier Pierre vig↑on↓ à marolles" ;
+    skos:prefLabel "Bordier Pierre vig↑on↓ à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/12> a nap:Owner ;
+    rdfs:label "Guérin Louis ant↑e↓ vigneron à id" ;
+    skos:altLabel "Guérin Louis ant↑e↓ Vig↑on↓ à id",
+        "Guérin ant↑e↓ Louis" ;
+    skos:prefLabel "Guérin Louis ant↑e↓ vigneron à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/120> a nap:Owner ;
+    rdfs:label "Mangin Bourgeois à Santeny" ;
+    skos:prefLabel "Mangin Bourgeois à Santeny" .
+
+<http://data.ign.fr/id/cadastrenap/owner/121> a nap:Owner ;
+    rdfs:label "Boulay de la Meurthe" ;
+    skos:prefLabel "Boulay de la Meurthe" .
+
+<http://data.ign.fr/id/cadastrenap/owner/122> a nap:Owner ;
+    rdfs:label "Dubief Louis Charetier à marolles" ;
+    skos:prefLabel "Dubief Louis Charetier à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/123> a nap:Owner ;
+    rdfs:label "Guérin V↑e↓ Laurent vig↑on↓ à id" ;
+    skos:prefLabel "Guérin V↑e↓ Laurent vig↑on↓ à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/124> a nap:Owner ;
+    rdfs:label "Mazarot Pierre M↑d↓ de Vin ou de lait à marolles" ;
+    skos:prefLabel "Mazarot Pierre M↑d↓ de Vin ou de lait à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/125> a nap:Owner ;
+    rdfs:label "Guérin Louis voiturier à marolles" ;
+    skos:prefLabel "Guérin Louis voiturier à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/126> a nap:Owner ;
+    rdfs:label "Galland Louis Nicolas vig↑on↓ à id" ;
+    skos:altLabel "Galland françois vig↑on↓ à id" ;
+    skos:prefLabel "Galland Louis Nicolas vig↑on↓ à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/127> a nap:Owner ;
+    rdfs:label "Pigy pierre" ;
+    skos:prefLabel "Pigy pierre" .
+
+<http://data.ign.fr/id/cadastrenap/owner/128> a nap:Owner ;
+    rdfs:label "Guérin Joseph pere et consors à id" ;
+    skos:prefLabel "Guérin Joseph pere et consors à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/129> a nap:Owner ;
+    rdfs:label "Motteau h↑ers↓ Germain" ;
+    skos:prefLabel "Motteau h↑ers↓ Germain" .
+
+<http://data.ign.fr/id/cadastrenap/owner/13> a nap:Owner ;
+    rdfs:label "Dubief, Louis Charetier à id" ;
+    skos:altLabel "Dubief Louis",
+        "Dubief Louis Charetier à id" ;
+    skos:prefLabel "Dubief, Louis Charetier à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/130> a nap:Owner ;
+    rdfs:label "Tartet Veuve" ;
+    skos:prefLabel "Tartet Veuve" .
+
+<http://data.ign.fr/id/cadastrenap/owner/131> a nap:Owner ;
+    rdfs:label "Piedquin, f↑ois↓ marie Charon à Brie comte Robert" ;
+    skos:altLabel "Piedquin f↑ois↓ marie Charon à brie-comte robert",
+        "Piedquin f↑ois↓ marie charon à Brie comte Robert" ;
+    skos:prefLabel "Piedquin, f↑ois↓ marie Charon à Brie comte Robert" .
+
+<http://data.ign.fr/id/cadastrenap/owner/132> a nap:Owner ;
+    rdfs:label "Vauguyon maire de marolles" ;
+    skos:altLabel "Vauguyon maire de Marolles" ;
+    skos:prefLabel "Vauguyon maire de marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/133> a nap:Owner ;
+    rdfs:label "auguste" ;
+    skos:prefLabel "auguste" .
+
+<http://data.ign.fr/id/cadastrenap/owner/134> a nap:Owner ;
+    rdfs:label "françois Louis" ;
+    skos:prefLabel "françois Louis" .
+
+<http://data.ign.fr/id/cadastrenap/owner/135> a nap:Owner ;
+    rdfs:label "Barrey pierre" ;
+    skos:prefLabel "Barrey pierre" .
+
+<http://data.ign.fr/id/cadastrenap/owner/136> a nap:Owner ;
+    rdfs:label "Commune de marolles occupé par M↑r↓ Le curé" ;
+    skos:prefLabel "Commune de marolles occupé par M↑r↓ Le curé" .
+
+<http://data.ign.fr/id/cadastrenap/owner/14> a nap:Owner ;
+    rdfs:label "Guérin Jaq↑es↓ henry maçon à id" ;
+    skos:altLabel "Guerin Jacq. henry maçon à id",
+        "Guérin Jacq henry maçon à id",
+        "Guérin Jacq↑e↓ henry maçon à id",
+        "Guérin J↑es↓ henry maçon" ;
+    skos:prefLabel "Guérin Jaq↑es↓ henry maçon à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/15> a nap:Owner ;
+    rdfs:label "Guérin Joseph Pere vig↑on↓ à marolles" ;
+    skos:altLabel "Guerin Joseph père vig↑on↓ à id",
+        "Guérin Joseph pere vig à id",
+        "Guérin Joseph pere vig↑on↓ à id",
+        "Guérin Joseph père vig↑on↓ à id" ;
+    skos:prefLabel "Guérin Joseph Pere vig↑on↓ à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/16> a nap:Owner ;
+    rdfs:label "Vigoureux Jean antoine militaire" ;
+    skos:altLabel "Vigoureux Jean ant↑e↓ militaire" ;
+    skos:prefLabel "Vigoureux Jean antoine militaire" .
+
+<http://data.ign.fr/id/cadastrenap/owner/17> a nap:Owner ;
+    rdfs:label "Jobert Balthazar Bourgeois à Paris" ;
+    skos:altLabel "Corse bourgeois à paris" ;
+    skos:prefLabel "Jobert Balthazar Bourgeois à Paris" .
+
+<http://data.ign.fr/id/cadastrenap/owner/18> a nap:Owner ;
+    rdfs:label "Bouton, Charles Louis fab, m↑d↓ à Paris" ;
+    skos:altLabel "Bouton Charles Louis fab, m↑d↓ à Paris",
+        "Bouton Ch↑es↓ Louis fab m↑d↓ a paris",
+        "Bouton charles louis fab, m↑d↓ à Paris" ;
+    skos:prefLabel "Bouton, Charles Louis fab, m↑d↓ à Paris" .
+
+<http://data.ign.fr/id/cadastrenap/owner/19> a nap:Owner ;
+    rdfs:label "Moreau Germain Bucheron à Marolles" ;
+    skos:altLabel "Moreau Germain Bucheron à id" ;
+    skos:prefLabel "Moreau Germain Bucheron à Marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/2> a nap:Owner ;
+    rdfs:label "Maignan françois à marolles" ;
+    skos:altLabel "nicolas marolles" ;
+    skos:prefLabel "Maignan françois à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/20> a nap:Owner ;
+    rdfs:label "Vigoureux f↑ois↓ ex-militaire" ;
+    skos:prefLabel "Vigoureux f↑ois↓ ex-militaire" .
+
+<http://data.ign.fr/id/cadastrenap/owner/21> a nap:Owner ;
+    rdfs:label "eau" ;
+    skos:prefLabel "eau" .
+
+<http://data.ign.fr/id/cadastrenap/owner/22> a nap:Owner ;
+    rdfs:label "Gallet V↑e↓ pierre Louis de Villecresne" ;
+    skos:altLabel "Galland pierre a paris" ;
+    skos:prefLabel "Gallet V↑e↓ pierre Louis de Villecresne" .
+
+<http://data.ign.fr/id/cadastrenap/owner/23> a nap:Owner ;
+    rdfs:label "Charpentier Louis maçon à id" ;
+    skos:prefLabel "Charpentier Louis maçon à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/24> a nap:Owner ;
+    rdfs:label "Berthier alex↑dre↓ M↑gr↓ Prince de neufchâtel" ;
+    skos:altLabel "Berthier alex↑dre↓ Prince de neufchâtel" ;
+    skos:prefLabel "Berthier alex↑dre↓ M↑gr↓ Prince de neufchâtel" .
+
+<http://data.ign.fr/id/cadastrenap/owner/25> a nap:Owner ;
+    rdfs:label "Galland, Julien vig↑on↓ à idem" ;
+    skos:altLabel "Galland Julien vig↑on↓ à id" ;
+    skos:prefLabel "Galland, Julien vig↑on↓ à idem" .
+
+<http://data.ign.fr/id/cadastrenap/owner/26> a nap:Owner ;
+    rdfs:label "Guérin V↑e↓ Laurent vig↑ons↓ à marolles" ;
+    skos:altLabel "Guerin V↑e↓ Laurent" ;
+    skos:prefLabel "Guérin V↑e↓ Laurent vig↑ons↓ à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/27> a nap:Owner ;
+    rdfs:label "Vigoureux Gabriel fab↑t↓ de bas à marolles" ;
+    skos:altLabel "Vigoureux Gabriel fab↑t↓ de bar",
+        "Vigoureux Gabriel fab↑t↓ de bar à id",
+        "Vigoureux Gabriel fab↑t↓ de bas à id",
+        "Vigoureux Gabriel f↑b↓ de bas" ;
+    skos:prefLabel "Vigoureux Gabriel fab↑t↓ de bas à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/28> a nap:Owner ;
+    rdfs:label "Bedeau pierre pere à Villecresne" ;
+    skos:altLabel "Bedeau pierre à Villecresne" ;
+    skos:prefLabel "Bedeau pierre pere à Villecresne" .
+
+<http://data.ign.fr/id/cadastrenap/owner/29> a nap:Owner ;
+    rdfs:label "Galland Julien V↑on↓" ;
+    skos:altLabel "Gallais Julien" ;
+    skos:prefLabel "Galland Julien V↑on↓" .
+
+<http://data.ign.fr/id/cadastrenap/owner/3> a nap:Owner ;
+    rdfs:label "Thiéry, V↑e↓ ant↑e↓ vig↑one↓ à id" ;
+    skos:altLabel "Beaulh, V↑e↓ ant↑e↓ vig↑on↓ à id" ;
+    skos:prefLabel "Thiéry, V↑e↓ ant↑e↓ vig↑one↓ à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/30> a nap:Owner ;
+    rdfs:label "Motheau h↑ers↓ Germain et Consors à marolles" ;
+    skos:altLabel "Motheau, h↑ers↓ Germain" ;
+    skos:prefLabel "Motheau h↑ers↓ Germain et Consors à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/31> a nap:Owner ;
+    rdfs:label "Mazarot, Pierre Cabaretier à id" ;
+    skos:altLabel "Mazareau pierre Cabaretier",
+        "Mazarot Pierre Cabaretier à id" ;
+    skos:prefLabel "Mazarot, Pierre Cabaretier à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/32> a nap:Owner ;
+    rdfs:label "Berthier alexandre Prince de neufchâtel" ;
+    skos:altLabel "Berthier Prince de Neufchâtel",
+        "Berthier alexandre prince de neufchatel",
+        "Berthier prince de neufchâtel" ;
+    skos:prefLabel "Berthier alexandre Prince de neufchâtel" .
+
+<http://data.ign.fr/id/cadastrenap/owner/33> a nap:Owner ;
+    rdfs:label "Bédeau, Pierre Cabaretier à Villecresne" ;
+    skos:altLabel "Bedeau Pierre Cabaretier à Villecresne" ;
+    skos:prefLabel "Bédeau, Pierre Cabaretier à Villecresne" .
+
+<http://data.ign.fr/id/cadastrenap/owner/34> a nap:Owner ;
+    rdfs:label "Tourneur Louis Léon menuisier à id" ;
+    skos:altLabel "Tourneur Louis Leon menuisier" ;
+    skos:prefLabel "Tourneur Louis Léon menuisier à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/35> a nap:Owner ;
+    rdfs:label "Guérin Joseph fils" ;
+    skos:altLabel "Guerin Joseph fils" ;
+    skos:prefLabel "Guérin Joseph fils" .
+
+<http://data.ign.fr/id/cadastrenap/owner/36> a nap:Owner ;
+    rdfs:label "Vauguyon Bourgeois, maire de marolles" ;
+    skos:prefLabel "Vauguyon Bourgeois, maire de marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/37> a nap:Owner ;
+    rdfs:label "Vauguyon, maire" ;
+    skos:altLabel "Vauguyon maire" ;
+    skos:prefLabel "Vauguyon, maire" .
+
+<http://data.ign.fr/id/cadastrenap/owner/38> a nap:Owner ;
+    rdfs:label "Soulier V↑e↓ Georges à marolles" ;
+    skos:prefLabel "Soulier V↑e↓ Georges à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/39> a nap:Owner ;
+    rdfs:label "Duchâteau Jean maçon" ;
+    skos:prefLabel "Duchâteau Jean maçon" .
+
+<http://data.ign.fr/id/cadastrenap/owner/4> a nap:Owner ;
+    rdfs:label "Fleury J. B↑te↓ m↑d↓ de mouton à id" ;
+    skos:altLabel "id m↑d↓ de mouton à id" ;
+    skos:prefLabel "Fleury J. B↑te↓ m↑d↓ de mouton à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/40> a nap:Owner ;
+    rdfs:label "Guillot Pierre Cultiv à idem" ;
+    skos:altLabel "Guillot Pierre cultiv à idem" ;
+    skos:prefLabel "Guillot Pierre Cultiv à idem" .
+
+<http://data.ign.fr/id/cadastrenap/owner/41> a nap:Owner ;
+    rdfs:label "Lefevre Jacques adjoint de marolles" ;
+    skos:altLabel "Lefevre Jacques adjoint du maire",
+        "Lefevre, Jacques adjoint" ;
+    skos:prefLabel "Lefevre Jacques adjoint de marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/42> a nap:Owner ;
+    rdfs:label "Lefèvre Jacques Vig↑on↓ et adjoint à id" ;
+    skos:altLabel "Lefèvre Jaques vig↑on↓ et adjoint" ;
+    skos:prefLabel "Lefèvre Jacques Vig↑on↓ et adjoint à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/43> a nap:Owner ;
+    rdfs:label "Berthier" ;
+    skos:prefLabel "Berthier" .
+
+<http://data.ign.fr/id/cadastrenap/owner/44> a nap:Owner ;
+    rdfs:label "Piquet Gabriel maçon à marolles" ;
+    skos:prefLabel "Piquet Gabriel maçon à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/45> a nap:Owner ;
+    rdfs:label "Galland pierre Courrier aux barrières à paris" ;
+    skos:altLabel "Galland Pierre aux barrières à Paris" ;
+    skos:prefLabel "Galland pierre Courrier aux barrières à paris" .
+
+<http://data.ign.fr/id/cadastrenap/owner/46> a nap:Owner ;
+    rdfs:label "Mazarot Pierre et et Dauvergne de noiseau J. B↑te↓ fleury par indivis et D auvergne" ;
+    skos:altLabel "Mazarot Pierre et fleury J B↑te↓ par indivis et auvergne" ;
+    skos:prefLabel "Mazarot Pierre et et Dauvergne de noiseau J. B↑te↓ fleury par indivis et D auvergne" .
+
+<http://data.ign.fr/id/cadastrenap/owner/47> a nap:Owner ;
+    rdfs:label "Coudrai auguste andré vig↑on↓ à id" ;
+    skos:altLabel "Coudray auguste andré Vig↑on↓",
+        "Coudray auguste andré vig↑on↓" ;
+    skos:prefLabel "Coudrai auguste andré vig↑on↓ à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/48> a nap:Owner ;
+    rdfs:label "huguet Louis vig↑on↓ à marolles" ;
+    skos:altLabel "Huguet Louis Vig↑on↓ à id",
+        "hugues Louis Vig↑on↓ à id",
+        "huguet Louis vig↑on↓ à id",
+        "huguet Louis vig↑on↓ à idem" ;
+    skos:prefLabel "huguet Louis vig↑on↓ à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/49> a nap:Owner ;
+    rdfs:label "S.A.S M↑gr↓ Le Prince de Neufchâtel" ;
+    skos:prefLabel "S.A.S M↑gr↓ Le Prince de Neufchâtel" .
+
+<http://data.ign.fr/id/cadastrenap/owner/5> a nap:Owner ;
+    rdfs:label "Fleury J B↑te↓ m↑d↓ de moutons a marolles" ;
+    skos:altLabel "Fleury J. B↑te↓ m↑d↓ de mouton",
+        "fleury J. B↑te↓" ;
+    skos:prefLabel "Fleury J B↑te↓ m↑d↓ de moutons a marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/50> a nap:Owner ;
+    rdfs:label "Vigoureux J↑n↓ antoine" ;
+    skos:altLabel "Vigoureux Jean",
+        "Vigoureux françois" ;
+    skos:prefLabel "Vigoureux J↑n↓ antoine" .
+
+<http://data.ign.fr/id/cadastrenap/owner/51> a nap:Owner ;
+    rdfs:label "Neant" ;
+    skos:altLabel "Néant" ;
+    skos:prefLabel "Neant" .
+
+<http://data.ign.fr/id/cadastrenap/owner/52> a nap:Owner ;
+    rdfs:label "La Commune de marolles" ;
+    skos:altLabel "Commune de Marolles" ;
+    skos:prefLabel "La Commune de marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/53> a nap:Owner ;
+    rdfs:label "Lebon Joseph à paris" ;
+    skos:prefLabel "Lebon Joseph à paris" .
+
+<http://data.ign.fr/id/cadastrenap/owner/54> a nap:Owner ;
+    rdfs:label "Debaisse maire à Santeny" ;
+    skos:prefLabel "Debaisse maire à Santeny" .
+
+<http://data.ign.fr/id/cadastrenap/owner/55> a nap:Owner ;
+    rdfs:label "Vigoureux françois vig↑on↓ à idem" ;
+    skos:prefLabel "Vigoureux françois vig↑on↓ à idem" .
+
+<http://data.ign.fr/id/cadastrenap/owner/56> a nap:Owner ;
+    rdfs:label "Samson v↑on↓" ;
+    skos:prefLabel "Samson v↑on↓" .
+
+<http://data.ign.fr/id/cadastrenap/owner/57> a nap:Owner ;
+    rdfs:label "Tarlety" ;
+    skos:prefLabel "Tarlety" .
+
+<http://data.ign.fr/id/cadastrenap/owner/58> a nap:Owner ;
+    rdfs:label "Moreau Pierre Pâtre à Grosbois" ;
+    skos:prefLabel "Moreau Pierre Pâtre à Grosbois" .
+
+<http://data.ign.fr/id/cadastrenap/owner/59> a nap:Owner ;
+    rdfs:label "Moreau Germain" ;
+    skos:prefLabel "Moreau Germain" .
+
+<http://data.ign.fr/id/cadastrenap/owner/6> a nap:Owner ;
+    rdfs:label "Bordier pierre" ;
+    skos:altLabel "Beault pierre" ;
+    skos:prefLabel "Bordier pierre" .
+
+<http://data.ign.fr/id/cadastrenap/owner/60> a nap:Owner ;
+    rdfs:label "Guérin Jacq henry maçon à marolles" ;
+    skos:prefLabel "Guérin Jacq henry maçon à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/61> a nap:Owner ;
+    rdfs:label "Vigoureux françois vig↑on↓ à marolles" ;
+    skos:altLabel "Louis Nicolas vig↑on↓ à marolles" ;
+    skos:prefLabel "Vigoureux françois vig↑on↓ à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/62> a nap:Owner ;
+    rdfs:label "Moreau françois Terrassier à marolles" ;
+    skos:altLabel "Moreau françois terrassier à id" ;
+    skos:prefLabel "Moreau françois Terrassier à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/63> a nap:Owner ;
+    rdfs:label "Duclos maitre de poste" ;
+    skos:prefLabel "Duclos maitre de poste" .
+
+<http://data.ign.fr/id/cadastrenap/owner/64> a nap:Owner ;
+    rdfs:label "Tourneur Barthel my vig↑on↓ à id" ;
+    skos:prefLabel "Tourneur Barthel my vig↑on↓ à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/65> a nap:Owner ;
+    rdfs:label "Tourneur Barthelemy vig↑on↓" ;
+    skos:altLabel "Tourneur Barthélémy V↑on↓" ;
+    skos:prefLabel "Tourneur Barthelemy vig↑on↓" .
+
+<http://data.ign.fr/id/cadastrenap/owner/66> a nap:Owner ;
+    rdfs:label "Piquet Jacques V↑on↓ à Villecresne" ;
+    skos:prefLabel "Piquet Jacques V↑on↓ à Villecresne" .
+
+<http://data.ign.fr/id/cadastrenap/owner/67> a nap:Owner ;
+    rdfs:label "Vigoureux, J↑n↓ ant↑e↓ militaire" ;
+    skos:altLabel "Vigoureux J↑n↓ ant↑e↓ militaire" ;
+    skos:prefLabel "Vigoureux, J↑n↓ ant↑e↓ militaire" .
+
+<http://data.ign.fr/id/cadastrenap/owner/68> a nap:Owner ;
+    rdfs:label "Guerin Joseph pere" ;
+    skos:altLabel "Guérin Joseph pere" ;
+    skos:prefLabel "Guerin Joseph pere" .
+
+<http://data.ign.fr/id/cadastrenap/owner/69> a nap:Owner ;
+    rdfs:label "habert général" ;
+    skos:prefLabel "habert général" .
+
+<http://data.ign.fr/id/cadastrenap/owner/7> a nap:Owner ;
+    rdfs:label "Bonne hercule serrurier à id" ;
+    skos:prefLabel "Bonne hercule serrurier à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/70> a nap:Owner ;
+    rdfs:label "Coudray auguste andré" ;
+    skos:prefLabel "Coudray auguste andré" .
+
+<http://data.ign.fr/id/cadastrenap/owner/71> a nap:Owner ;
+    rdfs:label "Vauguyon" ;
+    skos:prefLabel "Vauguyon" .
+
+<http://data.ign.fr/id/cadastrenap/owner/72> a nap:Owner ;
+    rdfs:label "Gallant Julien" ;
+    skos:prefLabel "Gallant Julien" .
+
+<http://data.ign.fr/id/cadastrenap/owner/73> a nap:Owner ;
+    rdfs:label "Galland auguste vig↑on↓ à idem" ;
+    skos:altLabel "Galland, auguste vig↑on↓ à id" ;
+    skos:prefLabel "Galland auguste vig↑on↓ à idem" .
+
+<http://data.ign.fr/id/cadastrenap/owner/74> a nap:Owner ;
+    rdfs:label "Guérin Louis voiturier à id" ;
+    skos:prefLabel "Guérin Louis voiturier à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/75> a nap:Owner ;
+    rdfs:label "Vauguyon, maire de marolles" ;
+    skos:prefLabel "Vauguyon, maire de marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/76> a nap:Owner ;
+    rdfs:label "Lefevre Jacques" ;
+    skos:prefLabel "Lefevre Jacques" .
+
+<http://data.ign.fr/id/cadastrenap/owner/77> a nap:Owner ;
+    rdfs:label "Tourneur Barthélémy" ;
+    skos:altLabel "Tourneur Barthelemy" ;
+    skos:prefLabel "Tourneur Barthélémy" .
+
+<http://data.ign.fr/id/cadastrenap/owner/78> a nap:Owner ;
+    rdfs:label "Plissonn aubergiste" ;
+    skos:prefLabel "Plissonn aubergiste" .
+
+<http://data.ign.fr/id/cadastrenap/owner/79> a nap:Owner ;
+    rdfs:label "Domaine de la Couronne" ;
+    skos:prefLabel "Domaine de la Couronne" .
+
+<http://data.ign.fr/id/cadastrenap/owner/8> a nap:Owner ;
+    rdfs:label "Galland Louis Nicolas vigneron" ;
+    skos:altLabel "Galland Louis nicolas" ;
+    skos:prefLabel "Galland Louis Nicolas vigneron" .
+
+<http://data.ign.fr/id/cadastrenap/owner/80> a nap:Owner ;
+    rdfs:label "Les mêmes pour indivis" ;
+    skos:prefLabel "Les mêmes pour indivis" .
+
+<http://data.ign.fr/id/cadastrenap/owner/81> a nap:Owner ;
+    rdfs:label "Thiéry V↑e↓ ant↑e↓ vig↑on↓" ;
+    skos:prefLabel "Thiéry V↑e↓ ant↑e↓ vig↑on↓" .
+
+<http://data.ign.fr/id/cadastrenap/owner/82> a nap:Owner ;
+    rdfs:label "Duclos" ;
+    skos:prefLabel "Duclos" .
+
+<http://data.ign.fr/id/cadastrenap/owner/83> a nap:Owner ;
+    rdfs:label "J↑n↓ B↑te↓ simon antoine" ;
+    skos:altLabel "simon antoine J↑n↓ B↑te↓" ;
+    skos:prefLabel "J↑n↓ B↑te↓ simon antoine" .
+
+<http://data.ign.fr/id/cadastrenap/owner/84> a nap:Owner ;
+    rdfs:label "C↑ie↓ des ch↑ins↓ de fer de l'Est" ;
+    skos:prefLabel "C↑ie↓ des ch↑ins↓ de fer de l'Est" .
+
+<http://data.ign.fr/id/cadastrenap/owner/85> a nap:Owner ;
+    rdfs:label "Beault V↑e↓ antoine" ;
+    skos:prefLabel "Beault V↑e↓ antoine" .
+
+<http://data.ign.fr/id/cadastrenap/owner/86> a nap:Owner ;
+    rdfs:label "Guérin J↑e↓ B↑te↓ à Santeny" ;
+    skos:prefLabel "Guérin J↑e↓ B↑te↓ à Santeny" .
+
+<http://data.ign.fr/id/cadastrenap/owner/87> a nap:Owner ;
+    rdfs:label "Galland F↑ois↓" ;
+    skos:prefLabel "Galland F↑ois↓" .
+
+<http://data.ign.fr/id/cadastrenap/owner/88> a nap:Owner ;
+    rdfs:label "Guerin Louis antoine" ;
+    skos:prefLabel "Guerin Louis antoine" .
+
+<http://data.ign.fr/id/cadastrenap/owner/89> a nap:Owner ;
+    rdfs:label "Thièry V↑e↓ Jean antoine" ;
+    skos:prefLabel "Thièry V↑e↓ Jean antoine" .
+
+<http://data.ign.fr/id/cadastrenap/owner/9> a nap:Owner ;
+    rdfs:label "Coudrai aug↑te↓ andré vig↑on↓ à marolles" ;
+    skos:altLabel "Coudrai aug↑te↓ andré Vig↑on↓ à id",
+        "Coudrai aug↑te↓ andré vig↑on↓ à id",
+        "Coudrau aug↑te↓ andré vig↑on↓ à idem" ;
+    skos:prefLabel "Coudrai aug↑te↓ andré vig↑on↓ à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/90> a nap:Owner ;
+    rdfs:label "et Consors" ;
+    skos:prefLabel "et Consors" .
+
+<http://data.ign.fr/id/cadastrenap/owner/91> a nap:Owner ;
+    rdfs:label "Guérin J↑n↓ B↑te↓ dit le Sourd à id" ;
+    skos:prefLabel "Guérin J↑n↓ B↑te↓ dit le Sourd à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/92> a nap:Owner ;
+    rdfs:label "Pigy Pierre tuillier à marolles" ;
+    skos:prefLabel "Pigy Pierre tuillier à marolles" .
+
+<http://data.ign.fr/id/cadastrenap/owner/93> a nap:Owner ;
+    rdfs:label "Guillot pierre" ;
+    skos:prefLabel "Guillot pierre" .
+
+<http://data.ign.fr/id/cadastrenap/owner/94> a nap:Owner ;
+    rdfs:label "Vigoureux Gabriel" ;
+    skos:prefLabel "Vigoureux Gabriel" .
+
+<http://data.ign.fr/id/cadastrenap/owner/95> a nap:Owner ;
+    rdfs:label "Le Prince de neufchâtel" ;
+    skos:altLabel "Le Prince de Neufchâtel" ;
+    skos:prefLabel "Le Prince de neufchâtel" .
+
+<http://data.ign.fr/id/cadastrenap/owner/96> a nap:Owner ;
+    rdfs:label "Guerin Joseph, jean Vig↑on↓ à id" ;
+    skos:prefLabel "Guerin Joseph, jean Vig↑on↓ à id" .
+
+<http://data.ign.fr/id/cadastrenap/owner/97> a nap:Owner ;
+    rdfs:label "Guérin Joseph, fils vig↑on↓ à idem" ;
+    skos:altLabel "Guérin Joseph fils vig↑on↓ à id" ;
+    skos:prefLabel "Guérin Joseph, fils vig↑on↓ à idem" .
+
+<http://data.ign.fr/id/cadastrenap/owner/98> a nap:Owner ;
+    rdfs:label "huguet Louis" ;
+    skos:prefLabel "huguet Louis" .
+
+<http://data.ign.fr/id/cadastrenap/owner/99> a nap:Owner ;
+    rdfs:label "Barrey Pierre garde champêtre" ;
+    skos:altLabel "Barrey pierre garde champêtre" ;
+    skos:prefLabel "Barrey Pierre garde champêtre" .
+
