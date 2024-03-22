@@ -23,7 +23,7 @@ select (count(distinct ?num) as ?num_parcels) where {
          nap:hasAttribute [ a nap:Attribute;
               nap:isAttributeType atype:SpatialDescription;
     	      nap:hasAttributeVersion [ a nap:AttributeVersion;
-    				nap:firstStep/nap:locatum ?commune
+    				nap:firstStep/nap:relatum ?commune
               ]
     ].
     FILTER(?commune = landmark:COMM_Marolles_en_Brie)
@@ -94,7 +94,7 @@ select distinct ?parcel  where {
          nap:hasAttribute [ a nap:Attribute;
               nap:isAttributeType atype:SpatialDescription;
     	      nap:hasAttributeVersion [ a nap:AttributeVersion;
-    				nap:firstStep/nap:locatum ?commune
+    				nap:firstStep/nap:relatum ?commune
               ]
     ].
     FILTER(?commune = landmark:COMM_Marolles_en_Brie)
@@ -117,8 +117,8 @@ select distinct ?parcel where {
          nap:hasAttribute [ a nap:Attribute;
               nap:isAttributeType atype:SpatialDescription;
     	      nap:hasAttributeVersion [ a nap:AttributeVersion;
-    				nap:firstStep/nap:locatum ?commune;
-    				nap:firstStep [nap:nextStep+/nap:locatum ?segment]
+    				nap:firstStep/nap:relatum ?commune;
+    				nap:firstStep [nap:nextStep+/nap:relatum ?segment]
               ]
     ].
     ?segment a nap:Landmark;

@@ -81,7 +81,7 @@ select distinct ?parcelname where {
               nap:hasAttribute [ a nap:Attribute;
               nap:isAttributeType atype:SpatialDescription;
     	      nap:hasAttributeVersion [ a nap:AttributeVersion;
-    				nap:firstStep/nap:locatum ?commune
+    				nap:firstStep/nap:relatum ?commune
               ]
     ].
     FILTER(?owner = owner:0001)

@@ -20,7 +20,7 @@ WHERE {
   ?parcel nap:hasAttribute [ a nap:Attribute ;
                              nap:isAttributeType atype:SpatialDescription ;
                              nap:hasAttributeVersion ?versionloc ] .
-  ?versionloc nap:firstStep/nap:locatum <http://data.ign.fr/id/cadastrenap/landmark/COMM_Marolles_en_Brie>.
+  ?versionloc nap:firstStep/nap:relatum <http://data.ign.fr/id/cadastrenap/landmark/COMM_Marolles_en_Brie>.
   ?parcel nap:hasAttribute [ a nap:Attribute ;
                              nap:isAttributeType atype:ParcelNature ;
                              nap:hasAttributeVersion ?version ] .
@@ -240,7 +240,7 @@ select ?owner ?ownername (count (distinct ?parcel) as ?num_parcels) where {
               nap:hasAttribute [ a nap:Attribute;
               nap:isAttributeType atype:SpatialDescription;
     	      nap:hasAttributeVersion [ a nap:AttributeVersion;
-    				nap:firstStep/nap:locatum ?commune
+    				nap:firstStep/nap:relatum ?commune
               ]
     ].
     FILTER(?commune = landmark:COMM_Marolles_en_Brie)
