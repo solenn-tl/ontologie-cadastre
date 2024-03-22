@@ -294,7 +294,7 @@ landmark:PARC_Marolles_en_Brie_C_191_1810 a nap:Landmark;
                     nap:nextStep [
                         a nap:Segment;
                         nap:isLandmarkRelationType lrtype:Within;
-                        nap:locatum landmark:PARC_Marolles_en_Brie_C_191_1810
+                        nap:locatum landmark:PARC_Marolles_en_Brie_C_191_1810;
                         nap:relatum [ a nap:Landmark;
                                     nap:isLandmarkType ltype:District;
                                     rdfs:label "Du Village"];
