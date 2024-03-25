@@ -28,7 +28,7 @@
 
 #http://data.ign.fr/id/cadastrenap/landmark/COUNTRY_France
 landmark:COUNTRY_France a nap:Landmark;
-    rdfs:label "France"@fr.
+    rdfs:label "France"@fr;
     nap:isLandmarkType ltype:Country.
 
 #http://data.ign.fr/id/cadastrenap/landmark/DEPT_Seine_et_Oise

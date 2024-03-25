@@ -15,7 +15,9 @@ cf:0001 a nap:PropertyAccount;
     nap:existsIn source:Marolles_en_Brie_MAT_NB_B_1812.
 
 cf:0002 a nap:PropertyAccount;
-    rdfs:label "94".
+    rdfs:label "94";
+    nap:isPropertyAccountEquivalentOf source:2ff74306_e52c_4a16_b471_5e15c371d4cd_recordpart;
+    nap:existsIn source:Marolles_en_Brie_MAT_NB_B_1812.
 
 cf:0003 a nap:PropertyAccount;
     rdfs:label "57".

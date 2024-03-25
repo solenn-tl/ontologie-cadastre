@@ -145,10 +145,24 @@ source:Marolles_en_Brie_MAT_NB_B_1812_FRAD094_3P_000387_01_0017 a rico:Instantia
     rico:isOrWasDigitalInstanciation _:p02;
     rico:hasComponentTransitive source:9053dbe6_7410_483f_82b1_45d9129f551a.
 
+source:Marolles_en_Brie_MAT_NB_B_1812_FRAD094_3P_000387_01_0044 a rico:Instantiation;
+    rico:identifier "FRAD094_3P_000388_01_0044";
+    nap:hasClasse [
+        nap:nap:hasClasseValue mlclasse:Page_tab_p1;
+        prov:wasGeneratedBy <http://data.ign.fr/id/codes/activity/0001>
+    ];
+    rico:isOrWasDigitalInstanciation _:p03;
+    rico:hasComponentTransitive source:2ff74306_e52c_4a16_b471_5e15c371d4cd
+    .
+
 # Record de page
 _:p02 a rico:Record;
         nap:hasSourceType srctype:PageDeRegistre;
-        nap:isOrWasIncludedIn _:p02.
+        nap:isOrWasIncludedIn source:Marolles_en_Brie_MAT_NB_B_1812.
+
+_:p03 a rico:Record;
+        nap:hasSourceType srctype:PageDeRegistre;
+        nap:isOrWasIncludedIn source:Marolles_en_Brie_MAT_NB_B_1812.
 
 #Instance numérique de zone
 source:9053dbe6_7410_483f_82b1_45d9129f551a a rico:Instantiation, fpo:SourceCitation;
@@ -159,8 +173,21 @@ source:9053dbe6_7410_483f_82b1_45d9129f551a a rico:Instantiation, fpo:SourceCita
     nap:coordinatesInImageRef "[[],[],[],[],[]]";
     fpo:fromSource source:Marolles_en_Brie_MAT_NB_B_1812.
 
+source:2ff74306_e52c_4a16_b471_5e15c371d4cd a rico:Instantiation, fpo:SourceCitation;
+    rico:identifier "2ff74306_e52c_4a16_b471_5e15c371d4cd";
+    prov:wasGeneratedBy <http://data.ign.fr/id/codes/activity/0002>;
+    nap:hasClasse [ nap:nap:hasClasseValue mlclasse:MAT_property_account];
+    nap:transcription "transcription";
+    nap:coordinatesInImageRef "[[],[],[],[],[]]";
+    fpo:fromSource source:Marolles_en_Brie_MAT_NB_B_1812.
+
 #Record Part de zone
 source:9053dbe6_7410_483f_82b1_45d9129f551a_recordpart a rico:RecordPart;
     nap:hasSourceType srctype:CompteFoncier;
     rico:hasOrHadDigitalInstanciation source:9053dbe6_7410_483f_82b1_45d9129f551a;
-    rico:isOrWasIncludedIn source:9053dbe6_7410_483f_82b1_45d9129f551a_recordpart.
+    rico:isOrWasIncludedIn source:Marolles_en_Brie_MAT_NB_B_1812_FRAD094_3P_000387_01_0017.
+
+source:2ff74306_e52c_4a16_b471_5e15c371d4cd_recordpart a rico:RecordPart;
+    nap:hasSourceType srctype:CompteFoncier;
+    rico:hasOrHadDigitalInstanciation source:2ff74306_e52c_4a16_b471_5e15c371d4cd;
+    rico:isOrWasIncludedIn source:Marolles_en_Brie_MAT_NB_B_1812_FRAD094_3P_000387_01_0044.
