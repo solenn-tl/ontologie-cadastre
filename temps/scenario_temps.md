@@ -8,7 +8,7 @@ Evolution des entités géographiques
 
 L'objectif de la thèse est de pouvoir suivre l'évolution des parcelles au cours du temps, de la création du cadastre (entre 1808 et 1850) à sa rénovation (entre 1930 et 1975). 
 
-Une parcelle est caractérisée par plusieurs propriétés (à une date donnée): 
+Une parcelle est caractérisée par plusieurs propriétés: 
 * un **propriétaire** (ou groupe de propriétaires)
 * une ou plusieurs **natures** de sol (ex: bâtiment et cour)
 * une **géométrie**

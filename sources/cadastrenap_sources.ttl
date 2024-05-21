@@ -318,7 +318,7 @@ nap:isRecordEquivalentOf a owl:ObjectProperty ;
 nap:existsIn a owl:ObjectProperty ;
                     rdfs:domain nap:PropertyAccount;
                     rdfs:range rico:RecordSet;
-                    rdfs:comment "Indique le registre auquel appartient un compte foncier"@fr ;
+                    rdfs:comment "Indique qu'un compte foncier existe dans un registre (en tant que concept) donné"@fr ;
                     rdfs:label "existe dans"@fr ,
                                "exists in"@en .
 ###############################
