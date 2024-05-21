@@ -137,6 +137,12 @@ cad:PropertyAccount a owl:Class;
     skos:prefLabel "Property account"@en, "Compte foncier"@fr;
     skos:altLabel "Article"@fr, "Folio"@fr, "Case"@fr.
 
+###  http://data.ign.fr/def/cadastre#Folio
+cad:Folio a owl:Class;
+    rdfs:label "Folio"@en, "Folio"@fr ;
+    skos:prefLabel "Folio"@en, "Folio"@fr ;
+    skos:altLabel "Article"@fr, "Case"@fr.
+
 ###  http://www.w3.org/ns/prov#Entity
 prov:Entity rdf:type owl:Class ;
             rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
@@ -232,9 +238,9 @@ cad:hasOwnerAttributeValue a owl:ObjectProperty ;
 
 ###  http://data.ign.fr/def/cadastre#mentions
 cad:mentions a owl:ObjectProperty;
-    rdfs:domain cad:PropertyAccount;
+    #rdfs:domain cad:PropertyAccount; domaine = PropertyAccount ou Folio
     rdfs:range cad:AttributeVersion;
-    rdfs:comment "Un compte foncier mentionne la présence d'une parcelle ou d'un propriétaire."@fr;
+    rdfs:comment "Un folio/compte foncier mentionne la présence d'une parcelle ou d'un propriétaire."@fr;
     rdfs:label "mentionne";
     owl:inverseOf cad:isMentionnedIn.
 
@@ -242,7 +248,7 @@ cad:mentions a owl:ObjectProperty;
 cad:isMentionnedIn a owl:ObjectProperty;
     rdfs:domain cad:AttributeVersion;
     rdfs:range cad:PropertyAccount;
-    rdfs:comment "Une parcelle ou un propriétaire est mentionné dans un compte foncier."@fr;
+    rdfs:comment "Une parcelle ou un propriétaire est mentionné dans un folio/compte foncier."@fr;
     rdfs:label "est mentionné dans";
     owl:inverseOf cad:mentions.
 
@@ -258,7 +264,7 @@ cad:continuedAt a owl:ObjectProperty;
 cad:isContinuationOf a owl:ObjectProperty;
     rdfs:domain cad:PropertyAccount;
     rdfs:range cad:PropertyAccount;
-    rdfs:comment "Un compte foncier Y est la suite d'un compte foncier X (généralement si le compte s'étend sur plusieurs pages)."@fr;
+    rdfs:comment "Un  compte foncier Y est la suite d'un compte foncier X (généralement si le compte s'étend sur plusieurs pages)."@fr;
     rdfs:label "est la suite du ";
     owl:inverseOf cad:continuedAt.
 

@@ -429,7 +429,8 @@ srctype:MatriceCadastrale1822_1914 a owl:NamedIndividual ,
                           skos:definition "Matrice cadastrale utilisée entre 1822 et 1914, décrit les propriétés bâties et non bâties jusqu'à 1822 puis uniquement les propriétés non bâties jusqu'à 1914."@fr ;
                           skos:inScheme nap:SourceList ;
                           skos:prefLabel "Matrice des propriétés foncières (1822-1882) puis matrice des propriétés non bâties (1882-1914)"@fr ;
-                          skos:altLabel "Matrice des propriétés foncières"@fr;
+                          skos:altLabel "Matrice des propriétés foncières"@fr,
+                                      "Matrice des propriétés non bâties"@fr;
                           skos:broader srctype:MatriceCadastrale.
 
 ###  http://data.ign.fr/id/codes/cadastrenap/sourceType/MatriceCadastraleBatie1882_1911
@@ -439,6 +440,7 @@ srctype:MatriceCadastraleBatie1882_1911 a owl:NamedIndividual ,
                           skos:definition "Matrice cadastrale utilisée à partir de 1882 pour décrire les propriétés bâties."@fr ;
                           skos:inScheme nap:SourceList ;
                           skos:prefLabel "Matrice des propriétés bâties (1882-1911)"@fr ;
+                          skos:altLabel "Matrice des propriétés bâties"@fr ;
                           skos:broader srctype:MatriceCadastrale.
 
 ###  http://data.ign.fr/id/codes/cadastrenap/sourceType/MatriceCadastraleNonBatie1914
@@ -469,7 +471,7 @@ srctype:PageDeRegistre a owl:NamedIndividual ,
                           skos:broader srctype:RegistreCadastral.
 
 ###  http://data.ign.fr/id/codes/cadastrenap/sourceType/ZoneDePageDeRegistre
-srctype:ZoneDePageDeRegistre a owl:NamedIndividual ,
+srctype:ZoneDePage a owl:NamedIndividual ,
                             nap:SourceType ,
                             skos:Concept ;
                           skos:definition "Zone située dans une page de registre."@fr ;
@@ -483,7 +485,7 @@ srctype:LigneEtatDeSection a owl:NamedIndividual ,
                           skos:definition "Ligne du tableau principal d'un registre d'état de sections décrivant une parcelle."@fr ;
                           skos:inScheme nap:SourceList ;
                           skos:prefLabel "Ligne de tableau d'état de sections"@fr;
-                          skos:broader srctype:ZoneDePageDeRegistre. 
+                          skos:broader srctype:ZoneDePage. 
 
 srctype:CompteFoncier a owl:NamedIndividual ,
                             nap:SourceType ,
@@ -491,7 +493,7 @@ srctype:CompteFoncier a owl:NamedIndividual ,
                           skos:definition "Compte foncier décrivant les propriétés d'un ou plusieurs propriétaires."@fr ;
                           skos:inScheme nap:SourceList ;
                           skos:prefLabel "Ligne de tableau d'état de sections"@fr;
-                          skos:broader srctype:ZoneDePageDeRegistre. 
+                          skos:broader srctype:ZoneDePage. 
 
 ###  http://data.ign.fr/id/codes/cadastrenap/sourceType/InventaireAD94
 srctype:InventaireAD94 a owl:NamedIndividual ,
