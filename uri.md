@@ -38,6 +38,12 @@ En cas d'ambiguité entre deux mentions de propriétaires similaire, il est pré
 http://data.ign.fr/id/owner/{UUID}
 ```
 
+### URI Compte foncier
+A créer ou pas ?
+```
+http://data.ign.fr/id/propertyaccount/{REGISTRE_ID}_{NUM_FOLIO}_{opt:NUM_SOUS_PARTIE_PAGE_uuid}
+```
+
 ## Triplets intermédiaires
 ### URI Parcelle
 ```

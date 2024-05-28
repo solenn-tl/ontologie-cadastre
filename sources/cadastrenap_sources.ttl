@@ -1,4 +1,6 @@
-@prefix nap: <http://data.ign.fr/def/cadastrenap#>.
+@prefix src: <http://data.ign.fr/def/sources#> .
+@prefix cad: <http://data.ign.fr/def/cadastrenap#>.
+@prefix add: <http://rdf.geohistoricaldata.org/def/address#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
@@ -104,12 +106,12 @@ fpo:SourceCitation a owl:Class ;
 	rdfs:isDefinedBy <https://www.kcl.ac.uk/factoid-prosopography/fpo-sources#>.
 
 # https://data.ign.fr/def/cadastrenap#SourceType
-nap:SourceType a owl:Class ;
+src:SourceType a owl:Class ;
     rdfs:subClassOf skos:Concept ;
     rdfs:label "Type de source"@fr, "Type of source"@en.
 
 # https://data.ign.fr/def/cadastrenap#MLClasse
-nap:MLClasse a owl:Class ;
+src:MLClasse a owl:Class ;
     rdfs:subClassOf skos:Concept ;
     rdfs:label "Classe d'un document"@fr, "Classe of document"@en.
 
@@ -255,72 +257,46 @@ fpo:sourcedFrom a owl:ObjectProperty ;
 	rdfs:range fpo:SourceCitation .
 
 ###  http://data.ign.fr/def/cadastrenap#hasSourceType
-nap:hasSourceType a owl:ObjectProperty ;
-                    rdfs:range nap:SourceType ;
+src:hasSourceType a owl:ObjectProperty ;
+                    rdfs:range src:SourceType ;
                     rdfs:comment "Décrit le type de source."@fr ;
                     rdfs:label "est une source de type"@fr ,
                                "is source type"@en .
 
 ###  http://data.ign.fr/def/cadastrenap#hasClasse
-nap:hasClasse a owl:ObjectProperty ;
+src:hasClasse a owl:ObjectProperty ;
                     rdfs:comment "Indique qu'un document ou d'une zone de document possède au moins une classe attribuée manuellement ou automatique."@fr ;
                     rdfs:label "a au moins une classe"@fr ,
                                "has at least one classe"@en .
 
-###  http://data.ign.fr/def/cadastrenap#nap:hasClasseValue
-nap:hasClasseValue a owl:ObjectProperty ;
-                    rdfs:range nap:MLClasse;
+###  http://data.ign.fr/def/cadastrenap#cad:hasClasseValue
+src:hasClasseValue a owl:ObjectProperty ;
                     rdfs:comment "Classe attribuée à un document ou à une zone de document par un prov:Agent."@fr ;
                     rdfs:label "a pour classe"@fr ,
                                "has classe value"@en .
 
 ###  http://data.ign.fr/def/cadastrenap#isLocalisedIn
-nap:isLocalisedIn a owl:ObjectProperty ;
+src:isLocalisedIn a owl:ObjectProperty ;
                     rdfs:domain rico:Instantiation;
-                    rdfs:range nap:Landmark ;
+                    rdfs:range add:Landmark ;
                     rdfs:comment "Indique la localisation d'un document physique."@fr ;
                     rdfs:label "est localisé à"@fr ,
                                "is located in"@en .
 
 ###  http://data.ign.fr/def/cadastrenap#hasCreationDate
-nap:hasCreationDate a owl:ObjectProperty ;
-                    rdfs:range nap:TemporalEntity ;
+src:hasCreationDate a owl:ObjectProperty ;
+                    rdfs:range add:TemporalEntity ;
                     rdfs:comment "Indique la date de création d'une source."@fr ;
                     rdfs:label "a pour date de création"@fr ,
                                "has creation date"@en .
 
 ###  http://data.ign.fr/def/cadastrenap#hasValidTime
-nap:hasValidTime a owl:ObjectProperty ;
-                    rdfs:range nap:TemporalInterval ;
+src:hasValidTime a owl:ObjectProperty ;
+                    rdfs:range add:TemporalInterval ;
                     rdfs:comment "Indique la date de validité/d'usage d'un document, pendant lequel il a été complété/utilisé par un ou plusieurs agents. Correcpond également à la période de validité des informations qu'il contient (ex: dans le cas d'une copie ultérieure d'un ancien document abimé)"@fr ;
                     rdfs:label "a pour temps valide"@fr ,
                                "has valid time"@en .
 
-###  http://data.ign.fr/def/cadastrenap#isPropertyAccountEquivalentOf
-nap:isPropertyAccountEquivalentOf a owl:ObjectProperty ;
-                    rdfs:domain nap:PropertyAccount;
-                    rdfs:range rico:RecordPart ;
-                    rdfs:comment "Indique le compte foncier auquel est lié un record"@fr ;
-                    rdfs:label "est le compte foncier équivalent à"@fr ,
-                               "is property account equivalent of"@en ;
-                    owl:inverseOf nap:isRecordEquivalentOf.
-
-###  http://data.ign.fr/def/cadastrenap#isRecordEquivalentOf
-nap:isRecordEquivalentOf a owl:ObjectProperty ;
-                    rdfs:domain rico:RecordPart;
-                    rdfs:range nap:PropertyAccount;
-                    rdfs:comment "Indique le Record Part auquel est lié un compte foncier"@fr ;
-                    rdfs:label "est le Record Part équivalent à"@fr ,
-                               "is record part equivalent of"@en ;
-                    owl:inverseOf nap:isPropertyAccountEquivalentOf.
-
-###  http://data.ign.fr/def/cadastrenap#existsIn
-nap:existsIn a owl:ObjectProperty ;
-                    rdfs:domain nap:PropertyAccount;
-                    rdfs:range rico:RecordSet;
-                    rdfs:comment "Indique qu'un compte foncier existe dans un registre (en tant que concept) donné"@fr ;
-                    rdfs:label "existe dans"@fr ,
-                               "exists in"@en .
 ###############################
 # ---- Datatype properties ----
 ###############################
@@ -352,220 +328,17 @@ rico:name a owl:DatatypeProperty ;
   rico:RiCCMCorrespondingComponent """Corrresponds to RiC-A28 (Name
          attribute)"""@en .
 
-nap:transcription a owl:DatatypeProperty ;
+src:transcription a owl:DatatypeProperty ;
   rdfs:range rdfs:Literal ;
   rdfs:label "transcription"@en, "transcription"@fr;
   rdfs:comment "Transcription d'une zone obtenue automatiquement ou manuellement à partir d'un document numérisé.".
 
-nap:coordinatesInImageRef a owl:DatatypeProperty ;
+src:coordinatesInImageRef a owl:DatatypeProperty ;
   rdfs:range rdfs:Literal ;
   rdfs:label "coordinates in image"@en, "coordonnées dans l'image"@fr;
   rdfs:comment "Coordonnées (référentiel image) d'une zone annotée (manuellement ou automatiquement) dans un document numérisé.".
 
-nap:URL a owl:DatatypeProperty ;
+src:URL a owl:DatatypeProperty ;
   rdfs:range rdfs:Literal ;
   rdfs:label "url de la source"@fr, "source URL"@en;
   rdfs:comment 'Correspond à l\'URL de la source (image, base de donnée)'.
-
-###############################
-# ---- SkosConcept ----
-###############################
-
-###  http://data.ign.fr/def/cadastrenap#SourceList
-nap:SourceList a owl:NamedIndividual ,
-                  skos:ConceptScheme ;
-                  rdfs:comment "Liste des différents types de sources, représentés comme une liste de concepts SKOS."@fr ;
-                  rdfs:label "Type de source"@fr ,
-                             "Type of source"@en .
-
-###  http://data.ign.fr/def/cadastrenap#MLClasseList
-nap:MLClasseList a owl:NamedIndividual ,
-                  skos:ConceptScheme ;
-                  rdfs:comment "Liste des différentes classes pouvant être attribuées à un document ou à une zone dans un document, représentés comme une liste de concepts SKOS."@fr ;
-                  rdfs:label "Liste de classes"@fr ,
-                             "List of classes"@en .
-
-###  http://data.ign.fr/id/codes/cadastrenap/sourceType/RegistreCadastral
-srctype:RegistreCadastral a owl:NamedIndividual ,
-                            nap:SourceType ,
-                            skos:Concept ;
-                          skos:definition "Registre appartenant à la documentation cadastrale"@fr ;
-                          skos:inScheme nap:SourceList ;
-                          skos:prefLabel "Register"@en ,
-                                         "Registre"@fr .
-
-###  http://data.ign.fr/id/codes/cadastrenap/sourceType/EtatDeSections
-srctype:EtatDeSections a owl:NamedIndividual ,
-                            nap:SourceType ,
-                            skos:Concept ;
-                          skos:definition "Registre d'état de sections décrivant le parcellaire d'une commune à une date donnée, proche de la réalisation d'un plan cadastral."@fr ;
-                          skos:inScheme nap:SourceList ;
-                          skos:prefLabel "Etat de sections"@fr ;
-                          skos:broader srctype:RegistreCadastral.
-
-###  http://data.ign.fr/id/codes/cadastrenap/sourceType/MatriceCadastrale
-srctype:MatriceCadastrale a owl:NamedIndividual ,
-                            nap:SourceType ,
-                            skos:Concept ;
-                          skos:definition "Registre contenant l'ensemble des mutations affectant les parcelles pendant la période de validité de la matrice."@fr ;
-                          skos:inScheme nap:SourceList ;
-                          skos:prefLabel "Matrice cadastrale"@fr ;
-                          skos:broader srctype:RegistreCadastral.
-
-###  http://data.ign.fr/id/codes/cadastrenap/sourceType/MatriceCadastrale1807_1822
-srctype:MatriceCadastrale1807_1822 a owl:NamedIndividual ,
-                            nap:SourceType ,
-                            skos:Concept ;
-                          skos:definition "Matrice cadastrale utilisée entre 1807 et 1822, décrit les propriétés bâties et non bâties."@fr ;
-                          skos:inScheme nap:SourceList ;
-                          skos:prefLabel "Matrice de rôles des propriétés bâties et non bâties (1807-1822)"@fr ;
-                          skos:altLabel "Matrice de rôles des propriétés bâties et non bâties"@fr;
-                          skos:broader srctype:MatriceCadastrale.
-
-###  http://data.ign.fr/id/codes/cadastrenap/sourceType/MatriceCadastrale1822_1914
-srctype:MatriceCadastrale1822_1914 a owl:NamedIndividual ,
-                            nap:SourceType ,
-                            skos:Concept ;
-                          skos:definition "Matrice cadastrale utilisée entre 1822 et 1914, décrit les propriétés bâties et non bâties jusqu'à 1822 puis uniquement les propriétés non bâties jusqu'à 1914."@fr ;
-                          skos:inScheme nap:SourceList ;
-                          skos:prefLabel "Matrice des propriétés foncières (1822-1882) puis matrice des propriétés non bâties (1882-1914)"@fr ;
-                          skos:altLabel "Matrice des propriétés foncières"@fr,
-                                      "Matrice des propriétés non bâties"@fr;
-                          skos:broader srctype:MatriceCadastrale.
-
-###  http://data.ign.fr/id/codes/cadastrenap/sourceType/MatriceCadastraleBatie1882_1911
-srctype:MatriceCadastraleBatie1882_1911 a owl:NamedIndividual ,
-                            nap:SourceType ,
-                            skos:Concept ;
-                          skos:definition "Matrice cadastrale utilisée à partir de 1882 pour décrire les propriétés bâties."@fr ;
-                          skos:inScheme nap:SourceList ;
-                          skos:prefLabel "Matrice des propriétés bâties (1882-1911)"@fr ;
-                          skos:altLabel "Matrice des propriétés bâties"@fr ;
-                          skos:broader srctype:MatriceCadastrale.
-
-###  http://data.ign.fr/id/codes/cadastrenap/sourceType/MatriceCadastraleNonBatie1914
-srctype:MatriceCadastraleNonBatie1914 a owl:NamedIndividual ,
-                            nap:SourceType ,
-                            skos:Concept ;
-                          skos:definition "Matrice cadastrale utilisée à partir de 1914 pour décrire les propriétés non bâties."@fr ;
-                          skos:inScheme nap:SourceList ;
-                          skos:prefLabel "Matrice des propriétés non bâties (1914-rénovation)"@fr ;
-                          skos:broader srctype:MatriceCadastrale. 
-
-###  http://data.ign.fr/id/codes/cadastrenap/sourceType/MatriceCadastraleBatie1911
-srctype:MatriceCadastraleBatie1911 a owl:NamedIndividual ,
-                            nap:SourceType ,
-                            skos:Concept ;
-                          skos:definition "Matrice cadastrale utilisée à partir de 1911 pour décrire les propriétés bâties."@fr ;
-                          skos:inScheme nap:SourceList ;
-                          skos:prefLabel "Matrice des propriétés bâties (1911-rénovation)"@fr ;
-                          skos:broader srctype:MatriceCadastrale.                
-
-###  http://data.ign.fr/id/codes/cadastrenap/sourceType/PageDeRegistre
-srctype:PageDeRegistre a owl:NamedIndividual ,
-                            nap:SourceType ,
-                            skos:Concept ;
-                          skos:definition "Page issue d'un registre."@fr ;
-                          skos:inScheme nap:SourceList ;
-                          skos:prefLabel "Page de registre"@fr;
-                          skos:broader srctype:RegistreCadastral.
-
-###  http://data.ign.fr/id/codes/cadastrenap/sourceType/ZoneDePageDeRegistre
-srctype:ZoneDePage a owl:NamedIndividual ,
-                            nap:SourceType ,
-                            skos:Concept ;
-                          skos:definition "Zone située dans une page de registre."@fr ;
-                          skos:inScheme nap:SourceList ;
-                          skos:prefLabel "Zone de page de registre"@fr;
-                          skos:broader srctype:RegistreCadastral. 
-
-srctype:LigneEtatDeSection a owl:NamedIndividual ,
-                            nap:SourceType ,
-                            skos:Concept ;
-                          skos:definition "Ligne du tableau principal d'un registre d'état de sections décrivant une parcelle."@fr ;
-                          skos:inScheme nap:SourceList ;
-                          skos:prefLabel "Ligne de tableau d'état de sections"@fr;
-                          skos:broader srctype:ZoneDePage. 
-
-srctype:CompteFoncier a owl:NamedIndividual ,
-                            nap:SourceType ,
-                            skos:Concept ;
-                          skos:definition "Compte foncier décrivant les propriétés d'un ou plusieurs propriétaires."@fr ;
-                          skos:inScheme nap:SourceList ;
-                          skos:prefLabel "Ligne de tableau d'état de sections"@fr;
-                          skos:broader srctype:ZoneDePage. 
-
-###  http://data.ign.fr/id/codes/cadastrenap/sourceType/InventaireAD94
-srctype:InventaireAD94 a owl:NamedIndividual ,
-                            nap:SourceType ,
-                            skos:Concept ;
-                          skos:definition "Fiches d'inventaire décrivant le contenu des archives localisées aux Archives Départementales du Val-de-Marne."@fr ;
-                          skos:inScheme nap:SourceList ;
-                          skos:prefLabel "Inventaire AD94"@fr;
-                          skos:altLabel "Inventaire des Archives départementales du Val-de-Marne". 
-
-### http://data.ign.fr/id/codes/cadastrenap/mlclasse/PageClasse
-mlclasse:PageClasses a owl:NamedIndividual ,
-                            nap:MLClasse ,
-                            skos:Concept ;
-                          skos:definition "Liste des classes pouvant être attribuées à une page de registre numérisée (image)."@fr ;
-                          skos:inScheme nap:MLClasseList ;
-                          skos:prefLabel "Classes de pages de registres"@fr.
-
-### http://data.ign.fr/id/codes/cadastrenap/mlclasse/Page_tab_p1
-mlclasse:Page_tab_p1 a owl:NamedIndividual ,
-                            nap:MLClasse ,
-                            skos:Concept ;
-                          skos:definition "Page de registre cadastral contenant le tableau principal, duquel on souhaite extraire des informations."@fr ;
-                          skos:inScheme nap:MLClasseList ;
-                          skos:prefLabel "Tableau principal, ppremière page (souvent unique page)"@fr;
-                          skos:altLabel "tab_p1";
-                          skos:broader mlclasse:PageClasses.
-
-### http://data.ign.fr/id/codes/cadastrenap/mlclasse/Page_tab_p2
-mlclasse:Page_tab_p2 a owl:NamedIndividual ,
-                            nap:MLClasse ,
-                            skos:Concept ;
-                          skos:definition "Page de registre cadastral contenant le tableau principal dans le cas où celui-ci est imprimé sur une double page. N'existe que pour certains pré-imprimés."@fr ;
-                          skos:inScheme nap:MLClasseList ;
-                          skos:prefLabel "Tableau principal, deuxième page (si double-page)"@fr;
-                          skos:altLabel "tab_p2";
-                          skos:broader mlclasse:PageClasses.
-
-### http://data.ign.fr/id/codes/cadastrenap/mlclasse/Page_ets_couv
-mlclasse:Page_ets_couv a owl:NamedIndividual ,
-                            nap:MLClasse ,
-                            skos:Concept ;
-                          skos:definition "Page correspondant à une couverture de section dans un registre d'états de sections."@fr ;
-                          skos:inScheme nap:MLClasseList ;
-                          skos:prefLabel "Couverture décrivant une section"@fr;
-                          skos:altLabel "ets_couv";
-                          skos:broader mlclasse:PageClasses.
-
-### http://data.ign.fr/id/codes/cadastrenap/mlclasse/ZoneClasses
-mlclasse:ZoneClasses a owl:NamedIndividual ,
-                            nap:MLClasse ,
-                            skos:Concept ;
-                          skos:definition "Liste des classes pouvant être attribuées à une zone contenue dans une page de registre numérisée."@fr ;
-                          skos:inScheme nap:MLClasseList ;
-                          skos:prefLabel "Classes de zones situées dans des pages de registres numérisées."@fr.
-
-### http://data.ign.fr/id/codes/cadastrenap/mlclasse/ETS_tab_line
-mlclasse:ETS_tab_line a owl:NamedIndividual ,
-                            nap:MLClasse ,
-                            skos:Concept ;
-                          skos:definition "Ligne de tableau principal d'un registre d'état de sections."@fr ;
-                          skos:inScheme nap:MLClasseList ;
-                          skos:prefLabel "Ligne de tableau d'états de sections"@fr;
-                          skos:altLabel "ets_tab_line";
-                          skos:broader mlclasse:ZoneClasses.
-
-### http://data.ign.fr/id/codes/cadastrenap/mlclasse/MAT_property_account
-mlclasse:MAT_property_account a owl:NamedIndividual ,
-                            nap:MLClasse ,
-                            skos:Concept ;
-                          skos:definition "Zone correspondant à un compte foncier dans une matrice cadastrale."@fr ;
-                          skos:inScheme nap:MLClasseList ;
-                          skos:prefLabel "Compte foncier (zone)"@fr;
-                          skos:altLabel "mat_cf";
-                          skos:broader mlclasse:ZoneClasses.
