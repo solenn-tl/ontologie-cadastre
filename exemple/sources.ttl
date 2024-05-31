@@ -20,7 +20,6 @@ landmark:archives_departementales_94 a nap:Landmark;
     nap:isLandmarkType ltype:Structure;
     rdfs:label 'Archives départementales du Val-de-Marne'
     .
-
 # Processus 
 <http://data.ign.fr/id/activity/0001> a prov:Activity;
    rdfs:comment "Classification de pages de registre numérisées";
