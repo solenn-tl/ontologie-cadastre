@@ -228,22 +228,6 @@ fpo:SourceCitation a owl:Class ;
 #    Object Properties
 #################################################################
 
-###  http://data.ign.fr/def/cadastre#isMadeEffectiveBy
-cad:isMadeEffectiveBy a owl:ObjectProperty ;
-                    owl:inverseOf add:makesEffective ;
-                    rdfs:domain add:AttributeChange ;
-                    rdfs:range add:AttributeVersion ;
-                    rdfs:comment "Décrit le fait qu'une version d'un attribut est rendue effective par un changement"@fr ;
-                    rdfs:label "est rendu effectif par"@fr .
-
-###  http://data.ign.fr/def/cadastre#isMadeOutdatedBy
-cad:isMadeOutdatedBy a owl:ObjectProperty ;
-              owl:inverseOf add:outdates ;
-              rdfs:domain add:AttributeChange ;
-              rdfs:range add:AttributeVersion ;
-              rdfs:comment "Décrit le fait qu'une version d'un attribut est rendu caduc par un changement"@fr ;
-              rdfs:label "est rendu caduc"@fr .
-
 ###  http://data.ign.fr/def/cadastre#hasPlotNature
 cad:hasPlotNature a owl:ObjectProperty ;
                     rdfs:domain add:AttributeVersion ;
