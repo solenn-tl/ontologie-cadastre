@@ -5,25 +5,24 @@ Entités géographiques
 
 ## Description
 
-La parcelle est l'entité géographique élémentaire utilisée pour définir le montant de l'allivrement. Elle est caractérisée par son numéro, sa nature, son appartenance à un ou plusieurs propriétaires et sa contenance.
+La **parcelle** est l'**entité géographique** élémentaire utilisée pour définir le montant de l'allivrement. Elle est caractérisée par son **identifiant** (section+numéro), sa **nature**, son ou ses **propriétaires** (conjoints ou sucessifs), sa contenance et ses revenus.
 
 Une parcelle est localisée dans une section cadastrale. La numérotation des parcelles était réalisée par section.
-La section se trouve elle-même dans une commune. Cette commune est rattachée aux différentes circonscriptions administratives/électorales françaises : cantons, arrondissements et déprtements. 
+La **section** se trouve elle-même dans une commune. Cette commune est rattachée aux différentes **circonscriptions administratives/électorales françaises** : cantons, arrondissements et déprtements. 
 La production du cadastre était sous la responsabilité des départements.
 
-Pour faciliter la localisation d'une parcelle dans une section, la parcelle était associée à un lieu-dit, à une voie, une rue (ou à un autre type de point de repère).
+Pour faciliter la localisation d'une parcelle dans une section, la parcelle était associée à une **adresse** : lieu-dit, voie ou à un autre type de point de repère.
 
 Les parcelles et les objets du domaine non cadastrés - tels que les routes ou les cours d'eau - constituent les deux unités géographiques élémentaires qui permettent de recouvrir l'intégralité du territoire.
 
 Une **entité géographique** est caractérisée par:
 - {*obligatoire*} son **nom** ou son **libellé**
 - {*obligatoire*} son **type** (parcelle, section, circonscription administrative, objet du domaine non cadastré...)
-- {*obligatoire*} sa **localisation**
-- {*optionnel*} sa **géométrie**
+- {*obligatoire*} son **adresse** / sa **localisation**
 - {parcelle, section:*obligatoire*} son **identifiant cadastral** (parcelle: lettre de la section et numéro de parcelle ; section: lettre)
 - {parcelle: *obligatoire*} sa **nature de sol**
 - {parcelle: *obligatoire*} son/ses **propriétaire(s) ou usufruitiers**
-- {parcelle: *obligatoire*} sa **présence dans un compte foncier**
+- {*optionnel*} sa **géométrie**
 
 ## Exemples
 
