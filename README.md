@@ -1,11 +1,11 @@
-# Ontologie Cadastre Napoléonien
+# Ontologie PegaZus - Extension Cadastre Napoléonien
 
 Cette ontologie a pour objectif de décrire les informations et documents qui constituent le cadastre napoléonien, premier cadastre produit à l'échelle de l'ensemble des départements français.
 
 Elle comporte cinq modelets:
 - entités géographiques
 - propriétaires
-- comptes fonciers
+- documentation cadastrale et son fonctionnement
 - sources
 - temporalité
 

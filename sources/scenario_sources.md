@@ -37,6 +37,9 @@ Une **source** peut être décrite par les propriétés suivantes :
 (ex: géoréférencement, vectorisation, transcription)
 * {dérivée: *optionnel*} son **DOI**
 
+Une source peut : 
+* {optionnel} **mentionner** un objet ou un évènement
+
 ## Exemples
 
 ### Exemple 1 : Formes de sources

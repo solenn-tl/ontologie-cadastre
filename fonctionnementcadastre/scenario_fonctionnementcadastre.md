@@ -42,7 +42,7 @@ Un compte foncier entièrement barré est clôt.
     - *{optionnel}* un ou plusieurs **numéro de folio/article/case alternatifs** (souvent rayés)
     - *{obligatoire}* la **page de matrice dans laquel il se trouve**
     - *{obligatoire}* l'**article de mutation qu'il contient**
-    - *{obligatoire}* l'**article de classement qu'il contient**
+    - *{obligatoire}* les **articles de classement qu'il contient**
     - *{optionnel}* un ou plusieurs **commentaires** (ex : *suite du compte foncier au folio XX*, *en-être de page* etc.)
     - *{optionnel}* le **numéro de folio/article/case dans la matrice précédente**
     - *{optionnel}* le **numéro de folio/article/case dans la matrice suivante**

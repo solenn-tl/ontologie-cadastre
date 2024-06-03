@@ -1,29 +1,31 @@
-# Scénario de motivation du modelet Propriétaires et usufruitiers
+# Scénario de motivation du modelet Contribuables
 
 ## Nom
 
-Propriétaires et usufruitiers
+Contribuables
 
 ## Description
 
 Le cadastre napoléonien a été établi en 1807 pour définir précisement et équitablement l'alivrement de chaque parcelle. Le cadastre ne permet pas de certifier la propriété d'une parcelle par une personne, seuls les actes notariés le peuvent. 
 
-<i>Le véritable intérêt qu'a le Gouvernement au cadastre, c'est que par-tout la vérité soit connue , c'est que toutes les propriétés soient évaluées dans une juste proportion. Cet intérêt se fonde sur deux considérations : l'une, que plus l'impôt est également réparti, plus il se perçoit avec facilité ; l'autre , bien plus puissante à ses yeux, que l'égalité de la répartition est un grand acte de justice qu'il devait à tous les Français. Ainsi l'intérêt du Gouvernement n'est autre que celui des propriétaires eux-mêmes.</i> (Recueil méthodique des lois, décrets, réglmens, isntructions et décisions sur le cadastre de la France, 1811)
+><i>Le véritable intérêt qu'a le Gouvernement au cadastre, c'est que par-tout la vérité soit connue , c'est que toutes les propriétés soient évaluées dans une juste proportion. Cet intérêt se fonde sur deux considérations : l'une, que plus l'impôt est également réparti, plus il se perçoit avec facilité ; l'autre , bien plus puissante à ses yeux, que l'égalité de la répartition est un grand acte de justice qu'il devait à tous les Français. Ainsi l'intérêt du Gouvernement n'est autre que celui des propriétaires eux-mêmes.</i> 
+>>Extrait du <i>Recueil méthodique des lois, décrets, réglmens, instructions et décisions sur le cadastre de la France</i>, 1811
 
-Les propriétaires et usufruitiers des parcelles sont indiqués dans les registres  du cadastre (états de sections et matrices). Il peut s'agir de personnes physiques ou morales, imposables pour les parcelles pour lesquelles elles possèdent le droit de propriété et/ou l'usufruit et sont donc redevable de la contribution foncière.
+Les **contribuables** (propriétaires ou usufruitiers) des parcelles sont indiqués dans les registres  du cadastre (états de sections et matrices). Il peut s'agir de personnes physiques ou morales, imposables pour les parcelles pour lesquelles elles possèdent le droit de propriété et/ou l'usufruit et sont donc généralement redevables de la contribution foncière.
 
-Chaque propriétaire/usufruitier est caractérisé par :
-* {*obligatoire*} un **libellé**
-* {*optionnel*} une **activité**
-* {*optionnel*} une ou plusieurs **adresses**
+Remarque : Certains propriétaires et usufruitiers mentionnés dans les matrices et états de sections ne sont pas imposables (exemple : les communes).
 
-Remarque 1 : Certains propriétaires et usufruitiers mentionnés dans les matrices et états de sections ne sont pas imposables (exemple : les communes).
+- Un **contribuable** est caractérisé par :
+    - {*obligatoire*} un **libellé**
+    - {*optionnel*} une **activité**
+    - {*optionnel*} une ou plusieurs **adresses**
+    - {*optionnel*} un **type de contribuable foncier** (Propriétaire,Nu-propriétaire,Usufruitier)
 
-Remarque 2 : La propriété **libellé** pourrait être décomposée de la façon suivante :
-* {*obligatoire*} un **nom** ou une **raison sociale** ou une **expression référentielle** (Héritiers)
-* {*optionnel*} un ou plusieurs **prénoms**
-* {*optionnel*} un **titre** (Monseigneur) 
-* {*optionnel*} un **statut familial** (Demoiselle, Veuve, Père, Fils, Fille, Mineur)
+- La propriété **libellé** peut être décomposée en plusieurs autres propriétés :
+    - {*obligatoire*} un **nom** ou une **raison sociale** ou une **expression référentielle** pour désigner un groupe de personnes (*Héritiers + Nom de famille*,*Prince de ...*)
+    - {*optionnel*} un ou plusieurs **prénoms**
+    - {*optionnel*} un **titre** (*Monsieur,Madame,Mademoiselle,Monseigneur,Général*)
+    - {*optionnel*} un **statut familial** (*Demoiselle, Veuve, Père, Fils, Fille, Mineur*)
 
 ## Exemples
 

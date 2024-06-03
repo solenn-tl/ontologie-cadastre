@@ -26,10 +26,11 @@ uri.md
 images/
 catalog-v001.xml
 OLD-ontology.ttl
+OLD-ontology-cadastre.ttl
 data/
 exemple/
 entites_geographiques/cadastrenap_entitesgeo.ttl
 fonctionnementcadastre/cadastrenap_fonctionnementcadastre.ttl
-proprietaires/cadastrenap_proprietaires.ttl
+proprietaires/cadastrenap_contribuables.ttl
 sources/cadastrenap_sources.ttl
 temps/cadastrenap_temps.ttl
