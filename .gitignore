@@ -28,8 +28,8 @@ catalog-v001.xml
 OLD-ontology.ttl
 data/
 exemple/
-entites_geographiques\cadastrenap_entitesgeo.ttl
-fonctionnementcadastre\cadastrenap_fonctionnementcadastre.ttl
-proprietaires\cadastrenap_proprietaires.ttl
-sources\cadastrenap_sources.ttl
-temps\cadastrenap_temps.ttl
+entites_geographiques/cadastrenap_entitesgeo.ttl
+fonctionnementcadastre/cadastrenap_fonctionnementcadastre.ttl
+proprietaires/cadastrenap_proprietaires.ttl
+sources/cadastrenap_sources.ttl
+temps/cadastrenap_temps.ttl
