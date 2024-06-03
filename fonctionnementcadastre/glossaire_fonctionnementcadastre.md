@@ -39,10 +39,6 @@
     <td>Une mutation est un changement qui impacte une parcelle, notamment son propriétaire (achat, vente, donation, partage, sucession) ou encore sa nature. Elle est provoque soit un changement de contribuable, soit une modification de l'évaluation fiscale, soit un passage dans le domaine publique.</td>
   </tr>
   <tr>
-    <td>Numéro de compte foncier (aussi <i>Numéro d'article, de folio ou de case</i>)</td>
-    <td>Numéro qui sert à identifier un compte foncier (ou une page qui contient plusieurs comptes fonciers) dans la matrice et à suivre les mutations de propriétaires à l'aide des numéros de comptes fonciers rensignés dans les colonnes "Tiré de" et "Porté à"</td>
-  </tr>
-  <tr>
     <td>Porté à</td>
     <td>Colonne du tableau principal des matrices cadastrales qui sert à indiquer, pour chaque parcelle, le compte foncier où elle a été ajoutée après avoir transité dans le compte foncier considéré.</td>
   </tr>

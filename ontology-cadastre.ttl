@@ -1,21 +1,8 @@
-#Cadastre extension 
-@prefix : <http://data.ign.fr/def/cadastre#> .
-@base <http://data.ign.fr/def/cadastre#> .
-@prefix cad: <http://data.ign.fr/def/cadastre#> .
-
-# Import core ontology
-@prefix add: <http://rdf.geohistoricaldata.org/def/address#> .
-add:  owl:imports  <file:///D:/Documents/ONTOLOGY/ontology-adresse.ttl> .
-@prefix atype: <http://rdf.geohistoricaldata.org/id/codes/address/attributeType/> .
-@prefix ctype: <http://rdf.geohistoricaldata.org/id/codes/address/changeType/> .
-@prefix ltype: <http://rdf.geohistoricaldata.org/id/codes/address/landmarkType/> .
-@prefix lrtype: <http://rdf.geohistoricaldata.org/id/codes/address/landmarkRelationType/> .
-
-#Imort others ontologies
+#Import others ontologies
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix time: <http://www.w3.org/2006/time#>.
@@ -29,7 +16,20 @@ add:  owl:imports  <file:///D:/Documents/ONTOLOGY/ontology-adresse.ttl> .
 @prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
 @prefix fpo: <https://github.com/johnBradley501/FPO/raw/master/fpo.owl#>.
 
-# Skos Concepts Cadastre extansion
+# Import core ontology
+@prefix add: <http://rdf.geohistoricaldata.org/def/address#> .
+add:  owl:imports  <file:///D:/Documents/ONTOLOGY/ontology-adresse.ttl> .
+@prefix atype: <http://rdf.geohistoricaldata.org/id/codes/address/attributeType/> .
+@prefix ctype: <http://rdf.geohistoricaldata.org/id/codes/address/changeType/> .
+@prefix ltype: <http://rdf.geohistoricaldata.org/id/codes/address/landmarkType/> .
+@prefix lrtype: <http://rdf.geohistoricaldata.org/id/codes/address/landmarkRelationType/> .
+
+#Cadastre extension 
+@prefix : <http://data.ign.fr/def/cadastre#> .
+@base <http://data.ign.fr/def/cadastre#> .
+@prefix cad: <http://data.ign.fr/def/cadastre#> .
+
+# Skos Concepts Cadastre extension
 @prefix cad_atype: <http://data.ign.fr/id/codes/cadastre/attributeType/> .
 @prefix cad_ltype: <http://data.ign.fr/id/codes/cadastre/landmarkType/> .
 @prefix cad_etype: <http://data.ign.fr/id/codes/cadastre/eventType/> .
@@ -110,28 +110,16 @@ cad:Owner a owl:Class;
   rdfs:comment "Propriétaire ou usufruitier : personne redevable de l'impôt foncier pour les terres dont elle a la pleine propriété ou l'usufruit."@fr .
 
 cad:Folio a owl:Class;
+    owl:subClassOf rico:RecordPart ;
     rdfs:label "Folio"@en, "Folio"@fr ;
     skos:prefLabel "Folio"@en, "Folio"@fr ;
     skos:altLabel "Article"@fr, "Case"@fr;
     rdfs:comment "Page ou zone d'une page, contenue dans une matrice cadastrale, qui associe un numéro à un ou plusieurs propriétaires et leurs parcelles (états)".
 
-cad:NumFolio a owl:Class;
-    rdfs:label "Numéro de folio"@fr, "Folio number"@en ;
-    skos:prefLabel "Folio number"@en, "Numéro de folio"@fr ;
-    skos:altLabel "Numéro d'article"@fr, "Numéro de case"@fr.
-
-cad:FolioColumnsSpecialValues a owl:Class;
-    rdfs:subClassOf skos:Concept ;
-    rdfs:label "Valeurs spéciales de colonnes de folio"@fr, "Special values of folio columns"@en ;
-    skos:prefLabel "Special values of folio columns"@en, "Valeurs spéciales de colonnes de folio"@fr ;
-    rdfs:comment "Valeurs spéciales de colonnes de folio (ex: cellule vide, 'Construction nouvelle', 'Evaluation', 'Diminution'...)".
-
-cad:DeprecatedNumFolio a owl:Class;
-    rdfs:subClassOf cad:NumFolio;
-    rdfs:label "Numéro de folio obsolète"@fr, "Deprecated folio number"@en ;
-    skos:prefLabel "Deprecated folio number"@en, "Numéro de folio obsolète"@fr ;
-    skos:altLabel "Numéro d'article obsolète"@fr, "Numéro de case obsolète"@fr;
-    rdfs:comment "Numéro de folio déprécié par un autre (généralement rayé)".
+cad:SpecialCellValue a owl:Class;
+    skos:prefLabel "Special cell value"@en, "Valeur spéciale"@fr ;
+    rdfs:label "Valeur spéciale liée au fonctionnement des documents cadastraux"@fr, "Special value related to the operation of cadastral documents"@en ;
+    rdfs:comment "Valeur spéciale liée au fonctionnement des documents cadastraux, par exemple les mentions de construction, destruction dans les colonnes réservées aux numéros de folio."@fr.
 
 cad:PropertyAccount a owl:Class;
     rdfs:label "Property account"@en, "Compte foncier"@fr ;
@@ -147,7 +135,6 @@ cad:MLClasse a owl:Class ;
     rdfs:label "Classe d'un document"@fr, "Classe of document"@en.
 
 # ---- Imported classes ----
-
 skos:Concept a owl:Class .
 
 skos:ConceptScheme a owl:Class .
@@ -263,12 +250,6 @@ cad:hasOwnerAttribute a owl:ObjectProperty ;
                                "has owner attribute"@en;
                     rdfs:comment "Attribut de propriétaire.".
 
-cad:hasNumFolio a owl:ObjectProperty ;
-    rdfs:range cad:Folio;
-    rdfs:label "numéro de folio"@fr,
-               "folio number"@en ;
-    rdfs:comment "Numéro de folio de l'état de parcelle considéré."@fr .
-
 cad:takenFrom a owl:ObjectProperty ;
     rdfs:label "Tiré de"@fr,
                "Taken from"@en ;
@@ -353,8 +334,9 @@ cad:hasClasseValue a owl:ObjectProperty ;
                     rdfs:label "a pour classe"@fr ,
                                "has classe value"@en .
 
-rico:hasCreationDate
-  a owl:ObjectProperty ;
+######### Imported properties
+
+rico:hasCreationDate a owl:ObjectProperty ;
   owl:inverseOf rico:isCreationDateOf ;
   rdfs:domain [
     a owl:Class ;
@@ -368,8 +350,7 @@ rico:hasCreationDate
   rdfs:label "has creation date"@en, "a pour date de création"@fr, "tiene como fecha de creación"@es ;
   rico:RiCCMCorrespondingComponent "RiC-R080i"@en .
 
-rico:isCreationDateOf
-  a owl:ObjectProperty ;
+rico:isCreationDateOf a owl:ObjectProperty ;
   owl:inverseOf rico:hasCreationDate ;
   rdfs:range [
     a owl:Class ;
@@ -384,8 +365,6 @@ rico:isCreationDateOf
   rdfs:label "is creation date of"@en, "est la date de création de"@fr, "es fecha de creación de"@es ;
   rico:RiCCMCorrespondingComponent """RiC-R080 ('is creation date of'
          relation)"""@en .
-
-######### Imported properties
 
 rico:includesOrIncluded a owl:ObjectProperty ;
 	rdfs:subPropertyOf rico:hasOrHadPart, rico:isRecordResourceAssociatedWithRecordResource ;
@@ -421,7 +400,6 @@ rico:isOrWasIncludedIn
   rdfs:label "is or was included in"@en, "est ou a été inclus dans"@fr, "está o estaba incluido en"@es ;
   rico:RiCCMCorrespondingComponent """RiC-R024i ('is or was included in'
          relation)"""@en .
-
 
 rico:hasOrHadComponent a owl:ObjectProperty ;
 	rdfs:subPropertyOf rico:hasOrHadPart, rico:isInstantiationAssociatedWithInstantiation ;
@@ -542,6 +520,18 @@ cad:address a owl:ObjectProperty;
 	rdfs:comment "Propriété qui relie un propriétaire à son adresse. Ex: à Paris."@fr ,
               "A property that links an owner to its address. E.g.: in Paris."@en .
 
+cad:hasNumFolio a owl:DatatypeProperty ;
+    rdfs:domain cad:Folio;
+    rdfs:range xsd:string ;
+    rdfs:label "a pour numéro de folio"@fr,
+               "has folio number"@en .
+
+cad:hasDeprecatedNumFolio a owl:DatatypeProperty ;
+    rdfs:domain cad:Folio;
+    rdfs:range xsd:string ;
+    rdfs:label "a pour ancien numéro de folio"@fr,
+               "has former folio number"@en .
+
 ## http://data.ign.fr/def/cadastre#transcription
 cad:transcription a owl:DatatypeProperty ;
   rdfs:range rdfs:Literal ;
@@ -599,14 +589,14 @@ rico:name a owl:DatatypeProperty ;
 #######################  Processus 
 <http://data.ign.fr/id/codes/cadastre/activity/0001> a prov:Activity;
    rdfs:comment "Classification de pages de registre numérisées";
-   prov:atTime "2023-11-15"^^xsd:dateTime;
+   prov:atTime "2023-11-15"^^xsd:dateTimeStamp;
    prov:wasAssociatedWith [ a prov:SoftwareAgent;
     rdfs:label "Classifieur"
    ].
 
 <http://data.ign.fr/id/codes/cadastre/activity/0002> a prov:Activity;
    rdfs:comment "Détection et transcription de zones dans un document numérisé";
-   prov:atTime "2023-11-15"^^xsd:dateTime;
+   prov:atTime "2023-11-15"^^xsd:dateTimeStamp;
    prov:wasAssociatedWith [ a prov:SoftwareAgent;
     rdfs:label "DAN"
    ].
@@ -625,13 +615,6 @@ cad:CadastreEventList  a owl:NamedIndividual ,
                         rdfs:comment "Liste des différents événements spécifique au cadastre, représentés comme une liste de concepts SKOS."@fr ;
                         rdfs:label "Type d'événement"@fr ,
                                     "Type of event"@en .
-
-###  http://data.ign.fr/def/cadastrenap#MLClasseList
-cad:CadastreSpecialValues a owl:NamedIndividual ,
-                  skos:ConceptScheme ;
-                  rdfs:comment "Liste des différentes valeurs, différentes d'un numéro de folio, qui peuvent être inscrite dans les documents, représentés comme une liste de concepts SKOS."@fr ;
-                  rdfs:label "Liste des valeurs spéciales"@fr ,
-                             "List of special values"@en .
 
 ###  http://data.ign.fr/def/cadastre#LandmarkList
 cad:CadastreLandmarkList a owl:NamedIndividual ,
@@ -661,7 +644,12 @@ cad:MLClasseList a owl:NamedIndividual ,
                   rdfs:label "Liste de classes"@fr ,
                              "List of classes"@en .
 
-
+###  http://data.ign.fr/def/cadastrenap#CadastreSpecialCellValues
+cad:CadastreSpecialCellValues a owl:NamedIndividual ,
+                  skos:ConceptScheme ;
+                  rdfs:comment "Liste des différentes valeurs, différentes d'un numéro de folio, qui peuvent être inscrites dans les documents, représentées comme une liste de concepts SKOS."@fr ;
+                  rdfs:label "Liste des valeurs spéciales"@fr ,
+                             "List of special values"@en .
 
 #################################################################
 #    SKOS Concepts
@@ -786,7 +774,6 @@ cad_atype:OwnerAttribute a add:AttributeType,
     skos:inScheme cad:CadastreAttributeList ;
     skos:prefLabel "Owner attribute"@en,
         "Attribut de personne"@fr .
-
 
 ####################### Event types list (cad_etype)
 
@@ -1174,7 +1161,7 @@ pnature:ObjetDAgrement a cad:Nature,
         owl:NamedIndividual,
         skos:Concept ;
     skos:inScheme cad:NatureList ;
-    skos:prefLabel "NaN"^^xsd:double .
+    skos:prefLabel "Objet d'agrément"^^xsd:string .
 
 pnature:ProprieteBatie a cad:Nature,
         owl:NamedIndividual,
@@ -1212,7 +1199,7 @@ srctype:EtatsDeSections_Av_1822_Bati a cad:SourceType,
     skos:broader srctype:EtatsDeSections_Av_1822 ;
     skos:definition "Partie d'un registre d'états de sections créé avant 1822 dédié à la description des propriétés bâties."@fr ;
     skos:inScheme cad:SourceList ;
-    skos:prefLabel "NaN"^^xsd:double .
+    skos:prefLabel "Etats de sections des propriétés bâties créé avant 1822"^^xsd:string .
 
 srctype:EtatsDeSections_Av_1822_NonBati a cad:SourceType,
         owl:NamedIndividual,
@@ -1220,7 +1207,7 @@ srctype:EtatsDeSections_Av_1822_NonBati a cad:SourceType,
     skos:broader srctype:EtatsDeSections_Av_1822 ;
     skos:definition "Partie d'un registre d'états de sections créé avant 1822 dédié à la description des propriétés non bâties."@fr ;
     skos:inScheme cad:SourceList ;
-    skos:prefLabel "NaN"^^xsd:double .
+    skos:prefLabel "Etats de sections créé avant 1822"^^xsd:string .
 
 srctype:EtatsDeSections_Scp_Seine_1835 a cad:SourceType,
         owl:NamedIndividual,
