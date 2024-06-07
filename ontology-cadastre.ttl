@@ -15,6 +15,8 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
 @prefix fpo: <https://github.com/johnBradley501/FPO/raw/master/fpo.owl#>.
+@prefix pwikidata: <https://www.wikidata.org/wiki/Property:> .
+@prefix igeo:    <http://rdf.insee.fr/def/geo#> .
 
 # Import core ontology
 @prefix add: <http://rdf.geohistoricaldata.org/def/address#> .
@@ -33,6 +35,7 @@ add:  owl:imports  <file:///D:/Documents/ONTOLOGY/ontology-adresse.ttl> .
 @prefix cad_atype: <http://data.ign.fr/id/codes/cadastre/attributeType/> .
 @prefix cad_ltype: <http://data.ign.fr/id/codes/cadastre/landmarkType/> .
 @prefix cad_etype: <http://data.ign.fr/id/codes/cadastre/eventType/> .
+@prefix cad_spval: <http://data.ign.fr/id/codes/cadastrenap/specialCellValue/>.
 @prefix pnature: <http://data.ign.fr/id/codes/cadastre/plotNature/> .
 @prefix srctype: <http://data.ign.fr/id/codes/cadastre/sourceType/>.
 @prefix mlclasse: <http://data.ign.fr/id/codes/cadastre/mlClasse/>.
@@ -110,6 +113,7 @@ cad:Taxpayer a owl:Class;
     rdfs:comment "Propriétaire ou usufruitier : personne redevable de l'impôt foncier pour les terres dont elle a la pleine propriété ou l'usufruit."@fr .
 
 cad:TaxpayerAttribute a owl:Class ;
+    owl:subClassOf add:Attribute ;
     rdfs:label "Attribut de propriétaire"@fr .
 
 cad:TaxpayerAttributeType a owl:Class ;
@@ -121,7 +125,7 @@ cad:TaxpayerAttributeVersion a owl:Class ;
                "Version de l'attribut de contribuable"@fr .
 
 #relative to sources
-cad:SourceType a owl:Class ;
+cad:Source a owl:Class ;
     rdfs:subClassOf skos:Concept ;
     rdfs:label "Type de source"@fr, "Type of source"@en.
 
@@ -130,10 +134,6 @@ cad:MLClasse a owl:Class ;
     rdfs:label "Classe d'un document"@fr, "Classe of document"@en.
 
 #relative to cadastre use
-cad:PropertyAccount a owl:Class;
-    rdfs:label "Property account"@en, "Compte foncier"@fr ;
-    skos:prefLabel "Property account"@en, "Compte foncier"@fr;
-    rdfs:comment "Liste des parcelles appartenant à un propriétaires.".
 
 cad:SpecialCellValue a owl:Class;
     rdfs:subClassOf skos:Concept ;
@@ -196,6 +196,20 @@ prov:SoftwareAgent a owl:Class ;
 #    Objectype properties
 #################################################################
 
+cad:hasCadastreAttribute a owl:ObjectProperty ;
+              owl:inverseOf :isAttributeOf ;
+              rdfs:domain :Thing ;
+              rdfs:range :Attribute ;
+              rdfs:comment "Décrit l'attribut pour une ressource du cadastre à l'exception des landmarks (voir add:hasAttribute)"@fr ;
+              rdfs:label "a pour attribut"@fr .
+
+cad:isCadastreAttributeOf a owl:ObjectProperty ;
+              owl:inverseOf :hasCadastreAttribute ;
+              rdfs:domain :Attribute ;
+              rdfs:range :Thing ;
+              rdfs:comment "Définit la ressource du cadastre pour laquelle l'attribut existe"@fr ;
+              rdfs:label "est un attribut de"@fr .
+
 #relative to landmarks
 cad:hasPlotNature a owl:ObjectProperty ;
     rdfs:domain add:AttributeVersion ;
@@ -230,7 +244,7 @@ cad:hasPlotAddress a owl:ObjectProperty ;
     rdfs:range add:Address ;
     rdfs:label "a pour adresse"@fr ,
                "has address"@en ;
-    owl:inverseOf add:isPlotAddressOf.
+    owl:inverseOf cad:isPlotAddressOf.
 
 cad:isPlotAddressOf a owl:ObjectProperty ;
     rdfs:domain add:Address ;
@@ -279,15 +293,6 @@ cad:isTaxpayerAttributeVersionOf a owl:ObjectProperty ;
     rdfs:label "est une version de l'attribut"@fr .
 
 #relative to cadastre use
-cad:takenFrom a owl:ObjectProperty ;
-    rdfs:label "Tiré de"@fr,
-               "Taken from"@en ;
-    rdfs:comment "Numéro du folio où est décrit l'état de parcelle précédent ou l'événement qui initialise l'état considéré."@fr .
-
-cad:passedTo a owl:ObjectProperty;
-    rdfs:label "Passé à"@fr,
-            "Passed to"@en ;
-    rdfs:comment "Numéro du folio où est décrit l'état de parcelle suivant ou l'événement qui met fin à un état considéré."@fr .
 
 cad:hasAssociatedFolioInMatriceDesProprietesBaties a owl:ObjectypeProperty ;
     rdfs:label "a pour folio lié dans la matrice des propriétés bâties"@fr,
@@ -307,9 +312,10 @@ cad:hasLinkedFolioInNextMatrice a owl:ObjectProperty;
     rdfs:label "précède".
 
 #relative to sources
-cad:hasSourceType a owl:ObjectProperty ;
-                    rdfs:range cad:SourceType ;
-                    rdfs:comment "Décrit le type de source."@fr ;
+cad:isSourceType a owl:ObjectProperty ;
+                    rdfs:domain cad:RecordResource ;
+                    rdfs:range cad:Source ;
+                    rdfs:comment "Décrit le type de source (concept)."@fr ;
                     rdfs:label "est une source de type"@fr ,
                                "is source type"@en .
 
@@ -324,18 +330,46 @@ cad:hasClasseValue a owl:ObjectProperty ;
                                "has classe value"@en .
 
 cad:mentions a owl:ObjectProperty;
+    rdfs:domain rico:RecordResource;
     rdfs:comment "Une source mentionne un objet."@fr;
     rdfs:label "mentionne";
     owl:inverseOf cad:isMentionnedIn.
 
 cad:isMentionnedIn a owl:ObjectProperty;
+    rdfs:range rico:RecordResource;
     rdfs:comment "Un objet est mentionné dans une source."@fr;
     rdfs:label "est mentionné dans";
     owl:inverseOf cad:mentions.
 
-cad:fromSource a owl:ObjectProperty .
+cad:takenFrom a owl:ObjectProperty ;
+    rdfs:range [ rdf:type owl:Class ;
+            owl:unionOf ( rico:RecordResource
+                          cad:SpecialCellValue
+                        )
+            ] ;
+    rdfs:label "tiré de"@fr,
+               "taken from"@en ;
+    rdfs:comment "Numéro du folio où est décrit l'état de parcelle précédent ou l'événement qui initialise l'état considéré."@fr .
 
-cad:isSourceFor a owl:ObjectProperty .
+cad:passedTo a owl:ObjectProperty;
+    rdfs:range [ rdf:type owl:Class ;
+        owl:unionOf ( rico:RecordResource
+                        cad:SpecialCellValue
+                    )
+        ] ;
+    rdfs:label "passé à"@fr,
+            "passed to"@en ;
+    rdfs:comment "Numéro du folio où est décrit l'état de parcelle suivant ou l'événement qui met fin à un état considéré."@fr .
+
+cad:fromSource a owl:ObjectProperty ;
+    rdfs:comment "Un élément est affirmé dans une source."@fr ;
+    rdfs:label "affirmé dans"@fr ;
+    owl:inverseOf cad:isSourceFor.
+
+cad:isSourceFor a owl:ObjectProperty ;
+    rdfs:comment "Une source affirme un élément."@fr ;
+    rdfs:label "est source pour"@fr ;
+    owl:inverseOf cad:fromSource.
 
 # --------- Imported properties ---------
 rico:hasCreationDate a owl:ObjectProperty ;
@@ -587,13 +621,64 @@ cad:hasNumFolio a owl:DatatypeProperty ;
     rdfs:label "a pour numéro de folio"@fr,
                "has folio number"@en .
 
-cad:hasDeprecatedNumFolio a owl:DatatypeProperty ;
+cad:hasAlternativeNumFolio a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:label "a pour ancien numéro de folio"@fr,
                "has former folio number"@en .
 
+#relative to sources
+
+cad:transcription a owl:DatatypeProperty ;
+  rdfs:range rdfs:Literal ;
+  rdfs:label "transcription"@en, "transcription"@fr;
+  rdfs:comment "Transcription d'une zone obtenue automatiquement ou manuellement à partir d'un document numérisé.".
+
+cad:coordinatesInImageSystem a owl:DatatypeProperty ;
+  rdfs:range rdfs:Literal ;
+  rdfs:label "coordinates in image"@en, "coordonnées dans l'image"@fr;
+  rdfs:comment "Coordonnées (référentiel image) d'une zone annotée (manuellement ou automatiquement) dans un document numérisé.".
+
+cad:lineOrderInArea a owl:DatatypeProperty ;
+    rdfs:range xsd:integer ;
+    rdfs:label "line order in area"@en, "ordre de ligne dans la zone"@fr;
+    rdfs:comment "Ordre de la ligne dans la zone annotée (manuellement ou automatiquement) dans un document numérisé.".
+
+cad:URL a owl:DatatypeProperty ;
+  rdfs:range rdfs:Literal ;
+  rdfs:label "url de la source"@fr, "source URL"@en;
+  rdfs:comment 'Correspond à l\'URL de la source (image, base de donnée)'.
+
 # ---- Imported properties ----
 rdfs:label a owl:DatatypeProperty.
+
+pwikidata:P8422 a owl:DatatypeProperty;
+    rdfs:label "identifiant Ldh/EHESS/Cassini"@fr.
+
+igeo:codeINSEE
+      a owl:DatatypeProperty ;
+      rdfs:label "code Insee"@fr ;
+      rdfs:comment "Code donné par l'Insee au territoire"@fr ;
+      rdfs:isDefinedBy <http://rdf.insee.fr/def/geo>.
+
+rico:identifier a owl:DatatypeProperty ;
+  rdfs:domain rico:Thing ;
+  rdfs:range rdfs:Literal ;
+  rdfs:comment """A word, number, letter, symbol, or any combination of these used
+         to uniquely identify or reference an individual instance of an entity within a specific
+         information domain. Can include Global Persistent Identifiers (globally unique and
+         persistently resolvable identifier for the entity) and/or Local Identifiers. Both the
+         domain within which the identifier is unique, and the rules used in forming the identifier
+         value should be provided with the identifier value."""@en ;
+  rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
+  rdfs:label "identifier"@en, "identifiant"@fr, "identificador"@es.
+
+rico:name a owl:DatatypeProperty ;
+  rdfs:domain rico:Thing ;
+  rdfs:range rdfs:Literal ;
+  rdfs:comment """A label, title or term designating an entity in order to make it
+         distinguishable from other similar entities."""@en ;
+  rdfs:isDefinedBy <https://www.ica.org/standards/RiC/ontology> ;
+  rdfs:label "name"@en, "nom"@fr, "nombre"@es .
 
 #################################################################
 #    Named Individuals
@@ -605,17 +690,46 @@ cad:CadastreAttributeList a owl:NamedIndividual,
     rdfs:comment "Liste des différents rôles spécifique au cadastre pouvant être joués par un attribut, représentés comme une liste de concepts SKOS."@fr ;
     rdfs:label "Type d'attributs spécifiques aux objets du cadastre"@fr .
 
+cad:TaxepayerAttributeList a owl:NamedIndividual,
+    skos:ConceptScheme ;
+    rdfs:comment "Liste des différents attributs pouvant être associés à un contribuable, représentés comme une liste de concepts SKOS."@fr ;
+    rdfs:label "Type d'attributs de contribuable"@fr .
+
 cad:CadastreLandmarkList a owl:NamedIndividual ,
     skos:ConceptScheme ;
     rdfs:comment "Liste des différents rôles pouvant être joués par un repère spécifique au cadastre, représentés comme une liste de concepts SKOS."@fr ;
-    rdfs:label "Type de repère"@fr ,
-                "Type of landmark"@en .
+    rdfs:label "Type de repère spécifiques au cadastre"@fr ,
+                "Type of cadastre landmark"@en .
+
+cad:CadastreEventList a owl:NamedIndividual,
+    skos:ConceptScheme ;
+    rdfs:comment "Liste des types d'évènements pouvant intervenir, représentés comme une liste de concepts SKOS."@fr ;
+    rdfs:label "Type d'événements spécifiques au cadastre"@fr ,
+               "Type of cadastre events"@en .
 
 cad:NatureList a owl:NamedIndividual ,
     skos:ConceptScheme ;
     rdfs:comment "Liste des différentes natures de parcelles, représentés comme une liste de concepts SKOS."@fr ;
     rdfs:label "Type de natures de parcelles"@fr ,
                "Type of plot natures"@en .
+
+cad:MLClassesList a owl:NamedIndividual ,
+                  skos:ConceptScheme ;
+                  rdfs:comment "Liste des différentes classes pouvant être attribuées à un document ou à une zone dans un document, représentés comme une liste de concepts SKOS."@fr ;
+                  rdfs:label "Liste de classes"@fr ,
+                             "List of classes"@en .
+
+cad:CadastreSourceList a owl:NamedIndividual ,
+    skos:ConceptScheme ;
+    rdfs:comment "Liste des différentes sources de données, représentées comme une liste de concepts SKOS."@fr ;
+    rdfs:label "Type de sources"@fr ,
+               "Type of sources"@en .
+
+cad:SpecialCellValuesList a owl:NamedIndividual ,
+    skos:ConceptScheme ;
+    rdfs:comment "Liste des différentes valeurs spéciales liées au fonctionnement des documents cadastraux, représentés comme une liste de concepts SKOS."@fr ;
+    rdfs:label "Type de valeurs spéciales"@fr ,
+               "Type of special values"@en .
 
 #######################  Processus 
 <http://data.ign.fr/id/codes/cadastre/activity/0001> a prov:Activity;
@@ -674,83 +788,71 @@ cad_atype:PlotAddress a add:AttributeType,
     skos:prefLabel "Plot address"@en,
         "Adresse de la parcelle"@fr .
 
-cad_atype:OwnerAttribute a add:AttributeType,
+cad_atype:TaxpayerFullLabel a cad:TaxpayerAttributeType,
         owl:NamedIndividual,
         skos:Concept ;
-    skos:definition "Attribut de personne (propriétaire ou usufruitier)"@fr ;
-    skos:inScheme cad:CadastreAttributeList ;
-    skos:prefLabel "Owner attribute"@en,
-        "Attribut de personne"@fr .
-
-cad_atype:OwnerFullLabel a add:AttributeType,
-        owl:NamedIndividual,
-        skos:Concept ;
-    skos:broader cad_atype:OwnerAttribute ;
     skos:definition "Identité complète (nom-prénoms attachés, raison sociale) d'une personne"@fr ;
-    skos:inScheme cad:CadastreAttributeList ;
+    skos:inScheme cad:TaxepayerAttributeList ;
     skos:prefLabel "Full identity"@en,
         "Identité complète"@fr .
 
-cad_atype:OwnerActivity a add:AttributeType,
+cad_atype:TaxpayerActivity a cad:TaxpayerAttributeType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:altLabel "Profession"@fr ;
-    skos:broader cad_atype:OwnerAttribute ;
     skos:definition "Profession ou activité d'une personne"@fr ;
-    skos:inScheme cad:CadastreAttributeList ;
+    skos:inScheme cad:TaxepayerAttributeList ;
     skos:prefLabel "Activity"@en,
         "Activité"@fr .
 
-cad_atype:OwnerAddress a add:AttributeType,
+cad_atype:TaxpayerAddress a cad:TaxpayerAttributeType,
         owl:NamedIndividual,
         skos:Concept ;
-    skos:broader cad_atype:OwnerAttribute ;
     skos:definition "Adresse d'une personne"@fr ;
-    skos:inScheme cad:CadastreAttributeList ;
+    skos:inScheme cad:TaxepayerAttributeList ;
     skos:prefLabel "Address"@en,
         "Adresse du propriétaire"@fr .
 
-cad_atype:OwnerFirstName a add:AttributeType,
+cad_atype:TaxpayerFirstName a cad:TaxpayerAttributeType,
         owl:NamedIndividual,
         skos:Concept ;
-    skos:broader cad_atype:OwnerFullLabel ;
+    skos:broader cad_atype:TaxpayerFullLabel ;
     skos:definition "Prénom(s) d'une personne"@fr ;
-    skos:inScheme cad:CadastreAttributeList ;
+    skos:inScheme cad:TaxepayerAttributeList ;
     skos:prefLabel "First name"@en,
         "Prénom"@fr .
 
-cad_atype:OwnerName a add:AttributeType,
+cad_atype:TaxpayerName a cad:TaxpayerAttributeType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:altLabel "Nom de famille,Raison sociale,Expression référentielle"@fr ;
-    skos:broader cad_atype:OwnerFullLabel ;
+    skos:broader cad_atype:TaxpayerFullLabel ;
     skos:definition "Nom de famille d'une personne"@fr ;
-    skos:inScheme cad:CadastreAttributeList ;
+    skos:inScheme cad:TaxepayerAttributeList ;
     skos:prefLabel "Last name"@en,
         "Nom"@fr .
 
-cad_atype:OwnerStatus a add:AttributeType,
+cad_atype:TaxpayerStatus a cad:TaxpayerAttributeType,
         owl:NamedIndividual,
         skos:Concept ;
-    skos:broader cad_atype:OwnerFullLabel ;
+    skos:broader cad_atype:TaxpayerFullLabel ;
     skos:definition "Statut familial d'une personne (Demoiselle, Veuve, Père, Fils, Fille, Mineur)"@fr ;
-    skos:inScheme cad:CadastreAttributeList ;
+    skos:inScheme cad:TaxepayerAttributeList ;
     skos:prefLabel "Status"@en,
         "Statut familial"@fr .
 
-cad_atype:OwnerTitle a add:AttributeType,
+cad_atype:TaxpayerTitle a cad:TaxpayerAttributeType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:altLabel "Civilité"@fr ;
-    skos:broader cad_atype:OwnerFullLabel ;
+    skos:broader cad_atype:TaxpayerFullLabel ;
     skos:definition "Civilité (Monsieur, Madame, Mademoiselle)"@fr ;
-    skos:inScheme cad:CadastreAttributeList ;
+    skos:inScheme cad:TaxepayerAttributeList ;
     skos:prefLabel "Title"@en,
         "Titre de civilité"@fr .
 
 ########## CadastreLandmarkList
 
-###  http://data.ign.fr/id/codes/cadastre/landmarkType/Arrondissement
 cad_ltype:Arrondissement a owl:NamedIndividual ,
                     add:LandmarkType ,
                     skos:Concept ;
@@ -762,7 +864,6 @@ cad_ltype:Arrondissement a owl:NamedIndividual ,
            skos:prefLabel "Arrondissement"@en ,
                           "Arrondissement"@fr .
 
-###  http://data.ign.fr/id/codes/cadastre/landmarkType/Canton 
 cad_ltype:Canton a owl:NamedIndividual ,
                     add:LandmarkType ,
                     skos:Concept ;
@@ -774,7 +875,6 @@ cad_ltype:Canton a owl:NamedIndividual ,
            skos:prefLabel "Canton"@en ,
                           "Canton"@fr .
 
-###  http://data.ign.fr/id/codes/cadastre/landmarkType/Departement
 cad_ltype:Departement a owl:NamedIndividual ,
                        add:LandmarkType ,
                        skos:Concept ;
@@ -785,7 +885,6 @@ cad_ltype:Departement a owl:NamedIndividual ,
                              "Département"@fr ;
               skos:altLabel "French departement"@en .
 
-###  http://data.ign.fr/id/codes/cadastre/landmarkType/Plot
 cad_ltype:Plot a owl:NamedIndividual ,
                             add:LandmarkType ,
                             skos:Concept ;
@@ -794,7 +893,6 @@ cad_ltype:Plot a owl:NamedIndividual ,
                    skos:prefLabel "Parcelle"@fr ,
                                   "Plot"@en .
 
-###  http://data.ign.fr/id/codes/cadastre/landmarkType/Section
 cad_ltype:Section a owl:NamedIndividual ,
                             add:LandmarkType ,
                             skos:Concept ;
@@ -1146,216 +1244,423 @@ pnature:ProprieteNonBatie a cad:Nature,
 
 ########## EventList
 
+cad_etype:Addition a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader cad_etype:BuiltPlotEvent ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Augmentation"@fr .
+
+cad_etype:CadastreCreation a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader cad_etype:CadastreAdminEvent ;
+    skos:definition "Création d'un cadastre (= une numérotation)"@fr ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Initialisation d'un cadastre"@fr .
+
+cad_etype:CadastreOutdated a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader cad_etype:CadastreAdminEvent ;
+    skos:definition "Archivage d'un cadastre"@fr ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Cadastre archivé"@fr .
+
+cad_etype:ChangeWithoutConstruction a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader cad_etype:PlotNatureEvent ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Evolution de nature n'impliquant pas de bâtiment"@fr .
+
+cad_etype:ConsideredAsRuined a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader cad_etype:BuiltPlotEvent ;
+    skos:hiddenLabel "En ruines",
+        "Ruines" ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Considéré comme en ruines"@fr .
+
+cad_etype:Construction a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader cad_etype:PlotNatureChange ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Construction d'un bâtiment"@fr .
+
+cad_etype:Demotion a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader cad_etype:PlotNatureChange ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Démolition d'un bâtiment"@fr .
+
+cad_etype:Division a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader cad_etype:LandmarkEvent ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Division d'un objet"@fr .
+
+cad_etype:DivisionWithStay a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader cad_etype:CadastralEvent ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Subdivision d'une parcelle qui reste dans le compte foncier initial"@fr .
+
+cad_etype:DocumentCreation a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader cad_etype:CadastreAdminEvent ;
+    skos:definition "Ouverture d'une matrice"@fr ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Création d'un document"@fr .
+
+cad_etype:DocumentOutdated a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader cad_etype:CadastreAdminEvent ;
+    skos:definition "ex: Clôture d'une matrice"@fr ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Archivage d'un document"@fr .
+
+cad_etype:EventMentionnedinFoliosColumns a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Evènement mentionné explicitement dans les colonnes 'Tiré de' et 'Porté à' des matrices cadastrales"@fr ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Evènement mentionné dans les colonnes dédiées aux folios"@fr .
+
+cad_etype:Merge a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader cad_etype:LandmarkEvent ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Fusion d'objets entiers"@fr .
+
+cad_etype:Omission a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader cad_etype:CadastreAdminEvent ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Omission de déclaration qui entraine une réintégration a posteriori de l'article de classement dans un folio"@fr .
+
+cad_etype:PartialMerge a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader cad_etype:LandmarkEvent ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Fusion impliquant la fusion d'objets entiers ou subdivisés"@fr .
+
+cad_etype:Reduction a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader cad_etype:BuiltPlotEvent ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Diminution"@fr .
+
+cad_etype:Sale a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader cad_etype:TaxpayerEvent ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Vente"@fr .
+
+cad_etype:Sucession a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader cad_etype:TaxpayerEvent ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Sucession"@fr .
+
+cad_etype:PlotNatureEvent a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Evènement impliquant la nature de la parcelle ou les objets qu'elle contient"@fr ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Evènement impliquant la nature d'une parcelle"@fr .
+
+cad_etype:TaxpayerEvent a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Mutation de propriétaire"@fr .
+
+cad_etype:BuiltPlotEvent a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader cad_etype:PlotNatureChange ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Evènement impliquant un bâtiment existant"@fr .
+
+cad_etype:LandmarkEvent a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Evènement impliquant un landmark (identité)"@fr .
+
+cad_etype:CadastreAdminEvent a add:Event,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:inScheme cad:CadastreEventList ;
+    skos:prefLabel "Evènement concernant le cadastre et ses documents"@fr .
+
 ########## SourceList
 
+srctype:ArticleDeClassement a cad:Source,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:altLabel "Numéro d'article"@fr ;
+    skos:broader srctype:ZoneDePage ;
+    skos:definition "Ligne de tableau de matrice qui décrit un état de parcelle"@fr ;
+    skos:inScheme cad:CadastreSourceList ;
+    skos:prefLabel "Ligne de matrice décrivant un état de parcelle"@fr .
 
-srctype:CompteFoncier a cad:SourceType,
+srctype:ArticleDeMutation a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader srctype:ZoneDePage ;
-    skos:definition "Ensemble de lignes et de cellules qui décrivent les parcelles d'un ou plusieurs propriétaires conjoints ou sucessifs"@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:definition "Zone ou cellule d'un folio ou sous-folio qui liste les propriétaires d'un ensemble de parcelles et indique leurs dates de mutations*"@fr ;
+    skos:inScheme cad:CadastreSourceList ;
+    skos:prefLabel "NaN"^^xsd:double .
+
+srctype:CompteFoncier a cad:Source,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader srctype:MatriceCadastrale ;
+    skos:definition "Ensemble de lignes et de cellules qui décrivent les parcelles d'un ou plusieurs propriétaires conjoints ou sucessifs. Peut correspondre à un ou plusieurs comptes fonciers"@fr ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Zone située dans une page de matrice correspondant à un compte foncier"@fr .
 
-srctype:EtatsDeSections_Ap_1822 a cad:SourceType,
+srctype:EtatsDeSections_Ap_1822 a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader srctype:EtatsDeSections ;
     skos:definition "Registre d'états de sections créé après 1822."@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Etats de sections postérieurs à 1822"@fr .
 
-srctype:EtatsDeSections_Av_1822_Bati a cad:SourceType,
+srctype:EtatsDeSections_Av_1822_Bati a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader srctype:EtatsDeSections_Av_1822 ;
     skos:definition "Partie d'un registre d'états de sections créé avant 1822 dédié à la description des propriétés bâties."@fr ;
-    skos:inScheme cad:SourceList ;
-    skos:prefLabel "Etats de sections des propriétés bâties créé avant 1822"^^xsd:string .
+    skos:inScheme cad:CadastreSourceList ;
+    skos:prefLabel "NaN"^^xsd:double .
 
-srctype:EtatsDeSections_Av_1822_NonBati a cad:SourceType,
+srctype:EtatsDeSections_Av_1822_NonBati a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader srctype:EtatsDeSections_Av_1822 ;
     skos:definition "Partie d'un registre d'états de sections créé avant 1822 dédié à la description des propriétés non bâties."@fr ;
-    skos:inScheme cad:SourceList ;
-    skos:prefLabel "Etats de sections créé avant 1822"^^xsd:string .
+    skos:inScheme cad:CadastreSourceList ;
+    skos:prefLabel "NaN"^^xsd:double .
 
-srctype:EtatsDeSections_Scp_Seine_1835 a cad:SourceType,
+srctype:EtatsDeSections_Scp_Seine_1835 a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader srctype:EtatsDeSections ;
     skos:definition "Registre d'états de sections spécifique à la tentative de rénovation du cadastre ayant eu lieu entre 1835 et 1845 dans le département de la Seine. "@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Etats de sections spécifiques à la rénovation du cadastre de la Seine (1835-1845)"@fr .
 
-srctype:FicheInventaire a cad:SourceType,
+srctype:FicheInventaire a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:altLabel "Inventaire"@fr ;
     skos:definition "Fiches d'inventaire décrivant le contenu des archives localisées dans un service d'archives."@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Archival Records Inventory"@en,
         "Inventaire des archives"@fr .
 
-srctype:LigneEtatDeSection a cad:SourceType,
+srctype:LigneEtatDeSection a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader srctype:ZoneDePage ;
     skos:definition "Ligne du tableau principal d'un registre d'état de sections décrivant une parcelle à l'initialisation du cadastre"@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Ligne de tableau d'états de sections"@fr .
 
-srctype:MatriceCadastrale1807_1822_Bati_NonBati a cad:SourceType,
+srctype:MatriceCadastrale1807_1822_Bati_NonBati a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:altLabel "Matrice des propriétés bâties et non bâties (1807-1822)"@fr ;
     skos:broader srctype:MatriceCadastrale ;
     skos:definition "Matrice cadastrale créée entre 1807 et 1822, décrit les propriétés bâties et non bâties d'une commune."@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Matrice de rôles des propriétés bâties et non bâties (1807-1822)"@fr .
 
-srctype:MatriceCadastrale1822_1914_NonBati a cad:SourceType,
+srctype:MatriceCadastrale1822_1914_NonBati a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:altLabel "Matrice des propriétés foncières (1822-1914)"@fr ;
     skos:broader srctype:MatriceCadastrale ;
     skos:definition "Matrice cadastrale créée entre 1822 et 1914, décrit les propriétés bâties et non bâties jusqu'à 1882 puis uniquement les propriétés non bâties jusqu'à 1914."@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Matrice des propriétés non bâties (1822-1914)"@fr .
 
-srctype:MatriceCadastrale1882_1911_Bati a cad:SourceType,
+srctype:MatriceCadastrale1882_1911_Bati a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader srctype:MatriceCadastrale ;
     skos:definition "Matrice cadastrale utilisée à partir de 1882 pour décrire les propriétés bâties."@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Matrice des propriétés bâties (1882-1911)"@fr .
 
-srctype:MatriceCadastrale1911_Renovation_Bati a cad:SourceType,
+srctype:MatriceCadastrale1911_Renovation_Bati a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader srctype:MatriceCadastrale ;
     skos:definition "Matrice cadastrale utilisée à partir de 1911 pour décrire les propriétés bâties."@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Matrice des propriétés bâties (1911-rénovation)"@fr .
 
-srctype:MatriceCadastrale1914_Renovation_NonBati a cad:SourceType,
+srctype:MatriceCadastrale1914_Renovation_NonBati a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader srctype:MatriceCadastrale ;
     skos:definition "Matrice cadastrale utilisée à partir de 1914 pour décrire les propriétés non bâties"@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Mutation register of unbuilt properties (1914-cadaster renovation)"@en,
         "Matrice des propriétés non bâties (1914-rénovation)"@fr .
 
-srctype:Ouvrage a cad:SourceType,
+srctype:Ouvrage a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:definition "Ouvrage (livre, article)"@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Ouvrage"@fr .
 
-srctype:PlanParcellaireIssuDAtlas a cad:SourceType,
+srctype:PlanParcellaireIssuDAtlas a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader srctype:PlanParcellaireFinal ;
     skos:definition "Version finale d'un plan parcellaire extraire d'un atlas communal ou cantonal"@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Cadastral index map : final version extract from atlas"@en,
         "Plan parcellaire issu d'atlas"@fr .
 
-srctype:PlanParcellaireMinute a cad:SourceType,
+srctype:PlanParcellaireMinute a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader srctype:PlanParcellaire ;
     skos:definition "Version de travail du plan parcellaire, peut comprendre des traits de constructions, notes de travail ou une numérotation non définitive des parcelles."@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Cadastral index map : working version"@en,
         "Plan parcellaire : minute"@fr .
 
-srctype:TableauAssemblage a cad:SourceType,
+srctype:SousFolio a cad:Source,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader srctype:Folio ;
+    skos:definition "Sous ensemble d'un folio qui contient les informations d'un compte foncier."@fr ;
+    skos:inScheme cad:CadastreSourceList ;
+    skos:prefLabel "Subdivision de folio"@fr .
+
+srctype:TableauAssemblage a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader srctype:Plan ;
     skos:definition "Plan réalisé à l'échelle d'une commune représentant l'assemblage des plans parcellaires qui détaillent les parcelles de la commune."@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Assembly map of the cadastral index maps"@en,
         "Tableau d'assemblage"@fr .
 
-srctype:PageDeRegistre a cad:SourceType,
+srctype:Folio a cad:Source,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:altLabel "Article,Case"@fr ;
+    skos:broader srctype:ZoneDePage ;
+    skos:definition "Zone située dans une page de registre qui est caractérisée à un numéro (identifiant). Peut contenir des éléments d'un ou plusieurs comptes fonciers sous la forme de subdivisions du folios."@fr ;
+    skos:inScheme cad:CadastreSourceList ;
+    skos:prefLabel "Folio"@fr .
+
+srctype:PageDeRegistre a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader srctype:RegistreCadastral ;
     skos:definition "Page issue d'un registre"@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Page de registre cadastral"@fr .
 
-srctype:PlanParcellaireFinal a cad:SourceType,
+srctype:PlanParcellaireFinal a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader srctype:PlanParcellaire ;
     skos:definition "Version finale d'un plan parcellaire"@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Cadastral index map : final version"@en,
         "Plan parcellaire final"@fr .
 
-srctype:EtatsDeSections_Av_1822 a cad:SourceType,
+srctype:Cadastre a cad:Source,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:altLabel "Cadastre napoléonien"@fr ;
+    skos:definition "Cadastre complet caractérisé par une numérotation donnée"@fr ;
+    skos:inScheme cad:CadastreSourceList ;
+    skos:prefLabel "Cadastre"@fr .
+
+srctype:EtatsDeSections_Av_1822 a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader srctype:EtatsDeSections ;
     skos:definition "Registre d'états de sections créé avant 1822. Contient une partie dédiée à la description du sol (propriété non bâties) et une partie dédiée à la description des bâtiments (propriétés bâties)."@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Etats de sections antérieurs à 1822"@fr .
 
-srctype:Plan a cad:SourceType,
+srctype:Plan a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
+    skos:broader srctype:Cadastre ;
     skos:definition "Plan faisant partie de la documentation cadastrale"@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Map"@en,
         "Plan"@fr .
 
-srctype:PlanParcellaire a cad:SourceType,
+srctype:PlanParcellaire a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader srctype:Plan ;
     skos:definition "Plan représentant les parcellaires d'une portion d'une commune (section entière ou partie d'une section), réalisé à des échelles situées entre 1:1250 et 1:5000."@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Cadastral index map"@en,
         "Plan parcellaire"@fr .
 
-srctype:ZoneDePage a cad:SourceType,
-        owl:NamedIndividual,
-        skos:Concept ;
-    skos:broader srctype:PageDeRegistre ;
-    skos:definition "Zone située dans une page de registre"@fr ;
-    skos:inScheme cad:SourceList ;
-    skos:prefLabel "Zone située dans une page de registre cadastral"@fr .
-
-srctype:EtatsDeSections a cad:SourceType,
+srctype:EtatsDeSections a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader srctype:RegistreCadastral ;
     skos:definition "Registre d'état de sections décrivant le parcellaire d'une commune à une date donnée, proche de la réalisation d'un plan cadastral."@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Initial register"@en,
         "Etats de sections"@fr .
 
-srctype:RegistreCadastral a cad:SourceType,
+srctype:RegistreCadastral a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
+    skos:broader srctype:Cadastre ;
     skos:definition "Registre faisant partie de la documentation cadastrale"@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Register"@en,
         "Registre cadastral"@fr .
 
-srctype:MatriceCadastrale a cad:SourceType,
+srctype:ZoneDePage a cad:Source,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader srctype:PageDeRegistre ;
+    skos:definition "Zone située dans une page de registre"@fr ;
+    skos:inScheme cad:CadastreSourceList ;
+    skos:prefLabel "Zone située dans une page de registre cadastral"@fr .
+
+srctype:MatriceCadastrale a cad:Source,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader srctype:RegistreCadastral ;
     skos:definition "Registre contenant l'ensemble des mutations affectant les parcelles pendant la période de validité de la matrice"@fr ;
-    skos:inScheme cad:SourceList ;
+    skos:inScheme cad:CadastreSourceList ;
     skos:prefLabel "Mutation register"@en,
         "Matrice cadastrale"@fr .
 
@@ -1565,3 +1870,176 @@ mlclasse:PageClasses a cad:MLClasse,
 
 ########## SpecialValueList
 
+cad_spval:AdditionConstructionSV a cad:SpecialCellValue,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Addition à une contruction existente"@fr ;
+    skos:hiddenLabel " add C",
+        "add",
+        "addition" ;
+    skos:inScheme cad:SpecialCellValuesList ;
+    skos:prefLabel "Addition à une construction"@fr .
+
+cad_spval:AugmentationSV a cad:SpecialCellValue,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Modification d'un bâtiment qui entraine une augmentation du montant de l'impôt"@fr ;
+    skos:hiddenLabel "Augmentation",
+        "Augon",
+        "Augtion",
+        "Augton" ;
+    skos:inScheme cad:SpecialCellValuesList ;
+    skos:prefLabel "Augmentation"@fr .
+
+cad_spval:CelluleVide a cad:SpecialCellValue,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:altLabel "EMPTY"@fr ;
+    skos:definition "Cellule vide (sens différent de idem)"@fr ;
+    skos:inScheme cad:SpecialCellValuesList ;
+    skos:prefLabel "Cellule vide"@fr .
+
+cad_spval:ConstructionNouvelleSV a cad:SpecialCellValue,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Destruction d'un bâtiment qui est donc imposable au titre de propriété bâtie"@fr ;
+    skos:hiddenLabel " Cn nvelle",
+        " Con nvelle",
+        "CN",
+        "Conston nouvelle",
+        "Construction nouvelle",
+        "Nouvelle construction" ;
+    skos:inScheme cad:SpecialCellValuesList ;
+    skos:prefLabel "Construction nouvelle"@fr .
+
+cad_spval:DemolitionSV a cad:SpecialCellValue,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Destruction d'un bâtiment qui n'est donc plus imposable au titre de propriété bâtie"@fr ;
+    skos:hiddenLabel "Destruction",
+        "Démolie",
+        "Démolition",
+        "Détruite" ;
+    skos:inScheme cad:SpecialCellValuesList ;
+    skos:prefLabel "Démolition"@fr .
+
+cad_spval:DiminutionSV a cad:SpecialCellValue,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Modification d'un bâtiment qui entraine une diminution du montant de l'impôt"@fr ;
+    skos:hiddenLabel "Dim",
+        "Diminution",
+        "Dton" ;
+    skos:inScheme cad:SpecialCellValuesList ;
+    skos:prefLabel "Diminution"@fr .
+
+cad_spval:DoubleEmploiSV a cad:SpecialCellValue,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:hiddenLabel "Double emploi" ;
+    skos:inScheme cad:SpecialCellValuesList ;
+    skos:prefLabel "Double emploi"@fr .
+
+cad_spval:EvaluationSV a cad:SpecialCellValue,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Evaluation ou réévaluation fiscale d'une parcelle"@fr ;
+    skos:hiddenLabel "Eval",
+        "Evaluation" ;
+    skos:inScheme cad:SpecialCellValuesList ;
+    skos:prefLabel "Evaluation"@fr .
+
+cad_spval:IdemPrecedentSV a cad:SpecialCellValue,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader cad_spval:IdemSV ;
+    skos:definition "Valeur de cellule reprenant le contenu de la cellule précédente"@fr,
+        "Valeur de cellule reprenant le contenu de la cellule suivante"@fr ;
+    skos:hiddenLabel "\"",
+        "/",
+        "Id",
+        "Le même",
+        "Les mêmes",
+        "idem",
+        "§",
+        "Ø",
+        "☼" ;
+    skos:inScheme cad:SpecialCellValuesList ;
+    skos:prefLabel "Idem au précédent"@fr .
+
+cad_spval:InconnuSV a cad:SpecialCellValue,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Valeur de cellule dont le sens n'a pas été explicité"@fr ;
+    skos:inScheme cad:SpecialCellValuesList ;
+    skos:prefLabel "Valeur inconnue"@fr .
+
+cad_spval:OmissionSV a cad:SpecialCellValue,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:altLabel "OmissionSV{{date}}"@fr ;
+    skos:definition "Déclaration omise depuis une date donnée réintégrée au compte foncier d'un propriétaire"@fr ;
+    skos:hiddenLabel "Omission",
+        "Omission depuis" ;
+    skos:inScheme cad:SpecialCellValuesList ;
+    skos:prefLabel "Omission"@fr .
+
+cad_spval:PartieSV a cad:SpecialCellValue,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Partie d'une parcelle initiale (cartographiée sur le plan)"@fr ;
+    skos:hiddenLabel "Partie",
+        "Ptie",
+        "p" ;
+    skos:inScheme cad:SpecialCellValuesList ;
+    skos:prefLabel "Partie"@fr .
+
+cad_spval:ResteSV a cad:SpecialCellValue,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Reste d'une parcelle modifiée (divisée ou partiellement bâtie) à un état antérieur"@fr ;
+    skos:hiddenLabel "Reste" ;
+    skos:inScheme cad:SpecialCellValuesList ;
+    skos:prefLabel "Reste"@fr .
+
+cad_spval:RuinesSV a cad:SpecialCellValue,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Construction enruine, n'est généralement plus imposable au titre de propriété bâtie"@fr ;
+    skos:hiddenLabel "En ruine",
+        "En ruines",
+        "Ruines" ;
+    skos:inScheme cad:SpecialCellValuesList ;
+    skos:prefLabel "En ruines"@fr .
+
+cad_spval:ValeurBarreeSV a cad:SpecialCellValue,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:altLabel "~~TEXT~~"@fr ;
+    skos:definition "Indique que le texte entre double tilde est rayé dans le document"@fr ;
+    skos:hiddenLabel "~~~~" ;
+    skos:inScheme cad:SpecialCellValuesList ;
+    skos:prefLabel "Valeur barrée"@fr .
+
+cad_spval:VoiePubliqueSV a cad:SpecialCellValue,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Indique d'une partie de la parcelle est passée à la voie publique"@fr ;
+    skos:hiddenLabel "Voie publique",
+        "Vp" ;
+    skos:inScheme cad:SpecialCellValuesList ;
+    skos:prefLabel "Passé à la voie publique"@fr .
+
+cad_spval:IdemSV a cad:SpecialCellValue,
+        owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition "Idem"@fr ;
+    skos:hiddenLabel "\"",
+        "/",
+        "Id",
+        "Le même",
+        "Les mêmes",
+        "idem",
+        "§" ;
+    skos:inScheme cad:SpecialCellValuesList ;
+    skos:prefLabel "Idem"@fr .

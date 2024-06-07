@@ -18,9 +18,9 @@ Les **matrices cadastrales** contiennent un ensemble de tableaux dont la structu
 
 Si pour un numéro de folio, on trouve plusieurs ensembles 'propriétaires sucessifs/liste d'états de parcelles', chaque ensemble sera appelé **sous-folio**.
 
-Dans les documents cadastraux, chaque folio/sous-folio est scindé en deux parties :
-- la liste des propriétaires successifs qui lui sont associés, appelé "**article de mutation**" dans le <i>Recueil de 1811</i>. ;
-- les états des parcelles détenues par ce(s) propriétaire(s), appelés "**articles de classement**" dans le <i>Recueil de 1811</i>.
+D'après le Recueil de 1810, chaque folio est scindé en deux parties :
+- la liste des propriétaires successifs qui lui sont associés, appelé "**article de mutation**" dans le <i>Recueil de 1811</i> :
+- les états des parcelles détenues par ce(s) propriétaire(s), appelés "**articles de classement**" dans le <i>Recueil de 1811</i> :
 
 Un **compte foncier** est ainsi la liste des parcelles appartenant à un propriétaire donné pour une période donnée.
 Le compte foncier d'un propriétaire peut être décrit dans un ou plusieurs folios, consécutifs ou non, dans une ou plusieurs matrices.
@@ -35,22 +35,22 @@ Les lignes obsolètes d'un compte foncier sont rayées.
 Un compte foncier entièrement barré est clôt. 
 
 ### Classes
-*Les documents de type 'Registre' (matrices et états de sections) sont instanciés sous la forme de RecordSet décrits dans le modelet Sources. Les folios, articles de mutations et de classement sont des objets de type RecordPart.* 
+*Les documents de type 'Registre' (matrices et états de sections) sont instanciés sous la forme de RecordSet décrits dans le modelet Sources. Les folios sont des RecordPart de type folio.* 
 
 - Un **folio** est caractérisé par:
     - *{obligatoire}* son **numéro de folio/article/case**
     - *{optionnel}* un ou plusieurs **numéro de folio/article/case alternatifs** (souvent rayés)
     - *{obligatoire}* la **page de matrice dans laquel il se trouve**
-    - *{obligatoire}* l'**article de mutation qu'il contient**
-    - *{obligatoire}* les **articles de classement qu'il contient**
     - *{optionnel}* un ou plusieurs **commentaires** (ex : *suite du compte foncier au folio XX*, *en-être de page* etc.)
     - *{optionnel}* le **numéro de folio/article/case dans la matrice précédente**
     - *{optionnel}* le **numéro de folio/article/case dans la matrice suivante**
     - *{optionnel, si matrice des propriétés bâties}* le **numéro de folio associé dans la matrice des propriétés non bâties**
     - *{optionnel, si matrice des propriétés non bâties}* le **numéro de folio associé dans la matrice des propriétés bâties**
 
-- Un **sous-folio** hérite des propriétés du folio ainsi que:
-    - {obligatoire}* le/les **folios** dans lequel il se trouve
+- Un **compte foncier** est caractérisé par:
+    - *{obligatoire}* sa **liste de propriétaires**
+    - *{obligatoire}* sa **liste des articles de classement des parcelles** qu'il mentionne
+    - *{obligatoire}* le **folio** dans lequel il se trouve
 
 - Un **article de mutation** est caractérisé par:
     - *{obligatoire}* le/les **folios** dans lequel il se trouve
@@ -65,10 +65,6 @@ Un compte foncier entièrement barré est clôt.
     - *{obligatoire}* le renvoi vers le folio où se trouve l'**article de classement suivant** de la parcelle ("Porté à"). Il peut aussi être indiqué une valeur spéciale décrivent l'état suivant de la parcelle.
     - *{optionnel}* la **date de début de validité de l'article de classement** ('Date d'entrée')
     - *{optionnel}* la **date de fin de validité de l'article de classement** ('Date de sortie')
-
-- Un **compte foncier** est caractérisé par:
-    - *{obligatoire}* son **propriétaire**
-    - *{obligatoire}* la **liste des parcelles** du propriétaire concerné (différentes versions)
 
 ## Exemples
 
