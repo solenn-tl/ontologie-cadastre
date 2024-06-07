@@ -15,6 +15,7 @@ Elle comporte cinq modelets:
 * [HHT : Hierarchical Historical Territories](https://www.irit.fr/recherches/MELODI/ontologies/HHT/index-en.html)
 * [Adresses](https://github.com/charlybernard/phd-ontologie)
 * [data.ign.fr](http://data.ign.fr/data.html)
+* [INSEE Geo](https://github.com/InseeFr/Ontologies/blob/master/insee-geo.ttl)
 
 ### Sources
 * [RiC-CM](https://www.ica.org/fr/records-in-contexts-modele-conceptuel), modèle utilisé dans les services d'Archives
@@ -27,21 +28,3 @@ Elle comporte cinq modelets:
 
 ### Temporalité
 * [Adresses, modelet Temporalité](https://github.com/charlybernard/phd-ontologie)
-
-## TO DO
-- Intégrer à l'ontologie ```ontologie.ttl```
-    - [X] le modelet Entités Géographiques 
-    - [X] le modelet Temps à l'ontologie
-    - [X] le modelet Propriétaires à l'ontologie
-    - [ ] le modelet Sources à l'ontologie
-    - [X] le modelet Comptes fonciers à l'ontologie
-- [ ] Ecrire exemple complet => *quasi finalisé, reste à finir les sources*
-- Ecrire les requêtes SPARQL + vérifier questions de compétences
-    - [X] Modelet Entités Géographiques
-    - [ ] Modelet Temps => *en cours*
-    - [X] Modelet Propriétaires
-    - [ ] Modelet Sources
-    - [ ] Modelet Comptes fonciers
-- Initialisation du KG avec les données annotées pour les états de sections
-    - [ ] Code python
-    - [ ] Test
