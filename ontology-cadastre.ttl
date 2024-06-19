@@ -197,16 +197,16 @@ prov:SoftwareAgent a owl:Class ;
 #################################################################
 
 cad:hasCadastreAttribute a owl:ObjectProperty ;
-              owl:inverseOf :isAttributeOf ;
-              rdfs:domain :Thing ;
-              rdfs:range :Attribute ;
+              owl:inverseOf cad:isCadastreAttributeOf ;
+              rdfs:domain cad:Thing ;
+              rdfs:range add:Attribute ;
               rdfs:comment "Décrit l'attribut pour une ressource du cadastre à l'exception des landmarks (voir add:hasAttribute)"@fr ;
               rdfs:label "a pour attribut"@fr .
 
 cad:isCadastreAttributeOf a owl:ObjectProperty ;
-              owl:inverseOf :hasCadastreAttribute ;
-              rdfs:domain :Attribute ;
-              rdfs:range :Thing ;
+              owl:inverseOf cad:hasCadastreAttribute ;
+              rdfs:domain add:Attribute ;
+              rdfs:range cad:Thing ;
               rdfs:comment "Définit la ressource du cadastre pour laquelle l'attribut existe"@fr ;
               rdfs:label "est un attribut de"@fr .
 
@@ -313,7 +313,7 @@ cad:hasLinkedFolioInNextMatrice a owl:ObjectProperty;
 
 #relative to sources
 cad:isSourceType a owl:ObjectProperty ;
-                    rdfs:domain cad:RecordResource ;
+                    rdfs:domain rico:RecordResource ;
                     rdfs:range cad:Source ;
                     rdfs:comment "Décrit le type de source (concept)."@fr ;
                     rdfs:label "est une source de type"@fr ,
