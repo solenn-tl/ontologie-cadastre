@@ -14,7 +14,6 @@
 @prefix organization: <http://www.w3.org/ns/org#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
-@prefix fpo: <https://github.com/johnBradley501/FPO/raw/master/fpo.owl#>.
 @prefix pwikidata: <https://www.wikidata.org/wiki/Property:> .
 @prefix igeo:    <http://rdf.insee.fr/def/geo#> .
 
@@ -241,7 +240,7 @@ cad:isTaxpayerOf a owl:ObjectProperty ;
 
 cad:hasPlotAddress a owl:ObjectProperty ;
     rdfs:domain add:AttributeVersion ;
-    rdfs:range add:Address ;
+    #rdfs:range add:Address ;
     rdfs:label "a pour adresse"@fr ,
                "has address"@en ;
     owl:inverseOf cad:isPlotAddressOf.
@@ -610,6 +609,27 @@ prov:wasGeneratedBy a owl:ObjectProperty ;
 #################################################################
 
 #Relative to taxpayers
+
+cad:taxpayerLabel 
+    a owl:DatatypeProperty ;
+    rdfs:domain cad:Taxpayer ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Nom ou raison sociale du contribuable"@fr ;
+    rdfs:label "nom"@fr .
+
+cad:taxpayerFirstName
+    a owl:DatatypeProperty ;
+    rdfs:domain cad:Taxpayer ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Prénom(s) du contribuable"@fr ;
+    rdfs:label "prénom(s)"@fr .
+
+cad:taxpayerStatus a owl:DatatypeProperty ;
+    rdfs:domain cad:Taxpayer ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Statut du contribuable (M, Mme, Veuve, Veuf, Fils, Fille, Mineur, Héritiers)"@fr ;
+    rdfs:label "statut"@fr .
+
 cad:taxpayerAddress a owl:DatatypeProperty ;
     rdfs:domain cad:Taxpayer ;
     rdfs:range xsd:string ;
@@ -743,21 +763,6 @@ cad:SpecialCellValuesList a owl:NamedIndividual ,
     rdfs:label "Type de valeurs spéciales"@fr ,
                "Type of special values"@en .
 
-#######################  Processus 
-<http://data.ign.fr/id/codes/cadastre/activity/0001> a prov:Activity;
-   rdfs:comment "Classification de pages de registre numérisées";
-   prov:atTime "2023-11-15"^^xsd:dateTimeStamp;
-   prov:wasAssociatedWith [ a prov:SoftwareAgent;
-    rdfs:label "Classifieur"
-   ].
-
-<http://data.ign.fr/id/codes/cadastre/activity/0002> a prov:Activity;
-   rdfs:comment "Détection et transcription de zones dans un document numérisé";
-   prov:atTime "2023-11-15"^^xsd:dateTimeStamp;
-   prov:wasAssociatedWith [ a prov:SoftwareAgent;
-    rdfs:label "DAN"
-   ].
-
 #################################################################
 #    SKOS Concepts
 #################################################################
@@ -842,7 +847,7 @@ cad_atype:TaxpayerStatus a cad:TaxpayerAttributeType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader cad_atype:TaxpayerFullLabel ;
-    skos:definition "Statut familial d'une personne (Demoiselle, Veuve, Père, Fils, Fille, Mineur)"@fr ;
+    skos:definition "Statut familial d'une personne (Demoiselle, Veuve, Père, Fils, Fille, Mineur, Héritier)"@fr ;
     skos:inScheme cad:CadastreAttributeList ;
     skos:prefLabel "Status"@en,
         "Statut familial"@fr .
@@ -1354,7 +1359,7 @@ cad_etype:DocumentOutdated a add:Event,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader cad_etype:CadastreAdminEvent ;
-    skos:definition "ex: Clôture d'une matrice"@fr ;
+    skos:definition "Clôture d'une matrice"@fr ;
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Archivage d'un document"@fr .
 
@@ -1396,14 +1401,14 @@ cad_etype:Reduction a add:Event,
 cad_etype:Sale a add:Event,
         owl:NamedIndividual,
         skos:Concept ;
-    skos:broader cad_etype:TaxpayerEvent ;
+    skos:broader cad_etype:TaxpayerMutation ;
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Vente"@fr .
 
 cad_etype:Sucession a add:Event,
         owl:NamedIndividual,
         skos:Concept ;
-    skos:broader cad_etype:TaxpayerEvent ;
+    skos:broader cad_etype:TaxpayerMutation ;
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Sucession"@fr .
 
@@ -1414,7 +1419,7 @@ cad_etype:PlotNatureEvent a add:Event,
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Evènement impliquant la nature d'une parcelle"@fr .
 
-cad_etype:TaxpayerEvent a add:Event,
+cad_etype:TaxpayerMutation a add:Event,
         owl:NamedIndividual,
         skos:Concept ;
     skos:inScheme cad:CadastreEventList ;
