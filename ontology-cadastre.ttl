@@ -653,6 +653,14 @@ cad:URL a owl:DatatypeProperty ;
   rdfs:label "url de la source"@fr, "source URL"@en;
   rdfs:comment 'Correspond à l\'URL de la source (image, base de donnée)'.
 
+# relative to plot sources linking order
+cad:generation a owl:DatatypeProperty;
+    rdfs:domain add:Landmark ;
+    rdfs:range xsd:integer ;
+    rdfs:label "génération"@fr,
+               "generation"@en ;
+    rdfs:comment "Ordre la parcelle dans son arbre généalogique"@fr .
+
 # ---- Imported properties ----
 rdfs:label a owl:DatatypeProperty.
 
