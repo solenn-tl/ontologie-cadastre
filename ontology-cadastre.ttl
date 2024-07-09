@@ -132,6 +132,10 @@ cad:SpecialCellValue a owl:Class;
     rdfs:label "Valeur spéciale liée au fonctionnement des documents cadastraux"@fr, "Special value related to the operation of cadastral documents"@en ;
     rdfs:comment "Valeur spéciale liée au fonctionnement des documents cadastraux, par exemple les mentions de construction, destruction dans les colonnes réservées aux numéros de folio."@fr.
 
+cad:EventType a owl:Class ;
+            rdfs:subClassOf skos:Concept ;
+            rdfs:label "Type d'évènement'"@fr .
+
 # ---- Imported classes ----
 skos:Concept a owl:Class .
 skos:ConceptScheme a owl:Class .
@@ -320,6 +324,12 @@ cad:passedTo a owl:ObjectProperty;
     rdfs:label "passé à"@fr,
             "passed to"@en ;
     rdfs:comment "Numéro du folio où est décrit l'état de parcelle suivant ou l'événement qui met fin à un état considéré."@fr .
+
+cad:isEventType a owl:ObjectProperty ;
+    rdfs:domain add:Event ;
+    rdfs:range cad:EventType ;
+    rdfs:label "est un événement de type"@fr,
+               "is event type"@en .
 
 cad:fromSource a owl:ObjectProperty ;
     rdfs:comment "Un élément est affirmé dans une source."@fr ;
@@ -1255,14 +1265,14 @@ pnature:ProprieteNonBatie a cad:Nature,
 
 ########## EventList
 
-cad_etype:Addition a add:Event,
+cad_etype:Addition a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader cad_etype:BuiltPlotEvent ;
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Augmentation"@fr .
 
-cad_etype:CadastreCreation a add:Event,
+cad_etype:CadastreCreation a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader cad_etype:CadastreAdminEvent ;
@@ -1270,7 +1280,7 @@ cad_etype:CadastreCreation a add:Event,
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Initialisation d'un cadastre"@fr .
 
-cad_etype:CadastreOutdated a add:Event,
+cad_etype:CadastreOutdated a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader cad_etype:CadastreAdminEvent ;
@@ -1278,14 +1288,14 @@ cad_etype:CadastreOutdated a add:Event,
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Cadastre archivé"@fr .
 
-cad_etype:ChangeWithoutConstruction a add:Event,
+cad_etype:ChangeWithoutConstruction a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader cad_etype:PlotNatureEvent ;
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Evolution de nature n'impliquant pas de bâtiment"@fr .
 
-cad_etype:ConsideredAsRuined a add:Event,
+cad_etype:ConsideredAsRuined a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader cad_etype:BuiltPlotEvent ;
@@ -1294,35 +1304,35 @@ cad_etype:ConsideredAsRuined a add:Event,
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Considéré comme en ruines"@fr .
 
-cad_etype:Construction a add:Event,
+cad_etype:Construction a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader cad_etype:PlotNatureChange ;
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Construction d'un bâtiment"@fr .
 
-cad_etype:Demotion a add:Event,
+cad_etype:Demotion a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader cad_etype:PlotNatureChange ;
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Démolition d'un bâtiment"@fr .
 
-cad_etype:Division a add:Event,
+cad_etype:Split a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader cad_etype:LandmarkEvent ;
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Division d'un objet"@fr .
 
-cad_etype:DivisionWithStay a add:Event,
+cad_etype:SplitWithStay a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader cad_etype:CadastralEvent ;
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Subdivision d'une parcelle qui reste dans le compte foncier initial"@fr .
 
-cad_etype:DocumentCreation a add:Event,
+cad_etype:DocumentCreation a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader cad_etype:CadastreAdminEvent ;
@@ -1330,7 +1340,7 @@ cad_etype:DocumentCreation a add:Event,
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Création d'un document"@fr .
 
-cad_etype:DocumentOutdated a add:Event,
+cad_etype:DocumentOutdated a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader cad_etype:CadastreAdminEvent ;
@@ -1338,82 +1348,82 @@ cad_etype:DocumentOutdated a add:Event,
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Archivage d'un document"@fr .
 
-cad_etype:EventMentionnedinFoliosColumns a add:Event,
+cad_etype:EventMentionnedinFoliosColumns a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:definition "Evènement mentionné explicitement dans les colonnes 'Tiré de' et 'Porté à' des matrices cadastrales"@fr ;
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Evènement mentionné dans les colonnes dédiées aux folios"@fr .
 
-cad_etype:Merge a add:Event,
+cad_etype:Merge a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader cad_etype:LandmarkEvent ;
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Fusion d'objets entiers"@fr .
 
-cad_etype:Omission a add:Event,
+cad_etype:Omission a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader cad_etype:CadastreAdminEvent ;
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Omission de déclaration qui entraine une réintégration a posteriori de l'article de classement dans un folio"@fr .
 
-cad_etype:PartialMerge a add:Event,
+cad_etype:PartialMerge a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader cad_etype:LandmarkEvent ;
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Fusion impliquant la fusion d'objets entiers ou subdivisés"@fr .
 
-cad_etype:Reduction a add:Event,
+cad_etype:Reduction a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader cad_etype:BuiltPlotEvent ;
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Diminution"@fr .
 
-cad_etype:Sale a add:Event,
+cad_etype:Sale a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader cad_etype:TaxpayerMutation ;
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Vente"@fr .
 
-cad_etype:Sucession a add:Event,
+cad_etype:Sucession a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader cad_etype:TaxpayerMutation ;
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Sucession"@fr .
 
-cad_etype:PlotNatureEvent a add:Event,
+cad_etype:PlotNatureEvent a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:definition "Evènement impliquant la nature de la parcelle ou les objets qu'elle contient"@fr ;
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Evènement impliquant la nature d'une parcelle"@fr .
 
-cad_etype:TaxpayerMutation a add:Event,
+cad_etype:TaxpayerMutation a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Mutation de propriétaire"@fr .
 
-cad_etype:BuiltPlotEvent a add:Event,
+cad_etype:BuiltPlotEvent a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:broader cad_etype:PlotNatureChange ;
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Evènement impliquant un bâtiment existant"@fr .
 
-cad_etype:LandmarkEvent a add:Event,
+cad_etype:LandmarkEvent a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:inScheme cad:CadastreEventList ;
     skos:prefLabel "Evènement impliquant un landmark (identité)"@fr .
 
-cad_etype:CadastreAdminEvent a add:Event,
+cad_etype:CadastreAdminEvent a cad:EventType,
         owl:NamedIndividual,
         skos:Concept ;
     skos:inScheme cad:CadastreEventList ;
