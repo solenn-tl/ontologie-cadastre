@@ -26,25 +26,25 @@ add:  owl:imports  <file:///D:/Documents/ONTOLOGY/ontology-adresse.ttl> .
 @prefix lrtype: <http://rdf.geohistoricaldata.org/id/codes/address/landmarkRelationType/> .
 
 #Cadastre extension 
-@prefix : <http://data.ign.fr/def/cadastre#> .
-@base <http://data.ign.fr/def/cadastre#> .
-@prefix cad: <http://data.ign.fr/def/cadastre#> .
+@prefix : <http://rdf.geohistoricaldata.org/def/cadastre#> .
+@base <http://rdf.geohistoricaldata.org/def/cadastre#> .
+@prefix cad: <http://rdf.geohistoricaldata.org/def/cadastre#> .
 
 # Skos Concepts Cadastre extension
-@prefix cad_atype: <http://data.ign.fr/id/codes/cadastre/attributeType/> .
-@prefix cad_ltype: <http://data.ign.fr/id/codes/cadastre/landmarkType/> .
-@prefix cad_etype: <http://data.ign.fr/id/codes/cadastre/eventType/> .
-@prefix cad_spval: <http://data.ign.fr/id/codes/cadastrenap/specialCellValue/>.
-@prefix pnature: <http://data.ign.fr/id/codes/cadastre/plotNature/> .
-@prefix srctype: <http://data.ign.fr/id/codes/cadastre/sourceType/>.
-@prefix mlclasse: <http://data.ign.fr/id/codes/cadastre/mlClasse/>.
-@prefix activity: <http://data.ign.fr/id/codes/cadastre/activity/>.
+@prefix cad_atype: <http://rdf.geohistoricaldata.org/id/codes/cadastre/attributeType/> .
+@prefix cad_ltype: <http://rdf.geohistoricaldata.org/id/codes/cadastre/landmarkType/> .
+@prefix cad_etype: <http://rdf.geohistoricaldata.org/id/codes/cadastre/eventType/> .
+@prefix cad_spval: <http://rdf.geohistoricaldata.org/id/codes/cadastrenap/specialCellValue/>.
+@prefix pnature: <http://rdf.geohistoricaldata.org/id/codes/cadastre/plotNature/> .
+@prefix srctype: <http://rdf.geohistoricaldata.org/id/codes/cadastre/sourceType/>.
+@prefix mlclasse: <http://rdf.geohistoricaldata.org/id/codes/cadastre/mlClasse/>.
+@prefix activity: <http://rdf.geohistoricaldata.org/id/codes/cadastre/activity/>.
 
 #################################################################
 #    Ontology metadata
 #################################################################
 
-<http://data.ign.fr/def/cadastre#> a owl:Ontology, voaf:Vocabulary ;
+<http://rdf.geohistoricaldata.org/def/cadastre#> a owl:Ontology, voaf:Vocabulary ;
         dcterms:creator [
 	      a foaf:Person ;
 	      organization:hasMembership [
@@ -70,19 +70,19 @@ add:  owl:imports  <file:///D:/Documents/ONTOLOGY/ontology-adresse.ttl> .
           foaf:workInfoHomepage <https://www.umr-lastig.fr/solenn-tual/> ;
 	    ] ; 
         dcterms:description "Extansion de l'ontologie Pegazus décrivant le contenu des séries du cadastre napoléonien"@fr, 
-		                    "Ontology describing the napoleonic cadaster documents."@en;
+		                    "Ontology describing the napoleonic cadaster documents and data."@en;
         dcterms:issued "2024-01-24"^^xsd:date ;
-        dcterms:modified "2024-05-21"^^xsd:date ;
+        dcterms:modified "2024-07-12"^^xsd:date ;
         dcterms:publisher <http://fr.dbpedia.org/resource/Institut_national_de_l%27information_g%C3%A9ographique_et_foresti%C3%A8re> ;
         dcterms:title "Ontologie Pegazus, extension cadastre napoléonien"@fr, "Ontology Pegazus, extension of the Napoleonic Cadaster"@en ;
         vann:preferredNamespacePrefix "cad" ;
-		vann:preferredNamespaceUri <http://data.ign.fr/def/cadastre#> ;
+		vann:preferredNamespaceUri <http://rdf.geohistoricaldata.org/def/cadastre#> ;
 		dcterms:rights "Copyright 2024, IGN" ;
 		cc:license <http://www.data.gouv.fr/Licence-Ouverte-Open-Licence> ;
 		cc:license <http://creativecommons.org/licenses/by/2.0/> ;
 		cc:license <http://opendatacommons.org/licenses/by/> ;
     #owl:priorVersion <> ;
-		owl:versionInfo "Version 0.0 - 2024-05-21" .
+		owl:versionInfo "Version 0.1 - 2024-07-12" .
 
 #################################################################
 #    Annotation properties
@@ -119,7 +119,7 @@ cad:Source a owl:Class ;
 
 cad:MLClasse a owl:Class ;
     rdfs:subClassOf skos:Concept ;
-    rdfs:label "Classe d'un document"@fr, "Classe of document"@en.
+    rdfs:label "Classe d'un document"@fr, "Classe of document provided by an automated treament."@en.
 
 cad:NamedEntity a owl:Class ;
     rdfs:label "Named entity"@en, "Entité nommée"@fr ;
