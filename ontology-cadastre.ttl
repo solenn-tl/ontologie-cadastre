@@ -34,7 +34,7 @@ add:  owl:imports  <file:///D:/Documents/ONTOLOGY/ontology-adresse.ttl> .
 @prefix cad_atype: <http://rdf.geohistoricaldata.org/id/codes/cadastre/attributeType/> .
 @prefix cad_ltype: <http://rdf.geohistoricaldata.org/id/codes/cadastre/landmarkType/> .
 @prefix cad_etype: <http://rdf.geohistoricaldata.org/id/codes/cadastre/eventType/> .
-@prefix cad_spval: <http://rdf.geohistoricaldata.org/id/codes/cadastrenap/specialCellValue/>.
+@prefix cad_spval: <http://rdf.geohistoricaldata.org/id/codes/cadastre/specialCellValue/>.
 @prefix pnature: <http://rdf.geohistoricaldata.org/id/codes/cadastre/plotNature/> .
 @prefix srctype: <http://rdf.geohistoricaldata.org/id/codes/cadastre/sourceType/>.
 @prefix mlclasse: <http://rdf.geohistoricaldata.org/id/codes/cadastre/mlClasse/>.
