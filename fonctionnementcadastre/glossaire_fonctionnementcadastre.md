@@ -10,6 +10,16 @@
     <td>Article</td>
     <td><i>Voir "Folio"</i> - Terme utilisé de 1807 à 1822.</td>
   </tr>
+    <td>Article de classement</td>
+    <td>
+    Un article de classement correspond à une ligne de folio décrivant l'état d'une parcelle (ou partie de celle ci) à une période donnée.<br>
+    <i>Si une parcelle est divisée en deux ou trois classes, elle forme deux ou trois lignes sur le bulletin, tandis qu'elle n'en forme qu'une sur le tableau indicatif: chaque ligne du bulletin est un article de classement; ainsi il peut y avoir plus d'articles de classementque de parcelles.</i><br>
+    - Définition de l'article de classement dans le Recueil de 1811</td>
+  </tr>
+  <tr>
+  <td>Article de mutation</td>
+    <td>Un article de mutation correspond à la liste des propriétaires sucessifs d'une liste de parcelle dans un folio donné.</td>
+  </tr>
   <tr>
     <td>Augmentations</td>
     <td>Les augmentations sont tous les évènements qui conduisent à une réévaluation à la hausse d'un bien comme une augmentation de superficie, une construction ou amélioration d'un bâtiment. Une section leur est spécifiquement dédiée au début des matrices des propriétés foncières (1822-1882) et des propriétés non bâties (1882-1914, 1914-rénovation).</td>
@@ -17,6 +27,10 @@
   <tr>
     <td>Case</td>
     <td><i>Voir "Folio"</i> - Terme utilisé à partir de 1882.</td>
+  </tr>
+  <tr>
+    <td>Compte foncier</td>
+    <td>Un compte foncier est composé d'un article de mutation et d'un ou plusieurs articles de classement associés dans un folio/article/case de matrice donné.</td>
   </tr>
   <tr>
     <td>Date d'entrée</td>

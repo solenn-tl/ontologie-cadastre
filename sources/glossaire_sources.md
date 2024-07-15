@@ -36,8 +36,32 @@
     <th>Définition</th>
   </tr>
   <tr>
+    <td>Article</td>
+    <td><i>Voir "Folio"</i> - Terme utilisé de 1807 à 1822.</td>
+  </tr>
+  <tr>
+  </tr>
+    <td>Article de classement</td>
+    <td>
+    Un article de classement correspond à une ligne de folio décrivant l'état d'une parcelle (ou partie de celle ci) à une période donnée.<br>
+    <i>Si une parcelle est divisée en deux ou trois classes, elle forme deux ou trois lignes sur le bulletin, tandis qu'elle n'en forme qu'une sur le tableau indicatif: chaque ligne du bulletin est un article de classement; ainsi il peut y avoir plus d'articles de classementque de parcelles.</i><br>
+    - Définition de l'article de classement dans le Recueil de 1811</td>
+  </tr>
+  <tr>
+  <td>Article de mutation</td>
+    <td>Un article de mutation correspond à la liste des propriétaires sucessifs d'une liste de parcelle dans un folio donné.</td>
+  </tr>
+  <tr>
+    <td>Case</td>
+    <td><i>Voir "Folio"</i> - Terme utilisé à partir de 1882.</td>
+  </tr>
+  <tr>
     <td>Etat de sections</td>
     <td>Registre établi à une date proche de la production du plan parcellaire. Il constitue la légende du plan. L'état de sections contient autant de chapitres qu'il y a de sections dans la commune. Les parcelles sont listées dans un ordre numérique croissant. Chaque parcelle est associée à son.ses propriétaire.s, une nature, une contenance et une évaluation.<br>Le registre d'état de sections n'était pas mis à jour après sa rédaction initiale.</td>
+  </tr>
+  <tr>
+    <td>Folio (aussi appelés <i>article</i> ou <i>case</i>)</td>
+    <td>Page de la matrice qui contient la liste des parcelles appartenant à un propriétaire (plus précisement les différents états successifs de des parcelles appartenant à un contribuable.). Un folio peut contenir 1 ou plusieurs comptes fonciers associés à des propriétaires différents.</td>
   </tr>
   <tr>
     <td>Liste alphabétique des propriétaires</td>
