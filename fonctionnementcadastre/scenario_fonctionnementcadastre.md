@@ -31,9 +31,9 @@ Le compte foncier d'un propriétaire peut être décrit dans un ou plusieurs fol
 
 ### Fonctionnement détaillé
 
-Dans chaque état de parcelle, il est indiqué le compte foncier dans lequel la parcelle se trouvait avant sa dernière modification ("Tiré de") et dans quel compte foncier elle est ajoutée après la modification suivante ("Porté à"). 
+Dans chaque état de parcelle, il est indiqué le folio dans lequel la parcelle se trouvait avant sa dernière modification ("Tiré de") et dans quel folio elle est ajoutée après la modification suivante ("Porté à"). 
 Des évènements qui concernent les propriétés (principalement bâties) sont également indiqués dans ces colonnes : "Nouvelle construction" (C.N/N.C), "Augmentation" (Aug), "Evaluation du bâti" (E.B.), "Destruction", "Ruine".
-Les passages d'un compte foncier à un autre sont des informations particulièrement utiles pour ordonner les différents états d'une même parcelle dans l'ordre chronologique.
+Les passages d'un folio à un autre sont des informations particulièrement utiles pour ordonner les différents états d'une même parcelle dans l'ordre chronologique ou déduire des fusions/divisions.
 
 Les lignes obsolètes d'un compte foncier sont rayées. 
 Un compte foncier entièrement barré est clôt. 
