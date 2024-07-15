@@ -1,4 +1,4 @@
-# Glossaire du modelet Compte foncier
+# Glossaire du modelet Fonctionnement des documents cadastraux
 
 ## Glossaire
 <table>
