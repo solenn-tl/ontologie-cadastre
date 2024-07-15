@@ -8,15 +8,19 @@ Documentation cadastrale : fonctionnement des registres
 
 ### Documents
 
-Le cadastre napoléonien est composé d'un ensemble documentaire créé et complété selon des règles définies. Ce modelet s'attache à décrire la documentation cadastrale non pas en tant que source d'archives mais en tant qu'objet administratif fonctionnel. Les modelets **Sources** et **Documentation cadastrale** sont intrinsèquement liés.
+Le cadastre napoléonien est composé d'un ensemble documentaire créé et complété selon des règles définies. Ce modelet s'attache à décrire la documentation cadastrale non pas en tant que source mais en tant qu'objet administratif dont le fonctionnement peut s'apparenter à celui d'une base de données manuscrite. Les modelets **Sources** et **Documentation cadastrale** sont intrinsèquement liés.
 
 Les registres qui composent la documentation cadastrale sont les états de sections et les matrices.
 
-Les **états de sections** sont composés de chapitres. Chaque chapitre débute par une page de couverture qui décrit la section décrite (nom, identifiant) et d'un tableau ou chaque ligne est l'état initial de la parcelle à la création du cadastre. Avant 1822, il existe également des chapitres dédiés à l'imposition des propriétés bâties.
+Les **états de sections** sont composés de chapitres. Chaque chapitre débute par une page de couverture qui décrit la section considérée (nom, identifiant) et d'un tableau où chaque ligne correspond à l'état initial d'une la parcelle à la création du cadastre. Avant 1822, il existe également des chapitres dédiés à l'imposition des propriétés bâties.
+Pour assembler les données contenues dans les états de sections: 
+- il faut tenir compte de l'ordre des pages "Couvertures" puis "Tableau" afin de construire l'identifiant des parcelles.
+- le tableau peut contenir une colonne qui indique l'identifiant d'un porpriétaire dans la matrice (à utiliser comme un champ de jointure)
+- dans la majorité des cas, c'est le nom du propriétaire dans l'état de sections qui permet de retrouver son folio dans la matrice.
 
-Les **matrices cadastrales** contiennent un ensemble de tableaux dont la structure varie au cours du temps. Appelés, "article", "**folio**" ou "case", ils associent un numéro d'identifiant à un ou plusieurs ensembles composés d'une liste de propriétaires et des états de parcelles qui lui sont associé. 
+Les **matrices cadastrales** contiennent un ensemble de tableaux dont la structure varie au cours du temps. Appelés, "article", "**folio**" ou "case", les pages de tableaux principaux associent un numéro d'identifiant à un ou plusieurs ensembles composés d'une liste de propriétaires et des états de parcelles qui lui sont associé. 
 
-Si pour un numéro de folio, on trouve plusieurs ensembles 'propriétaires sucessifs/liste d'états de parcelles', chaque ensemble sera appelé **sous-folio**.
+Si pour un numéro de folio, on trouve plusieurs ensembles 'propriétaires sucessifs/liste d'états de parcelles', chaque ensemble sera appelé **compte foncier**.
 
 D'après le Recueil de 1810, chaque folio est scindé en deux parties :
 - la liste des propriétaires successifs qui lui sont associés, appelé "**article de mutation**" dans le <i>Recueil de 1811</i> :
@@ -33,38 +37,6 @@ Les passages d'un compte foncier à un autre sont des informations particulière
 
 Les lignes obsolètes d'un compte foncier sont rayées. 
 Un compte foncier entièrement barré est clôt. 
-
-### Classes
-*Les documents de type 'Registre' (matrices et états de sections) sont instanciés sous la forme de RecordSet décrits dans le modelet Sources. Les folios sont des RecordPart de type folio.* 
-
-- Un **folio** est caractérisé par:
-    - *{obligatoire}* son **numéro de folio/article/case**
-    - *{optionnel}* un ou plusieurs **numéro de folio/article/case alternatifs** (souvent rayés)
-    - *{obligatoire}* la **page de matrice dans laquel il se trouve**
-    - *{optionnel}* un ou plusieurs **commentaires** (ex : *suite du compte foncier au folio XX*, *en-être de page* etc.)
-    - *{optionnel}* le **numéro de folio/article/case dans la matrice précédente**
-    - *{optionnel}* le **numéro de folio/article/case dans la matrice suivante**
-    - *{optionnel, si matrice des propriétés bâties}* le **numéro de folio associé dans la matrice des propriétés non bâties**
-    - *{optionnel, si matrice des propriétés non bâties}* le **numéro de folio associé dans la matrice des propriétés bâties**
-
-- Un **compte foncier** est caractérisé par:
-    - *{obligatoire}* sa **liste de propriétaires**
-    - *{obligatoire}* sa **liste des articles de classement des parcelles** qu'il mentionne
-    - *{obligatoire}* le **folio** dans lequel il se trouve
-
-- Un **article de mutation** est caractérisé par:
-    - *{obligatoire}* le/les **folios** dans lequel il se trouve
-    - *{obligatoire}* le/les **propriétaires** qu'il mentionne
-    - *{optionnel}* la/les **dates de mutations de propriétaires** qu'il mentionne
-
-- Un **article de classement** décrit une parcelle pour une période donnée. Il est caractérisé par:
-    - *{obligatoire}* le/les **folios** dans lequel il se trouve
-    - *{obligatoire}* l'**identifiant de la parcelle** décrite (section,parcelle)
-    - *{obligatoire}* la **nature de la parcelle** décrite (section,parcelle)
-    - *{obligatoire}* le renvoi vers le folio où se trouve l'**article de classement précédent** de la parcelle ("Tiré de"). Il peut aussi être indiqué une valeur spéciale décrivent l'état précédent de la parcelle.
-    - *{obligatoire}* le renvoi vers le folio où se trouve l'**article de classement suivant** de la parcelle ("Porté à"). Il peut aussi être indiqué une valeur spéciale décrivent l'état suivant de la parcelle.
-    - *{optionnel}* la **date de début de validité de l'article de classement** ('Date d'entrée')
-    - *{optionnel}* la **date de fin de validité de l'article de classement** ('Date de sortie')
 
 ## Exemples
 

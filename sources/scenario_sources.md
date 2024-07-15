@@ -19,26 +19,28 @@ Une source peut être scindée en plusieurs parties qui peuvent elles-mêmes êt
 
 Une **source** peut être décrite par les propriétés suivantes :
 * {*obligatoire*} son **titre ou intitulé**;
-* {*obligatoire*} son **type** (ex: plan parcellaire, plan d'assemblage, état de section, matrice, référentiel géographique...)
-* {*optionnel*} son **précision de son type** (ex: plan issu d'atlas, plan minute, plan révisé)
+* {*obligatoire*} son **type** (ex: plan parcellaire, plan d'assemblage, état de section, matrice, folio, référentiel géographique...)
+* {*optionnel*} son **précision de son type** (ex: plan issu d'atlas, plan minute, plan révisé etc.)
 * {*optionnel*} son **auteur** (personne physique ou morale)
 * {*optionnel*} sa **date de création**
 * {*optionnel*} sa **date de début de validité**
 * {*optionnel*} sa **date de fin de validité**
 * {*optionnel*} sa **description**
+* {*si folio, obligatoire*} son **numéro de folio**
+* {*si folio, optionnel*} son/ses **numéros de folios alternatifs**
+* {*si folio, optionnel*} le **numéro d'un folio équivalent** dans une autre matrice (précédente, suivante,bâtie)
 * {si archive physique ou numérisée:*obligatoire*} sa **cote d'archive**
-* {physique: *optionnel*} sa **localisation**
-* {physique: *optionnel*} ses **dimensions** 
+* {physique: *optionnel*} sa **localisation géographique**
+* {physique, numérique: *optionnel*} ses **dimensions** 
 * {source numérique: *optionnel*} son **URL**
+* {archive numérisée: *optionnel*} ses **coordonnées dans l'image**
+* {archive numérisé: *optionnel*} son **ordre dans une image**
 * {archive numérisée: *optionnel*} sa **résolution**
 * {archive numérisée: *optionnel*} son **URL IIIF**
 * {archive numérisée,dérivée:*obligatoire*} sa **licence de diffusion**
 * {dérivée: *obligatoire*} son **processus de création** 
 (ex: géoréférencement, vectorisation, transcription)
 * {dérivée: *optionnel*} son **DOI**
-
-Une source peut : 
-* {optionnel} **mentionner** un objet ou un évènement
 
 ## Exemples
 

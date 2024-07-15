@@ -2013,7 +2013,7 @@ cad_spval:AugmentationSV a cad:SpecialCellValue,
     skos:inScheme cad:SpecialCellValuesList ;
     skos:prefLabel "Augmentation"@fr .
 
-cad_spval:CelluleVide a cad:SpecialCellValue,
+cad_spval:CelluleVideSV a cad:SpecialCellValue,
         owl:NamedIndividual,
         skos:Concept ;
     skos:altLabel "EMPTY"@fr ;

@@ -2,9 +2,9 @@
 
 ## Question 1
 ### Question
-Dans quel(s) folios est mentionnée une parcelle ?
+Dans quel(s) folios est mentionnée une parcelle X ?
 ### Résultat attendu
-Liste des folios/articles/cases mentionnant la parcelle
+Liste des folios/articles/cases mentionnant la parcelle X
 ### Exemple de réponse
 > Parcelle 191, Section C à Marolles-en-Brie
 - Article 43, Matrice de rôles des propriétés bâties et non bâties (1812-1822)
